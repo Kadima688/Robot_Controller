@@ -1,5 +1,11 @@
+#if defined(WIN32) || defined(_WIN32) || defined(_WIN32) 
+    #include"robot-controller/Module/core/MhMath.h"
+#endif 
+#if defined(linux) || defined(_linux) || defined(_linux_)
+    #include"Module/core/MhMath.h"
+#endif
 #include<iostream>
-#include"Module/core/MhMath.h"
+
 
 int main(){
     #if defined(WIN32) || defined(_WIN32) || defined(_WIN32) 

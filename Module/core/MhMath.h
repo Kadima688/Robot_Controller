@@ -2,7 +2,13 @@
 #define MhMath_H
 
 #include<math.h>
-#include"eigen3/Eigen/Dense"
+#if defined(WIN32) || defined(_WIN32) || defined(_WIN32) 
+    #include"eigen3/eigen3/Eigen/Dense"
+#endif 
+#if defined(linux) || defined(_linux) || defined(_linux_)
+    #include"eigen3/Eigen/Dense"
+#endif
+
 
 #ifndef PI
 #define PI 3.14159265358979//圆周率的宏定义
