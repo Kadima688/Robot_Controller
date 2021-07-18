@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/controller.dir/RobotController.cpp.o"
+  "CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o"
   "controller.pdb"
   "controller"
 )

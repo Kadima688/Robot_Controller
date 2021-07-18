@@ -11,15 +11,15 @@
 
 
 #ifndef PI
-#define PI 3.14159265358979//圆周率的宏定义
+#define PI 3.14159265358979
 #endif // !PI
 
 #ifndef ANG2RAD
-#define ANG2RAD 0.01745329251994//角度转换为弧度的计算单位的宏定义
+#define ANG2RAD 0.01745329251994
 #endif // !ANG2RAD
 
 #ifndef  RAD2ANG
-#define RAD2ANG 57.29577951308232//弧度转换为角度的计算单位的宏定义
+#define RAD2ANG 57.29577951308232
 #endif // ! RAD2ANG
 
 namespace Mh {

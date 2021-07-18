@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/mingh/robot-controller/Module/core/include -I/home/mingh/robot-controller/Module/robot/include 
 

@@ -6,15 +6,37 @@
 
 #IncludeRegexTransform: 
 
-/home/mingh/robot-controller/Module/core/MhMath.h
-math.h
--
-eigen3/Eigen/Dense
-/home/mingh/robot-controller/Module/core/eigen3/Eigen/Dense
-
-/home/mingh/robot-controller/RobotController.cpp
+../Module/robot/include/MhDh.h
 iostream
 -
-Module/core/MhMath.h
-/home/mingh/robot-controller/Module/core/MhMath.h
+vector
+-
+
+/home/mingh/robot-controller/Module/core/include/MhMath.h
+math.h
+-
+eigen3/eigen3/Eigen/Dense
+/home/mingh/robot-controller/Module/core/include/eigen3/eigen3/Eigen/Dense
+eigen3/Eigen/Dense
+/home/mingh/robot-controller/Module/core/include/eigen3/Eigen/Dense
+
+/home/mingh/robot-controller/Module/robot/include/MhDh.h
+iostream
+-
+vector
+-
+
+/home/mingh/robot-controller/Module/robot/src/MhDh.cpp
+MhDh.h
+/home/mingh/robot-controller/Module/robot/src/MhDh.h
+
+/home/mingh/robot-controller/RobotController.cpp
+robot-controller/Module/core/include/MhMath.h
+/home/mingh/robot-controller/robot-controller/Module/core/include/MhMath.h
+Module/core/include/MhMath.h
+/home/mingh/robot-controller/Module/core/include/MhMath.h
+Module/robot/include/MhDh.h
+/home/mingh/robot-controller/Module/robot/include/MhDh.h
+iostream
+-
 

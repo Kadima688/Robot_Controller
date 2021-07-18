@@ -123,6 +123,33 @@ controller/fast:
 	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/build
 .PHONY : controller/fast
 
+Module/robot/src/MhDh.o: Module/robot/src/MhDh.cpp.o
+
+.PHONY : Module/robot/src/MhDh.o
+
+# target to build an object file
+Module/robot/src/MhDh.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o
+.PHONY : Module/robot/src/MhDh.cpp.o
+
+Module/robot/src/MhDh.i: Module/robot/src/MhDh.cpp.i
+
+.PHONY : Module/robot/src/MhDh.i
+
+# target to preprocess a source file
+Module/robot/src/MhDh.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.i
+.PHONY : Module/robot/src/MhDh.cpp.i
+
+Module/robot/src/MhDh.s: Module/robot/src/MhDh.cpp.s
+
+.PHONY : Module/robot/src/MhDh.s
+
+# target to generate assembly for a file
+Module/robot/src/MhDh.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.s
+.PHONY : Module/robot/src/MhDh.cpp.s
+
 RobotController.o: RobotController.cpp.o
 
 .PHONY : RobotController.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... controller"
 	@echo "... edit_cache"
+	@echo "... Module/robot/src/MhDh.o"
+	@echo "... Module/robot/src/MhDh.i"
+	@echo "... Module/robot/src/MhDh.s"
 	@echo "... RobotController.o"
 	@echo "... RobotController.i"
 	@echo "... RobotController.s"
