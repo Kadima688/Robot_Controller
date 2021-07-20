@@ -6,7 +6,7 @@
     #include"eigen3/eigen3/Eigen/Dense"
 #endif 
 #if defined(linux) || defined(_linux) || defined(_linux_)
-    #include"eigen3/Eigen/Dense"
+    #include<eigen3/Eigen/Dense>
 #endif
 
 
@@ -30,8 +30,6 @@ namespace Mh {
 		static inline double sind(double angle) { return sin(angle * ANG2RAD); }
 		static inline double atan2d(double value1, double value2) { return atan2(value1, value2) * RAD2ANG; }
 		static inline double acosd(double angle) { return acos(angle) * RAD2ANG; }
-	private:
-
 	};
 }
 #endif

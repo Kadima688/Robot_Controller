@@ -150,6 +150,60 @@ Module/robot/src/MhDh.cpp.s:
 	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.s
 .PHONY : Module/robot/src/MhDh.cpp.s
 
+Module/robot/src/MhHomotransform.o: Module/robot/src/MhHomotransform.cpp.o
+
+.PHONY : Module/robot/src/MhHomotransform.o
+
+# target to build an object file
+Module/robot/src/MhHomotransform.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o
+.PHONY : Module/robot/src/MhHomotransform.cpp.o
+
+Module/robot/src/MhHomotransform.i: Module/robot/src/MhHomotransform.cpp.i
+
+.PHONY : Module/robot/src/MhHomotransform.i
+
+# target to preprocess a source file
+Module/robot/src/MhHomotransform.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.i
+.PHONY : Module/robot/src/MhHomotransform.cpp.i
+
+Module/robot/src/MhHomotransform.s: Module/robot/src/MhHomotransform.cpp.s
+
+.PHONY : Module/robot/src/MhHomotransform.s
+
+# target to generate assembly for a file
+Module/robot/src/MhHomotransform.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.s
+.PHONY : Module/robot/src/MhHomotransform.cpp.s
+
+Module/robot/src/MhIndustrialRobot.o: Module/robot/src/MhIndustrialRobot.cpp.o
+
+.PHONY : Module/robot/src/MhIndustrialRobot.o
+
+# target to build an object file
+Module/robot/src/MhIndustrialRobot.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o
+.PHONY : Module/robot/src/MhIndustrialRobot.cpp.o
+
+Module/robot/src/MhIndustrialRobot.i: Module/robot/src/MhIndustrialRobot.cpp.i
+
+.PHONY : Module/robot/src/MhIndustrialRobot.i
+
+# target to preprocess a source file
+Module/robot/src/MhIndustrialRobot.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.i
+.PHONY : Module/robot/src/MhIndustrialRobot.cpp.i
+
+Module/robot/src/MhIndustrialRobot.s: Module/robot/src/MhIndustrialRobot.cpp.s
+
+.PHONY : Module/robot/src/MhIndustrialRobot.s
+
+# target to generate assembly for a file
+Module/robot/src/MhIndustrialRobot.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.s
+.PHONY : Module/robot/src/MhIndustrialRobot.cpp.s
+
 RobotController.o: RobotController.cpp.o
 
 .PHONY : RobotController.o
@@ -189,6 +243,12 @@ help:
 	@echo "... Module/robot/src/MhDh.o"
 	@echo "... Module/robot/src/MhDh.i"
 	@echo "... Module/robot/src/MhDh.s"
+	@echo "... Module/robot/src/MhHomotransform.o"
+	@echo "... Module/robot/src/MhHomotransform.i"
+	@echo "... Module/robot/src/MhHomotransform.s"
+	@echo "... Module/robot/src/MhIndustrialRobot.o"
+	@echo "... Module/robot/src/MhIndustrialRobot.i"
+	@echo "... Module/robot/src/MhIndustrialRobot.s"
 	@echo "... RobotController.o"
 	@echo "... RobotController.i"
 	@echo "... RobotController.s"

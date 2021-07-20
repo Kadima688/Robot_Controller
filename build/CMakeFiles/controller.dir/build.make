@@ -105,19 +105,71 @@ CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o.provides: CMakeFiles/contr
 CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o.provides.build: CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o
 
 
+CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o: CMakeFiles/controller.dir/flags.make
+CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o: ../Module/robot/src/MhHomotransform.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o -c /home/mingh/robot-controller/Module/robot/src/MhHomotransform.cpp
+
+CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mingh/robot-controller/Module/robot/src/MhHomotransform.cpp > CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.i
+
+CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mingh/robot-controller/Module/robot/src/MhHomotransform.cpp -o CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.s
+
+CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o.requires:
+
+.PHONY : CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o.requires
+
+CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o.provides: CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o.requires
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o.provides.build
+.PHONY : CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o.provides
+
+CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o.provides.build: CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o
+
+
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: CMakeFiles/controller.dir/flags.make
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/robot/src/MhIndustrialRobot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o -c /home/mingh/robot-controller/Module/robot/src/MhIndustrialRobot.cpp
+
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mingh/robot-controller/Module/robot/src/MhIndustrialRobot.cpp > CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.i
+
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mingh/robot-controller/Module/robot/src/MhIndustrialRobot.cpp -o CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.s
+
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o.requires:
+
+.PHONY : CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o.requires
+
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o.provides: CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o.requires
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o.provides.build
+.PHONY : CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o.provides
+
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o.provides.build: CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o
+
+
 # Object files for target controller
 controller_OBJECTS = \
 "CMakeFiles/controller.dir/RobotController.cpp.o" \
-"CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o"
+"CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o" \
+"CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o" \
+"CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o"
 
 # External object files for target controller
 controller_EXTERNAL_OBJECTS =
 
 controller: CMakeFiles/controller.dir/RobotController.cpp.o
 controller: CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o
+controller: CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o
+controller: CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o
 controller: CMakeFiles/controller.dir/build.make
 controller: CMakeFiles/controller.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable controller"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/controller.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -127,6 +179,8 @@ CMakeFiles/controller.dir/build: controller
 
 CMakeFiles/controller.dir/requires: CMakeFiles/controller.dir/RobotController.cpp.o.requires
 CMakeFiles/controller.dir/requires: CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o.requires
+CMakeFiles/controller.dir/requires: CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o.requires
+CMakeFiles/controller.dir/requires: CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o.requires
 
 .PHONY : CMakeFiles/controller.dir/requires
 

@@ -1,10 +1,12 @@
 #if defined(WIN32) || defined(_WIN32) || defined(_WIN32) 
     #include"robot-controller/Module/core/include/MhMath.h"
+    #include"robot-controller/Module/core/include/MhDh.h"
     
 #endif 
 #if defined(linux) || defined(_linux) || defined(_linux_)
     #include"Module/core/include/MhMath.h"
     #include"Module/robot/include/MhDh.h"
+    #include"Module/robot/include/MhHomotransform.h"
 #endif
 #include<iostream>
 
@@ -15,10 +17,7 @@ int main(){
     #endif 
     #if defined(linux) || defined(_linux) || defined(_linux_)
         //添加linux平台相关的代码
-        Mh::DH dh;
-        int n=4;
-        dh.set_link_number(n);
-        std::cout<<dh.get_link_number()<<std::endl;
+ 
         return 0;
     #endif
 }

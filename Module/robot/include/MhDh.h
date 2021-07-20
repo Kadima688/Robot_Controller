@@ -3,7 +3,7 @@
 #include<iostream>
 #include<vector>
 namespace Mh{
-    class DH{
+    class MhDH{
         public:
             void set_link_number(int n);
             int get_link_number() const {return link_number;}
