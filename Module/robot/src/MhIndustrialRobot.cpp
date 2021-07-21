@@ -5,6 +5,17 @@
     #include"MhIndustrialRobot.h"
 #endif
 
-Mh::MhIndustrialRobot::MhIndustrialRobot(){
-    typeRobot=ROBOT_UNKNOWN;
+Mh::MhIndustrialRobot::MhIndustrialRobot()
+:typeRobot(MhIndustrialRobot::ROBOT_UNKNOWN),dh_table(),nDof(0)
+{ 
 }
+
+Mh::MhIndustrialRobot::~MhIndustrialRobot(){
+
+}
+
+Mh::MhIndustrialRobot::MhRobotType Mh::MhIndustrialRobot::setRobotState(const MhIndustrialRobot::MhRobotType newType){
+    typeRobot=newType;
+    return newType;
+}
+

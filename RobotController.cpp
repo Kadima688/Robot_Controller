@@ -7,6 +7,7 @@
     #include"Module/core/include/MhMath.h"
     #include"Module/robot/include/MhDh.h"
     #include"Module/robot/include/MhHomotransform.h"
+    #include"Module/robot/include/MhIndustrialRobot.h"
 #endif
 #include<iostream>
 
@@ -17,7 +18,7 @@ int main(){
     #endif 
     #if defined(linux) || defined(_linux) || defined(_linux_)
         //添加linux平台相关的代码
- 
+        
         return 0;
     #endif
 }

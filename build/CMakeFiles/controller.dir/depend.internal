@@ -9,6 +9,7 @@ CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o
  ../Module/robot/include/MhHomotransform.h
  /home/mingh/robot-controller/Module/robot/src/MhHomotransform.cpp
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o
+ ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhIndustrialRobot.h
  /home/mingh/robot-controller/Module/robot/src/MhIndustrialRobot.cpp
 CMakeFiles/controller.dir/RobotController.cpp.o
@@ -16,4 +17,5 @@ CMakeFiles/controller.dir/RobotController.cpp.o
  /home/mingh/robot-controller/Module/core/include/MhMath.h
  /home/mingh/robot-controller/Module/robot/include/MhDh.h
  /home/mingh/robot-controller/Module/robot/include/MhHomotransform.h
+ /home/mingh/robot-controller/Module/robot/include/MhIndustrialRobot.h
  /home/mingh/robot-controller/RobotController.cpp
