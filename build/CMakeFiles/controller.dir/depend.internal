@@ -12,10 +12,22 @@ CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhIndustrialRobot.h
  /home/mingh/robot-controller/Module/robot/src/MhIndustrialRobot.cpp
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o
+ ../Module/robot/include/MhIndustrialRobotPathPlan.h
+ /home/mingh/robot-controller/Module/robot/src/MhIndustrialRobotPathPlan.cpp
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o
+ ../Module/core/include/MhMath.h
+ ../Module/robot/include/MhDh.h
+ ../Module/robot/include/MhHomotransform.h
+ ../Module/robot/include/MhIndustrialRobot.h
+ ../Module/robot/include/MhIndustrialRobotPathPlan.h
+ ../Module/robot/include/MhIndustrialSCARA.h
+ /home/mingh/robot-controller/Module/robot/src/MhIndustrialSCARA.cpp
 CMakeFiles/controller.dir/RobotController.cpp.o
  ../Module/core/include/MhMath.h
- /home/mingh/robot-controller/Module/core/include/MhMath.h
  /home/mingh/robot-controller/Module/robot/include/MhDh.h
  /home/mingh/robot-controller/Module/robot/include/MhHomotransform.h
  /home/mingh/robot-controller/Module/robot/include/MhIndustrialRobot.h
+ /home/mingh/robot-controller/Module/robot/include/MhIndustrialRobotPathPlan.h
+ /home/mingh/robot-controller/Module/robot/include/MhIndustrialSCARA.h
  /home/mingh/robot-controller/RobotController.cpp

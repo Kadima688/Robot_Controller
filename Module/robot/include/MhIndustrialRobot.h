@@ -20,15 +20,18 @@ namespace Mh{
                 ROBOT_SCARA,
                 ROBOT_KAWASAKI
             }MhRobotType;   
-            virtual MhRobotType getRobotState(void)const {return typeRobot;}
-            virtual MhRobotType setRobotState(const MhIndustrialRobot::MhRobotType newType);
+            //-------------robotstate---------------------
+            virtual MhRobotType getRobotType(void)const {return typeRobot;}
+            virtual MhRobotType setRobotType(const MhIndustrialRobot::MhRobotType newType);
+            //-------------init---------------------------
             virtual void init()=0;
+            //-------------DH-----------------------------
             virtual void set_dh_table(MhDH &_dh)=0;
             virtual void get_dh_table()=0;
             //-------------ForwardKinematics--------------
-            virtual void forwardkinematics(std::vector<double>Axis,std::vector<double>Cartesian)=0;
+            virtual bool forwardkinematics(std::vector<double> Axis,std::vector<double>& Cartesian)=0;
             //------------InverseKinematics---------------
-            virtual void inversekinematics(std::vector<double>Axis,std::vector<double>Cartesian,int type)=0;
+            virtual bool inversekinematics(std::vector<double>& Axis,std::vector<double> Cartesian,int type)=0;
             //------------Jacabian------------------------
             virtual void Jacabian(std::vector<double>Axis,std::vector<double>Cartesian)=0;
         protected:

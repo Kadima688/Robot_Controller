@@ -12,10 +12,22 @@ CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/ro
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/robot/include/MhIndustrialRobot.h
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/robot/src/MhIndustrialRobot.cpp
 
-CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/core/include/MhMath.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o: ../Module/robot/include/MhIndustrialRobotPathPlan.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o: ../Module/robot/src/MhIndustrialRobotPathPlan.cpp
+
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: ../Module/core/include/MhMath.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: ../Module/robot/include/MhDh.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: ../Module/robot/include/MhHomotransform.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: ../Module/robot/include/MhIndustrialRobot.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: ../Module/robot/include/MhIndustrialRobotPathPlan.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: ../Module/robot/include/MhIndustrialSCARA.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: ../Module/robot/src/MhIndustrialSCARA.cpp
+
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/core/include/MhMath.h
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhDh.h
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhHomotransform.h
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhIndustrialRobot.h
+CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhIndustrialRobotPathPlan.h
+CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhIndustrialSCARA.h
 CMakeFiles/controller.dir/RobotController.cpp.o: ../RobotController.cpp
 

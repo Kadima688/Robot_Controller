@@ -14,7 +14,7 @@ Mh::MhIndustrialRobot::~MhIndustrialRobot(){
 
 }
 
-Mh::MhIndustrialRobot::MhRobotType Mh::MhIndustrialRobot::setRobotState(const MhIndustrialRobot::MhRobotType newType){
+Mh::MhIndustrialRobot::MhRobotType Mh::MhIndustrialRobot::setRobotType(const MhIndustrialRobot::MhRobotType newType){
     typeRobot=newType;
     return newType;
 }

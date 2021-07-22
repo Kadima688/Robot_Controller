@@ -204,6 +204,60 @@ Module/robot/src/MhIndustrialRobot.cpp.s:
 	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.s
 .PHONY : Module/robot/src/MhIndustrialRobot.cpp.s
 
+Module/robot/src/MhIndustrialRobotPathPlan.o: Module/robot/src/MhIndustrialRobotPathPlan.cpp.o
+
+.PHONY : Module/robot/src/MhIndustrialRobotPathPlan.o
+
+# target to build an object file
+Module/robot/src/MhIndustrialRobotPathPlan.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o
+.PHONY : Module/robot/src/MhIndustrialRobotPathPlan.cpp.o
+
+Module/robot/src/MhIndustrialRobotPathPlan.i: Module/robot/src/MhIndustrialRobotPathPlan.cpp.i
+
+.PHONY : Module/robot/src/MhIndustrialRobotPathPlan.i
+
+# target to preprocess a source file
+Module/robot/src/MhIndustrialRobotPathPlan.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.i
+.PHONY : Module/robot/src/MhIndustrialRobotPathPlan.cpp.i
+
+Module/robot/src/MhIndustrialRobotPathPlan.s: Module/robot/src/MhIndustrialRobotPathPlan.cpp.s
+
+.PHONY : Module/robot/src/MhIndustrialRobotPathPlan.s
+
+# target to generate assembly for a file
+Module/robot/src/MhIndustrialRobotPathPlan.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.s
+.PHONY : Module/robot/src/MhIndustrialRobotPathPlan.cpp.s
+
+Module/robot/src/MhIndustrialSCARA.o: Module/robot/src/MhIndustrialSCARA.cpp.o
+
+.PHONY : Module/robot/src/MhIndustrialSCARA.o
+
+# target to build an object file
+Module/robot/src/MhIndustrialSCARA.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o
+.PHONY : Module/robot/src/MhIndustrialSCARA.cpp.o
+
+Module/robot/src/MhIndustrialSCARA.i: Module/robot/src/MhIndustrialSCARA.cpp.i
+
+.PHONY : Module/robot/src/MhIndustrialSCARA.i
+
+# target to preprocess a source file
+Module/robot/src/MhIndustrialSCARA.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.i
+.PHONY : Module/robot/src/MhIndustrialSCARA.cpp.i
+
+Module/robot/src/MhIndustrialSCARA.s: Module/robot/src/MhIndustrialSCARA.cpp.s
+
+.PHONY : Module/robot/src/MhIndustrialSCARA.s
+
+# target to generate assembly for a file
+Module/robot/src/MhIndustrialSCARA.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.s
+.PHONY : Module/robot/src/MhIndustrialSCARA.cpp.s
+
 RobotController.o: RobotController.cpp.o
 
 .PHONY : RobotController.o
@@ -249,6 +303,12 @@ help:
 	@echo "... Module/robot/src/MhIndustrialRobot.o"
 	@echo "... Module/robot/src/MhIndustrialRobot.i"
 	@echo "... Module/robot/src/MhIndustrialRobot.s"
+	@echo "... Module/robot/src/MhIndustrialRobotPathPlan.o"
+	@echo "... Module/robot/src/MhIndustrialRobotPathPlan.i"
+	@echo "... Module/robot/src/MhIndustrialRobotPathPlan.s"
+	@echo "... Module/robot/src/MhIndustrialSCARA.o"
+	@echo "... Module/robot/src/MhIndustrialSCARA.i"
+	@echo "... Module/robot/src/MhIndustrialSCARA.s"
 	@echo "... RobotController.o"
 	@echo "... RobotController.i"
 	@echo "... RobotController.s"

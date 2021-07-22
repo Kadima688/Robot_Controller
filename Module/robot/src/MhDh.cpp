@@ -32,3 +32,31 @@ void Mh::MhDH::set_d(const std::vector<double>& value){
         d[i]=value[i];
     }
 }
+
+void Mh::MhDH::show_dh_table(){
+    for(int i=0;i<link_number;++i){
+        std::cout<<"连杆转角"<<i<<"= "<<alapha[i]<<"   ";
+        if(i==link_number-1){
+            std::cout<<std::endl;
+        }
+    }
+    for(int i=0;i<link_number;++i){
+        std::cout<<"连杆长度"<<i<<"= "<<a[i]<<"   ";
+        if(i==link_number-1){
+            std::cout<<std::endl;
+        }
+    }
+    for(int i=0;i<link_number;++i){
+        std::cout<<"连杆偏距"<<i<<"= "<<d[i]<<"   ";
+        if(i==link_number-1){
+            std::cout<<std::endl;
+        }
+    }
+    for(int i=0;i<link_number;++i){
+        std::cout<<"连杆扭角"<<i<<"= "<<theta[i]<<"   ";
+        if(i==link_number-1){
+            std::cout<<std::endl;
+        }
+    }
+
+}
