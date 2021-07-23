@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o"
+  "CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o"
   "controller.pdb"
   "controller"
 )

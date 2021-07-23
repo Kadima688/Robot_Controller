@@ -23,6 +23,9 @@ CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: ../Module/ro
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: ../Module/robot/include/MhIndustrialSCARA.h
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: ../Module/robot/src/MhIndustrialSCARA.cpp
 
+CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o: ../Module/robot/include/tinyxml2.h
+CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o: ../Module/robot/src/tinyxml2.cpp
+
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/core/include/MhMath.h
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhDh.h
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhHomotransform.h

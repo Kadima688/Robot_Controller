@@ -258,6 +258,33 @@ Module/robot/src/MhIndustrialSCARA.cpp.s:
 	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.s
 .PHONY : Module/robot/src/MhIndustrialSCARA.cpp.s
 
+Module/robot/src/tinyxml2.o: Module/robot/src/tinyxml2.cpp.o
+
+.PHONY : Module/robot/src/tinyxml2.o
+
+# target to build an object file
+Module/robot/src/tinyxml2.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o
+.PHONY : Module/robot/src/tinyxml2.cpp.o
+
+Module/robot/src/tinyxml2.i: Module/robot/src/tinyxml2.cpp.i
+
+.PHONY : Module/robot/src/tinyxml2.i
+
+# target to preprocess a source file
+Module/robot/src/tinyxml2.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.i
+.PHONY : Module/robot/src/tinyxml2.cpp.i
+
+Module/robot/src/tinyxml2.s: Module/robot/src/tinyxml2.cpp.s
+
+.PHONY : Module/robot/src/tinyxml2.s
+
+# target to generate assembly for a file
+Module/robot/src/tinyxml2.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.s
+.PHONY : Module/robot/src/tinyxml2.cpp.s
+
 RobotController.o: RobotController.cpp.o
 
 .PHONY : RobotController.o
@@ -309,6 +336,9 @@ help:
 	@echo "... Module/robot/src/MhIndustrialSCARA.o"
 	@echo "... Module/robot/src/MhIndustrialSCARA.i"
 	@echo "... Module/robot/src/MhIndustrialSCARA.s"
+	@echo "... Module/robot/src/tinyxml2.o"
+	@echo "... Module/robot/src/tinyxml2.i"
+	@echo "... Module/robot/src/tinyxml2.s"
 	@echo "... RobotController.o"
 	@echo "... RobotController.i"
 	@echo "... RobotController.s"

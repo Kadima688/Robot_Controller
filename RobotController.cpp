@@ -4,7 +4,7 @@
     
 #endif 
 #if defined(linux) || defined(_linux) || defined(_linux_)
-    #include"Module/robot/include/MhIndustrialSCARA.h"
+    #include"MhIndustrialSCARA.h"
 #endif
 #include<iostream>
 

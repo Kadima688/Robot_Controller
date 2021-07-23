@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/mingh/robot-controller/Module/robot/src/MhIndustrialRobot.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o"
   "/home/mingh/robot-controller/Module/robot/src/MhIndustrialRobotPathPlan.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o"
   "/home/mingh/robot-controller/Module/robot/src/MhIndustrialSCARA.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o"
+  "/home/mingh/robot-controller/Module/robot/src/tinyxml2.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o"
   "/home/mingh/robot-controller/RobotController.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/RobotController.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
