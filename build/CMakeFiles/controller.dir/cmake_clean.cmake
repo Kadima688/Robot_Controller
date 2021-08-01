@@ -1,11 +1,15 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/controller.dir/GetRobotState.cpp.o"
   "CMakeFiles/controller.dir/RobotController.cpp.o"
+  "CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.o"
+  "CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o"
+  "CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.o"
   "controller.pdb"
   "controller"
 )

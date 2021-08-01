@@ -1,27 +1,27 @@
-#ifndef MhConfig_H
-#define MhConfig_H
-#include"tinyxml2.h"
-#include<vector>
-#include<string>
-namespace Mh{
-    class MhConfig{
-        public:
-            struct COUPLING
-            {
-                double axis4ToAxis5;
-	            double axis4ToAxis6;
-	            double axis5ToAxis6;
-            };   
-            struct DYNAMIC{
-                double velAxis, accAxis, decAxis, jerkAxis, velPath, accPath, decPath, jerkPath, velOri, accOri, decOri, jerkOri;
-            };   
-            struct CARTSYS
-            {
-                double x, y, z, a, b, c;
-            };
+#ifndef DARADECLARATION_H
+#define DARADECLARATION_H
+
+struct DYNAMIC
+{
+    double velAxis, accAxis, decAxis, jerkAxis, velPath, accPath, decPath, jerkPath, velOri, accOri, decOri, jerkOri;
+};
+struct CARTSYS
+{
+    double x, y, z, a, b, c;
+};
+struct COUPLING//六轴机器人后三轴耦合相关的数据类型
+{
+    double axis4ToAxis5;
+	double axis4ToAxis6;
+	double axis5ToAxis6;
+};
+
+
+struct MhRobotConfigData{
+    public:
             tinyxml2::XMLDocument doc;
-            tinyxml2::XMLElement* root;
-            tinyxml2::XMLElement* robot;
+            tinyxml2::XMLElement* rootElem;
+            tinyxml2::XMLElement* robotElem;
             std::vector<const char *> robotNameList;
             std::vector<double> alpha;//连杆扭角
             std::vector<double> a_;//连杆长度
@@ -47,20 +47,7 @@ namespace Mh{
             double averagePulseEquivalent;//六轴平均脉冲当量
             double maxSyntheticVel;//轴最大合成速度
             double maxSyntheticAcc; //轴最大合成加速度
-            double maxSyntheticJerk; //轴最大合成加加速度       
-            int axisnum;
-            std::string robotType;
+            double maxSyntheticJerk; //轴最大合成加加速度    
+};
 
-        public:
-            MhConfig();
-            int createxml(const char* xmlpath);
-            bool loadRobotConfig(const char* xmlpath);
-            void loadAvailableRoobt(const char* robotname);
-            bool getElementByName(tinyxml2::XMLElement *rootElem, const char *destElemName, tinyxml2::XMLElement **destElem);
-            void getAxisAttribute(tinyxml2::XMLElement *pElem, std::vector<double>& attribute);
-            void getMotionParam(tinyxml2::XMLElement *pElem, DYNAMIC& dyn);
-            void getCoordinate(CARTSYS cartSys, tinyxml2::XMLElement *pElem);
-        
-    };
-}
 #endif

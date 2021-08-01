@@ -152,3 +152,135 @@ bool Mh::MhIndustrialSCARA::inversekinematics(std::vector<double>& Axis,std::vec
 void Mh::MhIndustrialSCARA::Jacabian(std::vector<double>Axis,std::vector<double>Cartesian){
     std::cout<<"jacabian"<<std::endl;
 }
+
+bool Mh::MhIndustrialSCARA::loadRobotConfigFile(const char* xmlpath){
+    if(doc.LoadFile(xmlpath)!=0){
+        return false;
+    }
+    rootElem=doc.RootElement();
+    robotElem=nullptr;
+    for(robotElem=rootElem->FirstChildElement();robotElem;robotElem=robotElem->NextSiblingElement()){
+        tinyxml2::XMLElement *baseInfo=robotElem->FirstChildElement();
+        if(!strcmp(baseInfo->Attribute("available"),"true")){
+            robotNameList.push_back(robotElem->Value());
+        }
+    }
+    if(robotNameList.empty()){
+        std::cout<<"no available robot"<<std::endl;
+        return false;
+    }
+    const char* robotName=robotNameList[1];
+    loadRobotConfig(robotName);
+    doc.SaveFile(xmlpath);
+    return true;
+}
+
+void Mh::MhIndustrialSCARA::loadRobotConfig(const char* robotName){
+        getElementByName(rootElem, robotName, &robotElem);
+		tinyxml2::XMLElement* pElem = nullptr;
+		getElementByName(robotElem, "alpha", &pElem);
+		getAxisAttribute(pElem, alpha);
+        getElementByName(robotElem, "a", &pElem);
+		getAxisAttribute(pElem, a_);
+		getElementByName(robotElem, "d", &pElem);
+		getAxisAttribute(pElem, d);
+		getElementByName(robotElem, "offset1", &pElem);
+		getAxisAttribute(pElem, offset1);
+		getElementByName(robotElem, "maxPos", &pElem);
+		getAxisAttribute(pElem, maxPos);
+		getElementByName(robotElem, "minPos", &pElem);
+		getAxisAttribute(pElem, minPos);
+		getElementByName(robotElem, "maxVel", &pElem);
+		getAxisAttribute(pElem, maxVel);
+		getElementByName(robotElem, "maxAcc", &pElem);
+		getAxisAttribute(pElem, maxAcc);
+		getElementByName(robotElem, "maxDec", &pElem);
+		getAxisAttribute(pElem, maxDec);
+		getElementByName(robotElem, "maxJerk", &pElem);
+		getAxisAttribute(pElem, maxJerk);
+		getElementByName(robotElem, "offset2", &pElem);
+		getAxisAttribute(pElem, offset2);
+		getElementByName(robotElem, "direction", &pElem);
+		getAxisAttribute(pElem, direction);
+		getElementByName(robotElem, "ratio", &pElem);
+		getAxisAttribute(pElem, ratio);
+		getElementByName(robotElem, "encoder", &pElem);
+		getAxisAttribute(pElem, encoder);
+        getElementByName(robotElem, "dynamic", &pElem);
+		getMotionParam(pElem, dynamic);
+		getElementByName(robotElem, "jogSpeed", &pElem);
+		getMotionParam(pElem, jogspeed);
+		getElementByName(robotElem, "base", &pElem);
+		getCoordinate(base, pElem);
+		getElementByName(robotElem, "tool", &pElem);
+        getCoordinate(tool, pElem);
+        averagePulseEquivalent=0;
+        pulseEquivalent.resize(nDof);
+        for (int i = 0; i < nDof; ++i)
+		    {
+			    pulseEquivalent[i] = 360 * direction[i] / ratio[i] / encoder[i];	
+			    if (i == 2) {
+				    pulseEquivalent[2] = pulseEquivalent[2] * 20 / 360;
+			    }
+			    averagePulseEquivalent += fabs(pulseEquivalent[i]);
+		    }
+		    averagePulseEquivalent = averagePulseEquivalent / 4;
+        //采用保守方法计算最大合成速度和最大合成加速度
+		maxSyntheticVel = maxVel[0];
+		maxSyntheticAcc = maxAcc[0];
+		maxSyntheticJerk = maxJerk[0];
+		for (int i = 1; i < nDof; i++)
+		{
+			if (maxSyntheticVel > maxVel[i]) maxSyntheticVel = maxVel[i];
+			if (maxSyntheticAcc > maxAcc[i]) maxSyntheticAcc = maxAcc[i];
+			if (maxSyntheticJerk > maxJerk[i]) maxSyntheticJerk = maxJerk[i];
+		}
+}
+
+bool Mh::MhIndustrialSCARA::getElementByName(tinyxml2::XMLElement *rootElem, const char *destElemName, tinyxml2::XMLElement **destElem){
+    if(0==strcmp(destElemName,rootElem->Value())){
+        *destElem=rootElem;
+        return true;
+    }
+    tinyxml2::XMLElement *plem=nullptr;
+    for(plem=rootElem->FirstChildElement();plem;plem=plem->NextSiblingElement()){
+        if(0!=strcmp(destElemName,plem->Value())){
+            getElementByName(plem,destElemName,destElem);
+        }
+        else{
+            *destElem=plem;
+            return true;
+        }
+    }
+    return false;
+}
+void Mh::MhIndustrialSCARA::getAxisAttribute(tinyxml2::XMLElement *pElem, std::vector<double>& attribute){
+    attribute.resize(nDof);
+    for(int i=0;i<nDof;++i){
+        char axisName[nDof];
+        sprintf(axisName,"%s%d", "axis", i + 1);
+        attribute[i] = atof(pElem->Attribute(axisName));
+    }
+}
+void Mh::MhIndustrialSCARA::getMotionParam(tinyxml2::XMLElement *pElem, DYNAMIC& dyn){
+    dyn.velAxis = atof(pElem->Attribute("velAxis"));
+	dyn.accAxis = atof(pElem->Attribute("accAxis"));
+	dyn.decAxis = -atof(pElem->Attribute("accAxis"));
+	dyn.jerkAxis = atof(pElem->Attribute("jerkAxis"));
+	dyn.velPath = atof(pElem->Attribute("velPath"));
+	dyn.accPath = atof(pElem->Attribute("accPath"));
+	dyn.decPath = -atof(pElem->Attribute("accPath"));
+	dyn.jerkPath = atof(pElem->Attribute("jerkPath"));
+	dyn.velOri = atof(pElem->Attribute("velOri"));
+	dyn.accOri = atof(pElem->Attribute("accOri"));
+	dyn.decOri = -atof(pElem->Attribute("accOri"));
+	dyn.jerkOri = atof(pElem->Attribute("jerkOri"));
+}
+void Mh::MhIndustrialSCARA::getCoordinate(CARTSYS cartSys, tinyxml2::XMLElement *pElem){
+    cartSys.x = atof(pElem->Attribute("x"));
+	cartSys.y = atof(pElem->Attribute("y"));
+	cartSys.z = atof(pElem->Attribute("z"));
+	cartSys.a = atof(pElem->Attribute("a"));
+	cartSys.b = atof(pElem->Attribute("b"));
+	cartSys.c = atof(pElem->Attribute("c"));
+}

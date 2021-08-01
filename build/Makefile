@@ -123,6 +123,87 @@ controller/fast:
 	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/build
 .PHONY : controller/fast
 
+GetRobotState.o: GetRobotState.cpp.o
+
+.PHONY : GetRobotState.o
+
+# target to build an object file
+GetRobotState.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/GetRobotState.cpp.o
+.PHONY : GetRobotState.cpp.o
+
+GetRobotState.i: GetRobotState.cpp.i
+
+.PHONY : GetRobotState.i
+
+# target to preprocess a source file
+GetRobotState.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/GetRobotState.cpp.i
+.PHONY : GetRobotState.cpp.i
+
+GetRobotState.s: GetRobotState.cpp.s
+
+.PHONY : GetRobotState.s
+
+# target to generate assembly for a file
+GetRobotState.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/GetRobotState.cpp.s
+.PHONY : GetRobotState.cpp.s
+
+Module/core/src/ThreadManage.o: Module/core/src/ThreadManage.cpp.o
+
+.PHONY : Module/core/src/ThreadManage.o
+
+# target to build an object file
+Module/core/src/ThreadManage.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.o
+.PHONY : Module/core/src/ThreadManage.cpp.o
+
+Module/core/src/ThreadManage.i: Module/core/src/ThreadManage.cpp.i
+
+.PHONY : Module/core/src/ThreadManage.i
+
+# target to preprocess a source file
+Module/core/src/ThreadManage.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.i
+.PHONY : Module/core/src/ThreadManage.cpp.i
+
+Module/core/src/ThreadManage.s: Module/core/src/ThreadManage.cpp.s
+
+.PHONY : Module/core/src/ThreadManage.s
+
+# target to generate assembly for a file
+Module/core/src/ThreadManage.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.s
+.PHONY : Module/core/src/ThreadManage.cpp.s
+
+Module/robot/src/MhConfig.o: Module/robot/src/MhConfig.cpp.o
+
+.PHONY : Module/robot/src/MhConfig.o
+
+# target to build an object file
+Module/robot/src/MhConfig.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.o
+.PHONY : Module/robot/src/MhConfig.cpp.o
+
+Module/robot/src/MhConfig.i: Module/robot/src/MhConfig.cpp.i
+
+.PHONY : Module/robot/src/MhConfig.i
+
+# target to preprocess a source file
+Module/robot/src/MhConfig.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.i
+.PHONY : Module/robot/src/MhConfig.cpp.i
+
+Module/robot/src/MhConfig.s: Module/robot/src/MhConfig.cpp.s
+
+.PHONY : Module/robot/src/MhConfig.s
+
+# target to generate assembly for a file
+Module/robot/src/MhConfig.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.s
+.PHONY : Module/robot/src/MhConfig.cpp.s
+
 Module/robot/src/MhDh.o: Module/robot/src/MhDh.cpp.o
 
 .PHONY : Module/robot/src/MhDh.o
@@ -312,6 +393,33 @@ RobotController.cpp.s:
 	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/RobotController.cpp.s
 .PHONY : RobotController.cpp.s
 
+VisualServoSCARA_PBVS.o: VisualServoSCARA_PBVS.cpp.o
+
+.PHONY : VisualServoSCARA_PBVS.o
+
+# target to build an object file
+VisualServoSCARA_PBVS.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.o
+.PHONY : VisualServoSCARA_PBVS.cpp.o
+
+VisualServoSCARA_PBVS.i: VisualServoSCARA_PBVS.cpp.i
+
+.PHONY : VisualServoSCARA_PBVS.i
+
+# target to preprocess a source file
+VisualServoSCARA_PBVS.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.i
+.PHONY : VisualServoSCARA_PBVS.cpp.i
+
+VisualServoSCARA_PBVS.s: VisualServoSCARA_PBVS.cpp.s
+
+.PHONY : VisualServoSCARA_PBVS.s
+
+# target to generate assembly for a file
+VisualServoSCARA_PBVS.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.s
+.PHONY : VisualServoSCARA_PBVS.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -321,6 +429,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... controller"
 	@echo "... edit_cache"
+	@echo "... GetRobotState.o"
+	@echo "... GetRobotState.i"
+	@echo "... GetRobotState.s"
+	@echo "... Module/core/src/ThreadManage.o"
+	@echo "... Module/core/src/ThreadManage.i"
+	@echo "... Module/core/src/ThreadManage.s"
+	@echo "... Module/robot/src/MhConfig.o"
+	@echo "... Module/robot/src/MhConfig.i"
+	@echo "... Module/robot/src/MhConfig.s"
 	@echo "... Module/robot/src/MhDh.o"
 	@echo "... Module/robot/src/MhDh.i"
 	@echo "... Module/robot/src/MhDh.s"
@@ -342,6 +459,9 @@ help:
 	@echo "... RobotController.o"
 	@echo "... RobotController.i"
 	@echo "... RobotController.s"
+	@echo "... VisualServoSCARA_PBVS.o"
+	@echo "... VisualServoSCARA_PBVS.i"
+	@echo "... VisualServoSCARA_PBVS.s"
 .PHONY : help
 
 

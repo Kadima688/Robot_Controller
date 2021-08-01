@@ -9,10 +9,12 @@
     #include"MhIndustrialRobot.h"
     #include"MhHomotransform.h"
     #include"MhIndustrialRobotPathPlan.h"
+    #include"tinyxml2.h"
+    #include"daraDeclaration.h"
 #endif
 
 namespace Mh{
-    class MhIndustrialSCARA:public MhIndustrialRobot{
+    class MhIndustrialSCARA:public MhIndustrialRobot,public MhRobotConfigData{
         public:
             MhIndustrialSCARA();
             virtual ~MhIndustrialSCARA();
@@ -24,6 +26,13 @@ namespace Mh{
             bool inversekinematics(std::vector<double>& Axis,std::vector<double> Cartesian,int type);
             //-----------------JACABIAN---------
             void Jacabian(std::vector<double>Axis,std::vector<double>Cartesian);
+            //-----------------robotconfig------
+            bool loadRobotConfigFile(const char* xmlpath);
+            void loadRobotConfig(const char* robotName);
+            bool getElementByName(tinyxml2::XMLElement *rootElem, const char *destElemName, tinyxml2::XMLElement **destElem);
+            void getAxisAttribute(tinyxml2::XMLElement *pElem, std::vector<double>& attribute);
+            void getMotionParam(tinyxml2::XMLElement *pElem, DYNAMIC& dyn);
+            void getCoordinate(CARTSYS cartSys, tinyxml2::XMLElement *pElem);
             MhMath math;
             MhHomotransform transform;
             MhIndustrialRobotPathPlan path_plan;
