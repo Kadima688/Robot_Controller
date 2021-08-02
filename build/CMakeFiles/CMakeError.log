@@ -1,0 +1,20 @@
+Compilation failed:
+    source file: '/home/mingh/robot-controller/build/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' Wno-unused-function'
+===== BUILD LOG =====
+Change Dir: /home/mingh/robot-controller/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_48fae/fast"
+/usr/bin/make -f CMakeFiles/cmTC_48fae.dir/build.make CMakeFiles/cmTC_48fae.dir/build
+make[1]: Entering directory '/home/mingh/robot-controller/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_48fae.dir/src.cxx.o
+/usr/bin/c++    -fopenmp -fPIC    Wno-unused-function -o CMakeFiles/cmTC_48fae.dir/src.cxx.o -c /home/mingh/robot-controller/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: Wno-unused-function: No such file or directory
+CMakeFiles/cmTC_48fae.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_48fae.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_48fae.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/mingh/robot-controller/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_48fae/fast' failed
+make: *** [cmTC_48fae/fast] Error 2
+
+===== END =====
+

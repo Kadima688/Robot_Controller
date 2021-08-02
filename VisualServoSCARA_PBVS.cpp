@@ -19,8 +19,6 @@
   (defined(VISP_HAVE_X11) || defined(VISP_HAVE_GDI))
 
 void VisualServoSCARA_PBVS(void *scara){
-    // vpRealSense2 rs2;
-    
     Mh::MhIndustrialSCARA* RobotSCARA=static_cast<Mh::MhIndustrialSCARA*>(scara);
     std::cout<<"visual pbvs"<<std::endl;
 }

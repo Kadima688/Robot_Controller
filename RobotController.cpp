@@ -1,34 +1,23 @@
-// #if defined(WIN32) || defined(_WIN32) || defined(_WIN32) 
-//     #include"robot-controller/Module/core/include/MhMath.h"
-//     #include"robot-controller/Module/core/include/MhDh.h"
+#if defined(WIN32) || defined(_WIN32) || defined(_WIN32) 
+    #include"robot-controller/Module/core/include/MhMath.h"
+    #include"robot-controller/Module/core/include/MhDh.h"
     
-// #endif 
-// #if defined(linux) || defined(_linux) || defined(_linux_)
-//     #include"MhIndustrialSCARA.h"
-//     #include"ThreadManage.h"
-// #endif
+#endif 
+#if defined(linux) || defined(_linux) || defined(_linux_)
+    #include"MhIndustrialSCARA.h"
+    #include"ThreadManage.h"
+#endif
 #include<iostream>
-#include"MhIndustrialSCARA.h"
-#include"ThreadManage.h"
 void GetRobotState(void *scara);
 void VisualServoSCARA_PBVS(void *scara);
 
 int main(){
-    std::cout<<"hello world"<<std::endl;   
-    Mh::MhIndustrialSCARA RobotSCARA;
-    if(!RobotSCARA.loadRobotConfigFile("RobotConfig.xml")){
-        return 0;
-    }  
+      
     
-    m_Thread RobotStateThread(GetRobotState,0,&RobotSCARA,"GetRobotStateThread");
-    m_Thread VisualServoThread(VisualServoSCARA_PBVS,0,&RobotSCARA,"VisualServoThread");
-    RobotStateThread.Start();
-    VisualServoThread.Start();
-    return 0;
-    // #if defined(WIN32) || defined(_WIN32) || defined(_WIN32) 
-    //     //添加windows平台相关得代码
-    // #endif 
-    // #if defined(linux) || defined(_linux) || defined(_linux_)
+    #if defined(WIN32) || defined(_WIN32) || defined(_WIN32) 
+        //添加windows平台相关得代码
+    #endif 
+    #if defined(linux) || defined(_linux) || defined(_linux_)
         //添加linux平台相关的代码
         //----------------init DH-TABLE
         // double alapha_[4]={0,0,180,0};
@@ -67,6 +56,14 @@ int main(){
         //     std::cout<<scara_input[0]<<"    "<<scara_input[1]<<"    "<<scara_input[2]<<"    "<<scara_input[3]<<std::endl;
         // }
         //---------------thread
-        
-    // #endif
+        Mh::MhIndustrialSCARA RobotSCARA;
+        if(!RobotSCARA.loadRobotConfigFile("RobotConfig.xml")){
+            return 0;
+        }  
+        m_Thread RobotStateThread(GetRobotState,0,&RobotSCARA,"GetRobotStateThread");
+        m_Thread VisualServoThread(VisualServoSCARA_PBVS,0,&RobotSCARA,"VisualServoThread");
+        RobotStateThread.Start();
+        VisualServoThread.Start();
+    return 0;
+    #endif
 }

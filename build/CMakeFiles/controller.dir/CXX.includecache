@@ -189,12 +189,16 @@ cstdarg
 -
 
 /home/mingh/robot-controller/RobotController.cpp
-iostream
--
+robot-controller/Module/core/include/MhMath.h
+/home/mingh/robot-controller/robot-controller/Module/core/include/MhMath.h
+robot-controller/Module/core/include/MhDh.h
+/home/mingh/robot-controller/robot-controller/Module/core/include/MhDh.h
 MhIndustrialSCARA.h
 /home/mingh/robot-controller/MhIndustrialSCARA.h
 ThreadManage.h
 /home/mingh/robot-controller/ThreadManage.h
+iostream
+-
 
 /home/mingh/robot-controller/VisualServoSCARA_PBVS.cpp
 iostream
