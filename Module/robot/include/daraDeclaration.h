@@ -18,7 +18,7 @@ struct COUPLING//六轴机器人后三轴耦合相关的数据类型
 
 
 struct MhRobotConfigData{
-    public:
+    protected:
             tinyxml2::XMLDocument doc;
             tinyxml2::XMLElement* rootElem;
             tinyxml2::XMLElement* robotElem;

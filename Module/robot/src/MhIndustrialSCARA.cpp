@@ -6,7 +6,7 @@
 #endif
 
 Mh::MhIndustrialSCARA::MhIndustrialSCARA()
-:math(),transform(),path_plan(),m_q_min(),m_q_max()
+:m_q_min(),m_q_max()
 {
     setRobotType(MhIndustrialRobot::ROBOT_SCARA);
     init();
@@ -14,9 +14,8 @@ Mh::MhIndustrialSCARA::MhIndustrialSCARA()
 
 void Mh::MhIndustrialSCARA::init(){
     nDof=4;
-
-    m_q_min=std::array<double,4>{-127,-145,-20,-360};
-    m_q_max=std::array<double,4>{127,145,100,360};
+    z_lead=20;
+    
 }
 
 Mh::MhIndustrialSCARA::~MhIndustrialSCARA(){
@@ -29,6 +28,14 @@ void Mh::MhIndustrialSCARA::set_dh_table(MhDH &_dh){
     dh_table.set_alapha(_dh.get_alapha());
     dh_table.set_d(_dh.get_d());
     dh_table.set_theta(_dh.get_theta());
+}
+
+void Mh::MhIndustrialSCARA::set_dh_table(){
+    dh_table.set_link_number(nDof);
+    dh_table.set_a(a_);
+    dh_table.set_alapha(alpha);
+    dh_table.set_d(d);
+    dh_table.set_theta(offset1);
 }
 
 void Mh::MhIndustrialSCARA::get_dh_table(){
@@ -64,8 +71,7 @@ bool Mh::MhIndustrialSCARA::forwardkinematics(std::vector<double> Axis,std::vect
         std::cout<<"the input axis number is not right"<<std::endl;
         return false;
     }
-    else{
-        
+    else{       
         Eigen::Matrix4d T=Eigen::Matrix4d::Identity();
         T(0,0)=math.cosd(Axis[0]+Axis[1]-Axis[3]);
         T(0,1)=math.sind(Axis[0]+Axis[1]-Axis[3]);
@@ -220,11 +226,11 @@ void Mh::MhIndustrialSCARA::loadRobotConfig(const char* robotName){
 		    {
 			    pulseEquivalent[i] = 360 * direction[i] / ratio[i] / encoder[i];	
 			    if (i == 2) {
-				    pulseEquivalent[2] = pulseEquivalent[2] * 20 / 360;
+				    pulseEquivalent[2] = pulseEquivalent[2] * z_lead / 360;//20代表Z轴方向丝杠导程
 			    }
 			    averagePulseEquivalent += fabs(pulseEquivalent[i]);
 		    }
-		    averagePulseEquivalent = averagePulseEquivalent / 4;
+		    averagePulseEquivalent = averagePulseEquivalent / nDof;
         //采用保守方法计算最大合成速度和最大合成加速度
 		maxSyntheticVel = maxVel[0];
 		maxSyntheticAcc = maxAcc[0];
@@ -235,6 +241,11 @@ void Mh::MhIndustrialSCARA::loadRobotConfig(const char* robotName){
 			if (maxSyntheticAcc > maxAcc[i]) maxSyntheticAcc = maxAcc[i];
 			if (maxSyntheticJerk > maxJerk[i]) maxSyntheticJerk = maxJerk[i];
 		}
+        //初始化最小关节和最大关节m_q_min和m_q_max
+        for(int i=0;i<nDof;++i){
+            m_q_max[i]=maxPos[i];
+            m_q_min[i]=minPos[i];
+        }
 }
 
 bool Mh::MhIndustrialSCARA::getElementByName(tinyxml2::XMLElement *rootElem, const char *destElemName, tinyxml2::XMLElement **destElem){
@@ -262,6 +273,7 @@ void Mh::MhIndustrialSCARA::getAxisAttribute(tinyxml2::XMLElement *pElem, std::v
         attribute[i] = atof(pElem->Attribute(axisName));
     }
 }
+
 void Mh::MhIndustrialSCARA::getMotionParam(tinyxml2::XMLElement *pElem, DYNAMIC& dyn){
     dyn.velAxis = atof(pElem->Attribute("velAxis"));
 	dyn.accAxis = atof(pElem->Attribute("accAxis"));
@@ -276,6 +288,7 @@ void Mh::MhIndustrialSCARA::getMotionParam(tinyxml2::XMLElement *pElem, DYNAMIC&
 	dyn.decOri = -atof(pElem->Attribute("accOri"));
 	dyn.jerkOri = atof(pElem->Attribute("jerkOri"));
 }
+
 void Mh::MhIndustrialSCARA::getCoordinate(CARTSYS cartSys, tinyxml2::XMLElement *pElem){
     cartSys.x = atof(pElem->Attribute("x"));
 	cartSys.y = atof(pElem->Attribute("y"));

@@ -26,8 +26,11 @@ CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o: ../Module/core
 CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o: ../Module/robot/include/MhHomotransform.h
 CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o: ../Module/robot/src/MhHomotransform.cpp
 
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/core/include/MhMath.h
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/robot/include/MhDh.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/robot/include/MhHomotransform.h
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/robot/include/MhIndustrialRobot.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/robot/include/MhIndustrialRobotPathPlan.h
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/robot/src/MhIndustrialRobot.cpp
 
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o: ../Module/robot/include/MhIndustrialRobotPathPlan.h

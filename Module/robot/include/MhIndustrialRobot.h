@@ -8,6 +8,8 @@
     #include<eigen3/Eigen/Dense>
     #include<vector>
     #include"MhDh.h"
+    #include"MhHomotransform.h"
+    #include"MhIndustrialRobotPathPlan.h"
 #endif
 
 namespace Mh{
@@ -36,6 +38,9 @@ namespace Mh{
             virtual void Jacabian(std::vector<double>Axis,std::vector<double>Cartesian)=0;
         protected:
             MhDH dh_table;
+            MhMath math;
+            MhHomotransform transform;
+            MhIndustrialRobotPathPlan path_plan;
             int nDof;
         private:
             MhIndustrialRobot::MhRobotType typeRobot;

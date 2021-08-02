@@ -6,7 +6,9 @@
 #endif
 
 Mh::MhIndustrialRobot::MhIndustrialRobot()
-:typeRobot(MhIndustrialRobot::ROBOT_UNKNOWN),dh_table(),nDof(0)
+:typeRobot(MhIndustrialRobot::ROBOT_UNKNOWN),
+dh_table(),math(),transform(),path_plan(),
+nDof(0)
 { 
 }
 
