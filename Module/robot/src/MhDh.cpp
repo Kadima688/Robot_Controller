@@ -1,9 +1,6 @@
-#if defined(WIN32) || defined(_WIN32) || defined(_WIN32) 
-    #include"robot-controller/Module/robot/include/MhDh.h"
-#endif 
-#if defined(linux) || defined(_linux) || defined(_linux_)
-    #include"MhDh.h"
-#endif
+#include"MhDh.h"
+#include<iostream>
+#include<eigen3/Eigen/Dense>
 
 void Mh::MhDH::set_link_number(int n){
     link_number=n;

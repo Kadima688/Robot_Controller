@@ -1,12 +1,7 @@
 #ifndef MhIndustrialRobotPathPlan_H
 #define MhIndustrialRobotPathPlan_H
 
-#if defined(WIN32) || defined(_WIN32) || defined(_WIN32) 
-    #include"eigen3/eigen3/Eigen/Dense"
-#endif 
-#if defined(linux) || defined(_linux) || defined(_linux_)
-    #include<eigen3/Eigen/Dense>
-#endif
+#include<eigen3/Eigen/Dense>
 
 namespace Mh{
     class MhIndustrialRobotPathPlan{

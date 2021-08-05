@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o"
   "CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.o"
+  "CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.o"
   "controller.pdb"
   "controller"
 )

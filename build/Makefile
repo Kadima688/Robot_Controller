@@ -177,6 +177,33 @@ Module/core/src/ThreadManage.cpp.s:
 	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.s
 .PHONY : Module/core/src/ThreadManage.cpp.s
 
+Module/kernal/src/MhMotionKernel.o: Module/kernal/src/MhMotionKernel.cpp.o
+
+.PHONY : Module/kernal/src/MhMotionKernel.o
+
+# target to build an object file
+Module/kernal/src/MhMotionKernel.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.o
+.PHONY : Module/kernal/src/MhMotionKernel.cpp.o
+
+Module/kernal/src/MhMotionKernel.i: Module/kernal/src/MhMotionKernel.cpp.i
+
+.PHONY : Module/kernal/src/MhMotionKernel.i
+
+# target to preprocess a source file
+Module/kernal/src/MhMotionKernel.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.i
+.PHONY : Module/kernal/src/MhMotionKernel.cpp.i
+
+Module/kernal/src/MhMotionKernel.s: Module/kernal/src/MhMotionKernel.cpp.s
+
+.PHONY : Module/kernal/src/MhMotionKernel.s
+
+# target to generate assembly for a file
+Module/kernal/src/MhMotionKernel.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.s
+.PHONY : Module/kernal/src/MhMotionKernel.cpp.s
+
 Module/robot/src/MhConfig.o: Module/robot/src/MhConfig.cpp.o
 
 .PHONY : Module/robot/src/MhConfig.o
@@ -435,6 +462,9 @@ help:
 	@echo "... Module/core/src/ThreadManage.o"
 	@echo "... Module/core/src/ThreadManage.i"
 	@echo "... Module/core/src/ThreadManage.s"
+	@echo "... Module/kernal/src/MhMotionKernel.o"
+	@echo "... Module/kernal/src/MhMotionKernel.i"
+	@echo "... Module/kernal/src/MhMotionKernel.s"
 	@echo "... Module/robot/src/MhConfig.o"
 	@echo "... Module/robot/src/MhConfig.i"
 	@echo "... Module/robot/src/MhConfig.s"

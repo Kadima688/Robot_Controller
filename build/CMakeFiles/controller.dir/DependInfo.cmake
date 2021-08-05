@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/mingh/robot-controller/GetRobotState.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/GetRobotState.cpp.o"
   "/home/mingh/robot-controller/Module/core/src/ThreadManage.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.o"
+  "/home/mingh/robot-controller/Module/kernal/src/MhMotionKernel.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.o"
   "/home/mingh/robot-controller/Module/robot/src/MhConfig.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.o"
   "/home/mingh/robot-controller/Module/robot/src/MhDh.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o"
   "/home/mingh/robot-controller/Module/robot/src/MhHomotransform.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o"
@@ -22,6 +23,12 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../Module/core/include"
   "../Module/robot/include"
+  "../Module/kernal/include"
+  "/usr/include/opencv"
+  "/usr/local/include/eigen3"
+  "/usr/include/libxml2"
+  "/usr/include/libusb-1.0"
+  "/usr/local/include"
   )
 
 # Targets to which this target links.
