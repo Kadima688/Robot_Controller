@@ -19,7 +19,7 @@
   (defined(VISP_HAVE_X11) || defined(VISP_HAVE_GDI))
 
 void VisualServoSCARA_PBVS(void *scara){
-    Mh::MhIndustrialSCARA* RobotSCARA=static_cast<Mh::MhIndustrialSCARA*>(scara);
+    // Mh::MhIndustrialSCARA* RobotSCARA=static_cast<Mh::MhIndustrialSCARA*>(scara);
 }
 
 #endif

@@ -33,10 +33,10 @@ void Mh::MhIndustrialSCARA::set_dh_table(MhDH &_dh){
 
 void Mh::MhIndustrialSCARA::set_dh_table(){
     dh_table.set_link_number(nDof);
-    dh_table.set_a(a_);
-    dh_table.set_alapha(alpha);
-    dh_table.set_d(d);
-    dh_table.set_theta(offset1);
+    dh_table.set_a(RobotConfigData.a_);
+    dh_table.set_alapha(RobotConfigData.alpha);
+    dh_table.set_d(RobotConfigData.d);
+    dh_table.set_theta(RobotConfigData.offset1);
 }
 
 void Mh::MhIndustrialSCARA::get_dh_table(){
@@ -162,14 +162,14 @@ void Mh::MhIndustrialSCARA::Jacabian(std::vector<double>Axis,std::vector<double>
 
 void Mh::MhIndustrialSCARA::get_fJc(vpMatrix& fJc){
     vpMatrix fJc_temp(4,4);
-    fJc_temp[0][0] = m_eMc[1][3] * math.cosd(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4) - m_eMc[0][3] * math.sind(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4) - (a_[2] / 1000) * math.sind(axisPos_scara.a1 + axisPos_scara.a2) - (a_[1] / 1000) * math.sind(axisPos_scara.a1);
-    fJc_temp[0][1] = m_eMc[1][3] * math.cosd(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4) - m_eMc[0][3] * math.sind(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4) - (a_[2] / 1000) * math.sind(axisPos_scara.a1 + axisPos_scara.a2);
+    fJc_temp[0][0] = m_eMc[1][3] * math.cosd(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4) - m_eMc[0][3] * math.sind(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4) - (RobotConfigData.a_[2] / 1000) * math.sind(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2) - (RobotConfigData.a_[1] / 1000) * math.sind(Con2DemData.axisPos_scara.a1);
+    fJc_temp[0][1] = m_eMc[1][3] * math.cosd(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4) - m_eMc[0][3] * math.sind(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4) - (RobotConfigData.a_[2] / 1000) * math.sind(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2);
     fJc_temp[0][2] = 0;
-    fJc_temp[0][3] = m_eMc[0][3] * math.sind(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4) - m_eMc[1][3] * math.cosd(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4);
-	fJc_temp[1][0] = m_eMc[0][3] * math.cosd(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4) + m_eMc[1][3] * math.sind(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4) + (a_[2] / 1000) * math.cosd(axisPos_scara.a1 + axisPos_scara.a2) + (a_[1] / 1000) * math.cosd(axisPos_scara.a1);
-	fJc_temp[1][1] = m_eMc[0][3] * math.cosd(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4) + m_eMc[1][3] * math.sind(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4) + (a_[2] / 1000) * math.cosd(axisPos_scara.a1 + axisPos_scara.a2);
+    fJc_temp[0][3] = m_eMc[0][3] * math.sind(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4) - m_eMc[1][3] * math.cosd(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4);
+	fJc_temp[1][0] = m_eMc[0][3] * math.cosd(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4) + m_eMc[1][3] * math.sind(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4) + (RobotConfigData.a_[2] / 1000) * math.cosd(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2) + (RobotConfigData.a_[1] / 1000) * math.cosd(Con2DemData.axisPos_scara.a1);
+	fJc_temp[1][1] = m_eMc[0][3] * math.cosd(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4) + m_eMc[1][3] * math.sind(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4) + (RobotConfigData.a_[2] / 1000) * math.cosd(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2);
 	fJc_temp[1][2] = 0;
-	fJc_temp[1][3] = -m_eMc[0][3] * math.cosd(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4) - m_eMc[1][3] * math.sind(axisPos_scara.a1 + axisPos_scara.a2 - axisPos_scara.a4);
+	fJc_temp[1][3] = -m_eMc[0][3] * math.cosd(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4) - m_eMc[1][3] * math.sind(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4);
 	fJc_temp[2][0] = 0;
 	fJc_temp[2][1] = 0;
 	fJc_temp[2][2] = -z_lead / 1000 / (2 * PI);
@@ -194,91 +194,91 @@ void Mh::MhIndustrialSCARA::get_eJe(vpMatrix& eJe){
 }
 
 bool Mh::MhIndustrialSCARA::loadRobotConfigFile(const char* xmlpath){
-    if(doc.LoadFile(xmlpath)!=0){
+    if(RobotConfigData.doc.LoadFile(xmlpath)!=0){
         return false;
     }
-    rootElem=doc.RootElement();
-    robotElem=nullptr;
-    for(robotElem=rootElem->FirstChildElement();robotElem;robotElem=robotElem->NextSiblingElement()){
-        tinyxml2::XMLElement *baseInfo=robotElem->FirstChildElement();
+    RobotConfigData.rootElem=RobotConfigData.doc.RootElement();
+    RobotConfigData.robotElem=nullptr;
+    for(RobotConfigData.robotElem=RobotConfigData.rootElem->FirstChildElement();RobotConfigData.robotElem;RobotConfigData.robotElem=RobotConfigData.robotElem->NextSiblingElement()){
+        tinyxml2::XMLElement *baseInfo=RobotConfigData.robotElem->FirstChildElement();
         if(!strcmp(baseInfo->Attribute("available"),"true")){
-            robotNameList.push_back(robotElem->Value());
+            RobotConfigData.robotNameList.push_back(RobotConfigData.robotElem->Value());
         }
     }
-    if(robotNameList.empty()){
+    if(RobotConfigData.robotNameList.empty()){
         std::cout<<"no available robot"<<std::endl;
         return false;
     }
-    const char* robotName=robotNameList[1];
+    const char* robotName=RobotConfigData.robotNameList[1];
     loadRobotConfig(robotName);
-    doc.SaveFile(xmlpath);
+    RobotConfigData.doc.SaveFile(xmlpath);
     return true;
 }
 
 void Mh::MhIndustrialSCARA::loadRobotConfig(const char* robotName){
-        getElementByName(rootElem, robotName, &robotElem);
+        getElementByName(RobotConfigData.rootElem, robotName, &RobotConfigData.robotElem);
 		tinyxml2::XMLElement* pElem = nullptr;
-		getElementByName(robotElem, "alpha", &pElem);
-		getAxisAttribute(pElem, alpha);
-        getElementByName(robotElem, "a", &pElem);
-		getAxisAttribute(pElem, a_);
-		getElementByName(robotElem, "d", &pElem);
-		getAxisAttribute(pElem, d);
-		getElementByName(robotElem, "offset1", &pElem);
-		getAxisAttribute(pElem, offset1);
-		getElementByName(robotElem, "maxPos", &pElem);
-		getAxisAttribute(pElem, maxPos);
-		getElementByName(robotElem, "minPos", &pElem);
-		getAxisAttribute(pElem, minPos);
-		getElementByName(robotElem, "maxVel", &pElem);
-		getAxisAttribute(pElem, maxVel);
-		getElementByName(robotElem, "maxAcc", &pElem);
-		getAxisAttribute(pElem, maxAcc);
-		getElementByName(robotElem, "maxDec", &pElem);
-		getAxisAttribute(pElem, maxDec);
-		getElementByName(robotElem, "maxJerk", &pElem);
-		getAxisAttribute(pElem, maxJerk);
-		getElementByName(robotElem, "offset2", &pElem);
-		getAxisAttribute(pElem, offset2);
-		getElementByName(robotElem, "direction", &pElem);
-		getAxisAttribute(pElem, direction);
-		getElementByName(robotElem, "ratio", &pElem);
-		getAxisAttribute(pElem, ratio);
-		getElementByName(robotElem, "encoder", &pElem);
-		getAxisAttribute(pElem, encoder);
-        getElementByName(robotElem, "dynamic", &pElem);
-		getMotionParam(pElem, dynamic);
-		getElementByName(robotElem, "jogSpeed", &pElem);
-		getMotionParam(pElem, jogspeed);
-		getElementByName(robotElem, "base", &pElem);
-		getCoordinate(base, pElem);
-		getElementByName(robotElem, "tool", &pElem);
-        getCoordinate(tool, pElem);
-        averagePulseEquivalent=0;
-        pulseEquivalent.resize(nDof);
-        for (int i = 0; i < nDof; ++i)
+		getElementByName(RobotConfigData.robotElem, "alpha", &pElem);
+		getAxisAttribute(pElem,RobotConfigData.alpha);
+        getElementByName(RobotConfigData.robotElem, "a", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.a_);
+		getElementByName(RobotConfigData.robotElem, "d", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.d);
+		getElementByName(RobotConfigData.robotElem, "offset1", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.offset1);
+		getElementByName(RobotConfigData.robotElem, "maxPos", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.maxPos);
+		getElementByName(RobotConfigData.robotElem, "minPos", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.minPos);
+		getElementByName(RobotConfigData.robotElem, "maxVel", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.maxVel);
+		getElementByName(RobotConfigData.robotElem, "maxAcc", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.maxAcc);
+		getElementByName(RobotConfigData.robotElem, "maxDec", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.maxDec);
+		getElementByName(RobotConfigData.robotElem, "maxJerk", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.maxJerk);
+		getElementByName(RobotConfigData.robotElem, "offset2", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.offset2);
+		getElementByName(RobotConfigData.robotElem, "direction", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.direction);
+		getElementByName(RobotConfigData.robotElem, "ratio", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.ratio);
+		getElementByName(RobotConfigData.robotElem, "encoder", &pElem);
+		getAxisAttribute(pElem, RobotConfigData.encoder);
+        getElementByName(RobotConfigData.robotElem, "dynamic", &pElem);
+		getMotionParam(pElem, RobotConfigData.dynamic);
+		getElementByName(RobotConfigData.robotElem, "jogSpeed", &pElem);
+		getMotionParam(pElem, RobotConfigData.jogspeed);
+		getElementByName(RobotConfigData.robotElem, "base", &pElem);
+		getCoordinate(RobotConfigData.base, pElem);
+		getElementByName(RobotConfigData.robotElem, "tool", &pElem);
+        getCoordinate(RobotConfigData.tool, pElem);
+        RobotConfigData.averagePulseEquivalent=0;
+        RobotConfigData.pulseEquivalent.resize(nDof);
+        for (unsigned int i = 0; i < nDof; ++i)
 		    {
-			    pulseEquivalent[i] = 360 * direction[i] / ratio[i] / encoder[i];	
+			    RobotConfigData.pulseEquivalent[i] = 360 * RobotConfigData.direction[i] / RobotConfigData.ratio[i] / RobotConfigData.encoder[i];	
 			    if (i == 2) {
-				    pulseEquivalent[2] = pulseEquivalent[2] * z_lead / 360;//20代表Z轴方向丝杠导程
+				    RobotConfigData.pulseEquivalent[2] = RobotConfigData.pulseEquivalent[2] * z_lead / 360;//20代表Z轴方向丝杠导程
 			    }
-			    averagePulseEquivalent += fabs(pulseEquivalent[i]);
+			    RobotConfigData.averagePulseEquivalent += fabs(RobotConfigData.pulseEquivalent[i]);
 		    }
-		    averagePulseEquivalent = averagePulseEquivalent / nDof;
+		    RobotConfigData.averagePulseEquivalent = RobotConfigData.averagePulseEquivalent / nDof;
         //采用保守方法计算最大合成速度和最大合成加速度
-		maxSyntheticVel = maxVel[0];
-		maxSyntheticAcc = maxAcc[0];
-		maxSyntheticJerk = maxJerk[0];
-		for (int i = 1; i < nDof; i++)
+		RobotConfigData.maxSyntheticVel = RobotConfigData.maxVel[0];
+		RobotConfigData.maxSyntheticAcc = RobotConfigData.maxAcc[0];
+		RobotConfigData.maxSyntheticJerk = RobotConfigData.maxJerk[0];
+		for (unsigned int i = 1; i < nDof; i++)
 		{
-			if (maxSyntheticVel > maxVel[i]) maxSyntheticVel = maxVel[i];
-			if (maxSyntheticAcc > maxAcc[i]) maxSyntheticAcc = maxAcc[i];
-			if (maxSyntheticJerk > maxJerk[i]) maxSyntheticJerk = maxJerk[i];
+			if (RobotConfigData.maxSyntheticVel > RobotConfigData.maxVel[i]) RobotConfigData.maxSyntheticVel = RobotConfigData.maxVel[i];
+			if (RobotConfigData.maxSyntheticAcc > RobotConfigData.maxAcc[i]) RobotConfigData.maxSyntheticAcc = RobotConfigData.maxAcc[i];
+			if (RobotConfigData.maxSyntheticJerk > RobotConfigData.maxJerk[i]) RobotConfigData.maxSyntheticJerk = RobotConfigData.maxJerk[i];
 		}
         //初始化最小关节和最大关节m_q_min和m_q_max
-        for(int i=0;i<nDof;++i){
-            m_q_max[i]=maxPos[i];
-            m_q_min[i]=minPos[i];
+        for(unsigned int i=0;i<nDof;++i){
+            m_q_max[i]=RobotConfigData.maxPos[i];
+            m_q_min[i]=RobotConfigData.minPos[i];
         }
 }
 
@@ -301,7 +301,7 @@ bool Mh::MhIndustrialSCARA::getElementByName(tinyxml2::XMLElement *rootElem, con
 }
 void Mh::MhIndustrialSCARA::getAxisAttribute(tinyxml2::XMLElement *pElem, std::vector<double>& attribute){
     attribute.resize(nDof);
-    for(int i=0;i<nDof;++i){
+    for(unsigned int i=0;i<nDof;++i){
         char axisName[nDof];
         sprintf(axisName,"%s%d", "axis", i + 1);
         attribute[i] = atof(pElem->Attribute(axisName));
@@ -393,6 +393,9 @@ void Mh::MhIndustrialSCARA::setCartVelocity(const MhIndustrialRobot::MhControlFr
     case MhIndustrialRobot::REFERENCE_FRAME:{
 
         break;
+    case MhIndustrialRobot::JOINT_STATE:
+
+        break;
     }
     }
     //----------相机雅可比方案，考虑姿态
@@ -405,8 +408,8 @@ void Mh::MhIndustrialSCARA::setCartVelocity(const MhIndustrialRobot::MhControlFr
     v_c_real[0]=v_f[0];v_c_real[1]=v_f[1];v_c_real[2]=v_f[2];v_c_real[3]=v_f[5];
     vpColVector qdot=fJc*v_c_real;
     //如果接近奇异点，则停止运动
-    if(math.sind(axisPos_scara.a2)==0){
-        for(int i=0;i<qdot.size();++i){
+    if(math.sind(Con2DemData.axisPos_scara.a2)==0){
+        for(unsigned int i=0;i<qdot.size();++i){
             qdot[i]=0;
         }
     }
@@ -422,16 +425,16 @@ void Mh::MhIndustrialSCARA::setCartVelocity(const MhIndustrialRobot::MhControlFr
 	eTed(0, 3) *= 1000;
 	eTed(1, 3) *= 1000;
 	eTed(2, 3) *= 1000;
-    std::vector<double> Cartesian(6);Cartesian[0]=cartPos.x;Cartesian[1]=cartPos.y;Cartesian[2]=cartPos.z;Cartesian[3]=cartPos.a;Cartesian[4]=cartPos.b;Cartesian[5]=cartPos.c;
+    std::vector<double> Cartesian(6);Cartesian[0]=Con2DemData.cartPos.x;Cartesian[1]=Con2DemData.cartPos.y;Cartesian[2]=Con2DemData.cartPos.z;Cartesian[3]=Con2DemData.cartPos.a;Cartesian[4]=Con2DemData.cartPos.b;Cartesian[5]=Con2DemData.cartPos.c;
     Eigen::MatrixXd fTed=transform.ZYZ2homomatrix(Cartesian)*eTed;
     std::vector<double> des_Cartesian=transform.homomatrix2ZYZ(fTed);//预期到达的空间位置
-    std::vector<double> axis_pos(4);axis_pos[0]=axisPos_scara.a1;axis_pos[1]=axisPos_scara.a2;axis_pos[2]=axisPos_scara.d;axis_pos[3]=axisPos_scara.a4;//当前关节位姿
+    std::vector<double> axis_pos(4);axis_pos[0]=Con2DemData.axisPos_scara.a1;axis_pos[1]=Con2DemData.axisPos_scara.a2;axis_pos[2]=Con2DemData.axisPos_scara.d;axis_pos[3]=Con2DemData.axisPos_scara.a4;//当前关节位姿
     if(inversekinematics(axis_pos,des_Cartesian,0)){
         //逆解，此时axis_pos为将要到达的关节位置
-        for(int i=0;i<nDof;++i){
-            if(axis_pos[i]<minPos[i]+10||axis_pos[i]>maxPos[i]-10){
+        for(unsigned int i=0;i<nDof;++i){
+            if(axis_pos[i]<RobotConfigData.minPos[i]+10||axis_pos[i]>RobotConfigData.maxPos[i]-10){
                 EC_TRACE("第%d个轴将要接近限位点!",i);
-                for(int i=0;i<qdot.size();++i){
+                for(unsigned int i=0;i<qdot.size();++i){
                     qdot[i]=0;
                 }
                 break;
@@ -439,12 +442,12 @@ void Mh::MhIndustrialSCARA::setCartVelocity(const MhIndustrialRobot::MhControlFr
         }
         setJointVelocity(qdot);
     }
-
 }
 
 vpMatrix Mh::MhIndustrialSCARA::get_velocityMatrix(const MhIndustrialRobot::MhControlFrameType frame,bool fixed){
     Eigen::MatrixXd  T=Eigen::MatrixXd::Identity(4,4);
-    double theta[4]={axisPos_scara.a1,axisPos_scara.a2,axisPos_scara.d,axisPos_scara.a4};
+    vpMatrix TwistMatrix;TwistMatrix.eye(4,4);
+    double theta[4]={Con2DemData.axisPos_scara.a1,Con2DemData.axisPos_scara.a2,Con2DemData.axisPos_scara.d,Con2DemData.axisPos_scara.a4};
     switch (frame)
     {
     case MhIndustrialRobot::TOOL_FRAME:{
@@ -452,10 +455,10 @@ vpMatrix Mh::MhIndustrialSCARA::get_velocityMatrix(const MhIndustrialRobot::MhCo
             //求解camera相对固定世界坐标系的速度转换矩阵
             for(int i=0;i<4;++i){
                 if(i==2){
-                    T = T * transform.rot2homomatrix(alpha[i], 0) * transform.trans2homomatrix(a_[i], 0) * transform.trans2homomatrix(d[i] + theta[i], 2) * transform.rot2homomatrix(offset1[i], 2);
+                    T = T * transform.rot2homomatrix(RobotConfigData.alpha[i], 0) * transform.trans2homomatrix(RobotConfigData.a_[i], 0) * transform.trans2homomatrix(RobotConfigData.d[i] + theta[i], 2) * transform.rot2homomatrix(RobotConfigData.offset1[i], 2);
                 }
                 else{
-                    T = T * transform.rot2homomatrix(alpha[i], 0) * transform.trans2homomatrix(a_[i], 0) * transform.trans2homomatrix(d[i], 2) * transform.rot2homomatrix((theta[i] + offset1[i]), 2);
+                    T = T * transform.rot2homomatrix(RobotConfigData.alpha[i], 0) * transform.trans2homomatrix(RobotConfigData.a_[i], 0) * transform.trans2homomatrix(RobotConfigData.d[i], 2) * transform.rot2homomatrix((theta[i] + RobotConfigData.offset1[i]), 2);
                 }
             }
             //获取旋转矩阵
@@ -463,18 +466,19 @@ vpMatrix Mh::MhIndustrialSCARA::get_velocityMatrix(const MhIndustrialRobot::MhCo
             Eigen::MatrixXd zero_matrix=Eigen::MatrixXd::Zero(3,3);
             Eigen::MatrixXd VelocityTwistMatrix(6,6);
             VelocityTwistMatrix<<rotation_matrix,zero_matrix,zero_matrix,rotation_matrix;
-            vpMatrix TwistMatrix;
             vp::eigen2visp(VelocityTwistMatrix,TwistMatrix);
-            return TwistMatrix;
         }
         break;
     }
     case MhIndustrialRobot::END_EFFECTOR_FRAME:
     case MhIndustrialRobot::REFERENCE_FRAME:{
-
+        break;
+    }
+    case MhIndustrialRobot::JOINT_STATE:{
         break;
     }
     }
+    return TwistMatrix;
 }
 
 void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){

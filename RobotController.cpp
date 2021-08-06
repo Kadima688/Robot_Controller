@@ -12,10 +12,10 @@ int main(){
         return 0;
     }  
     RobotSCARA.set_dh_table();
-    RobotSCARA.OpenDevice();
-    m_Thread RobotStateThread(GetRobotState,0,&RobotSCARA,"GetRobotStateThread");
+    // RobotSCARA.OpenDevice();
+    // m_Thread RobotStateThread(GetRobotState,0,&RobotSCARA,"GetRobotStateThread");
     // m_Thread VisualServoThread(VisualServoSCARA_PBVS,0,&RobotSCARA,"VisualServoThread");
-    RobotStateThread.Start();
+    // RobotStateThread.Start();
     // VisualServoThread.Start();    
     return 0;
 
@@ -61,5 +61,5 @@ int main(){
     //     scara.axisPos_scara=scara_input;
     //     std::cout<<scara.axisPos_scara.a1<<"    "<<scara.axisPos_scara.a2<<"    "<<scara.axisPos_scara.d<<"    "<<scara.axisPos_scara.a4<<std::endl;
     // } 
-    return 0;
+    // return 0;
 }

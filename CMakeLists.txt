@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 2.8.12.2)
 project(robot-controller)
 set(CMAKE_CXX_STANDARD 11)
+#----------------跟调试相关的语句
+SET(CMAKE_BUILD_TYPE "Debug")  
+SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")  
+SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall") 
+#----------------
 find_package(VISP REQUIRED visp_robot visp_vision visp_io visp_gui visp_vs visp_visual_features visp_detection)
 include_directories(${PROJECT_SOURCE_DIR}/Module/core/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/robot/include)
