@@ -6,11 +6,7 @@
 #include<iostream>
 #include<map>
 #include<vector>
-//--------------------------返回值定义
-
-
-
-
+#include<mutex>
 //--------------------------数据类型定义
 struct AXISPOS
 {
@@ -27,6 +23,13 @@ public:
             this->a4=inverse_ans[3];
             return *this;
         }
+        else{
+            this->a1=0;
+            this->a2=0;
+            this->d=0;
+            this->a4=0;
+            return *this;
+        }
     }
     double a1, a2, d, a4;//分别对应三个旋转自由度和一个直线自由度
 };
@@ -40,7 +43,7 @@ struct CARTSYS
 };
 struct CARTPOS
 {
-public:
+    CARTPOS():x(0),y(0),z(0),a(0),b(0),c(0){} 
     CARTPOS operator=(const std::vector<double>& forward_ans){
         if(forward_ans.size()==6){
             this->x=forward_ans[0];
@@ -95,61 +98,60 @@ struct  VISUALSERVO
     int ifEnd; //是否结束视觉伺服的标志符
 };
 struct MhRobotConfigData{
-public:
-    std::vector<const char *>get_robotNameList(){return robotNameList;};
-    std::vector<double>get_alpha(){return alpha;};
-    std::vector<double>get_a_(){return a_;};
-    std::vector<double>get_d(){return d;};
-    std::vector<double>get_offset1(){return offset1;};
-    std::vector<double>get_maxPos(){return maxPos;};
-    std::vector<double>get_minPos(){return minPos;};
-    std::vector<double>get_maxVel(){return maxVel;};
-    std::vector<double>get_minVel(){return minVel;};
-    std::vector<double>get_maxAcc(){return maxAcc;};
-    std::vector<double>get_maxDec(){return maxDec;};
-    std::vector<double>get_maxJerk(){return maxJerk;};
-    std::vector<double>get_offset2(){return offset2;};
-    std::vector<double>get_direction(){return direction;};
-    std::vector<double>get_ratio(){return ratio;};
-    std::vector<double>get_encoder(){return encoder;};
-    COUPLING get_coupling(){return coupling;};
-    DYNAMIC get_dynamic(){return dynamic;};
-    DYNAMIC get_jogspeed(){return jogspeed;};
-    CARTSYS get_base(){return base;};
-    CARTSYS get_tool(){return tool;};
-    std::vector<double> get_pulseEquivalent(){return pulseEquivalent;};
-    double get_averagePulseEquivalent(){return averagePulseEquivalent;}; 
-    double get_maxSyntheticVel(){return maxSyntheticVel;};
-    double get_maxSyntheticAcc(){return maxSyntheticAcc;};
-    double get_maxSyntheticJerk(){return maxSyntheticJerk;};
-public:
-    void set_robotNameList(std::vector<const char *> x){robotNameList=x;};
-    void set_alpha(std::vector<double> x){alpha=x;};
-    void set_a_(std::vector<double> x){a_=x;};
-    void set_d(std::vector<double> x){d=x;};
-    void set_offset1(std::vector<double> x){offset1=x;};
-    void set_maxPos(std::vector<double> x){maxPos=x;};
-    void set_minPos(std::vector<double> x){ minPos=x;};
-    void set_maxVel(std::vector<double> x){ maxVel=x;};
-    void set_minVel(std::vector<double> x){ minVel=x;};
-    void set_maxAcc(std::vector<double> x){ maxAcc=x;};
-    void set_maxDec(std::vector<double> x){ maxDec=x;};
-    void set_maxJerk(std::vector<double> x){maxJerk=x;};
-    void set_offset2(std::vector<double> x){offset2=x;};
-    void set_direction(std::vector<double> x){direction=x;};
-    void set_ratio(std::vector<double> x){ratio=x;};
-    void set_encoder(std::vector<double> x){encoder=x;};
-    void set_coupling(COUPLING x){coupling=x;};
-    void set_dynamic(DYNAMIC x){dynamic=x;};
-    void set_jogspeed(DYNAMIC x){jogspeed=x;};
-    void set_base(CARTSYS x){base=x;};
-    void set_tool(CARTSYS x){tool=x;};
-    void set_pulseEquivalent(std::vector<double> x){pulseEquivalent=x;};
-    void set_averagePulseEquivalent(double x){averagePulseEquivalent=x;}; 
-    void set_maxSyntheticVel(double x){maxSyntheticVel=x;};
-    void set_maxSyntheticAcc(double x){maxSyntheticAcc=x;};
-    void set_maxSyntheticJerk(double x){maxSyntheticJerk=x;};
-public:
+// public:
+//     std::vector<const char *>get_robotNameList(){return robotNameList;};
+//     std::vector<double>get_alpha(){return alpha;};
+//     std::vector<double>get_a_(){return a_;};
+//     std::vector<double>get_d(){return d;};
+//     std::vector<double>get_offset1(){return offset1;};
+//     std::vector<double>get_maxPos(){return maxPos;};
+//     std::vector<double>get_minPos(){return minPos;};
+//     std::vector<double>get_maxVel(){return maxVel;};
+//     std::vector<double>get_minVel(){return minVel;};
+//     std::vector<double>get_maxAcc(){return maxAcc;};
+//     std::vector<double>get_maxDec(){return maxDec;};
+//     std::vector<double>get_maxJerk(){return maxJerk;};
+//     std::vector<double>get_offset2(){return offset2;};
+//     std::vector<double>get_direction(){return direction;};
+//     std::vector<double>get_ratio(){return ratio;};
+//     std::vector<double>get_encoder(){return encoder;};
+//     COUPLING get_coupling(){return coupling;};
+//     DYNAMIC get_dynamic(){return dynamic;};
+//     DYNAMIC get_jogspeed(){return jogspeed;};
+//     CARTSYS get_base(){return base;};
+//     CARTSYS get_tool(){return tool;};
+//     std::vector<double> get_pulseEquivalent(){return pulseEquivalent;};
+//     double get_averagePulseEquivalent(){return averagePulseEquivalent;}; 
+//     double get_maxSyntheticVel(){return maxSyntheticVel;};
+//     double get_maxSyntheticAcc(){return maxSyntheticAcc;};
+//     double get_maxSyntheticJerk(){return maxSyntheticJerk;};
+// public:
+//     void set_robotNameList(std::vector<const char *> x){robotNameList=x;};
+//     void set_alpha(std::vector<double> x){alpha=x;};
+//     void set_a_(std::vector<double> x){a_=x;};
+//     void set_d(std::vector<double> x){d=x;};
+//     void set_offset1(std::vector<double> x){offset1=x;};
+//     void set_maxPos(std::vector<double> x){maxPos=x;};
+//     void set_minPos(std::vector<double> x){ minPos=x;};
+//     void set_maxVel(std::vector<double> x){ maxVel=x;};
+//     void set_minVel(std::vector<double> x){ minVel=x;};
+//     void set_maxAcc(std::vector<double> x){ maxAcc=x;};
+//     void set_maxDec(std::vector<double> x){ maxDec=x;};
+//     void set_maxJerk(std::vector<double> x){maxJerk=x;};
+//     void set_offset2(std::vector<double> x){offset2=x;};
+//     void set_direction(std::vector<double> x){direction=x;};
+//     void set_ratio(std::vector<double> x){ratio=x;};
+//     void set_encoder(std::vector<double> x){encoder=x;};
+//     void set_coupling(COUPLING x){coupling=x;};
+//     void set_dynamic(DYNAMIC x){dynamic=x;};
+//     void set_jogspeed(DYNAMIC x){jogspeed=x;};
+//     void set_base(CARTSYS x){base=x;};
+//     void set_tool(CARTSYS x){tool=x;};
+//     void set_pulseEquivalent(std::vector<double> x){pulseEquivalent=x;};
+//     void set_averagePulseEquivalent(double x){averagePulseEquivalent=x;}; 
+//     void set_maxSyntheticVel(double x){maxSyntheticVel=x;};
+//     void set_maxSyntheticAcc(double x){maxSyntheticAcc=x;};
+//     void set_maxSyntheticJerk(double x){maxSyntheticJerk=x;};
     tinyxml2::XMLDocument doc;
     tinyxml2::XMLElement* rootElem;
     tinyxml2::XMLElement* robotElem;
@@ -192,7 +194,7 @@ struct MhDem2ControlData
     int jog; //手动示教时所选坐标系，0：轴关节坐标系，1：世界坐标系，2：工具手坐标系
     int coordinate; //手动示教时选中的坐标，0：未示教，1-6：第x个坐标
     int upOrDown; //手动示教时对选中坐标的增大或减小，0：减小，1：增大
-    int ovr; //相对最大运动参数的百分比
+    int ovr=5; //相对最大运动参数的百分比
     int progLine; //程序执行到的行数
     int transferZip; //是否传输文件压缩包，0：不传输，1：传输
     int zipSize; //压缩包大小
@@ -229,7 +231,7 @@ struct MhControlChargeData
     struct CARTREFSYS curRefSys; //当前的参考坐标系
     struct DYNAMIC curDynamic; //当前的机器人运动参数
     struct DYNAMIC retDynamic; //保留的运动参数
-    int selectDyn; //选择使用的运动参数，0：手动&点位，1：手动&轨迹，2：自动&点位，3：自动&轨迹
+    int selectDyn=2; //选择使用的运动参数，0：手动&点位，1：手动&轨迹，2：自动&点位，3：自动&轨迹
     unsigned long contiRunState; //机器人插补运动状态，0：正在运动，1：暂停中，2：停止状态，3：未启动，4：空闲
     unsigned long allAxisState; //机器人所有轴的运动完成情况，0：正在运动，1：处于停止状态
     int startProg; //是否已进入程序编译执行阶段，0：否，1：是
@@ -240,10 +242,10 @@ struct MhControlChargeData
     int stopFromStart; //判断是否从程序运行状态变为程序停止状态，0：否，1：是
     int endFromStart;  //判断是否从程序运行状态变为程序终止状态，0：否，1：是
     int transferZipFinished; //判断压缩包是否已经传输完成并已解压，0：否，1：是
-    int startServo; //判断是否已经开始视觉伺服，0：否，1：是
+    int startServo=0; //判断是否已经开始视觉伺服，0：否，1：是
     int endServo; //用于控制器结束视觉伺服，0：不结束，1：结束
     bool error; //判断程序运行中是否出错，false：未出错，true：出错
-    long retn; //内核API返回值，为0时表示调用成功
+    int retn; //内核API返回值，为0时表示调用成功
     long targetPos[6]; //继续运动时的目标位置-------6轴机器人
     long targerPos_SCARA[4];//继续运动时的目标位置------4轴机器人
     int Robot_enable_State_Judge;//判断数据读取线程是否搜集数据的标志，0:不搜集 1:搜集
@@ -252,9 +254,8 @@ struct MhControlChargeData
     std::string robotType;//当前机器人类型
     int isEnable=0;//判断各轴是否已经使能 0：否 1：是
 };
-
-
-
-
-
+//管理变量的锁
+struct MhConChargeMutex{
+    std::mutex retn_mutex;
+};
 #endif

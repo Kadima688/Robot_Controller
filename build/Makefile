@@ -123,6 +123,33 @@ controller/fast:
 	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/build
 .PHONY : controller/fast
 
+ControlThread.o: ControlThread.cpp.o
+
+.PHONY : ControlThread.o
+
+# target to build an object file
+ControlThread.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/ControlThread.cpp.o
+.PHONY : ControlThread.cpp.o
+
+ControlThread.i: ControlThread.cpp.i
+
+.PHONY : ControlThread.i
+
+# target to preprocess a source file
+ControlThread.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/ControlThread.cpp.i
+.PHONY : ControlThread.cpp.i
+
+ControlThread.s: ControlThread.cpp.s
+
+.PHONY : ControlThread.s
+
+# target to generate assembly for a file
+ControlThread.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/ControlThread.cpp.s
+.PHONY : ControlThread.cpp.s
+
 GetRobotState.o: GetRobotState.cpp.o
 
 .PHONY : GetRobotState.o
@@ -366,6 +393,33 @@ Module/robot/src/MhIndustrialSCARA.cpp.s:
 	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.s
 .PHONY : Module/robot/src/MhIndustrialSCARA.cpp.s
 
+Module/robot/src/RobotDataText.o: Module/robot/src/RobotDataText.cpp.o
+
+.PHONY : Module/robot/src/RobotDataText.o
+
+# target to build an object file
+Module/robot/src/RobotDataText.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.o
+.PHONY : Module/robot/src/RobotDataText.cpp.o
+
+Module/robot/src/RobotDataText.i: Module/robot/src/RobotDataText.cpp.i
+
+.PHONY : Module/robot/src/RobotDataText.i
+
+# target to preprocess a source file
+Module/robot/src/RobotDataText.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.i
+.PHONY : Module/robot/src/RobotDataText.cpp.i
+
+Module/robot/src/RobotDataText.s: Module/robot/src/RobotDataText.cpp.s
+
+.PHONY : Module/robot/src/RobotDataText.s
+
+# target to generate assembly for a file
+Module/robot/src/RobotDataText.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.s
+.PHONY : Module/robot/src/RobotDataText.cpp.s
+
 Module/robot/src/tinyxml2.o: Module/robot/src/tinyxml2.cpp.o
 
 .PHONY : Module/robot/src/tinyxml2.o
@@ -392,6 +446,33 @@ Module/robot/src/tinyxml2.s: Module/robot/src/tinyxml2.cpp.s
 Module/robot/src/tinyxml2.cpp.s:
 	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.s
 .PHONY : Module/robot/src/tinyxml2.cpp.s
+
+MotorServoSCARA_PBVS.o: MotorServoSCARA_PBVS.cpp.o
+
+.PHONY : MotorServoSCARA_PBVS.o
+
+# target to build an object file
+MotorServoSCARA_PBVS.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o
+.PHONY : MotorServoSCARA_PBVS.cpp.o
+
+MotorServoSCARA_PBVS.i: MotorServoSCARA_PBVS.cpp.i
+
+.PHONY : MotorServoSCARA_PBVS.i
+
+# target to preprocess a source file
+MotorServoSCARA_PBVS.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.i
+.PHONY : MotorServoSCARA_PBVS.cpp.i
+
+MotorServoSCARA_PBVS.s: MotorServoSCARA_PBVS.cpp.s
+
+.PHONY : MotorServoSCARA_PBVS.s
+
+# target to generate assembly for a file
+MotorServoSCARA_PBVS.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.s
+.PHONY : MotorServoSCARA_PBVS.cpp.s
 
 RobotController.o: RobotController.cpp.o
 
@@ -420,32 +501,86 @@ RobotController.cpp.s:
 	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/RobotController.cpp.s
 .PHONY : RobotController.cpp.s
 
-VisualServoSCARA_PBVS.o: VisualServoSCARA_PBVS.cpp.o
+VisualServoSCARA.o: VisualServoSCARA.cpp.o
 
-.PHONY : VisualServoSCARA_PBVS.o
+.PHONY : VisualServoSCARA.o
 
 # target to build an object file
-VisualServoSCARA_PBVS.cpp.o:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.o
-.PHONY : VisualServoSCARA_PBVS.cpp.o
+VisualServoSCARA.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA.cpp.o
+.PHONY : VisualServoSCARA.cpp.o
 
-VisualServoSCARA_PBVS.i: VisualServoSCARA_PBVS.cpp.i
+VisualServoSCARA.i: VisualServoSCARA.cpp.i
 
-.PHONY : VisualServoSCARA_PBVS.i
+.PHONY : VisualServoSCARA.i
 
 # target to preprocess a source file
-VisualServoSCARA_PBVS.cpp.i:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.i
-.PHONY : VisualServoSCARA_PBVS.cpp.i
+VisualServoSCARA.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA.cpp.i
+.PHONY : VisualServoSCARA.cpp.i
 
-VisualServoSCARA_PBVS.s: VisualServoSCARA_PBVS.cpp.s
+VisualServoSCARA.s: VisualServoSCARA.cpp.s
 
-.PHONY : VisualServoSCARA_PBVS.s
+.PHONY : VisualServoSCARA.s
 
 # target to generate assembly for a file
-VisualServoSCARA_PBVS.cpp.s:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.s
-.PHONY : VisualServoSCARA_PBVS.cpp.s
+VisualServoSCARA.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA.cpp.s
+.PHONY : VisualServoSCARA.cpp.s
+
+test/Jacobian_test.o: test/Jacobian_test.cpp.o
+
+.PHONY : test/Jacobian_test.o
+
+# target to build an object file
+test/Jacobian_test.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/test/Jacobian_test.cpp.o
+.PHONY : test/Jacobian_test.cpp.o
+
+test/Jacobian_test.i: test/Jacobian_test.cpp.i
+
+.PHONY : test/Jacobian_test.i
+
+# target to preprocess a source file
+test/Jacobian_test.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/test/Jacobian_test.cpp.i
+.PHONY : test/Jacobian_test.cpp.i
+
+test/Jacobian_test.s: test/Jacobian_test.cpp.s
+
+.PHONY : test/Jacobian_test.s
+
+# target to generate assembly for a file
+test/Jacobian_test.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/test/Jacobian_test.cpp.s
+.PHONY : test/Jacobian_test.cpp.s
+
+test/vel_trans_test.o: test/vel_trans_test.cpp.o
+
+.PHONY : test/vel_trans_test.o
+
+# target to build an object file
+test/vel_trans_test.cpp.o:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/test/vel_trans_test.cpp.o
+.PHONY : test/vel_trans_test.cpp.o
+
+test/vel_trans_test.i: test/vel_trans_test.cpp.i
+
+.PHONY : test/vel_trans_test.i
+
+# target to preprocess a source file
+test/vel_trans_test.cpp.i:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/test/vel_trans_test.cpp.i
+.PHONY : test/vel_trans_test.cpp.i
+
+test/vel_trans_test.s: test/vel_trans_test.cpp.s
+
+.PHONY : test/vel_trans_test.s
+
+# target to generate assembly for a file
+test/vel_trans_test.cpp.s:
+	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/test/vel_trans_test.cpp.s
+.PHONY : test/vel_trans_test.cpp.s
 
 # Help Target
 help:
@@ -456,6 +591,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... controller"
 	@echo "... edit_cache"
+	@echo "... ControlThread.o"
+	@echo "... ControlThread.i"
+	@echo "... ControlThread.s"
 	@echo "... GetRobotState.o"
 	@echo "... GetRobotState.i"
 	@echo "... GetRobotState.s"
@@ -483,15 +621,27 @@ help:
 	@echo "... Module/robot/src/MhIndustrialSCARA.o"
 	@echo "... Module/robot/src/MhIndustrialSCARA.i"
 	@echo "... Module/robot/src/MhIndustrialSCARA.s"
+	@echo "... Module/robot/src/RobotDataText.o"
+	@echo "... Module/robot/src/RobotDataText.i"
+	@echo "... Module/robot/src/RobotDataText.s"
 	@echo "... Module/robot/src/tinyxml2.o"
 	@echo "... Module/robot/src/tinyxml2.i"
 	@echo "... Module/robot/src/tinyxml2.s"
+	@echo "... MotorServoSCARA_PBVS.o"
+	@echo "... MotorServoSCARA_PBVS.i"
+	@echo "... MotorServoSCARA_PBVS.s"
 	@echo "... RobotController.o"
 	@echo "... RobotController.i"
 	@echo "... RobotController.s"
-	@echo "... VisualServoSCARA_PBVS.o"
-	@echo "... VisualServoSCARA_PBVS.i"
-	@echo "... VisualServoSCARA_PBVS.s"
+	@echo "... VisualServoSCARA.o"
+	@echo "... VisualServoSCARA.i"
+	@echo "... VisualServoSCARA.s"
+	@echo "... test/Jacobian_test.o"
+	@echo "... test/Jacobian_test.i"
+	@echo "... test/Jacobian_test.s"
+	@echo "... test/vel_trans_test.o"
+	@echo "... test/vel_trans_test.i"
+	@echo "... test/vel_trans_test.s"
 .PHONY : help
 
 

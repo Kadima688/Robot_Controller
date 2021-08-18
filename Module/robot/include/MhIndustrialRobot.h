@@ -8,9 +8,10 @@
 #include"MhDh.h"
 #include"MhHomotransform.h"
 #include"MhIndustrialRobotPathPlan.h"
-
+#include"MhMotionKernel.h"
 namespace Mh{
 class MhIndustrialRobot{
+//--------------------------------------visual servo&&kinematics&&jacobian
 public:
     MhIndustrialRobot();
     virtual ~MhIndustrialRobot();
@@ -68,15 +69,20 @@ protected:
     vpMatrix fJe;
     vpMatrix eJe;
     MhDH dh_table;
-    MhMath math;
-    MhHomotransform transform;
-    MhIndustrialRobotPathPlan path_plan;
+    MhMath math;      
     unsigned int nDof;
     bool verbose_;
 private:
     MhIndustrialRobot::MhRobotType typeRobot;
     MhIndustrialRobot::MhRobotStateType stateRobot;
     MhIndustrialRobot::MhControlFrameType frameRobot;
+//-----------------------------------homotransform
+public:
+    MhHomotransform transform;
+//------------------------------------path planing
+public:
+    MhIndustrialRobotPathPlan path_plan;
+    virtual void FollowPathMove(std::map<int,std::vector<double>>& record,int PathType)=0;//根据不同的路径算法以及路径点进行运动
 };
 }
 

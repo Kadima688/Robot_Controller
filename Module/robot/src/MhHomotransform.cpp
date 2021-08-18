@@ -1,5 +1,5 @@
 #include"MhHomotransform.h"
-
+#include<iostream>
 //angle:the unit is deg
 //axis:0,1,2:rotate about x,y,z
 Eigen::MatrixXd Mh::MhHomotransform::rot2homomatrix(double angle,int axis){
@@ -14,7 +14,7 @@ Eigen::MatrixXd Mh::MhHomotransform::rot2homomatrix(double angle,int axis){
         rotation(0,0)=math.cosd(angle);
         rotation(0,2)=math.sind(angle);
         rotation(2,0)=-math.sind(angle);
-        rotation(2,1)=math.cosd(angle);
+        rotation(2,2)=math.cosd(angle);
     }
     else if(axis==2){
         rotation(0,0)=math.cosd(angle);
@@ -49,16 +49,18 @@ std::vector<double> Mh::MhHomotransform::homomatrix2ZYZ(Eigen::MatrixXd &T){
     if(fabs(cartpos[4]-0)<1e-8){
         cartpos[3]=0;
         cartpos[5]=math.atan2d(-T(0,1),T(0,0));
+        return cartpos;
     }
     else if(fabs(cartpos[4]-180)<1e-8){
         cartpos[3]=0;
         cartpos[5]=math.atan2d(T(0,1),-T(0,0));
+        return cartpos;
     }
     else{
         cartpos[3]=math.atan2d(T(1,2)/math.sind(cartpos[4]),T(0,2)/math.sind(cartpos[4]));
         cartpos[5]=math.atan2d(T(2,1)/math.sind(cartpos[4]),-T(2,0)/math.sind(cartpos[4]));
-    }
-    return cartpos;
+        return cartpos;
+    }  
 }
 
 Eigen::MatrixXd Mh::MhHomotransform::ZYZ2homomatrix(std::vector<double>& Cartesian){

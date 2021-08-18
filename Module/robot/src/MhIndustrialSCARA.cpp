@@ -4,6 +4,7 @@
 #include<visp3/core/vpEigenConversion.h>
 #include<visp3/core/vpExponentialMap.h>
 #include"os.h"
+#include<unistd.h>
 Mh::MhIndustrialSCARA::MhIndustrialSCARA()
 :m_q_min(),m_q_max()
 {
@@ -23,6 +24,42 @@ Mh::MhIndustrialSCARA::~MhIndustrialSCARA(){
     setRobotType(MhIndustrialRobot::ROBOT_UNKNOWN);
 }
 
+Mh::MhIndustrialRobot::MhRobotStateType Mh::MhIndustrialSCARA::setRobotState(const Mh::MhIndustrialRobot::MhRobotStateType newState){
+    int retn;
+    switch(newState){
+    case Mh::MhIndustrialRobot::STATE_STOP:
+        if(Mh::MhIndustrialRobot::STATE_VELOCITY_CONTROL==Mh::MhIndustrialRobot::getRobotState()){
+            std::cout<<"Stop robot from velocity control"<<std::endl;
+            for(unsigned int i=0;i<nDof;++i){
+                //首先速度设置为0
+                retn=SetVelCommand(i,0);
+                set_retn(retn,SETVELCOMMAND);
+                sleep(0.1);
+                //转换为位置控制模式
+                retn=SetAxisCommandMode(i,0);
+                set_retn(retn,SETAXISCOMMANDMODE);
+            }
+        }
+        Mh::MhIndustrialRobot::setRobotState(newState);
+    break;
+    case MhIndustrialRobot::STATE_VELOCITY_CONTROL:
+        if(Mh::MhIndustrialRobot::STATE_STOP==Mh::MhIndustrialRobot::getRobotState()){
+            std::cout<<"Start Velocity Control robot from stop"<<std::endl;
+            //首先退出插补缓冲
+            RobotCloseConti();
+            //停止所有轴运动
+            retn=StopAllAxis(1);
+            set_retn(retn,STOPALLAXIS);
+            for(unsigned int i=0;i<nDof;++i){
+                //从位置控制模式转换为速度控制模式
+                retn=SetAxisCommandMode(i,1);
+                set_retn(retn,SETAXISCOMMANDMODE);  
+            }
+        }
+        Mh::MhIndustrialRobot::setRobotState(newState);
+    break;
+    }
+}
 void Mh::MhIndustrialSCARA::set_dh_table(MhDH &_dh){
     dh_table.set_link_number(_dh.get_link_number());
     dh_table.set_a(_dh.get_a());
@@ -137,7 +174,7 @@ bool Mh::MhIndustrialSCARA::inversekinematics(std::vector<double>& Axis,std::vec
 	}
 	if (type == 1)
 	{
-		if (curDistance[index] > 10 * path_plan.LINE_PATH_DIFF)
+		if (curDistance[index] > 10 * path_plan.get_LINE_PATH_DIFF())
 		{
 			return false;
 		}
@@ -209,7 +246,7 @@ bool Mh::MhIndustrialSCARA::loadRobotConfigFile(const char* xmlpath){
         std::cout<<"no available robot"<<std::endl;
         return false;
     }
-    const char* robotName=RobotConfigData.robotNameList[1];
+    const char* robotName=RobotConfigData.robotNameList[1];//默认用SCARA机器人的配置
     loadRobotConfig(robotName);
     RobotConfigData.doc.SaveFile(xmlpath);
     return true;
@@ -403,7 +440,7 @@ void Mh::MhIndustrialSCARA::setCartVelocity(const MhIndustrialRobot::MhControlFr
     get_fJc(fJc);
     fJc=fJc.inverseByLUEigen3();//camera&&fixed frame的逆矩阵
     vpColVector v_f(6);
-    v_f=get_velocityMatrix(frame,true)*v_c;//获取相机速度相对fixed frame的表达
+    v_f=get_velocityMatrix(frame,false)*v_c;//获取相机速度相对fixed frame的表达
     vpColVector v_c_real(4);
     v_c_real[0]=v_f[0];v_c_real[1]=v_f[1];v_c_real[2]=v_f[2];v_c_real[3]=v_f[5];
     vpColVector qdot=fJc*v_c_real;
@@ -425,15 +462,20 @@ void Mh::MhIndustrialSCARA::setCartVelocity(const MhIndustrialRobot::MhControlFr
 	eTed(0, 3) *= 1000;
 	eTed(1, 3) *= 1000;
 	eTed(2, 3) *= 1000;
-    std::vector<double> Cartesian(6);Cartesian[0]=Con2DemData.cartPos.x;Cartesian[1]=Con2DemData.cartPos.y;Cartesian[2]=Con2DemData.cartPos.z;Cartesian[3]=Con2DemData.cartPos.a;Cartesian[4]=Con2DemData.cartPos.b;Cartesian[5]=Con2DemData.cartPos.c;
+    std::vector<double> Cartesian;Cartesian.clear();
+    Cartesian.push_back(Con2DemData.cartPos.x);Cartesian.push_back(Con2DemData.cartPos.y);Cartesian.push_back(Con2DemData.cartPos.z);
+    Cartesian.push_back(Con2DemData.cartPos.a);Cartesian.push_back(Con2DemData.cartPos.b);Cartesian.push_back(Con2DemData.cartPos.c);
     Eigen::MatrixXd fTed=transform.ZYZ2homomatrix(Cartesian)*eTed;
-    std::vector<double> des_Cartesian=transform.homomatrix2ZYZ(fTed);//预期到达的空间位置
-    std::vector<double> axis_pos(4);axis_pos[0]=Con2DemData.axisPos_scara.a1;axis_pos[1]=Con2DemData.axisPos_scara.a2;axis_pos[2]=Con2DemData.axisPos_scara.d;axis_pos[3]=Con2DemData.axisPos_scara.a4;//当前关节位姿
+    std::vector<double> des_Cartesian(6);
+    des_Cartesian=transform.homomatrix2ZYZ(fTed);//预期到达的空间位置
+    std::vector<double> axis_pos;axis_pos.clear();
+    axis_pos.push_back(Con2DemData.axisPos_scara.a1);axis_pos.push_back(Con2DemData.axisPos_scara.a2);
+    axis_pos.push_back(Con2DemData.axisPos_scara.d);axis_pos.push_back(Con2DemData.axisPos_scara.a4);//当前关节位姿
     if(inversekinematics(axis_pos,des_Cartesian,0)){
         //逆解，此时axis_pos为将要到达的关节位置
         for(unsigned int i=0;i<nDof;++i){
             if(axis_pos[i]<RobotConfigData.minPos[i]+10||axis_pos[i]>RobotConfigData.maxPos[i]-10){
-                EC_TRACE("第%d个轴将要接近限位点!",i);
+                std::cout<<"第"<<i<<"个轴将要接近限位点"<<std::endl;
                 for(unsigned int i=0;i<qdot.size();++i){
                     qdot[i]=0;
                 }
@@ -467,6 +509,7 @@ vpMatrix Mh::MhIndustrialSCARA::get_velocityMatrix(const MhIndustrialRobot::MhCo
             Eigen::MatrixXd VelocityTwistMatrix(6,6);
             VelocityTwistMatrix<<rotation_matrix,zero_matrix,zero_matrix,rotation_matrix;
             vp::eigen2visp(VelocityTwistMatrix,TwistMatrix);
+            return TwistMatrix;
         }
         break;
     }
@@ -478,9 +521,224 @@ vpMatrix Mh::MhIndustrialSCARA::get_velocityMatrix(const MhIndustrialRobot::MhCo
         break;
     }
     }
-    return TwistMatrix;
 }
 
 void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
-
+    for(unsigned i=0;i<nDof;++i){
+        int velocity2pulse;
+        if(i!=2){
+            velocity2pulse = (int)((qdot[i] * RobotConfigData.direction[i] * RobotConfigData.ratio[i] * RobotConfigData.encoder[i]) / (2 * PI));
+        }
+        else{
+            velocity2pulse = (int)((qdot[i] * RobotConfigData.direction[i] * RobotConfigData.ratio[i] * RobotConfigData.encoder[i]) / (2 * PI));
+			//velocity2pulse += (int)((qdot[3] * 180 / PI) / 360 *a4_Compensation) / RobotConfigData.pulseEquivalent[2];
+        }
+        int retn=SetVelCommand(i,velocity2pulse);
+        set_retn(retn,SETVELCOMMAND);
+    }
 }
+
+void Mh::MhIndustrialSCARA::RobotMotorInitial(){
+    for(unsigned int i=0;i<nDof;++i){
+        int temp1,temp2;
+        if(i!=2){
+            temp1=(RobotConfigData.maxPos[i]+RobotConfigData.offset2[i])/RobotConfigData.pulseEquivalent[i];
+            temp2=(RobotConfigData.minPos[i]+RobotConfigData.offset2[i])/RobotConfigData.pulseEquivalent[i];
+        }
+        else{
+            temp1=(RobotConfigData.maxPos[i]+RobotConfigData.offset2[i]+RobotConfigData.maxPos[3]/360*a4_Compensation)/RobotConfigData.pulseEquivalent[i];
+            temp2=(RobotConfigData.minPos[i]+RobotConfigData.offset2[i]+RobotConfigData.minPos[3]/360*a4_Compensation)/RobotConfigData.pulseEquivalent[i];
+        }
+        int limp,limn;
+        if(temp1>temp2){
+            limp=temp1;
+            limn=temp2;
+        }
+        else{
+            limp=temp2;
+            limn=temp1;
+        }
+        int retn=SetAxisSoftLimit(i,0,limp,limn);
+        set_retn(retn,SETAXISSOFTLIMIT);
+        retn=EnableSoftLimit(i,1);
+        set_retn(retn,ENABLESOFTLIMIT);
+        retn=SetAxisPositionMode(i,1);
+        set_retn(retn,SETAXISPOSITONMODE);
+    }  
+}
+void Mh::MhIndustrialSCARA::RobotOpenConti(){
+    unsigned int ulAxisList[nDof]={0,1,2,3};
+    unsigned int ulMaxAcc[nDof];
+    for(unsigned int i=0;i<nDof;++i){
+        ulMaxAcc[i]=fabs(RobotConfigData.maxAcc[i]/RobotConfigData.pulseEquivalent[i]/pow(1000,2));
+        int retn=ContiOpenList(0,nDof,ulAxisList,ulMaxAcc);
+        set_retn(retn,CONTIOPENLIST);
+        retn=ContiSetLookheadMode(0,1,100,50);
+        set_retn(retn,CONTISETLOOKHEADMODE);
+    }
+}
+void Mh::MhIndustrialSCARA::RobotDynInitial(){
+    if(ConChargeData.selectDyn==0 || ConChargeData.selectDyn==1){//手动点位或者手动轨迹
+        ConChargeData.curDynamic=RobotConfigData.jogspeed;
+    }
+    else if(ConChargeData.selectDyn==2 || ConChargeData.selectDyn==3){//自动点位或者自动轨迹
+        ConChargeData.curDynamic=RobotConfigData.dynamic;
+    }
+    double targetVel,acc,dec,jerk;
+    for(unsigned int i=0;i<nDof;++i){
+        //设置轴的速度
+        targetVel=RobotConfigData.maxVel[i]*ConChargeData.curDynamic.velAxis/100*Dem2ConData.ovr/100/RobotConfigData.pulseEquivalent[i]/1000;
+        int retn =SetAxisVel(i,0,fabs(targetVel),0);
+        set_retn(retn,SETAXISVEL);
+        //设置轴的加速度
+        acc=RobotConfigData.maxAcc[i]*ConChargeData.curDynamic.accAxis/100*Dem2ConData.ovr/100/RobotConfigData.pulseEquivalent[i]/pow(1000,2);
+        dec=RobotConfigData.maxDec[i]*ConChargeData.curDynamic.decAxis/100*Dem2ConData.ovr/100/RobotConfigData.pulseEquivalent[i]/pow(1000,2);
+        retn=SetAxisAcc(i,fabs(acc),fabs(dec));
+        set_retn(retn,SETAXISACC);
+        //设置轴的加加速度
+        jerk=RobotConfigData.maxJerk[i]*ConChargeData.curDynamic.jerkAxis/100*Dem2ConData.ovr/100/RobotConfigData.pulseEquivalent[i]/pow(1000,3);
+        SetAxisJerk(i,fabs(jerk),fabs(jerk));
+        set_retn(retn,SETAXISJERK);
+    }
+}
+
+void Mh::MhIndustrialSCARA::RobotInterpolationDynInitial(){
+    if(ConChargeData.selectDyn==0 || ConChargeData.selectDyn==1){//手动点位或者手动轨迹
+        ConChargeData.curDynamic=RobotConfigData.jogspeed;
+    }
+    else if(ConChargeData.selectDyn==2 || ConChargeData.selectDyn==3){//自动点位或者自动轨迹
+        ConChargeData.curDynamic=RobotConfigData.dynamic;
+    }
+    double targetVel,acc,dec,jerk;
+    if(ConChargeData.selectDyn==0 || ConChargeData.selectDyn==2){//手动点位&&自动点位运动
+        //设置轴的插补速度
+        targetVel=RobotConfigData.maxSyntheticVel*ConChargeData.curDynamic.velAxis/100*Dem2ConData.ovr/100/RobotConfigData.averagePulseEquivalent/1000;
+        acc=RobotConfigData.maxSyntheticAcc*ConChargeData.curDynamic.accAxis/100*Dem2ConData.ovr/100/RobotConfigData.averagePulseEquivalent/pow(1000,2);
+        dec=RobotConfigData.maxSyntheticAcc*ConChargeData.curDynamic.decAxis/100*Dem2ConData.ovr/100/RobotConfigData.averagePulseEquivalent/pow(1000,2);
+        jerk=RobotConfigData.maxSyntheticJerk*ConChargeData.curDynamic.jerkAxis/100*Dem2ConData.ovr/100/RobotConfigData.averagePulseEquivalent/pow(1000,3);
+    }
+    else if(ConChargeData.selectDyn==1 || ConChargeData.selectDyn==3){
+        targetVel=ConChargeData.curDynamic.velPath*Dem2ConData.ovr/100/RobotConfigData.averagePulseEquivalent/1000;
+        acc=ConChargeData.curDynamic.accPath*Dem2ConData.ovr/100/RobotConfigData.averagePulseEquivalent/pow(1000,2);
+        dec=ConChargeData.curDynamic.decPath*Dem2ConData.ovr/100/RobotConfigData.averagePulseEquivalent/pow(1000,2);
+        jerk=ConChargeData.curDynamic.jerkPath*Dem2ConData.ovr/100/RobotConfigData.averagePulseEquivalent/pow(1000,3);
+    }
+    //开始设置插补段连续速度
+    int retn=SetInterpolationVel(0,fabs(targetVel),0);
+    set_retn(retn,SETINTERPOLATIONVEL);
+    //设置插补段加速度和减速度
+    retn=SetInterpolationAcc(fabs(acc),fabs(dec));
+    set_retn(retn,SETINTERPOLATIONACC);
+    //设置插补段加加速度和减加速度
+    retn=SetInterpolationJerk(fabs(jerk),fabs(jerk));
+    set_retn(retn,SETINTERPOLATIONJERK);
+}
+
+void Mh::MhIndustrialSCARA::RobotCloseConti(){
+    //停止插补运动
+    int retn=ContiStopList(0,1);
+    set_retn(retn,CONTISTOPLIST);
+    //关闭插补缓冲区
+    retn=ContiCloseList(0);
+    set_retn(retn,CONTICLOSELIST);
+}
+void Mh::MhIndustrialSCARA::FollowPathMove(std::map<int,std::vector<double>>& record,int PathType){
+    switch (PathType)
+    {
+    int retn;
+    case PTP:
+        unsigned int ulAxisList[4]={0,1,2,3};
+        int lTargetPos[4]={(record[0][0]+RobotConfigData.offset2[0])/RobotConfigData.pulseEquivalent[0],\
+                             (record[0][1]+RobotConfigData.offset2[1])/RobotConfigData.pulseEquivalent[1],\
+                             (record[0][2]+RobotConfigData.offset2[2]/*-record[0][3]/360*a4_Compensation*/)/RobotConfigData.pulseEquivalent[2],
+                             record[0][3]+RobotConfigData.offset2[3]/RobotConfigData.pulseEquivalent[3]};
+        //设置单轴运动
+        for(unsigned int i=0;i<nDof;++i){
+            retn=PositionDrive(i,lTargetPos[i]);
+            set_retn(retn,POSITIONDRIVE);
+        }
+        //插补运动得指令
+        // retn=ContiLineUnit(0,nDof,ulAxisList,lTargetPos,1,0);
+        // set_retn(retn,CONTILINEUNIT);
+        // retn=ConttiStartList(0);
+        // set_retn(retn,CONTISTARTLIST);
+        break;
+    };
+}
+void Mh::MhIndustrialSCARA::set_retn(int r,int KERNEL_TYPE){
+    std::lock_guard<std::mutex> lock(RobotConChargeDataMutex.retn_mutex);
+    switch (KERNEL_TYPE)
+    {
+    case OPENDEVICE:
+        if(r!=0){std::cout<<"打开设备失败,并即将退出程序！"<<std::endl;exit(1);}
+        break;
+    case OPENMCKERNEL:
+        if(r!=0){std::cout<<"初始化内核失败！"<<std::endl;}
+        break;
+    case SETAXISSOFTLIMIT:
+        if(r!=0){std::cout<<"设置软限位失败！"<<std::endl;}
+        break;
+    case ENABLESOFTLIMIT:
+        if(r!=0){std::cout<<"使能软限位失败！"<<std::endl;}
+        break;
+    case SETAXISPOSITONMODE:
+        if(r!=0){std::cout<<"设置轴的位移模式失败"<<std::endl;}
+        break;
+    case SETAXISVEL:
+        if(r!=0){std::cout<<"设置轴的速度失败！"<<std::endl;}
+        break;
+    case SETAXISACC:
+        if(r!=0){std::cout<<"设置轴的加速度失败！"<<std::endl;}
+        break;
+    case SETAXISJERK:
+        if(r!=0){std::cout<<"设置轴的加加速度失败！"<<std::endl;}
+        break;
+    case SETINTERPOLATIONVEL:
+        if(r!=0){std::cout<<"设置插补速度失败！"<<std::endl;}
+        break;  
+    case SETINTERPOLATIONACC:
+        if(r!=0){std::cout<<"设置插补加速度失败！"<<std::endl;}
+        break;
+    case SETINTERPOLATIONJERK:
+        if(r!=0){std::cout<<"设置插补加加速度失败！"<<std::endl;}
+        break;
+    case SETVELCOMMAND:
+        if(r!=0){std::cout<<"发送速度失败！"<<std::endl;}
+        break;
+    case GETDRIVERSTATE:
+        if(r!=0){std::cout<<"获取从站状态失败！"<<std::endl;}
+        break;
+    case GETAXISPOSITION:
+        if(r!=0){std::cout<<"获取轴的逻辑位置失败!"<<std::endl;}
+        break;
+    case GETDRIVERPOS:
+        if(r!=0){std::cout<<"获取从站位置失败！"<<std::endl;}
+        break;
+    case CONTIOPENLIST:
+        if(r!=0){std::cout<<"打开插补缓冲区去失败!"<<std::endl;}
+        break;
+    case CONTISETLOOKHEADMODE:
+        if(r!=0){std::cout<<"设置速度前瞻失败!"<<std::endl;}
+        break;
+    case CONTILINEUNIT:
+        if(r!=0){std::cout<<"直线插补指令调用！"<<std::endl;}
+        break;
+    case CONTISTARTLIST:
+        if(r!=0){std::cout<<"开启连续插补失败！"<<std::endl;}
+        break;
+    case POSITIONDRIVE:
+        if(r!=0){std::cout<<"单轴定长运动指令调用失败！"<<std::endl;}
+        break;
+    case SETAXISCOMMANDMODE:
+        if(r!=0){std::cout<<"设置轴得控制模式失败!"<<std::endl;}
+        break;
+    case CONTISTOPLIST:
+        if(r!=0){std::cout<<"停止插补运动失败！"<<std::endl;}
+        break;
+    case STOPALLAXIS:
+        if(r!=0){std::cout<<"停止所有轴运动失败！"<<std::endl;}
+    }
+    ConChargeData.retn=r;
+}
+
+
