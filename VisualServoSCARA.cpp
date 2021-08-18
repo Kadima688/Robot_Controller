@@ -30,7 +30,6 @@ void VisualServoSCARA(void *scara){
   bool opt_task_sequencing=false;//0-速度不连续 1-速度连续
   bool opt_verbose=false;//0-未收敛 1-收敛
   double convergence_threshold_t=0,convergence_threshold_tu=0;
-
   bool hasServo=0;
 #ifdef USE_REALSENSE
   std::cout<<"use realsense"<<std::endl;
