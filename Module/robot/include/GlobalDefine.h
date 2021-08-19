@@ -26,6 +26,7 @@ typedef enum{
     CONTISTOPLIST,
     CONTICLOSELIST,
     STOPALLAXIS,
+    CLOSEDEVICE,
 }MotionKernelType;
 typedef enum{
     PTP,

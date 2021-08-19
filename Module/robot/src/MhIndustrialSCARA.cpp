@@ -737,6 +737,10 @@ void Mh::MhIndustrialSCARA::set_retn(int r,int KERNEL_TYPE){
         break;
     case STOPALLAXIS:
         if(r!=0){std::cout<<"停止所有轴运动失败！"<<std::endl;}
+        break;
+    case CLOSEDEVICE:
+        if(r!=0){std::cout<<"关闭设备失败！"<<std::endl;}
+        break;
     }
     ConChargeData.retn=r;
 }

@@ -5,8 +5,7 @@
 #include"os.h"
 #include"GlobalDefine.h"
 
-void GetRobotState(void *scara){
-    Mh::MhIndustrialSCARA* RobotSCARA=static_cast<Mh::MhIndustrialSCARA*>(scara);
+void GetRobotState(Mh::MhIndustrialSCARA* RobotSCARA){
     //记录axispos和cartpos
     // RobotSCARA->MhRobotText.AxisPos_SCARA_out.open("AxisPos_scara.txt");
     // RobotSCARA->MhRobotText.CartPos_out.open("Cartpos.txt");

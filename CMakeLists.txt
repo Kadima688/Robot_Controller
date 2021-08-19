@@ -22,6 +22,28 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")
 endif()
 #----------------找到visp对应的模块
 find_package(VISP REQUIRED visp_robot visp_vision visp_io visp_gui visp_vs visp_visual_features visp_detection)
+#----------------找到grpc对应的模块
+set(protobuf_MODULE_COMPATIBLE TRUE)
+find_package(Protobuf CONFIG REQUIRED)
+message(STATUS "Using protobuf ${protobuf_VERSION}")
+set(_PROTOBUF_LIBPROTOBUF protobuf::libprotobuf)
+set(_REFLECTION gRPC::grpc++_reflection)
+if(CMAKE_CROSSCOMPILING)
+ find_program(_PROTOBUF_PROTOC protoc)
+else()
+ set(_PROTOBUF_PROTOC $<TARGET_FILE:protobuf::protoc>)
+endif()
+#Find gRPC installation
+#Looks for gRPCConfig.cmake file installed by gRPC's cmake installation.
+find_package(gRPC CONFIG REQUIRED)
+message(STATUS "Using gRPC ${gRPC_VERSION}")
+
+set(_GRPC_GRPCPP gRPC::grpc++)
+if(CMAKE_CROSSCOMPILING)
+ find_program(_GRPC_CPP_PLUGIN_EXECUTABLE grpc_cpp_plugin)
+else()
+ set(_GRPC_CPP_PLUGIN_EXECUTABLE $<TARGET_FILE:gRPC::grpc_cpp_plugin>)
+endif()
 #---------------找到对应的头文件
 include_directories(${PROJECT_SOURCE_DIR}/Module/core/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/robot/include)
@@ -35,7 +57,10 @@ aux_source_directory(${PROJECT_SOURCE_DIR}/test test_files)
 add_executable(controller ${sourceList} ${robot_c_files} ${core_c_files} ${kernal_c_files} ${test_files})#添加可执行文件
 #--------------将程序连接一些库
 set (EXTRA_LIBS ${VISP_LIBRARIES})
-target_link_libraries(controller -lpthread -lapi ${EXTRA_LIBS})
+target_link_libraries(controller -lpthread -lapi ${EXTRA_LIBS} 
+${_REFLECTION}
+${_GRPC_GRPCPP}
+${_PROTOBUF_LIBPROTOBUF})
 #要用Realsense要添加这段代码
 if(VISP_HAVE_REALSENSE2)
   if(UNIX)

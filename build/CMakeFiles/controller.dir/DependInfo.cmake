@@ -5,7 +5,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/mingh/robot-controller/ControlThread.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/ControlThread.cpp.o"
+  "/home/mingh/robot-controller/DataTransferThread.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/DataTransferThread.cpp.o"
   "/home/mingh/robot-controller/GetRobotState.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/GetRobotState.cpp.o"
+  "/home/mingh/robot-controller/Module/core/src/DemConDataTransfer.grpc.pb.cc" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.grpc.pb.cc.o"
+  "/home/mingh/robot-controller/Module/core/src/DemConDataTransfer.pb.cc" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.pb.cc.o"
+  "/home/mingh/robot-controller/Module/core/src/MhgRPCServer.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/core/src/MhgRPCServer.cpp.o"
   "/home/mingh/robot-controller/Module/core/src/ThreadManage.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.o"
   "/home/mingh/robot-controller/Module/kernal/src/MhMotionKernel.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.o"
   "/home/mingh/robot-controller/Module/robot/src/MhConfig.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.o"
@@ -26,6 +30,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
+  "CARES_STATICLIB"
   "LINUX"
   )
 
@@ -38,7 +43,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include/eigen3"
   "/usr/include/libxml2"
   "/usr/include/libusb-1.0"
-  "/usr/local/include"
+  "/include"
   )
 
 # Targets to which this target links.

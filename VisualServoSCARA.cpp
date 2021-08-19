@@ -22,8 +22,7 @@
 void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSize,bool adaptive_gain,bool opt_plot,bool opt_task_sequencing,bool opt_verbose,
                           double convergence_threshold_t,double convergence_threshold_tu);
 
-void VisualServoSCARA(void *scara){
-  Mh::MhIndustrialSCARA* RobotSCARA=static_cast<Mh::MhIndustrialSCARA*>(scara);
+void VisualServoSCARA(Mh::MhIndustrialSCARA* RobotSCARA){
   double opt_tagSzie=0.096;//二维码的尺寸大小
   bool adaptive_gain=false;//0-固定增益 1-自适应增益
   bool opt_plot=true;//是否绘制变换曲线

@@ -186,7 +186,7 @@ struct MhRobotConfigData{
 struct MhDem2ControlData
 {
     int emergeStop=0;//机器人是否急停，0-未急停 1-急停
-    int enableState=1; //机器人使能状态，0：未使能，1：使能
+    int enableState=0; //机器人使能状态，0：未使能，1：使能
     int operateMode; //机器人操作模式，0：手动，1：自动
     int activeState; //程序的激活状态，0：未激活，1：激活
     int runState; //程序的运行状态，0：暂停，1：运行中

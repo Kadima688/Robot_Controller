@@ -9,6 +9,7 @@
 #include"MhMotionKernel.h"
 #include"GlobalDefine.h"
 #include"RobotDataText.h"
+
 namespace Mh{
 class MhIndustrialSCARA:public MhIndustrialRobot,public MhMotionkernel
 {

@@ -1,0 +1,27 @@
+syntax = "proto3";
+package ExternalDataTransfer;
+
+
+//定义服务
+service RPCDemConData{
+    rpc SetEnableState(Pt_EnableState) returns(Pt_DataResult){}
+    rpc GetAXISPOSSCARA(Pt_DataVoid)   returns(Pt_AXISPOS_SCARA){}
+}
+
+
+//定义message
+message Pt_DataVoid{
+
+}
+message Pt_DataResult{
+    int32 result=1;
+}
+message Pt_EnableState{
+    int32 enablestate=1;
+}
+message Pt_AXISPOS_SCARA{
+    double a1=1;
+    double a2=2;
+    double a3=3;
+    double a4=4;
+}

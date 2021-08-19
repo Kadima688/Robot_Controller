@@ -1,8 +1,7 @@
 #include<iostream>
 #include"MhIndustrialSCARA.h"
 
-void Controlthread(void *scara){
-    Mh::MhIndustrialSCARA* RobotSCARA=static_cast<Mh::MhIndustrialSCARA*>(scara);
+void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
     int retn;//函数返回值
     int hasEnable=0;//判断是否已经上电
     bool first_PTP=0;
@@ -46,11 +45,17 @@ void Controlthread(void *scara){
                     //开启插补缓冲区、设置速度前瞻
                     // RobotSCARA->RobotOpenConti();
                     //开始具体的运动
-                    RobotSCARA->FollowPathMove(record,Mh::PTP);//目前采用单轴定长运动的方式让机器人达到视觉伺服开始之前期望的位置
+                    // RobotSCARA->FollowPathMove(record,Mh::PTP);//目前采用单轴定长运动的方式让机器人达到视觉伺服开始之前期望的位置
                     first_PTP=1;
                 }
             }
             else{
+                if(hasEnable==1){
+                    RobotSCARA->RobotCloseConti();
+                    int retn=RobotSCARA->CloseDevice();
+                    RobotSCARA->set_retn(retn,Mh::CLOSEDEVICE);
+                    hasEnable=0;
+                }
                 //伺服下电状态下的操作
                 /*
                 1、退出连续插补

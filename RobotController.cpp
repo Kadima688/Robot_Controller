@@ -1,25 +1,42 @@
 #include<iostream>
 #include"MhIndustrialSCARA.h"
 #include"ThreadManage.h"
-void Controlthread(void *scara);
-void GetRobotState(void *scara);
-void VisualServoSCARA(void *scara);
+void DataTransfer(Mh::MhIndustrialSCARA* RobotSCARA);
+void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA);
+void GetRobotState(Mh::MhIndustrialSCARA* RobotSCARA);
+void VisualServoSCARA(Mh::MhIndustrialSCARA* RobotSCARA);
 #include<eigen3/Eigen/Core>
 #include<string>
+#include<thread>
+#include"MhgRPCServer.h"
+
+void Serverrun(Mh::MhIndustrialSCARA* scara){
+    std::string server_address("0.0.0.0:50051");
+    Mh::MhgRPCServer service(scara);
+    grpc::EnableDefaultHealthCheckService(true);
+    grpc::reflection::InitProtoReflectionServerBuilderPlugin();
+    ServerBuilder builder;
+    builder.AddListeningPort(server_address,grpc::InsecureServerCredentials());
+    builder.RegisterService(&service);
+    std::unique_ptr<Server> server(builder.BuildAndStart());
+    std::cout<<"Server listening on "<<server_address<<std::endl;
+    server->Wait();
+}
 
 int main(int argc, char **argv){
-    //---------------thread
     Mh::MhIndustrialSCARA RobotSCARA;
     if(!RobotSCARA.loadRobotConfigFile("RobotConfig_CoolDrive.xml")){
         return 0;
     }  
     RobotSCARA.set_dh_table();
-    m_Thread ControlThread(Controlthread,0,&RobotSCARA,"ControlThread");
-    m_Thread RobotStateThread(GetRobotState,0,&RobotSCARA,"GetRobotStateThread");
-    m_Thread VisualServoThread(VisualServoSCARA,0,&RobotSCARA,"VisualServoThread");
-    ControlThread.Start();
-    RobotStateThread.Start();
-    VisualServoThread.Start(); 
+    std::thread DataTransferThread(Serverrun,&RobotSCARA);
+    std::thread ControlThread(Controlthread,&RobotSCARA);
+    // std::thread RobotStateThread(GetRobotState,&RobotSCARA);
+    // std::thread VisualServoThread(VisualServoSCARA,&RobotSCARA);
+    ControlThread.join();
+    DataTransferThread.join();
+    // RobotStateThread.join();
+    // VisualServoThread.join(); 
     return 0;
 
     //添加linux平台相关的代码
