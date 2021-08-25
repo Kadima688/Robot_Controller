@@ -13,5 +13,4 @@ public:
     std::ofstream Error_out;
 };
 }
-
 #endif
