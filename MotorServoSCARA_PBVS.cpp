@@ -15,22 +15,34 @@
 #include <visp3/vs/vpServoDisplay.h>
 #include <visp3/gui/vpPlot.h>
 #include<visp3/core/vpEigenConversion.h>
+#include<thread>
 
 void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,bool adaptive_gain,bool opt_plot,bool opt_task_sequencing,bool opt_verbose,
-                          double convergence_threshold_t,double convergence_threshold_tu){
-    RobotSCARA->ConChargeData.startServo=1;
+                          double convergence_threshold_t,double convergence_threshold_tu){ 
+    #ifndef USE_KERNEL
+    //设置当前的轴关节位置和空间位置
+        RobotSCARA->Con2DemData.axisPos_scara.a1=-39.9150;
+        RobotSCARA->Con2DemData.axisPos_scara.a2=84.2464;
+        RobotSCARA->Con2DemData.axisPos_scara.d=54.75512;
+        RobotSCARA->Con2DemData.axisPos_scara.a4=161.4467;
+        std::vector<double> cartesian;
+        std::vector<double> scara_input={RobotSCARA->Con2DemData.axisPos_scara.a1,RobotSCARA->Con2DemData.axisPos_scara.a2,RobotSCARA->Con2DemData.axisPos_scara.d,RobotSCARA->Con2DemData.axisPos_scara.a4};        
+        if(RobotSCARA->forwardkinematics(scara_input,cartesian)){
+            RobotSCARA->Con2DemData.cartPos=cartesian;
+        }
+    #endif
     //1、设置相机外参信息
     vpHomogeneousMatrix eMc;
-    eMc[0][0] = 1; eMc[0][1] = 0; eMc[0][2] = 0; eMc[0][3] = 0;
-	eMc[1][0] = 0; eMc[1][1] = 1; eMc[1][2] = 0; eMc[1][3] = 0;
-	eMc[2][0] = 0; eMc[2][1] = 0; eMc[2][2] = 1; eMc[2][3] = 0;
+    eMc[0][0] = 0.866; eMc[0][1] = -0.5; eMc[0][2] = 0; eMc[0][3] = 0.02488820463;
+	eMc[1][0] = 0.5; eMc[1][1] = 0.866; eMc[1][2] = 0; eMc[1][3] = -0.0364688832;
+	eMc[2][0] = 0; eMc[2][1] = 0; eMc[2][2] = 1; eMc[2][3] = 0.001;
 	eMc[3][0] = 0; eMc[3][1] = 0; eMc[3][2] = 0; eMc[3][3] = 1;
     Eigen::MatrixXd eTc;
     vp::visp2eigen(eMc,eTc);eTc(0,3)*=1000;eTc(1,3)*=1000;eTc(2,3)*=1000;
     //2、定义cdMc、fMo初始化相机和目标物体的位置信息
     vpHomogeneousMatrix cdMc,oMo,cMo;
     vpHomogeneousMatrix cdMo(vpTranslationVector(0,0,opt_tagSzie*3),vpRotationMatrix({1,0,0,0,-1,0,0,0,-1}));
-    vpHomogeneousMatrix fMo(vpTranslationVector(0.487,0.041,-0.25),vpThetaUVector(vpRzyzVector(0,0,M_PI/3)));
+    vpHomogeneousMatrix fMo(vpTranslationVector(0.487,0.041,-0.25),vpThetaUVector(vpRzyzVector(0,0,0)));
     cdMc=cdMo*cMo.inverse();
     //3、根据上述的位置信息开始创建误差特征-----这一步我们是选择空间位姿误作为伺服特征。在这里可以选择其他信息作为特征，如图像的点、线、甚至是深度信息。
     vpFeatureTranslation t(vpFeatureTranslation::cdMc);vpFeatureThetaU tu(vpFeatureThetaU::cdRc);
@@ -80,9 +92,8 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
 
     RobotSCARA->set_eMc(eMc);//设置机器人的外参矩阵
     RobotSCARA->setRobotState(Mh::MhIndustrialRobot::STATE_VELOCITY_CONTROL);//设置为速度控制模式
-
     while(!has_converge &&!final_quit){
-        double t_start=vpTime::measureTimeMs();
+        double t_start=vpTime::measureTimeMicros();
         //7、开始更新cMo=eMc.inverse()*fMe.inverse()*fMo;---模拟detect函数的作用
         vpHomogeneousMatrix fMe;
         std::vector<double> catesian;catesian.clear();
@@ -151,7 +162,9 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
             v_c=0;
         }    
         //13、开始将速度发送给内核
-        RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
+        std::thread SetVelocityThread(&Mh::MhIndustrialSCARA::setVelocity,RobotSCARA,Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
+        SetVelocityThread.detach();
+        // RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         //14、处理鼠标事件
         vpMouseButton::vpMouseButtonType button;
         if(opt_plot){
@@ -170,9 +183,22 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
             }
             }   
         }
+        #ifdef VISP_HAVE_DISPLAY
+        //位姿误差也写在图上
+        if(opt_plot){
+            std::stringstream ss;
+            ss.str("");
+            ss<<"error_t:"<<error_tr;
+            vpDisplay::displayText(plotter->I,20,20,ss.str(),vpColor::red);
+            ss.str("");
+            ss<<"error_tu:"<<error_tu;
+            vpDisplay::displayText(plotter->I,40,20,ss.str(),vpColor::red);
+            vpDisplay::flush(plotter->I);
+        }
+        #endif
     }
     std::cout<<"Stop the robot"<<std::endl;
-    RobotSCARA->setRobotState(Mh::MhIndustrialRobot::STATE_STOP);
+    RobotSCARA->setRobotState(Mh::MhIndustrialRobot::STATE_STOP); 
     //删除图像
     if(opt_plot && plotter!=nullptr){
         delete plotter;
@@ -194,4 +220,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         plotter=nullptr;
         }
     }
+    //配合control thread处理相应的控制变量
+    RobotSCARA->ConChargeData.startServo=0;//视觉伺服结束
+    RobotSCARA->ConChargeData.endServo=0;
 }

@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/controller.dir/ControlThread.cpp.o"
-  "CMakeFiles/controller.dir/DataTransferThread.cpp.o"
   "CMakeFiles/controller.dir/GetRobotState.cpp.o"
   "CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.grpc.pb.cc.o"
   "CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.pb.cc.o"

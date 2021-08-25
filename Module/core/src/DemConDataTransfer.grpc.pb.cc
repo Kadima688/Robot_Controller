@@ -23,6 +23,14 @@ namespace ExternalDataTransfer {
 
 static const char* RPCDemConData_method_names[] = {
   "/ExternalDataTransfer.RPCDemConData/SetEnableState",
+  "/ExternalDataTransfer.RPCDemConData/SetStartServo",
+  "/ExternalDataTransfer.RPCDemConData/SendVisualServoData_ServoType",
+  "/ExternalDataTransfer.RPCDemConData/SendVisualServoData_TargetPos_XYZ",
+  "/ExternalDataTransfer.RPCDemConData/SendVisualServoData_TargetPos_ABC",
+  "/ExternalDataTransfer.RPCDemConData/SendVisualServoData_Error_XYZ",
+  "/ExternalDataTransfer.RPCDemConData/SendVisualServoData_Error_ABC",
+  "/ExternalDataTransfer.RPCDemConData/SendVisualServoData_Error_IMAGE",
+  "/ExternalDataTransfer.RPCDemConData/SendVisualServoData_EndServo",
   "/ExternalDataTransfer.RPCDemConData/GetAXISPOSSCARA",
 };
 
@@ -34,7 +42,15 @@ std::unique_ptr< RPCDemConData::Stub> RPCDemConData::NewStub(const std::shared_p
 
 RPCDemConData::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_SetEnableState_(RPCDemConData_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetAXISPOSSCARA_(RPCDemConData_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetStartServo_(RPCDemConData_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendVisualServoData_ServoType_(RPCDemConData_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendVisualServoData_TargetPos_XYZ_(RPCDemConData_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendVisualServoData_TargetPos_ABC_(RPCDemConData_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendVisualServoData_Error_XYZ_(RPCDemConData_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendVisualServoData_Error_ABC_(RPCDemConData_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendVisualServoData_Error_IMAGE_(RPCDemConData_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendVisualServoData_EndServo_(RPCDemConData_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetAXISPOSSCARA_(RPCDemConData_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RPCDemConData::Stub::SetEnableState(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState& request, ::ExternalDataTransfer::Pt_DataResult* response) {
@@ -56,6 +72,190 @@ void RPCDemConData::Stub::experimental_async::SetEnableState(::grpc::ClientConte
 ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::AsyncSetEnableStateRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncSetEnableStateRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RPCDemConData::Stub::SetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_StartServo, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetStartServo_, context, request, response);
+}
+
+void RPCDemConData::Stub::experimental_async::SetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ExternalDataTransfer::Pt_StartServo, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetStartServo_, context, request, response, std::move(f));
+}
+
+void RPCDemConData::Stub::experimental_async::SetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetStartServo_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::PrepareAsyncSetStartServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ExternalDataTransfer::Pt_DataResult, ::ExternalDataTransfer::Pt_StartServo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetStartServo_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::AsyncSetStartServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSetStartServoRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RPCDemConData::Stub::SendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendVisualServoData_ServoType_, context, request, response);
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_ServoType_, context, request, response, std::move(f));
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_ServoType_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::PrepareAsyncSendVisualServoData_ServoTypeRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ExternalDataTransfer::Pt_DataResult, ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SendVisualServoData_ServoType_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::AsyncSendVisualServoData_ServoTypeRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSendVisualServoData_ServoTypeRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RPCDemConData::Stub::SendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendVisualServoData_TargetPos_XYZ_, context, request, response);
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_TargetPos_XYZ_, context, request, response, std::move(f));
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_TargetPos_XYZ_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::PrepareAsyncSendVisualServoData_TargetPos_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ExternalDataTransfer::Pt_DataResult, ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SendVisualServoData_TargetPos_XYZ_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::AsyncSendVisualServoData_TargetPos_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSendVisualServoData_TargetPos_XYZRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RPCDemConData::Stub::SendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendVisualServoData_TargetPos_ABC_, context, request, response);
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_TargetPos_ABC_, context, request, response, std::move(f));
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_TargetPos_ABC_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::PrepareAsyncSendVisualServoData_TargetPos_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ExternalDataTransfer::Pt_DataResult, ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SendVisualServoData_TargetPos_ABC_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::AsyncSendVisualServoData_TargetPos_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSendVisualServoData_TargetPos_ABCRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RPCDemConData::Stub::SendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendVisualServoData_Error_XYZ_, context, request, response);
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_Error_XYZ_, context, request, response, std::move(f));
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_Error_XYZ_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::PrepareAsyncSendVisualServoData_Error_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ExternalDataTransfer::Pt_DataResult, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SendVisualServoData_Error_XYZ_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::AsyncSendVisualServoData_Error_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSendVisualServoData_Error_XYZRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RPCDemConData::Stub::SendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendVisualServoData_Error_ABC_, context, request, response);
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_Error_ABC_, context, request, response, std::move(f));
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_Error_ABC_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::PrepareAsyncSendVisualServoData_Error_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ExternalDataTransfer::Pt_DataResult, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SendVisualServoData_Error_ABC_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::AsyncSendVisualServoData_Error_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSendVisualServoData_Error_ABCRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RPCDemConData::Stub::SendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendVisualServoData_Error_IMAGE_, context, request, response);
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_Error_IMAGE_, context, request, response, std::move(f));
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_Error_IMAGE_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::PrepareAsyncSendVisualServoData_Error_IMAGERaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ExternalDataTransfer::Pt_DataResult, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SendVisualServoData_Error_IMAGE_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::AsyncSendVisualServoData_Error_IMAGERaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSendVisualServoData_Error_IMAGERaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RPCDemConData::Stub::SendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendVisualServoData_EndServo_, context, request, response);
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_EndServo_, context, request, response, std::move(f));
+}
+
+void RPCDemConData::Stub::experimental_async::SendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendVisualServoData_EndServo_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::PrepareAsyncSendVisualServoData_EndServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ExternalDataTransfer::Pt_DataResult, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SendVisualServoData_EndServo_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::AsyncSendVisualServoData_EndServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSendVisualServoData_EndServoRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -97,6 +297,86 @@ RPCDemConData::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RPCDemConData_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_StartServo, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RPCDemConData::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ExternalDataTransfer::Pt_StartServo* req,
+             ::ExternalDataTransfer::Pt_DataResult* resp) {
+               return service->SetStartServo(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RPCDemConData_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RPCDemConData::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* req,
+             ::ExternalDataTransfer::Pt_DataResult* resp) {
+               return service->SendVisualServoData_ServoType(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RPCDemConData_method_names[3],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RPCDemConData::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* req,
+             ::ExternalDataTransfer::Pt_DataResult* resp) {
+               return service->SendVisualServoData_TargetPos_XYZ(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RPCDemConData_method_names[4],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RPCDemConData::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* req,
+             ::ExternalDataTransfer::Pt_DataResult* resp) {
+               return service->SendVisualServoData_TargetPos_ABC(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RPCDemConData_method_names[5],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RPCDemConData::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* req,
+             ::ExternalDataTransfer::Pt_DataResult* resp) {
+               return service->SendVisualServoData_Error_XYZ(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RPCDemConData_method_names[6],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RPCDemConData::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* req,
+             ::ExternalDataTransfer::Pt_DataResult* resp) {
+               return service->SendVisualServoData_Error_ABC(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RPCDemConData_method_names[7],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RPCDemConData::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* req,
+             ::ExternalDataTransfer::Pt_DataResult* resp) {
+               return service->SendVisualServoData_Error_IMAGE(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RPCDemConData_method_names[8],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RPCDemConData::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* req,
+             ::ExternalDataTransfer::Pt_DataResult* resp) {
+               return service->SendVisualServoData_EndServo(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RPCDemConData_method_names[9],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_DataVoid, ::ExternalDataTransfer::Pt_AXISPOS_SCARA, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RPCDemConData::Service* service,
              ::grpc::ServerContext* ctx,
@@ -110,6 +390,62 @@ RPCDemConData::Service::~Service() {
 }
 
 ::grpc::Status RPCDemConData::Service::SetEnableState(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_EnableState* request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RPCDemConData::Service::SetStartServo(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_StartServo* request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RPCDemConData::Service::SendVisualServoData_ServoType(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RPCDemConData::Service::SendVisualServoData_TargetPos_XYZ(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RPCDemConData::Service::SendVisualServoData_TargetPos_ABC(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RPCDemConData::Service::SendVisualServoData_Error_XYZ(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RPCDemConData::Service::SendVisualServoData_Error_ABC(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RPCDemConData::Service::SendVisualServoData_Error_IMAGE(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RPCDemConData::Service::SendVisualServoData_EndServo(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response) {
   (void) context;
   (void) request;
   (void) response;

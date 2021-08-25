@@ -6,7 +6,8 @@
 #include"GlobalDefine.h"
 
 void GetRobotState(Mh::MhIndustrialSCARA* RobotSCARA){
-    //记录axispos和cartpos
+    #ifdef USE_KERNEL
+        //记录axispos和cartpos
     // RobotSCARA->MhRobotText.AxisPos_SCARA_out.open("AxisPos_scara.txt");
     // RobotSCARA->MhRobotText.CartPos_out.open("Cartpos.txt");
     int retn;//函数的返回值
@@ -69,5 +70,16 @@ void GetRobotState(Mh::MhIndustrialSCARA* RobotSCARA){
             }   
         }
     }
-    
+    #else 
+    //设置当前的轴关节位置和空间位置
+        RobotSCARA->Con2DemData.axisPos_scara.a1=-39.9150;
+        RobotSCARA->Con2DemData.axisPos_scara.a2=84.2464;
+        RobotSCARA->Con2DemData.axisPos_scara.d=54.75512;
+        RobotSCARA->Con2DemData.axisPos_scara.a4=161.4467;
+        std::vector<double> cartesian;
+        std::vector<double> scara_input={RobotSCARA->Con2DemData.axisPos_scara.a1,RobotSCARA->Con2DemData.axisPos_scara.a2,RobotSCARA->Con2DemData.axisPos_scara.d,RobotSCARA->Con2DemData.axisPos_scara.a4};        
+        if(RobotSCARA->forwardkinematics(scara_input,cartesian)){
+            RobotSCARA->Con2DemData.cartPos=cartesian;
+        }
+    #endif
 }

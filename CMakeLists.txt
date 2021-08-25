@@ -6,14 +6,14 @@ SET(CMAKE_BUILD_TYPE "Debug")
 SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -W -g2 -ggdb") #-w:关闭编译时的警告 -Wall:显示所有警告 -W:只显示编译器认为会出现错误的警告
 SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -W") 
 #----------------添加自定义的宏定义
-OPTION(DEFINE_USE_REALSENSE "REALSENSE Option Description" ON)# cmake .. -DDEFINE_USE_REALSENSE=true 默认使用使用realsense的代码
+OPTION(DEFINE_USE_REALSENSE "REALSENSE Option Description" ON)# cmake .. -DDEFINE_USE_REALSENSE=true 默认使用realsense的代码
 if(DEFINE_USE_REALSENSE)
   ADD_DEFINITIONS(-DUSE_REALSENSE)
 endif(DEFINE_USE_REALSENSE)
-# OPTION(DEFINE_USE_KERNEL "KERNEL Option Description" ON)
-# if(DEFINE_USE_KERNEL)
-#   ADD_DEFINITIONS(-DUSE_KERNEL)
-# endif(DEFINE_USE_KERNEL)
+OPTION(DEFINE_USE_KERNEL "KERNEL Option Description" ON)#cmake .. -DDEFINE_USE_KERNEL=true  默认使用内核
+if(DEFINE_USE_KERNEL)
+  ADD_DEFINITIONS(-DUSE_KERNEL)
+endif(DEFINE_USE_KERNEL)
 #根据不同的系统添加不同的宏
 if(CMAKE_SYSTEM_NAME MATCHES "Linux")
   ADD_DEFINITIONS(-DLINUX)
@@ -37,7 +37,6 @@ endif()
 #Looks for gRPCConfig.cmake file installed by gRPC's cmake installation.
 find_package(gRPC CONFIG REQUIRED)
 message(STATUS "Using gRPC ${gRPC_VERSION}")
-
 set(_GRPC_GRPCPP gRPC::grpc++)
 if(CMAKE_CROSSCOMPILING)
  find_program(_GRPC_CPP_PLUGIN_EXECUTABLE grpc_cpp_plugin)

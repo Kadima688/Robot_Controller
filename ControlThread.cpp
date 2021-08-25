@@ -1,5 +1,7 @@
 #include<iostream>
 #include"MhIndustrialSCARA.h"
+#include<thread>
+#include"VisualServo.h"
 
 void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
     int retn;//函数返回值
@@ -22,11 +24,16 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                         for(int i=0;i<RobotSCARA->get_nDof();++i){
                             retn=RobotSCARA->GetDriverState(i,&value[i]);
                             RobotSCARA->set_retn(retn,Mh::GETDRIVERSTATE);
-                            if(value[i]==8){
-                                n++;
-                            }
+                            #ifdef USE_KERNEL
+                                if(value[i]==8){
+                                    n++;
+                                }
+                            #else 
+                                n=3;
+                            #endif
                         }
                         if(n==3){
+                            std::cout<<"伺服上电"<<std::endl;
                             enable=true;RobotSCARA->ConChargeData.isEnable=1;
                             RobotSCARA->RobotMotorInitial();
                             RobotSCARA->RobotDynInitial();
@@ -48,9 +55,18 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                     // RobotSCARA->FollowPathMove(record,Mh::PTP);//目前采用单轴定长运动的方式让机器人达到视觉伺服开始之前期望的位置
                     first_PTP=1;
                 }
+                //视觉伺服
+                if(RobotSCARA->ConChargeData.startServo==1){
+                    if(RobotSCARA->ConChargeData.endServo==0){
+                        std::thread VisualServoThread(VisualServoSCARA,RobotSCARA);
+                        VisualServoThread.detach();
+                        RobotSCARA->ConChargeData.endServo=1;
+                    }
+                }
             }
             else{
                 if(hasEnable==1){
+                    std::cout<<"伺服下电"<<std::endl;
                     RobotSCARA->RobotCloseConti();
                     int retn=RobotSCARA->CloseDevice();
                     RobotSCARA->set_retn(retn,Mh::CLOSEDEVICE);

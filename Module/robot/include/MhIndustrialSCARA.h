@@ -42,6 +42,9 @@ public:
     bool setVelocity(const MhIndustrialRobot::MhControlFrameType frame,const vpColVector& vel);
     void setCartVelocity(const MhIndustrialRobot::MhControlFrameType frame,const vpColVector &vel);
     void setJointVelocity(const vpColVector &qdot);
+    #ifndef USE_KERNEL
+        void setJointVelocity_virtual(const vpColVector &qdot);
+    #endif
     //----------------others
     vpMatrix get_velocityMatrix(const MhIndustrialRobot::MhControlFrameType frame,bool fixed);//获取速度转换矩阵 fixed(0-相对移动坐标系 1-相对固定坐标系)
     void set_a4_Compensation(double Compensation){a4_Compensation=Compensation;};
@@ -56,9 +59,6 @@ private:
     double a4_Compensation;//第四个轴转动带来的补偿量
 protected:
     vpHomogeneousMatrix m_eMc;//相机外参矩阵
-
-
-
 //---------------------------------------------------------motor initial
 public:  
     void RobotMotorInitial();//设置轴的限位、轴的位移模式

@@ -4,7 +4,6 @@
 void DataTransfer(Mh::MhIndustrialSCARA* RobotSCARA);
 void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA);
 void GetRobotState(Mh::MhIndustrialSCARA* RobotSCARA);
-void VisualServoSCARA(Mh::MhIndustrialSCARA* RobotSCARA);
 #include<eigen3/Eigen/Core>
 #include<string>
 #include<thread>
@@ -31,12 +30,10 @@ int main(int argc, char **argv){
     RobotSCARA.set_dh_table();
     std::thread DataTransferThread(Serverrun,&RobotSCARA);
     std::thread ControlThread(Controlthread,&RobotSCARA);
-    // std::thread RobotStateThread(GetRobotState,&RobotSCARA);
-    // std::thread VisualServoThread(VisualServoSCARA,&RobotSCARA);
-    ControlThread.join();
+    std::thread RobotStateThread(GetRobotState,&RobotSCARA);
     DataTransferThread.join();
-    // RobotStateThread.join();
-    // VisualServoThread.join(); 
+    ControlThread.join();
+    RobotStateThread.join();
     return 0;
 
     //添加linux平台相关的代码
@@ -84,5 +81,5 @@ int main(int argc, char **argv){
     //     scara.Con2DemData.axisPos_scara=scara_input;
     //     std::cout<<scara.Con2DemData.axisPos_scara.a1<<"    "<<scara.Con2DemData.axisPos_scara.a2<<"    "<<scara.Con2DemData.axisPos_scara.d<<"    "<<scara.Con2DemData.axisPos_scara.a4<<std::endl;
     // } 
-    return 0;
+    // return 0;
 }

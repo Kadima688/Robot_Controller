@@ -23,9 +23,9 @@ void Jacabian_test(){
         return ;
     }  
     vpHomogeneousMatrix eMc;
-    eMc[0][0] = 1; eMc[0][1] = 0; eMc[0][2] = 0; eMc[0][3] = 0;
-	eMc[1][0] = 0; eMc[1][1] = 1; eMc[1][2] = 0; eMc[1][3] = 0;
-	eMc[2][0] = 0; eMc[2][1] = 0; eMc[2][2] = 1; eMc[2][3] = 0/*-183.0593653*/;
+    eMc[0][0] = 0; eMc[0][1] = -1; eMc[0][2] = 0; eMc[0][3] = 0.02488820463;
+	eMc[1][0] = 1; eMc[1][1] = 0; eMc[1][2] = 0; eMc[1][3] = -0.0364688832;
+	eMc[2][0] = 0; eMc[2][1] = 0; eMc[2][2] = 1; eMc[2][3] = 0;
 	eMc[3][0] = 0; eMc[3][1] = 0; eMc[3][2] = 0; eMc[3][3] = 1;
     RobotSCARA.set_eMc(eMc);
     RobotSCARA.Con2DemData.axisPos_scara.a1=15;

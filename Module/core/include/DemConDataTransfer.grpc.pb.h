@@ -44,6 +44,62 @@ class RPCDemConData final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSetEnableState(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSetEnableStateRaw(context, request, cq));
     }
+    virtual ::grpc::Status SetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::ExternalDataTransfer::Pt_DataResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> AsyncSetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSetStartServoRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSetStartServoRaw(context, request, cq));
+    }
+    virtual ::grpc::Status SendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::ExternalDataTransfer::Pt_DataResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_ServoTypeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_ServoTypeRaw(context, request, cq));
+    }
+    virtual ::grpc::Status SendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::ExternalDataTransfer::Pt_DataResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_TargetPos_XYZRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_TargetPos_XYZRaw(context, request, cq));
+    }
+    virtual ::grpc::Status SendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::ExternalDataTransfer::Pt_DataResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_TargetPos_ABCRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_TargetPos_ABCRaw(context, request, cq));
+    }
+    virtual ::grpc::Status SendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::ExternalDataTransfer::Pt_DataResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_Error_XYZRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_Error_XYZRaw(context, request, cq));
+    }
+    virtual ::grpc::Status SendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::ExternalDataTransfer::Pt_DataResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_Error_ABCRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_Error_ABCRaw(context, request, cq));
+    }
+    virtual ::grpc::Status SendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::ExternalDataTransfer::Pt_DataResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_Error_IMAGERaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_Error_IMAGERaw(context, request, cq));
+    }
+    virtual ::grpc::Status SendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::ExternalDataTransfer::Pt_DataResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_EndServoRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_EndServoRaw(context, request, cq));
+    }
     virtual ::grpc::Status GetAXISPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>> AsyncGetAXISPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>>(AsyncGetAXISPOSSCARARaw(context, request, cq));
@@ -59,6 +115,54 @@ class RPCDemConData final {
       virtual void SetEnableState(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
       virtual void SetEnableState(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void SetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void SendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void SendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void SendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void SendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void SendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void SendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void SendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       virtual void GetAXISPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -77,6 +181,22 @@ class RPCDemConData final {
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* AsyncSetEnableStateRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSetEnableStateRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* AsyncSetStartServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSetStartServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_ServoTypeRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_ServoTypeRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_TargetPos_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_TargetPos_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_TargetPos_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_TargetPos_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_Error_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_Error_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_Error_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_Error_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_Error_IMAGERaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_Error_IMAGERaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_EndServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_EndServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>* AsyncGetAXISPOSSCARARaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>* PrepareAsyncGetAXISPOSSCARARaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -89,6 +209,62 @@ class RPCDemConData final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSetEnableState(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSetEnableStateRaw(context, request, cq));
+    }
+    ::grpc::Status SetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::ExternalDataTransfer::Pt_DataResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> AsyncSetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSetStartServoRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSetStartServoRaw(context, request, cq));
+    }
+    ::grpc::Status SendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::ExternalDataTransfer::Pt_DataResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_ServoTypeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_ServoTypeRaw(context, request, cq));
+    }
+    ::grpc::Status SendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::ExternalDataTransfer::Pt_DataResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_TargetPos_XYZRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_TargetPos_XYZRaw(context, request, cq));
+    }
+    ::grpc::Status SendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::ExternalDataTransfer::Pt_DataResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_TargetPos_ABCRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_TargetPos_ABCRaw(context, request, cq));
+    }
+    ::grpc::Status SendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::ExternalDataTransfer::Pt_DataResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_Error_XYZRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_Error_XYZRaw(context, request, cq));
+    }
+    ::grpc::Status SendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::ExternalDataTransfer::Pt_DataResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_Error_ABCRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_Error_ABCRaw(context, request, cq));
+    }
+    ::grpc::Status SendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::ExternalDataTransfer::Pt_DataResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_Error_IMAGERaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_Error_IMAGERaw(context, request, cq));
+    }
+    ::grpc::Status SendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::ExternalDataTransfer::Pt_DataResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendVisualServoData_EndServoRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendVisualServoData_EndServoRaw(context, request, cq));
     }
     ::grpc::Status GetAXISPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>> AsyncGetAXISPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) {
@@ -105,6 +281,54 @@ class RPCDemConData final {
       void SetEnableState(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
       void SetEnableState(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SetStartServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendVisualServoData_ServoType(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendVisualServoData_TargetPos_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendVisualServoData_TargetPos_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendVisualServoData_Error_XYZ(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendVisualServoData_Error_ABC(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendVisualServoData_Error_IMAGE(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendVisualServoData_EndServo(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void GetAXISPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -125,9 +349,33 @@ class RPCDemConData final {
     class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* AsyncSetEnableStateRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSetEnableStateRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* AsyncSetStartServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSetStartServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_StartServo& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_ServoTypeRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_ServoTypeRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_TargetPos_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_TargetPos_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_TargetPos_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_TargetPos_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_Error_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_Error_XYZRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_Error_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_Error_ABCRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_Error_IMAGERaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_Error_IMAGERaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendVisualServoData_EndServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_EndServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>* AsyncGetAXISPOSSCARARaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>* PrepareAsyncGetAXISPOSSCARARaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_SetEnableState_;
+    const ::grpc::internal::RpcMethod rpcmethod_SetStartServo_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendVisualServoData_ServoType_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendVisualServoData_TargetPos_XYZ_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendVisualServoData_TargetPos_ABC_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendVisualServoData_Error_XYZ_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendVisualServoData_Error_ABC_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendVisualServoData_Error_IMAGE_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendVisualServoData_EndServo_;
     const ::grpc::internal::RpcMethod rpcmethod_GetAXISPOSSCARA_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -137,6 +385,14 @@ class RPCDemConData final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status SetEnableState(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_EnableState* request, ::ExternalDataTransfer::Pt_DataResult* response);
+    virtual ::grpc::Status SetStartServo(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_StartServo* request, ::ExternalDataTransfer::Pt_DataResult* response);
+    virtual ::grpc::Status SendVisualServoData_ServoType(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::ExternalDataTransfer::Pt_DataResult* response);
+    virtual ::grpc::Status SendVisualServoData_TargetPos_XYZ(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response);
+    virtual ::grpc::Status SendVisualServoData_TargetPos_ABC(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response);
+    virtual ::grpc::Status SendVisualServoData_Error_XYZ(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response);
+    virtual ::grpc::Status SendVisualServoData_Error_ABC(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response);
+    virtual ::grpc::Status SendVisualServoData_Error_IMAGE(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response);
+    virtual ::grpc::Status SendVisualServoData_EndServo(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response);
     virtual ::grpc::Status GetAXISPOSSCARA(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response);
   };
   template <class BaseClass>
@@ -160,12 +416,172 @@ class RPCDemConData final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_SetStartServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SetStartServo() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_SetStartServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetStartServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_StartServo* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetStartServo(::grpc::ServerContext* context, ::ExternalDataTransfer::Pt_StartServo* request, ::grpc::ServerAsyncResponseWriter< ::ExternalDataTransfer::Pt_DataResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SendVisualServoData_ServoType : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SendVisualServoData_ServoType() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_SendVisualServoData_ServoType() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_ServoType(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_ServoType(::grpc::ServerContext* context, ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::grpc::ServerAsyncResponseWriter< ::ExternalDataTransfer::Pt_DataResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SendVisualServoData_TargetPos_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SendVisualServoData_TargetPos_XYZ() {
+      ::grpc::Service::MarkMethodAsync(3);
+    }
+    ~WithAsyncMethod_SendVisualServoData_TargetPos_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_TargetPos_XYZ(::grpc::ServerContext* context, ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::grpc::ServerAsyncResponseWriter< ::ExternalDataTransfer::Pt_DataResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SendVisualServoData_TargetPos_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SendVisualServoData_TargetPos_ABC() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_SendVisualServoData_TargetPos_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_TargetPos_ABC(::grpc::ServerContext* context, ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::grpc::ServerAsyncResponseWriter< ::ExternalDataTransfer::Pt_DataResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SendVisualServoData_Error_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SendVisualServoData_Error_XYZ() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_SendVisualServoData_Error_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_Error_XYZ(::grpc::ServerContext* context, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::grpc::ServerAsyncResponseWriter< ::ExternalDataTransfer::Pt_DataResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SendVisualServoData_Error_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SendVisualServoData_Error_ABC() {
+      ::grpc::Service::MarkMethodAsync(6);
+    }
+    ~WithAsyncMethod_SendVisualServoData_Error_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_Error_ABC(::grpc::ServerContext* context, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::grpc::ServerAsyncResponseWriter< ::ExternalDataTransfer::Pt_DataResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SendVisualServoData_Error_IMAGE : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SendVisualServoData_Error_IMAGE() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_SendVisualServoData_Error_IMAGE() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_IMAGE(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_Error_IMAGE(::grpc::ServerContext* context, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::grpc::ServerAsyncResponseWriter< ::ExternalDataTransfer::Pt_DataResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SendVisualServoData_EndServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SendVisualServoData_EndServo() {
+      ::grpc::Service::MarkMethodAsync(8);
+    }
+    ~WithAsyncMethod_SendVisualServoData_EndServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_EndServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_EndServo(::grpc::ServerContext* context, ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::grpc::ServerAsyncResponseWriter< ::ExternalDataTransfer::Pt_DataResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_GetAXISPOSSCARA : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetAXISPOSSCARA() {
-      ::grpc::Service::MarkMethodAsync(1);
+      ::grpc::Service::MarkMethodAsync(9);
     }
     ~WithAsyncMethod_GetAXISPOSSCARA() override {
       BaseClassMustBeDerivedFromService(this);
@@ -176,10 +592,10 @@ class RPCDemConData final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetAXISPOSSCARA(::grpc::ServerContext* context, ::ExternalDataTransfer::Pt_DataVoid* request, ::grpc::ServerAsyncResponseWriter< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_SetEnableState<WithAsyncMethod_GetAXISPOSSCARA<Service > > AsyncService;
+  typedef WithAsyncMethod_SetEnableState<WithAsyncMethod_SetStartServo<WithAsyncMethod_SendVisualServoData_ServoType<WithAsyncMethod_SendVisualServoData_TargetPos_XYZ<WithAsyncMethod_SendVisualServoData_TargetPos_ABC<WithAsyncMethod_SendVisualServoData_Error_XYZ<WithAsyncMethod_SendVisualServoData_Error_ABC<WithAsyncMethod_SendVisualServoData_Error_IMAGE<WithAsyncMethod_SendVisualServoData_EndServo<WithAsyncMethod_GetAXISPOSSCARA<Service > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SetEnableState : public BaseClass {
    private:
@@ -228,6 +644,382 @@ class RPCDemConData final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SetStartServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SetStartServo() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_StartServo, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ExternalDataTransfer::Pt_StartServo* request, ::ExternalDataTransfer::Pt_DataResult* response) { return this->SetStartServo(context, request, response); }));}
+    void SetMessageAllocatorFor_SetStartServo(
+        ::grpc::experimental::MessageAllocator< ::ExternalDataTransfer::Pt_StartServo, ::ExternalDataTransfer::Pt_DataResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_StartServo, ::ExternalDataTransfer::Pt_DataResult>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SetStartServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetStartServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_StartServo* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SetStartServo(
+      ::grpc::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_StartServo* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SetStartServo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_StartServo* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SendVisualServoData_ServoType : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SendVisualServoData_ServoType() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* request, ::ExternalDataTransfer::Pt_DataResult* response) { return this->SendVisualServoData_ServoType(context, request, response); }));}
+    void SetMessageAllocatorFor_SendVisualServoData_ServoType(
+        ::grpc::experimental::MessageAllocator< ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE, ::ExternalDataTransfer::Pt_DataResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE, ::ExternalDataTransfer::Pt_DataResult>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SendVisualServoData_ServoType() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_ServoType(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_ServoType(
+      ::grpc::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_ServoType(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_XYZ() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(3,
+          new ::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response) { return this->SendVisualServoData_TargetPos_XYZ(context, request, response); }));}
+    void SetMessageAllocatorFor_SendVisualServoData_TargetPos_XYZ(
+        ::grpc::experimental::MessageAllocator< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ, ::ExternalDataTransfer::Pt_DataResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ, ::ExternalDataTransfer::Pt_DataResult>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_TargetPos_XYZ(
+      ::grpc::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_TargetPos_XYZ(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_ABC() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response) { return this->SendVisualServoData_TargetPos_ABC(context, request, response); }));}
+    void SetMessageAllocatorFor_SendVisualServoData_TargetPos_ABC(
+        ::grpc::experimental::MessageAllocator< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC, ::ExternalDataTransfer::Pt_DataResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC, ::ExternalDataTransfer::Pt_DataResult>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_TargetPos_ABC(
+      ::grpc::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_TargetPos_ABC(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SendVisualServoData_Error_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SendVisualServoData_Error_XYZ() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* request, ::ExternalDataTransfer::Pt_DataResult* response) { return this->SendVisualServoData_Error_XYZ(context, request, response); }));}
+    void SetMessageAllocatorFor_SendVisualServoData_Error_XYZ(
+        ::grpc::experimental::MessageAllocator< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ, ::ExternalDataTransfer::Pt_DataResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ, ::ExternalDataTransfer::Pt_DataResult>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SendVisualServoData_Error_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_Error_XYZ(
+      ::grpc::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_Error_XYZ(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SendVisualServoData_Error_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SendVisualServoData_Error_ABC() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(6,
+          new ::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* request, ::ExternalDataTransfer::Pt_DataResult* response) { return this->SendVisualServoData_Error_ABC(context, request, response); }));}
+    void SetMessageAllocatorFor_SendVisualServoData_Error_ABC(
+        ::grpc::experimental::MessageAllocator< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC, ::ExternalDataTransfer::Pt_DataResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC, ::ExternalDataTransfer::Pt_DataResult>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SendVisualServoData_Error_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_Error_ABC(
+      ::grpc::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_Error_ABC(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SendVisualServoData_Error_IMAGE : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SendVisualServoData_Error_IMAGE() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(7,
+          new ::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response) { return this->SendVisualServoData_Error_IMAGE(context, request, response); }));}
+    void SetMessageAllocatorFor_SendVisualServoData_Error_IMAGE(
+        ::grpc::experimental::MessageAllocator< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE, ::ExternalDataTransfer::Pt_DataResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE, ::ExternalDataTransfer::Pt_DataResult>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SendVisualServoData_Error_IMAGE() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_IMAGE(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_Error_IMAGE(
+      ::grpc::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_Error_IMAGE(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SendVisualServoData_EndServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SendVisualServoData_EndServo() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(8,
+          new ::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response) { return this->SendVisualServoData_EndServo(context, request, response); }));}
+    void SetMessageAllocatorFor_SendVisualServoData_EndServo(
+        ::grpc::experimental::MessageAllocator< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO, ::ExternalDataTransfer::Pt_DataResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO, ::ExternalDataTransfer::Pt_DataResult>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SendVisualServoData_EndServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_EndServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_EndServo(
+      ::grpc::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_EndServo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetAXISPOSSCARA : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -238,7 +1030,7 @@ class RPCDemConData final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(1,
+        MarkMethodCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_DataVoid, ::ExternalDataTransfer::Pt_AXISPOS_SCARA>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -250,9 +1042,9 @@ class RPCDemConData final {
     void SetMessageAllocatorFor_GetAXISPOSSCARA(
         ::grpc::experimental::MessageAllocator< ::ExternalDataTransfer::Pt_DataVoid, ::ExternalDataTransfer::Pt_AXISPOS_SCARA>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(9);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_DataVoid, ::ExternalDataTransfer::Pt_AXISPOS_SCARA>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -275,10 +1067,10 @@ class RPCDemConData final {
       { return nullptr; }
   };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_SetEnableState<ExperimentalWithCallbackMethod_GetAXISPOSSCARA<Service > > CallbackService;
+  typedef ExperimentalWithCallbackMethod_SetEnableState<ExperimentalWithCallbackMethod_SetStartServo<ExperimentalWithCallbackMethod_SendVisualServoData_ServoType<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_Error_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_IMAGE<ExperimentalWithCallbackMethod_SendVisualServoData_EndServo<ExperimentalWithCallbackMethod_GetAXISPOSSCARA<Service > > > > > > > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_SetEnableState<ExperimentalWithCallbackMethod_GetAXISPOSSCARA<Service > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_SetEnableState<ExperimentalWithCallbackMethod_SetStartServo<ExperimentalWithCallbackMethod_SendVisualServoData_ServoType<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_Error_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_IMAGE<ExperimentalWithCallbackMethod_SendVisualServoData_EndServo<ExperimentalWithCallbackMethod_GetAXISPOSSCARA<Service > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_SetEnableState : public BaseClass {
    private:
@@ -297,12 +1089,148 @@ class RPCDemConData final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_SetStartServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SetStartServo() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_SetStartServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetStartServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_StartServo* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SendVisualServoData_ServoType : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SendVisualServoData_ServoType() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_SendVisualServoData_ServoType() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_ServoType(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SendVisualServoData_TargetPos_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SendVisualServoData_TargetPos_XYZ() {
+      ::grpc::Service::MarkMethodGeneric(3);
+    }
+    ~WithGenericMethod_SendVisualServoData_TargetPos_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SendVisualServoData_TargetPos_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SendVisualServoData_TargetPos_ABC() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_SendVisualServoData_TargetPos_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SendVisualServoData_Error_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SendVisualServoData_Error_XYZ() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_SendVisualServoData_Error_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SendVisualServoData_Error_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SendVisualServoData_Error_ABC() {
+      ::grpc::Service::MarkMethodGeneric(6);
+    }
+    ~WithGenericMethod_SendVisualServoData_Error_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SendVisualServoData_Error_IMAGE : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SendVisualServoData_Error_IMAGE() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_SendVisualServoData_Error_IMAGE() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_IMAGE(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SendVisualServoData_EndServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SendVisualServoData_EndServo() {
+      ::grpc::Service::MarkMethodGeneric(8);
+    }
+    ~WithGenericMethod_SendVisualServoData_EndServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_EndServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_GetAXISPOSSCARA : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetAXISPOSSCARA() {
-      ::grpc::Service::MarkMethodGeneric(1);
+      ::grpc::Service::MarkMethodGeneric(9);
     }
     ~WithGenericMethod_GetAXISPOSSCARA() override {
       BaseClassMustBeDerivedFromService(this);
@@ -334,12 +1262,172 @@ class RPCDemConData final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_SetStartServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SetStartServo() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_SetStartServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetStartServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_StartServo* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetStartServo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SendVisualServoData_ServoType : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SendVisualServoData_ServoType() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_SendVisualServoData_ServoType() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_ServoType(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_ServoType(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SendVisualServoData_TargetPos_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SendVisualServoData_TargetPos_XYZ() {
+      ::grpc::Service::MarkMethodRaw(3);
+    }
+    ~WithRawMethod_SendVisualServoData_TargetPos_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_TargetPos_XYZ(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SendVisualServoData_TargetPos_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SendVisualServoData_TargetPos_ABC() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_SendVisualServoData_TargetPos_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_TargetPos_ABC(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SendVisualServoData_Error_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SendVisualServoData_Error_XYZ() {
+      ::grpc::Service::MarkMethodRaw(5);
+    }
+    ~WithRawMethod_SendVisualServoData_Error_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_Error_XYZ(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SendVisualServoData_Error_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SendVisualServoData_Error_ABC() {
+      ::grpc::Service::MarkMethodRaw(6);
+    }
+    ~WithRawMethod_SendVisualServoData_Error_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_Error_ABC(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SendVisualServoData_Error_IMAGE : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SendVisualServoData_Error_IMAGE() {
+      ::grpc::Service::MarkMethodRaw(7);
+    }
+    ~WithRawMethod_SendVisualServoData_Error_IMAGE() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_IMAGE(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_Error_IMAGE(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SendVisualServoData_EndServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SendVisualServoData_EndServo() {
+      ::grpc::Service::MarkMethodRaw(8);
+    }
+    ~WithRawMethod_SendVisualServoData_EndServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_EndServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendVisualServoData_EndServo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_GetAXISPOSSCARA : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetAXISPOSSCARA() {
-      ::grpc::Service::MarkMethodRaw(1);
+      ::grpc::Service::MarkMethodRaw(9);
     }
     ~WithRawMethod_GetAXISPOSSCARA() override {
       BaseClassMustBeDerivedFromService(this);
@@ -350,7 +1438,7 @@ class RPCDemConData final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetAXISPOSSCARA(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -392,6 +1480,310 @@ class RPCDemConData final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SetStartServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SetStartServo() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetStartServo(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SetStartServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetStartServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_StartServo* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SetStartServo(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SetStartServo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SendVisualServoData_ServoType : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SendVisualServoData_ServoType() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendVisualServoData_ServoType(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SendVisualServoData_ServoType() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_ServoType(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_ServoType(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_ServoType(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SendVisualServoData_TargetPos_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SendVisualServoData_TargetPos_XYZ() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(3,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendVisualServoData_TargetPos_XYZ(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SendVisualServoData_TargetPos_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_TargetPos_XYZ(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_TargetPos_XYZ(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SendVisualServoData_TargetPos_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SendVisualServoData_TargetPos_ABC() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendVisualServoData_TargetPos_ABC(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SendVisualServoData_TargetPos_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_TargetPos_ABC(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_TargetPos_ABC(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SendVisualServoData_Error_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SendVisualServoData_Error_XYZ() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendVisualServoData_Error_XYZ(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SendVisualServoData_Error_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_Error_XYZ(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_Error_XYZ(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SendVisualServoData_Error_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SendVisualServoData_Error_ABC() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(6,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendVisualServoData_Error_ABC(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SendVisualServoData_Error_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_Error_ABC(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_Error_ABC(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SendVisualServoData_Error_IMAGE : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SendVisualServoData_Error_IMAGE() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(7,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendVisualServoData_Error_IMAGE(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SendVisualServoData_Error_IMAGE() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_Error_IMAGE(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_Error_IMAGE(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_Error_IMAGE(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SendVisualServoData_EndServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SendVisualServoData_EndServo() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(8,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendVisualServoData_EndServo(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SendVisualServoData_EndServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendVisualServoData_EndServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendVisualServoData_EndServo(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendVisualServoData_EndServo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_GetAXISPOSSCARA : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -402,7 +1794,7 @@ class RPCDemConData final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(1,
+        MarkMethodRawCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -457,12 +1849,228 @@ class RPCDemConData final {
     virtual ::grpc::Status StreamedSetEnableState(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_EnableState,::ExternalDataTransfer::Pt_DataResult>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_SetStartServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SetStartServo() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ExternalDataTransfer::Pt_StartServo, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ExternalDataTransfer::Pt_StartServo, ::ExternalDataTransfer::Pt_DataResult>* streamer) {
+                       return this->StreamedSetStartServo(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SetStartServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SetStartServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_StartServo* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSetStartServo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_StartServo,::ExternalDataTransfer::Pt_DataResult>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SendVisualServoData_ServoType : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SendVisualServoData_ServoType() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE, ::ExternalDataTransfer::Pt_DataResult>* streamer) {
+                       return this->StreamedSendVisualServoData_ServoType(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SendVisualServoData_ServoType() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SendVisualServoData_ServoType(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSendVisualServoData_ServoType(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE,::ExternalDataTransfer::Pt_DataResult>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SendVisualServoData_TargetPos_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SendVisualServoData_TargetPos_XYZ() {
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ, ::ExternalDataTransfer::Pt_DataResult>* streamer) {
+                       return this->StreamedSendVisualServoData_TargetPos_XYZ(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SendVisualServoData_TargetPos_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSendVisualServoData_TargetPos_XYZ(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ,::ExternalDataTransfer::Pt_DataResult>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SendVisualServoData_TargetPos_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SendVisualServoData_TargetPos_ABC() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC, ::ExternalDataTransfer::Pt_DataResult>* streamer) {
+                       return this->StreamedSendVisualServoData_TargetPos_ABC(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SendVisualServoData_TargetPos_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SendVisualServoData_TargetPos_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSendVisualServoData_TargetPos_ABC(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC,::ExternalDataTransfer::Pt_DataResult>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SendVisualServoData_Error_XYZ : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SendVisualServoData_Error_XYZ() {
+      ::grpc::Service::MarkMethodStreamed(5,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ, ::ExternalDataTransfer::Pt_DataResult>* streamer) {
+                       return this->StreamedSendVisualServoData_Error_XYZ(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SendVisualServoData_Error_XYZ() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SendVisualServoData_Error_XYZ(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSendVisualServoData_Error_XYZ(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ,::ExternalDataTransfer::Pt_DataResult>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SendVisualServoData_Error_ABC : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SendVisualServoData_Error_ABC() {
+      ::grpc::Service::MarkMethodStreamed(6,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC, ::ExternalDataTransfer::Pt_DataResult>* streamer) {
+                       return this->StreamedSendVisualServoData_Error_ABC(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SendVisualServoData_Error_ABC() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SendVisualServoData_Error_ABC(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSendVisualServoData_Error_ABC(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC,::ExternalDataTransfer::Pt_DataResult>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SendVisualServoData_Error_IMAGE : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SendVisualServoData_Error_IMAGE() {
+      ::grpc::Service::MarkMethodStreamed(7,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE, ::ExternalDataTransfer::Pt_DataResult>* streamer) {
+                       return this->StreamedSendVisualServoData_Error_IMAGE(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SendVisualServoData_Error_IMAGE() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SendVisualServoData_Error_IMAGE(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSendVisualServoData_Error_IMAGE(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE,::ExternalDataTransfer::Pt_DataResult>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SendVisualServoData_EndServo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SendVisualServoData_EndServo() {
+      ::grpc::Service::MarkMethodStreamed(8,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO, ::ExternalDataTransfer::Pt_DataResult>* streamer) {
+                       return this->StreamedSendVisualServoData_EndServo(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SendVisualServoData_EndServo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SendVisualServoData_EndServo(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSendVisualServoData_EndServo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO,::ExternalDataTransfer::Pt_DataResult>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_GetAXISPOSSCARA : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetAXISPOSSCARA() {
-      ::grpc::Service::MarkMethodStreamed(1,
+      ::grpc::Service::MarkMethodStreamed(9,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ExternalDataTransfer::Pt_DataVoid, ::ExternalDataTransfer::Pt_AXISPOS_SCARA>(
             [this](::grpc::ServerContext* context,
@@ -483,9 +2091,9 @@ class RPCDemConData final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGetAXISPOSSCARA(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_DataVoid,::ExternalDataTransfer::Pt_AXISPOS_SCARA>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_SetEnableState<WithStreamedUnaryMethod_GetAXISPOSSCARA<Service > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_SetEnableState<WithStreamedUnaryMethod_SetStartServo<WithStreamedUnaryMethod_SendVisualServoData_ServoType<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_XYZ<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_XYZ<WithStreamedUnaryMethod_SendVisualServoData_Error_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_IMAGE<WithStreamedUnaryMethod_SendVisualServoData_EndServo<WithStreamedUnaryMethod_GetAXISPOSSCARA<Service > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_SetEnableState<WithStreamedUnaryMethod_GetAXISPOSSCARA<Service > > StreamedService;
+  typedef WithStreamedUnaryMethod_SetEnableState<WithStreamedUnaryMethod_SetStartServo<WithStreamedUnaryMethod_SendVisualServoData_ServoType<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_XYZ<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_XYZ<WithStreamedUnaryMethod_SendVisualServoData_Error_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_IMAGE<WithStreamedUnaryMethod_SendVisualServoData_EndServo<WithStreamedUnaryMethod_GetAXISPOSSCARA<Service > > > > > > > > > > StreamedService;
 };
 
 }  // namespace ExternalDataTransfer

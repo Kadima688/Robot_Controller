@@ -1,4 +1,0 @@
-
-void DataTransfer(void *scara){
-    
-}

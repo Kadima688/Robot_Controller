@@ -5,23 +5,24 @@ CMakeFiles/controller.dir/ControlThread.cpp.o
  ../Module/core/include/MhMath.h
  ../Module/kernal/include/MhMotionKernel.h
  ../Module/robot/include/GlobalDefine.h
+ ../Module/robot/include/IPMCMOTION.h
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhHomotransform.h
  ../Module/robot/include/MhIndustrialRobot.h
  ../Module/robot/include/MhIndustrialRobotPathPlan.h
  ../Module/robot/include/MhIndustrialSCARA.h
  ../Module/robot/include/RobotDataText.h
+ ../Module/robot/include/VisualServo.h
  ../Module/robot/include/daraDeclaration.h
  ../Module/robot/include/tinyxml2.h
  /home/mingh/robot-controller/ControlThread.cpp
-CMakeFiles/controller.dir/DataTransferThread.cpp.o
- /home/mingh/robot-controller/DataTransferThread.cpp
 CMakeFiles/controller.dir/GetRobotState.cpp.o
  ../Module/core/include/MhMath.h
  ../Module/core/include/ThreadManage.h
  ../Module/core/include/os.h
  ../Module/kernal/include/MhMotionKernel.h
  ../Module/robot/include/GlobalDefine.h
+ ../Module/robot/include/IPMCMOTION.h
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhHomotransform.h
  ../Module/robot/include/MhIndustrialRobot.h
@@ -216,6 +217,7 @@ CMakeFiles/controller.dir/Module/core/src/MhgRPCServer.cpp.o
  ../Module/core/include/MhgRPCServer.h
  ../Module/kernal/include/MhMotionKernel.h
  ../Module/robot/include/GlobalDefine.h
+ ../Module/robot/include/IPMCMOTION.h
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhHomotransform.h
  ../Module/robot/include/MhIndustrialRobot.h
@@ -396,6 +398,7 @@ CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.o
  /home/mingh/robot-controller/Module/core/src/ThreadManage.cpp
 CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.o
  ../Module/kernal/include/MhMotionKernel.h
+ ../Module/robot/include/IPMCMOTION.h
  /home/mingh/robot-controller/Module/kernal/src/MhMotionKernel.cpp
 CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.o
  ../Module/robot/include/MhConfig.h
@@ -413,6 +416,7 @@ CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o
  ../Module/core/include/ThreadManage.h
  ../Module/core/include/os.h
  ../Module/kernal/include/MhMotionKernel.h
+ ../Module/robot/include/IPMCMOTION.h
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhHomotransform.h
  ../Module/robot/include/MhIndustrialRobot.h
@@ -431,6 +435,7 @@ CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o
  ../Module/core/include/os.h
  ../Module/kernal/include/MhMotionKernel.h
  ../Module/robot/include/GlobalDefine.h
+ ../Module/robot/include/IPMCMOTION.h
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhHomotransform.h
  ../Module/robot/include/MhIndustrialRobot.h
@@ -450,6 +455,7 @@ CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o
  ../Module/core/include/MhMath.h
  ../Module/kernal/include/MhMotionKernel.h
  ../Module/robot/include/GlobalDefine.h
+ ../Module/robot/include/IPMCMOTION.h
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhHomotransform.h
  ../Module/robot/include/MhIndustrialRobot.h
@@ -467,6 +473,7 @@ CMakeFiles/controller.dir/RobotController.cpp.o
  ../Module/core/include/ThreadManage.h
  ../Module/kernal/include/MhMotionKernel.h
  ../Module/robot/include/GlobalDefine.h
+ ../Module/robot/include/IPMCMOTION.h
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhHomotransform.h
  ../Module/robot/include/MhIndustrialRobot.h
@@ -645,6 +652,7 @@ CMakeFiles/controller.dir/VisualServoSCARA.cpp.o
  ../Module/core/include/MhMath.h
  ../Module/kernal/include/MhMotionKernel.h
  ../Module/robot/include/GlobalDefine.h
+ ../Module/robot/include/IPMCMOTION.h
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhHomotransform.h
  ../Module/robot/include/MhIndustrialRobot.h
@@ -658,6 +666,7 @@ CMakeFiles/controller.dir/test/Jacobian_test.cpp.o
  ../Module/core/include/MhMath.h
  ../Module/kernal/include/MhMotionKernel.h
  ../Module/robot/include/GlobalDefine.h
+ ../Module/robot/include/IPMCMOTION.h
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhHomotransform.h
  ../Module/robot/include/MhIndustrialRobot.h
@@ -671,6 +680,7 @@ CMakeFiles/controller.dir/test/vel_trans_test.cpp.o
  ../Module/core/include/MhMath.h
  ../Module/kernal/include/MhMotionKernel.h
  ../Module/robot/include/GlobalDefine.h
+ ../Module/robot/include/IPMCMOTION.h
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhHomotransform.h
  ../Module/robot/include/MhIndustrialRobot.h

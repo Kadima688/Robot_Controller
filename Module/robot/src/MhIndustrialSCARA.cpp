@@ -209,7 +209,7 @@ void Mh::MhIndustrialSCARA::get_fJc(vpMatrix& fJc){
 	fJc_temp[1][3] = -m_eMc[0][3] * math.cosd(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4) - m_eMc[1][3] * math.sind(Con2DemData.axisPos_scara.a1 + Con2DemData.axisPos_scara.a2 - Con2DemData.axisPos_scara.a4);
 	fJc_temp[2][0] = 0;
 	fJc_temp[2][1] = 0;
-	fJc_temp[2][2] = -z_lead / 1000 / (2 * PI);
+	fJc_temp[2][2] = -z_lead / 1000 / (2 * PI); 
 	fJc_temp[2][3] = 0;
 	fJc_temp[3][0] = 1;
 	fJc_temp[3][1] = 1;
@@ -482,7 +482,11 @@ void Mh::MhIndustrialSCARA::setCartVelocity(const MhIndustrialRobot::MhControlFr
                 break;
             }
         }
-        setJointVelocity(qdot);
+        #ifdef USE_KERNEL
+            setJointVelocity(qdot);
+        #else
+            setJointVelocity_virtual(qdot);
+        #endif
     }
 }
 
@@ -536,6 +540,19 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
         int retn=SetVelCommand(i,velocity2pulse);
         set_retn(retn,SETVELCOMMAND);
     }
+}
+
+void Mh::MhIndustrialSCARA::setJointVelocity_virtual(const vpColVector &qdot){
+    Con2DemData.axisPos_scara.a1+=qdot[0];
+    Con2DemData.axisPos_scara.a2+=qdot[1];
+    Con2DemData.axisPos_scara.d+=qdot[2];
+    Con2DemData.axisPos_scara.a4+=qdot[3];
+    std::vector<double> cartesian;
+    std::vector<double> scara_input={Con2DemData.axisPos_scara.a1,Con2DemData.axisPos_scara.a2,Con2DemData.axisPos_scara.d,Con2DemData.axisPos_scara.a4};        
+    if(forwardkinematics(scara_input,cartesian)){
+        Con2DemData.cartPos=cartesian;
+    }
+    sleep(0.02);
 }
 
 void Mh::MhIndustrialSCARA::RobotMotorInitial(){

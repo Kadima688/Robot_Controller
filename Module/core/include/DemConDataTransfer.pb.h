@@ -47,7 +47,7 @@ struct TableStruct_DemConDataTransfer_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -67,12 +67,44 @@ extern Pt_DataVoidDefaultTypeInternal _Pt_DataVoid_default_instance_;
 class Pt_EnableState;
 class Pt_EnableStateDefaultTypeInternal;
 extern Pt_EnableStateDefaultTypeInternal _Pt_EnableState_default_instance_;
+class Pt_StartServo;
+class Pt_StartServoDefaultTypeInternal;
+extern Pt_StartServoDefaultTypeInternal _Pt_StartServo_default_instance_;
+class Pt_VISUAL_SERVO_ENDSERVO;
+class Pt_VISUAL_SERVO_ENDSERVODefaultTypeInternal;
+extern Pt_VISUAL_SERVO_ENDSERVODefaultTypeInternal _Pt_VISUAL_SERVO_ENDSERVO_default_instance_;
+class Pt_VISUAL_SERVO_ERROR_ABC;
+class Pt_VISUAL_SERVO_ERROR_ABCDefaultTypeInternal;
+extern Pt_VISUAL_SERVO_ERROR_ABCDefaultTypeInternal _Pt_VISUAL_SERVO_ERROR_ABC_default_instance_;
+class Pt_VISUAL_SERVO_ERROR_IMAGE;
+class Pt_VISUAL_SERVO_ERROR_IMAGEDefaultTypeInternal;
+extern Pt_VISUAL_SERVO_ERROR_IMAGEDefaultTypeInternal _Pt_VISUAL_SERVO_ERROR_IMAGE_default_instance_;
+class Pt_VISUAL_SERVO_ERROR_XYZ;
+class Pt_VISUAL_SERVO_ERROR_XYZDefaultTypeInternal;
+extern Pt_VISUAL_SERVO_ERROR_XYZDefaultTypeInternal _Pt_VISUAL_SERVO_ERROR_XYZ_default_instance_;
+class Pt_VISUAL_SERVO_SERVOTYPE;
+class Pt_VISUAL_SERVO_SERVOTYPEDefaultTypeInternal;
+extern Pt_VISUAL_SERVO_SERVOTYPEDefaultTypeInternal _Pt_VISUAL_SERVO_SERVOTYPE_default_instance_;
+class Pt_VISUAL_SERVO_TARGETPOS_ABC;
+class Pt_VISUAL_SERVO_TARGETPOS_ABCDefaultTypeInternal;
+extern Pt_VISUAL_SERVO_TARGETPOS_ABCDefaultTypeInternal _Pt_VISUAL_SERVO_TARGETPOS_ABC_default_instance_;
+class Pt_VISUAL_SERVO_TARGETPOS_XYZ;
+class Pt_VISUAL_SERVO_TARGETPOS_XYZDefaultTypeInternal;
+extern Pt_VISUAL_SERVO_TARGETPOS_XYZDefaultTypeInternal _Pt_VISUAL_SERVO_TARGETPOS_XYZ_default_instance_;
 }  // namespace ExternalDataTransfer
 PROTOBUF_NAMESPACE_OPEN
 template<> ::ExternalDataTransfer::Pt_AXISPOS_SCARA* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_AXISPOS_SCARA>(Arena*);
 template<> ::ExternalDataTransfer::Pt_DataResult* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_DataResult>(Arena*);
 template<> ::ExternalDataTransfer::Pt_DataVoid* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_DataVoid>(Arena*);
 template<> ::ExternalDataTransfer::Pt_EnableState* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_EnableState>(Arena*);
+template<> ::ExternalDataTransfer::Pt_StartServo* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_StartServo>(Arena*);
+template<> ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO>(Arena*);
+template<> ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC>(Arena*);
+template<> ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE>(Arena*);
+template<> ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_XYZ>(Arena*);
+template<> ::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_VISUAL_SERVO_SERVOTYPE>(Arena*);
+template<> ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_ABC>(Arena*);
+template<> ::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_VISUAL_SERVO_TARGETPOS_XYZ>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace ExternalDataTransfer {
 
@@ -190,6 +222,18 @@ class Pt_DataVoid PROTOBUF_FINAL :
 
   // accessors -------------------------------------------------------
 
+  enum : int {
+    kNullFieldNumber = 1,
+  };
+  // int32 null = 1;
+  void clear_null();
+  ::PROTOBUF_NAMESPACE_ID::int32 null() const;
+  void set_null(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_null() const;
+  void _internal_set_null(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_DataVoid)
  private:
   class _Internal;
@@ -197,6 +241,7 @@ class Pt_DataVoid PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 null_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_DemConDataTransfer_2eproto;
 };
@@ -476,6 +521,1146 @@ class Pt_EnableState PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class Pt_StartServo PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_StartServo) */ {
+ public:
+  inline Pt_StartServo() : Pt_StartServo(nullptr) {}
+  virtual ~Pt_StartServo();
+
+  Pt_StartServo(const Pt_StartServo& from);
+  Pt_StartServo(Pt_StartServo&& from) noexcept
+    : Pt_StartServo() {
+    *this = ::std::move(from);
+  }
+
+  inline Pt_StartServo& operator=(const Pt_StartServo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pt_StartServo& operator=(Pt_StartServo&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pt_StartServo& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Pt_StartServo* internal_default_instance() {
+    return reinterpret_cast<const Pt_StartServo*>(
+               &_Pt_StartServo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(Pt_StartServo& a, Pt_StartServo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pt_StartServo* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pt_StartServo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pt_StartServo* New() const final {
+    return CreateMaybeMessage<Pt_StartServo>(nullptr);
+  }
+
+  Pt_StartServo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pt_StartServo>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pt_StartServo& from);
+  void MergeFrom(const Pt_StartServo& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pt_StartServo* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ExternalDataTransfer.Pt_StartServo";
+  }
+  protected:
+  explicit Pt_StartServo(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_DemConDataTransfer_2eproto);
+    return ::descriptor_table_DemConDataTransfer_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStartservoFieldNumber = 1,
+  };
+  // int32 startservo = 1;
+  void clear_startservo();
+  ::PROTOBUF_NAMESPACE_ID::int32 startservo() const;
+  void set_startservo(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_startservo() const;
+  void _internal_set_startservo(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_StartServo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 startservo_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_DemConDataTransfer_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Pt_VISUAL_SERVO_SERVOTYPE PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_VISUAL_SERVO_SERVOTYPE) */ {
+ public:
+  inline Pt_VISUAL_SERVO_SERVOTYPE() : Pt_VISUAL_SERVO_SERVOTYPE(nullptr) {}
+  virtual ~Pt_VISUAL_SERVO_SERVOTYPE();
+
+  Pt_VISUAL_SERVO_SERVOTYPE(const Pt_VISUAL_SERVO_SERVOTYPE& from);
+  Pt_VISUAL_SERVO_SERVOTYPE(Pt_VISUAL_SERVO_SERVOTYPE&& from) noexcept
+    : Pt_VISUAL_SERVO_SERVOTYPE() {
+    *this = ::std::move(from);
+  }
+
+  inline Pt_VISUAL_SERVO_SERVOTYPE& operator=(const Pt_VISUAL_SERVO_SERVOTYPE& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pt_VISUAL_SERVO_SERVOTYPE& operator=(Pt_VISUAL_SERVO_SERVOTYPE&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pt_VISUAL_SERVO_SERVOTYPE& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Pt_VISUAL_SERVO_SERVOTYPE* internal_default_instance() {
+    return reinterpret_cast<const Pt_VISUAL_SERVO_SERVOTYPE*>(
+               &_Pt_VISUAL_SERVO_SERVOTYPE_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(Pt_VISUAL_SERVO_SERVOTYPE& a, Pt_VISUAL_SERVO_SERVOTYPE& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pt_VISUAL_SERVO_SERVOTYPE* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pt_VISUAL_SERVO_SERVOTYPE* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pt_VISUAL_SERVO_SERVOTYPE* New() const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_SERVOTYPE>(nullptr);
+  }
+
+  Pt_VISUAL_SERVO_SERVOTYPE* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_SERVOTYPE>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pt_VISUAL_SERVO_SERVOTYPE& from);
+  void MergeFrom(const Pt_VISUAL_SERVO_SERVOTYPE& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pt_VISUAL_SERVO_SERVOTYPE* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ExternalDataTransfer.Pt_VISUAL_SERVO_SERVOTYPE";
+  }
+  protected:
+  explicit Pt_VISUAL_SERVO_SERVOTYPE(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_DemConDataTransfer_2eproto);
+    return ::descriptor_table_DemConDataTransfer_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kServotypeFieldNumber = 1,
+  };
+  // int32 servotype = 1;
+  void clear_servotype();
+  ::PROTOBUF_NAMESPACE_ID::int32 servotype() const;
+  void set_servotype(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_servotype() const;
+  void _internal_set_servotype(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_VISUAL_SERVO_SERVOTYPE)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 servotype_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_DemConDataTransfer_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Pt_VISUAL_SERVO_TARGETPOS_XYZ PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_XYZ) */ {
+ public:
+  inline Pt_VISUAL_SERVO_TARGETPOS_XYZ() : Pt_VISUAL_SERVO_TARGETPOS_XYZ(nullptr) {}
+  virtual ~Pt_VISUAL_SERVO_TARGETPOS_XYZ();
+
+  Pt_VISUAL_SERVO_TARGETPOS_XYZ(const Pt_VISUAL_SERVO_TARGETPOS_XYZ& from);
+  Pt_VISUAL_SERVO_TARGETPOS_XYZ(Pt_VISUAL_SERVO_TARGETPOS_XYZ&& from) noexcept
+    : Pt_VISUAL_SERVO_TARGETPOS_XYZ() {
+    *this = ::std::move(from);
+  }
+
+  inline Pt_VISUAL_SERVO_TARGETPOS_XYZ& operator=(const Pt_VISUAL_SERVO_TARGETPOS_XYZ& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pt_VISUAL_SERVO_TARGETPOS_XYZ& operator=(Pt_VISUAL_SERVO_TARGETPOS_XYZ&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pt_VISUAL_SERVO_TARGETPOS_XYZ& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Pt_VISUAL_SERVO_TARGETPOS_XYZ* internal_default_instance() {
+    return reinterpret_cast<const Pt_VISUAL_SERVO_TARGETPOS_XYZ*>(
+               &_Pt_VISUAL_SERVO_TARGETPOS_XYZ_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(Pt_VISUAL_SERVO_TARGETPOS_XYZ& a, Pt_VISUAL_SERVO_TARGETPOS_XYZ& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pt_VISUAL_SERVO_TARGETPOS_XYZ* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pt_VISUAL_SERVO_TARGETPOS_XYZ* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pt_VISUAL_SERVO_TARGETPOS_XYZ* New() const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_TARGETPOS_XYZ>(nullptr);
+  }
+
+  Pt_VISUAL_SERVO_TARGETPOS_XYZ* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_TARGETPOS_XYZ>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pt_VISUAL_SERVO_TARGETPOS_XYZ& from);
+  void MergeFrom(const Pt_VISUAL_SERVO_TARGETPOS_XYZ& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pt_VISUAL_SERVO_TARGETPOS_XYZ* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_XYZ";
+  }
+  protected:
+  explicit Pt_VISUAL_SERVO_TARGETPOS_XYZ(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_DemConDataTransfer_2eproto);
+    return ::descriptor_table_DemConDataTransfer_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTargetXFieldNumber = 1,
+    kTargetYFieldNumber = 2,
+    kTargetZFieldNumber = 3,
+  };
+  // double target_x = 1;
+  void clear_target_x();
+  double target_x() const;
+  void set_target_x(double value);
+  private:
+  double _internal_target_x() const;
+  void _internal_set_target_x(double value);
+  public:
+
+  // double target_y = 2;
+  void clear_target_y();
+  double target_y() const;
+  void set_target_y(double value);
+  private:
+  double _internal_target_y() const;
+  void _internal_set_target_y(double value);
+  public:
+
+  // double target_z = 3;
+  void clear_target_z();
+  double target_z() const;
+  void set_target_z(double value);
+  private:
+  double _internal_target_z() const;
+  void _internal_set_target_z(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_XYZ)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  double target_x_;
+  double target_y_;
+  double target_z_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_DemConDataTransfer_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Pt_VISUAL_SERVO_TARGETPOS_ABC PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_ABC) */ {
+ public:
+  inline Pt_VISUAL_SERVO_TARGETPOS_ABC() : Pt_VISUAL_SERVO_TARGETPOS_ABC(nullptr) {}
+  virtual ~Pt_VISUAL_SERVO_TARGETPOS_ABC();
+
+  Pt_VISUAL_SERVO_TARGETPOS_ABC(const Pt_VISUAL_SERVO_TARGETPOS_ABC& from);
+  Pt_VISUAL_SERVO_TARGETPOS_ABC(Pt_VISUAL_SERVO_TARGETPOS_ABC&& from) noexcept
+    : Pt_VISUAL_SERVO_TARGETPOS_ABC() {
+    *this = ::std::move(from);
+  }
+
+  inline Pt_VISUAL_SERVO_TARGETPOS_ABC& operator=(const Pt_VISUAL_SERVO_TARGETPOS_ABC& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pt_VISUAL_SERVO_TARGETPOS_ABC& operator=(Pt_VISUAL_SERVO_TARGETPOS_ABC&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pt_VISUAL_SERVO_TARGETPOS_ABC& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Pt_VISUAL_SERVO_TARGETPOS_ABC* internal_default_instance() {
+    return reinterpret_cast<const Pt_VISUAL_SERVO_TARGETPOS_ABC*>(
+               &_Pt_VISUAL_SERVO_TARGETPOS_ABC_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(Pt_VISUAL_SERVO_TARGETPOS_ABC& a, Pt_VISUAL_SERVO_TARGETPOS_ABC& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pt_VISUAL_SERVO_TARGETPOS_ABC* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pt_VISUAL_SERVO_TARGETPOS_ABC* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pt_VISUAL_SERVO_TARGETPOS_ABC* New() const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_TARGETPOS_ABC>(nullptr);
+  }
+
+  Pt_VISUAL_SERVO_TARGETPOS_ABC* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_TARGETPOS_ABC>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pt_VISUAL_SERVO_TARGETPOS_ABC& from);
+  void MergeFrom(const Pt_VISUAL_SERVO_TARGETPOS_ABC& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pt_VISUAL_SERVO_TARGETPOS_ABC* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_ABC";
+  }
+  protected:
+  explicit Pt_VISUAL_SERVO_TARGETPOS_ABC(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_DemConDataTransfer_2eproto);
+    return ::descriptor_table_DemConDataTransfer_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTargetAFieldNumber = 1,
+    kTargetBFieldNumber = 2,
+    kTargetCFieldNumber = 3,
+  };
+  // double target_a = 1;
+  void clear_target_a();
+  double target_a() const;
+  void set_target_a(double value);
+  private:
+  double _internal_target_a() const;
+  void _internal_set_target_a(double value);
+  public:
+
+  // double target_b = 2;
+  void clear_target_b();
+  double target_b() const;
+  void set_target_b(double value);
+  private:
+  double _internal_target_b() const;
+  void _internal_set_target_b(double value);
+  public:
+
+  // double target_c = 3;
+  void clear_target_c();
+  double target_c() const;
+  void set_target_c(double value);
+  private:
+  double _internal_target_c() const;
+  void _internal_set_target_c(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_ABC)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  double target_a_;
+  double target_b_;
+  double target_c_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_DemConDataTransfer_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Pt_VISUAL_SERVO_ERROR_XYZ PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_XYZ) */ {
+ public:
+  inline Pt_VISUAL_SERVO_ERROR_XYZ() : Pt_VISUAL_SERVO_ERROR_XYZ(nullptr) {}
+  virtual ~Pt_VISUAL_SERVO_ERROR_XYZ();
+
+  Pt_VISUAL_SERVO_ERROR_XYZ(const Pt_VISUAL_SERVO_ERROR_XYZ& from);
+  Pt_VISUAL_SERVO_ERROR_XYZ(Pt_VISUAL_SERVO_ERROR_XYZ&& from) noexcept
+    : Pt_VISUAL_SERVO_ERROR_XYZ() {
+    *this = ::std::move(from);
+  }
+
+  inline Pt_VISUAL_SERVO_ERROR_XYZ& operator=(const Pt_VISUAL_SERVO_ERROR_XYZ& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pt_VISUAL_SERVO_ERROR_XYZ& operator=(Pt_VISUAL_SERVO_ERROR_XYZ&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pt_VISUAL_SERVO_ERROR_XYZ& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Pt_VISUAL_SERVO_ERROR_XYZ* internal_default_instance() {
+    return reinterpret_cast<const Pt_VISUAL_SERVO_ERROR_XYZ*>(
+               &_Pt_VISUAL_SERVO_ERROR_XYZ_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(Pt_VISUAL_SERVO_ERROR_XYZ& a, Pt_VISUAL_SERVO_ERROR_XYZ& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pt_VISUAL_SERVO_ERROR_XYZ* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pt_VISUAL_SERVO_ERROR_XYZ* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pt_VISUAL_SERVO_ERROR_XYZ* New() const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_ERROR_XYZ>(nullptr);
+  }
+
+  Pt_VISUAL_SERVO_ERROR_XYZ* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_ERROR_XYZ>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pt_VISUAL_SERVO_ERROR_XYZ& from);
+  void MergeFrom(const Pt_VISUAL_SERVO_ERROR_XYZ& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pt_VISUAL_SERVO_ERROR_XYZ* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_XYZ";
+  }
+  protected:
+  explicit Pt_VISUAL_SERVO_ERROR_XYZ(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_DemConDataTransfer_2eproto);
+    return ::descriptor_table_DemConDataTransfer_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kErrorXyzFieldNumber = 1,
+  };
+  // double error_xyz = 1;
+  void clear_error_xyz();
+  double error_xyz() const;
+  void set_error_xyz(double value);
+  private:
+  double _internal_error_xyz() const;
+  void _internal_set_error_xyz(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_XYZ)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  double error_xyz_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_DemConDataTransfer_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Pt_VISUAL_SERVO_ERROR_ABC PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_ABC) */ {
+ public:
+  inline Pt_VISUAL_SERVO_ERROR_ABC() : Pt_VISUAL_SERVO_ERROR_ABC(nullptr) {}
+  virtual ~Pt_VISUAL_SERVO_ERROR_ABC();
+
+  Pt_VISUAL_SERVO_ERROR_ABC(const Pt_VISUAL_SERVO_ERROR_ABC& from);
+  Pt_VISUAL_SERVO_ERROR_ABC(Pt_VISUAL_SERVO_ERROR_ABC&& from) noexcept
+    : Pt_VISUAL_SERVO_ERROR_ABC() {
+    *this = ::std::move(from);
+  }
+
+  inline Pt_VISUAL_SERVO_ERROR_ABC& operator=(const Pt_VISUAL_SERVO_ERROR_ABC& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pt_VISUAL_SERVO_ERROR_ABC& operator=(Pt_VISUAL_SERVO_ERROR_ABC&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pt_VISUAL_SERVO_ERROR_ABC& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Pt_VISUAL_SERVO_ERROR_ABC* internal_default_instance() {
+    return reinterpret_cast<const Pt_VISUAL_SERVO_ERROR_ABC*>(
+               &_Pt_VISUAL_SERVO_ERROR_ABC_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(Pt_VISUAL_SERVO_ERROR_ABC& a, Pt_VISUAL_SERVO_ERROR_ABC& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pt_VISUAL_SERVO_ERROR_ABC* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pt_VISUAL_SERVO_ERROR_ABC* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pt_VISUAL_SERVO_ERROR_ABC* New() const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_ERROR_ABC>(nullptr);
+  }
+
+  Pt_VISUAL_SERVO_ERROR_ABC* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_ERROR_ABC>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pt_VISUAL_SERVO_ERROR_ABC& from);
+  void MergeFrom(const Pt_VISUAL_SERVO_ERROR_ABC& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pt_VISUAL_SERVO_ERROR_ABC* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_ABC";
+  }
+  protected:
+  explicit Pt_VISUAL_SERVO_ERROR_ABC(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_DemConDataTransfer_2eproto);
+    return ::descriptor_table_DemConDataTransfer_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kErrorAbcFieldNumber = 1,
+  };
+  // double error_abc = 1;
+  void clear_error_abc();
+  double error_abc() const;
+  void set_error_abc(double value);
+  private:
+  double _internal_error_abc() const;
+  void _internal_set_error_abc(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_ABC)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  double error_abc_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_DemConDataTransfer_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Pt_VISUAL_SERVO_ERROR_IMAGE PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_IMAGE) */ {
+ public:
+  inline Pt_VISUAL_SERVO_ERROR_IMAGE() : Pt_VISUAL_SERVO_ERROR_IMAGE(nullptr) {}
+  virtual ~Pt_VISUAL_SERVO_ERROR_IMAGE();
+
+  Pt_VISUAL_SERVO_ERROR_IMAGE(const Pt_VISUAL_SERVO_ERROR_IMAGE& from);
+  Pt_VISUAL_SERVO_ERROR_IMAGE(Pt_VISUAL_SERVO_ERROR_IMAGE&& from) noexcept
+    : Pt_VISUAL_SERVO_ERROR_IMAGE() {
+    *this = ::std::move(from);
+  }
+
+  inline Pt_VISUAL_SERVO_ERROR_IMAGE& operator=(const Pt_VISUAL_SERVO_ERROR_IMAGE& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pt_VISUAL_SERVO_ERROR_IMAGE& operator=(Pt_VISUAL_SERVO_ERROR_IMAGE&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pt_VISUAL_SERVO_ERROR_IMAGE& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Pt_VISUAL_SERVO_ERROR_IMAGE* internal_default_instance() {
+    return reinterpret_cast<const Pt_VISUAL_SERVO_ERROR_IMAGE*>(
+               &_Pt_VISUAL_SERVO_ERROR_IMAGE_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(Pt_VISUAL_SERVO_ERROR_IMAGE& a, Pt_VISUAL_SERVO_ERROR_IMAGE& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pt_VISUAL_SERVO_ERROR_IMAGE* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pt_VISUAL_SERVO_ERROR_IMAGE* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pt_VISUAL_SERVO_ERROR_IMAGE* New() const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_ERROR_IMAGE>(nullptr);
+  }
+
+  Pt_VISUAL_SERVO_ERROR_IMAGE* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_ERROR_IMAGE>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pt_VISUAL_SERVO_ERROR_IMAGE& from);
+  void MergeFrom(const Pt_VISUAL_SERVO_ERROR_IMAGE& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pt_VISUAL_SERVO_ERROR_IMAGE* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_IMAGE";
+  }
+  protected:
+  explicit Pt_VISUAL_SERVO_ERROR_IMAGE(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_DemConDataTransfer_2eproto);
+    return ::descriptor_table_DemConDataTransfer_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kErrorImageFieldNumber = 1,
+  };
+  // double error_image = 1;
+  void clear_error_image();
+  double error_image() const;
+  void set_error_image(double value);
+  private:
+  double _internal_error_image() const;
+  void _internal_set_error_image(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_IMAGE)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  double error_image_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_DemConDataTransfer_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Pt_VISUAL_SERVO_ENDSERVO PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_VISUAL_SERVO_ENDSERVO) */ {
+ public:
+  inline Pt_VISUAL_SERVO_ENDSERVO() : Pt_VISUAL_SERVO_ENDSERVO(nullptr) {}
+  virtual ~Pt_VISUAL_SERVO_ENDSERVO();
+
+  Pt_VISUAL_SERVO_ENDSERVO(const Pt_VISUAL_SERVO_ENDSERVO& from);
+  Pt_VISUAL_SERVO_ENDSERVO(Pt_VISUAL_SERVO_ENDSERVO&& from) noexcept
+    : Pt_VISUAL_SERVO_ENDSERVO() {
+    *this = ::std::move(from);
+  }
+
+  inline Pt_VISUAL_SERVO_ENDSERVO& operator=(const Pt_VISUAL_SERVO_ENDSERVO& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pt_VISUAL_SERVO_ENDSERVO& operator=(Pt_VISUAL_SERVO_ENDSERVO&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pt_VISUAL_SERVO_ENDSERVO& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Pt_VISUAL_SERVO_ENDSERVO* internal_default_instance() {
+    return reinterpret_cast<const Pt_VISUAL_SERVO_ENDSERVO*>(
+               &_Pt_VISUAL_SERVO_ENDSERVO_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(Pt_VISUAL_SERVO_ENDSERVO& a, Pt_VISUAL_SERVO_ENDSERVO& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pt_VISUAL_SERVO_ENDSERVO* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pt_VISUAL_SERVO_ENDSERVO* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pt_VISUAL_SERVO_ENDSERVO* New() const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_ENDSERVO>(nullptr);
+  }
+
+  Pt_VISUAL_SERVO_ENDSERVO* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pt_VISUAL_SERVO_ENDSERVO>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pt_VISUAL_SERVO_ENDSERVO& from);
+  void MergeFrom(const Pt_VISUAL_SERVO_ENDSERVO& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pt_VISUAL_SERVO_ENDSERVO* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ExternalDataTransfer.Pt_VISUAL_SERVO_ENDSERVO";
+  }
+  protected:
+  explicit Pt_VISUAL_SERVO_ENDSERVO(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_DemConDataTransfer_2eproto);
+    return ::descriptor_table_DemConDataTransfer_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEndservoFieldNumber = 1,
+  };
+  // int32 endservo = 1;
+  void clear_endservo();
+  ::PROTOBUF_NAMESPACE_ID::int32 endservo() const;
+  void set_endservo(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_endservo() const;
+  void _internal_set_endservo(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_VISUAL_SERVO_ENDSERVO)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 endservo_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_DemConDataTransfer_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Pt_AXISPOS_SCARA PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_AXISPOS_SCARA) */ {
  public:
@@ -518,7 +1703,7 @@ class Pt_AXISPOS_SCARA PROTOBUF_FINAL :
                &_Pt_AXISPOS_SCARA_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    11;
 
   friend void swap(Pt_AXISPOS_SCARA& a, Pt_AXISPOS_SCARA& b) {
     a.Swap(&b);
@@ -591,7 +1776,7 @@ class Pt_AXISPOS_SCARA PROTOBUF_FINAL :
   enum : int {
     kA1FieldNumber = 1,
     kA2FieldNumber = 2,
-    kA3FieldNumber = 3,
+    kDFieldNumber = 3,
     kA4FieldNumber = 4,
   };
   // double a1 = 1;
@@ -612,13 +1797,13 @@ class Pt_AXISPOS_SCARA PROTOBUF_FINAL :
   void _internal_set_a2(double value);
   public:
 
-  // double a3 = 3;
-  void clear_a3();
-  double a3() const;
-  void set_a3(double value);
+  // double d = 3;
+  void clear_d();
+  double d() const;
+  void set_d(double value);
   private:
-  double _internal_a3() const;
-  void _internal_set_a3(double value);
+  double _internal_d() const;
+  void _internal_set_d(double value);
   public:
 
   // double a4 = 4;
@@ -639,7 +1824,7 @@ class Pt_AXISPOS_SCARA PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   double a1_;
   double a2_;
-  double a3_;
+  double d_;
   double a4_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_DemConDataTransfer_2eproto;
@@ -654,6 +1839,26 @@ class Pt_AXISPOS_SCARA PROTOBUF_FINAL :
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
 // Pt_DataVoid
+
+// int32 null = 1;
+inline void Pt_DataVoid::clear_null() {
+  null_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_DataVoid::_internal_null() const {
+  return null_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_DataVoid::null() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_DataVoid.null)
+  return _internal_null();
+}
+inline void Pt_DataVoid::_internal_set_null(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  null_ = value;
+}
+inline void Pt_DataVoid::set_null(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_null(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_DataVoid.null)
+}
 
 // -------------------------------------------------------------------
 
@@ -705,6 +1910,278 @@ inline void Pt_EnableState::set_enablestate(::PROTOBUF_NAMESPACE_ID::int32 value
 
 // -------------------------------------------------------------------
 
+// Pt_StartServo
+
+// int32 startservo = 1;
+inline void Pt_StartServo::clear_startservo() {
+  startservo_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_StartServo::_internal_startservo() const {
+  return startservo_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_StartServo::startservo() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_StartServo.startservo)
+  return _internal_startservo();
+}
+inline void Pt_StartServo::_internal_set_startservo(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  startservo_ = value;
+}
+inline void Pt_StartServo::set_startservo(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_startservo(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_StartServo.startservo)
+}
+
+// -------------------------------------------------------------------
+
+// Pt_VISUAL_SERVO_SERVOTYPE
+
+// int32 servotype = 1;
+inline void Pt_VISUAL_SERVO_SERVOTYPE::clear_servotype() {
+  servotype_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_VISUAL_SERVO_SERVOTYPE::_internal_servotype() const {
+  return servotype_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_VISUAL_SERVO_SERVOTYPE::servotype() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_VISUAL_SERVO_SERVOTYPE.servotype)
+  return _internal_servotype();
+}
+inline void Pt_VISUAL_SERVO_SERVOTYPE::_internal_set_servotype(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  servotype_ = value;
+}
+inline void Pt_VISUAL_SERVO_SERVOTYPE::set_servotype(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_servotype(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_VISUAL_SERVO_SERVOTYPE.servotype)
+}
+
+// -------------------------------------------------------------------
+
+// Pt_VISUAL_SERVO_TARGETPOS_XYZ
+
+// double target_x = 1;
+inline void Pt_VISUAL_SERVO_TARGETPOS_XYZ::clear_target_x() {
+  target_x_ = 0;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_XYZ::_internal_target_x() const {
+  return target_x_;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_XYZ::target_x() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_XYZ.target_x)
+  return _internal_target_x();
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_XYZ::_internal_set_target_x(double value) {
+  
+  target_x_ = value;
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_XYZ::set_target_x(double value) {
+  _internal_set_target_x(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_XYZ.target_x)
+}
+
+// double target_y = 2;
+inline void Pt_VISUAL_SERVO_TARGETPOS_XYZ::clear_target_y() {
+  target_y_ = 0;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_XYZ::_internal_target_y() const {
+  return target_y_;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_XYZ::target_y() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_XYZ.target_y)
+  return _internal_target_y();
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_XYZ::_internal_set_target_y(double value) {
+  
+  target_y_ = value;
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_XYZ::set_target_y(double value) {
+  _internal_set_target_y(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_XYZ.target_y)
+}
+
+// double target_z = 3;
+inline void Pt_VISUAL_SERVO_TARGETPOS_XYZ::clear_target_z() {
+  target_z_ = 0;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_XYZ::_internal_target_z() const {
+  return target_z_;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_XYZ::target_z() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_XYZ.target_z)
+  return _internal_target_z();
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_XYZ::_internal_set_target_z(double value) {
+  
+  target_z_ = value;
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_XYZ::set_target_z(double value) {
+  _internal_set_target_z(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_XYZ.target_z)
+}
+
+// -------------------------------------------------------------------
+
+// Pt_VISUAL_SERVO_TARGETPOS_ABC
+
+// double target_a = 1;
+inline void Pt_VISUAL_SERVO_TARGETPOS_ABC::clear_target_a() {
+  target_a_ = 0;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_ABC::_internal_target_a() const {
+  return target_a_;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_ABC::target_a() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_ABC.target_a)
+  return _internal_target_a();
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_ABC::_internal_set_target_a(double value) {
+  
+  target_a_ = value;
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_ABC::set_target_a(double value) {
+  _internal_set_target_a(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_ABC.target_a)
+}
+
+// double target_b = 2;
+inline void Pt_VISUAL_SERVO_TARGETPOS_ABC::clear_target_b() {
+  target_b_ = 0;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_ABC::_internal_target_b() const {
+  return target_b_;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_ABC::target_b() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_ABC.target_b)
+  return _internal_target_b();
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_ABC::_internal_set_target_b(double value) {
+  
+  target_b_ = value;
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_ABC::set_target_b(double value) {
+  _internal_set_target_b(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_ABC.target_b)
+}
+
+// double target_c = 3;
+inline void Pt_VISUAL_SERVO_TARGETPOS_ABC::clear_target_c() {
+  target_c_ = 0;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_ABC::_internal_target_c() const {
+  return target_c_;
+}
+inline double Pt_VISUAL_SERVO_TARGETPOS_ABC::target_c() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_ABC.target_c)
+  return _internal_target_c();
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_ABC::_internal_set_target_c(double value) {
+  
+  target_c_ = value;
+}
+inline void Pt_VISUAL_SERVO_TARGETPOS_ABC::set_target_c(double value) {
+  _internal_set_target_c(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_VISUAL_SERVO_TARGETPOS_ABC.target_c)
+}
+
+// -------------------------------------------------------------------
+
+// Pt_VISUAL_SERVO_ERROR_XYZ
+
+// double error_xyz = 1;
+inline void Pt_VISUAL_SERVO_ERROR_XYZ::clear_error_xyz() {
+  error_xyz_ = 0;
+}
+inline double Pt_VISUAL_SERVO_ERROR_XYZ::_internal_error_xyz() const {
+  return error_xyz_;
+}
+inline double Pt_VISUAL_SERVO_ERROR_XYZ::error_xyz() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_XYZ.error_xyz)
+  return _internal_error_xyz();
+}
+inline void Pt_VISUAL_SERVO_ERROR_XYZ::_internal_set_error_xyz(double value) {
+  
+  error_xyz_ = value;
+}
+inline void Pt_VISUAL_SERVO_ERROR_XYZ::set_error_xyz(double value) {
+  _internal_set_error_xyz(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_XYZ.error_xyz)
+}
+
+// -------------------------------------------------------------------
+
+// Pt_VISUAL_SERVO_ERROR_ABC
+
+// double error_abc = 1;
+inline void Pt_VISUAL_SERVO_ERROR_ABC::clear_error_abc() {
+  error_abc_ = 0;
+}
+inline double Pt_VISUAL_SERVO_ERROR_ABC::_internal_error_abc() const {
+  return error_abc_;
+}
+inline double Pt_VISUAL_SERVO_ERROR_ABC::error_abc() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_ABC.error_abc)
+  return _internal_error_abc();
+}
+inline void Pt_VISUAL_SERVO_ERROR_ABC::_internal_set_error_abc(double value) {
+  
+  error_abc_ = value;
+}
+inline void Pt_VISUAL_SERVO_ERROR_ABC::set_error_abc(double value) {
+  _internal_set_error_abc(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_ABC.error_abc)
+}
+
+// -------------------------------------------------------------------
+
+// Pt_VISUAL_SERVO_ERROR_IMAGE
+
+// double error_image = 1;
+inline void Pt_VISUAL_SERVO_ERROR_IMAGE::clear_error_image() {
+  error_image_ = 0;
+}
+inline double Pt_VISUAL_SERVO_ERROR_IMAGE::_internal_error_image() const {
+  return error_image_;
+}
+inline double Pt_VISUAL_SERVO_ERROR_IMAGE::error_image() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_IMAGE.error_image)
+  return _internal_error_image();
+}
+inline void Pt_VISUAL_SERVO_ERROR_IMAGE::_internal_set_error_image(double value) {
+  
+  error_image_ = value;
+}
+inline void Pt_VISUAL_SERVO_ERROR_IMAGE::set_error_image(double value) {
+  _internal_set_error_image(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_VISUAL_SERVO_ERROR_IMAGE.error_image)
+}
+
+// -------------------------------------------------------------------
+
+// Pt_VISUAL_SERVO_ENDSERVO
+
+// int32 endservo = 1;
+inline void Pt_VISUAL_SERVO_ENDSERVO::clear_endservo() {
+  endservo_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_VISUAL_SERVO_ENDSERVO::_internal_endservo() const {
+  return endservo_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_VISUAL_SERVO_ENDSERVO::endservo() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_VISUAL_SERVO_ENDSERVO.endservo)
+  return _internal_endservo();
+}
+inline void Pt_VISUAL_SERVO_ENDSERVO::_internal_set_endservo(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  endservo_ = value;
+}
+inline void Pt_VISUAL_SERVO_ENDSERVO::set_endservo(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_endservo(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_VISUAL_SERVO_ENDSERVO.endservo)
+}
+
+// -------------------------------------------------------------------
+
 // Pt_AXISPOS_SCARA
 
 // double a1 = 1;
@@ -747,24 +2224,24 @@ inline void Pt_AXISPOS_SCARA::set_a2(double value) {
   // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_AXISPOS_SCARA.a2)
 }
 
-// double a3 = 3;
-inline void Pt_AXISPOS_SCARA::clear_a3() {
-  a3_ = 0;
+// double d = 3;
+inline void Pt_AXISPOS_SCARA::clear_d() {
+  d_ = 0;
 }
-inline double Pt_AXISPOS_SCARA::_internal_a3() const {
-  return a3_;
+inline double Pt_AXISPOS_SCARA::_internal_d() const {
+  return d_;
 }
-inline double Pt_AXISPOS_SCARA::a3() const {
-  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_AXISPOS_SCARA.a3)
-  return _internal_a3();
+inline double Pt_AXISPOS_SCARA::d() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_AXISPOS_SCARA.d)
+  return _internal_d();
 }
-inline void Pt_AXISPOS_SCARA::_internal_set_a3(double value) {
+inline void Pt_AXISPOS_SCARA::_internal_set_d(double value) {
   
-  a3_ = value;
+  d_ = value;
 }
-inline void Pt_AXISPOS_SCARA::set_a3(double value) {
-  _internal_set_a3(value);
-  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_AXISPOS_SCARA.a3)
+inline void Pt_AXISPOS_SCARA::set_d(double value) {
+  _internal_set_d(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_AXISPOS_SCARA.d)
 }
 
 // double a4 = 4;
@@ -790,6 +2267,22 @@ inline void Pt_AXISPOS_SCARA::set_a4(double value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -89,22 +89,9 @@ CMakeFiles/controller.dir/ControlThread.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/controller.dir/ControlThread.cpp.s"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mingh/robot-controller/ControlThread.cpp -o CMakeFiles/controller.dir/ControlThread.cpp.s
 
-CMakeFiles/controller.dir/DataTransferThread.cpp.o: CMakeFiles/controller.dir/flags.make
-CMakeFiles/controller.dir/DataTransferThread.cpp.o: ../DataTransferThread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/controller.dir/DataTransferThread.cpp.o"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/DataTransferThread.cpp.o -c /home/mingh/robot-controller/DataTransferThread.cpp
-
-CMakeFiles/controller.dir/DataTransferThread.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/controller.dir/DataTransferThread.cpp.i"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mingh/robot-controller/DataTransferThread.cpp > CMakeFiles/controller.dir/DataTransferThread.cpp.i
-
-CMakeFiles/controller.dir/DataTransferThread.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/controller.dir/DataTransferThread.cpp.s"
-	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mingh/robot-controller/DataTransferThread.cpp -o CMakeFiles/controller.dir/DataTransferThread.cpp.s
-
 CMakeFiles/controller.dir/GetRobotState.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/GetRobotState.cpp.o: ../GetRobotState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/controller.dir/GetRobotState.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/controller.dir/GetRobotState.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/GetRobotState.cpp.o -c /home/mingh/robot-controller/GetRobotState.cpp
 
 CMakeFiles/controller.dir/GetRobotState.cpp.i: cmake_force
@@ -117,7 +104,7 @@ CMakeFiles/controller.dir/GetRobotState.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o: ../MotorServoSCARA_PBVS.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o -c /home/mingh/robot-controller/MotorServoSCARA_PBVS.cpp
 
 CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.i: cmake_force
@@ -130,7 +117,7 @@ CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/RobotController.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/RobotController.cpp.o: ../RobotController.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/controller.dir/RobotController.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/controller.dir/RobotController.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS)  -Wno-unused-function -Wno-reorder -Wno-sign-compare -Wno-overloaded-virtual -Wno-ignored-qualifiers -o CMakeFiles/controller.dir/RobotController.cpp.o -c /home/mingh/robot-controller/RobotController.cpp
 
 CMakeFiles/controller.dir/RobotController.cpp.i: cmake_force
@@ -143,7 +130,7 @@ CMakeFiles/controller.dir/RobotController.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/VisualServoSCARA.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/VisualServoSCARA.cpp.o: ../VisualServoSCARA.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/controller.dir/VisualServoSCARA.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/controller.dir/VisualServoSCARA.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/VisualServoSCARA.cpp.o -c /home/mingh/robot-controller/VisualServoSCARA.cpp
 
 CMakeFiles/controller.dir/VisualServoSCARA.cpp.i: cmake_force
@@ -156,7 +143,7 @@ CMakeFiles/controller.dir/VisualServoSCARA.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.o: ../Module/robot/src/MhConfig.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.o -c /home/mingh/robot-controller/Module/robot/src/MhConfig.cpp
 
 CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.i: cmake_force
@@ -169,7 +156,7 @@ CMakeFiles/controller.dir/Module/robot/src/MhConfig.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o: ../Module/robot/src/MhDh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o -c /home/mingh/robot-controller/Module/robot/src/MhDh.cpp
 
 CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.i: cmake_force
@@ -182,7 +169,7 @@ CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o: ../Module/robot/src/MhHomotransform.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o -c /home/mingh/robot-controller/Module/robot/src/MhHomotransform.cpp
 
 CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.i: cmake_force
@@ -195,7 +182,7 @@ CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/robot/src/MhIndustrialRobot.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o -c /home/mingh/robot-controller/Module/robot/src/MhIndustrialRobot.cpp
 
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.i: cmake_force
@@ -208,7 +195,7 @@ CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o: ../Module/robot/src/MhIndustrialRobotPathPlan.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o -c /home/mingh/robot-controller/Module/robot/src/MhIndustrialRobotPathPlan.cpp
 
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.i: cmake_force
@@ -221,7 +208,7 @@ CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.s: cmak
 
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o: ../Module/robot/src/MhIndustrialSCARA.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o -c /home/mingh/robot-controller/Module/robot/src/MhIndustrialSCARA.cpp
 
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.i: cmake_force
@@ -234,7 +221,7 @@ CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.o: ../Module/robot/src/RobotDataText.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.o -c /home/mingh/robot-controller/Module/robot/src/RobotDataText.cpp
 
 CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.i: cmake_force
@@ -247,7 +234,7 @@ CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o: ../Module/robot/src/tinyxml2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o -c /home/mingh/robot-controller/Module/robot/src/tinyxml2.cpp
 
 CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.i: cmake_force
@@ -260,7 +247,7 @@ CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.grpc.pb.cc.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.grpc.pb.cc.o: ../Module/core/src/DemConDataTransfer.grpc.pb.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.grpc.pb.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.grpc.pb.cc.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.grpc.pb.cc.o -c /home/mingh/robot-controller/Module/core/src/DemConDataTransfer.grpc.pb.cc
 
 CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.grpc.pb.cc.i: cmake_force
@@ -273,7 +260,7 @@ CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.grpc.pb.cc.s: cmake
 
 CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.pb.cc.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.pb.cc.o: ../Module/core/src/DemConDataTransfer.pb.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.pb.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.pb.cc.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.pb.cc.o -c /home/mingh/robot-controller/Module/core/src/DemConDataTransfer.pb.cc
 
 CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.pb.cc.i: cmake_force
@@ -286,7 +273,7 @@ CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.pb.cc.s: cmake_forc
 
 CMakeFiles/controller.dir/Module/core/src/MhgRPCServer.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/core/src/MhgRPCServer.cpp.o: ../Module/core/src/MhgRPCServer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/controller.dir/Module/core/src/MhgRPCServer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/controller.dir/Module/core/src/MhgRPCServer.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/core/src/MhgRPCServer.cpp.o -c /home/mingh/robot-controller/Module/core/src/MhgRPCServer.cpp
 
 CMakeFiles/controller.dir/Module/core/src/MhgRPCServer.cpp.i: cmake_force
@@ -299,7 +286,7 @@ CMakeFiles/controller.dir/Module/core/src/MhgRPCServer.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.o: ../Module/core/src/ThreadManage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.o -c /home/mingh/robot-controller/Module/core/src/ThreadManage.cpp
 
 CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.i: cmake_force
@@ -312,7 +299,7 @@ CMakeFiles/controller.dir/Module/core/src/ThreadManage.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.o: ../Module/kernal/src/MhMotionKernel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.o -c /home/mingh/robot-controller/Module/kernal/src/MhMotionKernel.cpp
 
 CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.i: cmake_force
@@ -325,7 +312,7 @@ CMakeFiles/controller.dir/Module/kernal/src/MhMotionKernel.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/test/Jacobian_test.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/test/Jacobian_test.cpp.o: ../test/Jacobian_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/controller.dir/test/Jacobian_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/controller.dir/test/Jacobian_test.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/test/Jacobian_test.cpp.o -c /home/mingh/robot-controller/test/Jacobian_test.cpp
 
 CMakeFiles/controller.dir/test/Jacobian_test.cpp.i: cmake_force
@@ -338,7 +325,7 @@ CMakeFiles/controller.dir/test/Jacobian_test.cpp.s: cmake_force
 
 CMakeFiles/controller.dir/test/vel_trans_test.cpp.o: CMakeFiles/controller.dir/flags.make
 CMakeFiles/controller.dir/test/vel_trans_test.cpp.o: ../test/vel_trans_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/controller.dir/test/vel_trans_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/controller.dir/test/vel_trans_test.cpp.o"
 	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/test/vel_trans_test.cpp.o -c /home/mingh/robot-controller/test/vel_trans_test.cpp
 
 CMakeFiles/controller.dir/test/vel_trans_test.cpp.i: cmake_force
@@ -352,7 +339,6 @@ CMakeFiles/controller.dir/test/vel_trans_test.cpp.s: cmake_force
 # Object files for target controller
 controller_OBJECTS = \
 "CMakeFiles/controller.dir/ControlThread.cpp.o" \
-"CMakeFiles/controller.dir/DataTransferThread.cpp.o" \
 "CMakeFiles/controller.dir/GetRobotState.cpp.o" \
 "CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o" \
 "CMakeFiles/controller.dir/RobotController.cpp.o" \
@@ -377,7 +363,6 @@ controller_OBJECTS = \
 controller_EXTERNAL_OBJECTS =
 
 controller: CMakeFiles/controller.dir/ControlThread.cpp.o
-controller: CMakeFiles/controller.dir/DataTransferThread.cpp.o
 controller: CMakeFiles/controller.dir/GetRobotState.cpp.o
 controller: CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o
 controller: CMakeFiles/controller.dir/RobotController.cpp.o
@@ -481,7 +466,7 @@ controller: /lib/libabsl_spinlock_wait.a
 controller: /lib/libaddress_sorting.a
 controller: /lib/libupb.a
 controller: CMakeFiles/controller.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mingh/robot-controller/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable controller"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/controller.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

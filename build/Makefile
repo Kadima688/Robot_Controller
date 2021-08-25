@@ -169,33 +169,6 @@ ControlThread.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/ControlThread.cpp.s
 .PHONY : ControlThread.cpp.s
 
-DataTransferThread.o: DataTransferThread.cpp.o
-
-.PHONY : DataTransferThread.o
-
-# target to build an object file
-DataTransferThread.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/DataTransferThread.cpp.o
-.PHONY : DataTransferThread.cpp.o
-
-DataTransferThread.i: DataTransferThread.cpp.i
-
-.PHONY : DataTransferThread.i
-
-# target to preprocess a source file
-DataTransferThread.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/DataTransferThread.cpp.i
-.PHONY : DataTransferThread.cpp.i
-
-DataTransferThread.s: DataTransferThread.cpp.s
-
-.PHONY : DataTransferThread.s
-
-# target to generate assembly for a file
-DataTransferThread.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/DataTransferThread.cpp.s
-.PHONY : DataTransferThread.cpp.s
-
 GetRobotState.o: GetRobotState.cpp.o
 
 .PHONY : GetRobotState.o
@@ -721,9 +694,6 @@ help:
 	@echo "... ControlThread.o"
 	@echo "... ControlThread.i"
 	@echo "... ControlThread.s"
-	@echo "... DataTransferThread.o"
-	@echo "... DataTransferThread.i"
-	@echo "... DataTransferThread.s"
 	@echo "... GetRobotState.o"
 	@echo "... GetRobotState.i"
 	@echo "... GetRobotState.s"

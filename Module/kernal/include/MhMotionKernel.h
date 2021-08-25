@@ -2,7 +2,12 @@
 #define MotionKernel_H
 
 #include<string>
+#ifdef USE_KERNEL
 #include<IPMCMOTION.h>
+#else
+#include"IPMCMOTION.h"
+#endif
+
 
 namespace Mh{
     class MhMotionkernel{
@@ -50,8 +55,7 @@ namespace Mh{
             //-------------单轴定长运动
             int PositionDrive(unsigned int nAxis,double Position);
             //--------------停止所有轴运动
-            int StopAllAxis( unsigned int mode);
-            
+            int StopAllAxis( unsigned int mode);         
     };
 }
 

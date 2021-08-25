@@ -6,11 +6,6 @@
 },
 {
   "directory": "/home/mingh/robot-controller/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7 -DCARES_STATICLIB -DLINUX -I/home/mingh/robot-controller/Module/core/include -I/home/mingh/robot-controller/Module/robot/include -I/home/mingh/robot-controller/Module/kernal/include -isystem /usr/include/opencv -isystem /usr/local/include/eigen3 -isystem /usr/include/libxml2 -isystem /usr/include/libusb-1.0 -isystem /include  -fopenmp -fPIC  -O0 -W -g2 -ggdb -std=c++11 -o CMakeFiles/controller.dir/DataTransferThread.cpp.o -c /home/mingh/robot-controller/DataTransferThread.cpp",
-  "file": "/home/mingh/robot-controller/DataTransferThread.cpp"
-},
-{
-  "directory": "/home/mingh/robot-controller/build",
   "command": "/usr/bin/x86_64-linux-gnu-g++-7 -DCARES_STATICLIB -DLINUX -I/home/mingh/robot-controller/Module/core/include -I/home/mingh/robot-controller/Module/robot/include -I/home/mingh/robot-controller/Module/kernal/include -isystem /usr/include/opencv -isystem /usr/local/include/eigen3 -isystem /usr/include/libxml2 -isystem /usr/include/libusb-1.0 -isystem /include  -fopenmp -fPIC  -O0 -W -g2 -ggdb -std=c++11 -o CMakeFiles/controller.dir/GetRobotState.cpp.o -c /home/mingh/robot-controller/GetRobotState.cpp",
   "file": "/home/mingh/robot-controller/GetRobotState.cpp"
 },

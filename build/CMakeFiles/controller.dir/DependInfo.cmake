@@ -5,7 +5,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/mingh/robot-controller/ControlThread.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/ControlThread.cpp.o"
-  "/home/mingh/robot-controller/DataTransferThread.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/DataTransferThread.cpp.o"
   "/home/mingh/robot-controller/GetRobotState.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/GetRobotState.cpp.o"
   "/home/mingh/robot-controller/Module/core/src/DemConDataTransfer.grpc.pb.cc" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.grpc.pb.cc.o"
   "/home/mingh/robot-controller/Module/core/src/DemConDataTransfer.pb.cc" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/core/src/DemConDataTransfer.pb.cc.o"
