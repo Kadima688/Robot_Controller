@@ -186,7 +186,7 @@ bool Mh::MhIndustrialSCARA::inversekinematics(std::vector<double>& Axis,std::vec
     //judge if axis offlimit
     for(int i=0;i<4;++i){
         if(Axis[i]<m_q_min[i]||Axis[i]>m_q_max[i]){
-            std::cout<<"Axis"<<i<<"is offlimit"<<std::endl;
+            std::cout<<"Axis"<<i<<"is offlimit:"<<Axis[i]<<std::endl;
             return false;
         }
     }
@@ -541,7 +541,7 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
         set_retn(retn,SETVELCOMMAND);
     }
 }
-
+#ifndef USE_KERNEL
 void Mh::MhIndustrialSCARA::setJointVelocity_virtual(const vpColVector &qdot){
     Con2DemData.axisPos_scara.a1+=qdot[0];
     Con2DemData.axisPos_scara.a2+=qdot[1];
@@ -554,6 +554,7 @@ void Mh::MhIndustrialSCARA::setJointVelocity_virtual(const vpColVector &qdot){
     }
     sleep(0.02);
 }
+#endif
 
 void Mh::MhIndustrialSCARA::RobotMotorInitial(){
     for(unsigned int i=0;i<nDof;++i){

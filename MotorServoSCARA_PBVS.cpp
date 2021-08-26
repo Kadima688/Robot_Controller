@@ -21,15 +21,15 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
                           double convergence_threshold_t,double convergence_threshold_tu){ 
     #ifndef USE_KERNEL
     //设置当前的轴关节位置和空间位置
-        RobotSCARA->Con2DemData.axisPos_scara.a1=-39.9150;
-        RobotSCARA->Con2DemData.axisPos_scara.a2=84.2464;
-        RobotSCARA->Con2DemData.axisPos_scara.d=54.75512;
-        RobotSCARA->Con2DemData.axisPos_scara.a4=161.4467;
-        std::vector<double> cartesian;
-        std::vector<double> scara_input={RobotSCARA->Con2DemData.axisPos_scara.a1,RobotSCARA->Con2DemData.axisPos_scara.a2,RobotSCARA->Con2DemData.axisPos_scara.d,RobotSCARA->Con2DemData.axisPos_scara.a4};        
-        if(RobotSCARA->forwardkinematics(scara_input,cartesian)){
-            RobotSCARA->Con2DemData.cartPos=cartesian;
-        }
+    RobotSCARA->Con2DemData.axisPos_scara.a1=-39.9150;
+    RobotSCARA->Con2DemData.axisPos_scara.a2=84.2464;
+    RobotSCARA->Con2DemData.axisPos_scara.d=54.75512;
+    RobotSCARA->Con2DemData.axisPos_scara.a4=161.4467;
+    std::vector<double> cartesian;
+    std::vector<double> scara_input={RobotSCARA->Con2DemData.axisPos_scara.a1,RobotSCARA->Con2DemData.axisPos_scara.a2,RobotSCARA->Con2DemData.axisPos_scara.d,RobotSCARA->Con2DemData.axisPos_scara.a4};        
+    if(RobotSCARA->forwardkinematics(scara_input,cartesian)){
+        RobotSCARA->Con2DemData.cartPos=cartesian;
+    }
     #endif
     //1、设置相机外参信息
     vpHomogeneousMatrix eMc;
@@ -42,7 +42,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     //2、定义cdMc、fMo初始化相机和目标物体的位置信息
     vpHomogeneousMatrix cdMc,oMo,cMo;
     vpHomogeneousMatrix cdMo(vpTranslationVector(0,0,opt_tagSzie*3),vpRotationMatrix({1,0,0,0,-1,0,0,0,-1}));
-    vpHomogeneousMatrix fMo(vpTranslationVector(0.487,0.041,-0.25),vpThetaUVector(vpRzyzVector(0,0,0)));
+    vpHomogeneousMatrix fMo(vpTranslationVector(0.487,0.041,-0.25),vpThetaUVector(vpRzyzVector(0,0,M_PI/3)));
     cdMc=cdMo*cMo.inverse();
     //3、根据上述的位置信息开始创建误差特征-----这一步我们是选择空间位姿误作为伺服特征。在这里可以选择其他信息作为特征，如图像的点、线、甚至是深度信息。
     vpFeatureTranslation t(vpFeatureTranslation::cdMc);vpFeatureThetaU tu(vpFeatureThetaU::cdRc);
@@ -88,7 +88,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     bool send_velocitys=false;
     bool servo_started=false;
 
-    static double t_init_servo=vpTime::measureTimeMs();
+    double t_init_servo=vpTime::measureTimeMs();
 
     RobotSCARA->set_eMc(eMc);//设置机器人的外参矩阵
     RobotSCARA->setRobotState(Mh::MhIndustrialRobot::STATE_VELOCITY_CONTROL);//设置为速度控制模式
@@ -104,7 +104,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         vp::eigen2visp(fTe,fMe);fMe[0][3]/=1000;fMe[1][3]/=1000;fMe[2][3]/=1000;
         cMo=eMc.inverse()*fMe.inverse()*fMo;
         vpColVector v_c(6);
-        static bool first_time=true;
+        bool first_time=true;
         if(first_time){
             //9、处于安全，避免PI旋转
             std::vector<vpHomogeneousMatrix>v_oMo(2),v_cdMc(2);
@@ -162,9 +162,9 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
             v_c=0;
         }    
         //13、开始将速度发送给内核
-        std::thread SetVelocityThread(&Mh::MhIndustrialSCARA::setVelocity,RobotSCARA,Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
-        SetVelocityThread.detach();
-        // RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
+        // std::thread SetVelocityThread(&Mh::MhIndustrialSCARA::setVelocity,RobotSCARA,Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
+        // SetVelocityThread.detach();
+        RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         //14、处理鼠标事件
         vpMouseButton::vpMouseButtonType button;
         if(opt_plot){
@@ -182,6 +182,10 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
                 break;
             }
             }   
+        }
+        //视觉伺服过程点击结束伺服按钮，会导致伺服的结束
+        if(RobotSCARA->ConChargeData.startServo==0){
+            final_quit=true;
         }
         #ifdef VISP_HAVE_DISPLAY
         //位姿误差也写在图上
@@ -222,5 +226,5 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     }
     //配合control thread处理相应的控制变量
     RobotSCARA->ConChargeData.startServo=0;//视觉伺服结束
-    RobotSCARA->ConChargeData.endServo=0;
+    RobotSCARA->ConChargeData.hasServo=0;
 }

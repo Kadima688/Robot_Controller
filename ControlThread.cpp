@@ -52,15 +52,21 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                     //开启插补缓冲区、设置速度前瞻
                     // RobotSCARA->RobotOpenConti();
                     //开始具体的运动
-                    // RobotSCARA->FollowPathMove(record,Mh::PTP);//目前采用单轴定长运动的方式让机器人达到视觉伺服开始之前期望的位置
+                    RobotSCARA->FollowPathMove(record,Mh::PTP);//目前采用单轴定长运动的方式让机器人达到视觉伺服开始之前期望的位置
                     first_PTP=1;
                 }
                 //视觉伺服
                 if(RobotSCARA->ConChargeData.startServo==1){
-                    if(RobotSCARA->ConChargeData.endServo==0){
-                        std::thread VisualServoThread(VisualServoSCARA,RobotSCARA);
-                        VisualServoThread.detach();
-                        RobotSCARA->ConChargeData.endServo=1;
+                    if(RobotSCARA->ConChargeData.hasServo==0){
+                        if(RobotSCARA->Dem2ConData.visualServo.servotype==1){
+                            std::thread VisualServoPBVSThread(VisualServoSCARA_PBVS,RobotSCARA);
+                            VisualServoPBVSThread.detach();
+                        }
+                        else if(RobotSCARA->Dem2ConData.visualServo.servotype==2){
+                            std::thread VisualServoIBVSThread(VisualServoSCARA_IBVS,RobotSCARA);
+                            VisualServoIBVSThread.detach();
+                        }
+                        RobotSCARA->ConChargeData.hasServo=1;
                     }
                 }
             }

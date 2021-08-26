@@ -11,8 +11,23 @@
 },
 {
   "directory": "/home/mingh/robot-controller/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7 -DCARES_STATICLIB -DLINUX -I/home/mingh/robot-controller/Module/core/include -I/home/mingh/robot-controller/Module/robot/include -I/home/mingh/robot-controller/Module/kernal/include -isystem /usr/include/opencv -isystem /usr/local/include/eigen3 -isystem /usr/include/libxml2 -isystem /usr/include/libusb-1.0 -isystem /include  -fopenmp -fPIC  -O0 -W -g2 -ggdb -std=c++11 -o CMakeFiles/controller.dir/MotorServoSCARA_IBVS.cpp.o -c /home/mingh/robot-controller/MotorServoSCARA_IBVS.cpp",
+  "file": "/home/mingh/robot-controller/MotorServoSCARA_IBVS.cpp"
+},
+{
+  "directory": "/home/mingh/robot-controller/build",
   "command": "/usr/bin/x86_64-linux-gnu-g++-7 -DCARES_STATICLIB -DLINUX -I/home/mingh/robot-controller/Module/core/include -I/home/mingh/robot-controller/Module/robot/include -I/home/mingh/robot-controller/Module/kernal/include -isystem /usr/include/opencv -isystem /usr/local/include/eigen3 -isystem /usr/include/libxml2 -isystem /usr/include/libusb-1.0 -isystem /include  -fopenmp -fPIC  -O0 -W -g2 -ggdb -std=c++11 -o CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o -c /home/mingh/robot-controller/MotorServoSCARA_PBVS.cpp",
   "file": "/home/mingh/robot-controller/MotorServoSCARA_PBVS.cpp"
+},
+{
+  "directory": "/home/mingh/robot-controller/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7 -DCARES_STATICLIB -DLINUX -I/home/mingh/robot-controller/Module/core/include -I/home/mingh/robot-controller/Module/robot/include -I/home/mingh/robot-controller/Module/kernal/include -isystem /usr/include/opencv -isystem /usr/local/include/eigen3 -isystem /usr/include/libxml2 -isystem /usr/include/libusb-1.0 -isystem /include  -fopenmp -fPIC  -O0 -W -g2 -ggdb -std=c++11 -o CMakeFiles/controller.dir/RealsenseServoSCARA_IBVS.cpp.o -c /home/mingh/robot-controller/RealsenseServoSCARA_IBVS.cpp",
+  "file": "/home/mingh/robot-controller/RealsenseServoSCARA_IBVS.cpp"
+},
+{
+  "directory": "/home/mingh/robot-controller/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7 -DCARES_STATICLIB -DLINUX -I/home/mingh/robot-controller/Module/core/include -I/home/mingh/robot-controller/Module/robot/include -I/home/mingh/robot-controller/Module/kernal/include -isystem /usr/include/opencv -isystem /usr/local/include/eigen3 -isystem /usr/include/libxml2 -isystem /usr/include/libusb-1.0 -isystem /include  -fopenmp -fPIC  -O0 -W -g2 -ggdb -std=c++11 -o CMakeFiles/controller.dir/RealsenseServoSCARA_PBVS.cpp.o -c /home/mingh/robot-controller/RealsenseServoSCARA_PBVS.cpp",
+  "file": "/home/mingh/robot-controller/RealsenseServoSCARA_PBVS.cpp"
 },
 {
   "directory": "/home/mingh/robot-controller/build",
@@ -21,8 +36,13 @@
 },
 {
   "directory": "/home/mingh/robot-controller/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7 -DCARES_STATICLIB -DLINUX -I/home/mingh/robot-controller/Module/core/include -I/home/mingh/robot-controller/Module/robot/include -I/home/mingh/robot-controller/Module/kernal/include -isystem /usr/include/opencv -isystem /usr/local/include/eigen3 -isystem /usr/include/libxml2 -isystem /usr/include/libusb-1.0 -isystem /include  -fopenmp -fPIC  -O0 -W -g2 -ggdb -std=c++11 -o CMakeFiles/controller.dir/VisualServoSCARA.cpp.o -c /home/mingh/robot-controller/VisualServoSCARA.cpp",
-  "file": "/home/mingh/robot-controller/VisualServoSCARA.cpp"
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7 -DCARES_STATICLIB -DLINUX -I/home/mingh/robot-controller/Module/core/include -I/home/mingh/robot-controller/Module/robot/include -I/home/mingh/robot-controller/Module/kernal/include -isystem /usr/include/opencv -isystem /usr/local/include/eigen3 -isystem /usr/include/libxml2 -isystem /usr/include/libusb-1.0 -isystem /include  -fopenmp -fPIC  -O0 -W -g2 -ggdb -std=c++11 -o CMakeFiles/controller.dir/VisualServoSCARA_IBVS.cpp.o -c /home/mingh/robot-controller/VisualServoSCARA_IBVS.cpp",
+  "file": "/home/mingh/robot-controller/VisualServoSCARA_IBVS.cpp"
+},
+{
+  "directory": "/home/mingh/robot-controller/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7 -DCARES_STATICLIB -DLINUX -I/home/mingh/robot-controller/Module/core/include -I/home/mingh/robot-controller/Module/robot/include -I/home/mingh/robot-controller/Module/kernal/include -isystem /usr/include/opencv -isystem /usr/local/include/eigen3 -isystem /usr/include/libxml2 -isystem /usr/include/libusb-1.0 -isystem /include  -fopenmp -fPIC  -O0 -W -g2 -ggdb -std=c++11 -o CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.o -c /home/mingh/robot-controller/VisualServoSCARA_PBVS.cpp",
+  "file": "/home/mingh/robot-controller/VisualServoSCARA_PBVS.cpp"
 },
 {
   "directory": "/home/mingh/robot-controller/build",

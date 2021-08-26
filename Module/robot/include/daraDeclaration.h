@@ -243,6 +243,7 @@ struct MhControlChargeData
     int endFromStart;  //判断是否从程序运行状态变为程序终止状态，0：否，1：是
     int transferZipFinished; //判断压缩包是否已经传输完成并已解压，0：否，1：是
     int startServo=0; //判断是否已经开始视觉伺服，0：否，1：是
+    int hasServo=0;//配合startservo用来控制视觉伺服的开始和结束
     int endServo=0; //用于控制器结束视觉伺服，0：不结束，1：结束
     bool error; //判断程序运行中是否出错，false：未出错，true：出错
     int retn; //内核API返回值，为0时表示调用成功
