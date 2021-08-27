@@ -22,6 +22,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
 {
     RobotSCARA->MhRobotText.CartPos_out.open("CARTPOS_PBVS.txt");
     int dynamic_simulation=1;//0:不开启静态模拟  1：开启静态模拟
+    bool first_time=true;
     #ifndef USE_KERNEL
     //设置当前的轴关节位置和空间位置
     RobotSCARA->Con2DemData.axisPos_scara.a1=-39.9150;
@@ -114,7 +115,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         cMo=eMc.inverse()*fMe.inverse()*fMo;
 
         //---------------------------------------动态模拟生成器
-        if(dynamic_simulation && send_velocitys){
+        if((dynamic_simulation && send_velocitys && opt_plot) || (dynamic_simulation && !opt_plot && !send_velocitys)){
             unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
             std::default_random_engine gen(seed);
             if(dynamic_n<segment+1){
@@ -124,9 +125,9 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
                 dynamic_n++;
             }
             else{
-                std::normal_distribution<double> dis_x(des_x,0.1);
-                std::normal_distribution<double> dis_y(des_y,0.1);
-                std::normal_distribution<double> dis_z(des_z,0.1);
+                std::normal_distribution<double> dis_x(des_x,0.001);
+                std::normal_distribution<double> dis_y(des_y,0.001);
+                std::normal_distribution<double> dis_z(des_z,0.001);
                 fMo[0][3]=dis_x(gen);
                 fMo[1][3]=dis_y(gen);
                 fMo[2][3]=dis_z(gen);
@@ -135,7 +136,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         //---------------------------------------动态模拟生成器
 
         vpColVector v_c(6);
-        bool first_time=true;
+        
         if(first_time){
             //9、处于安全，避免PI旋转
             std::vector<vpHomogeneousMatrix>v_oMo(2),v_cdMc(2);
