@@ -125,15 +125,15 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
                 dynamic_n++;
             }
             else{
-                std::normal_distribution<double> dis_x(des_x,0.01);
-                std::normal_distribution<double> dis_y(des_y,0.01);
-                std::normal_distribution<double> dis_z(des_z,0.01);
+                std::normal_distribution<double> dis_x(des_x,0.1);
+                std::normal_distribution<double> dis_y(des_y,0.1);
+                std::normal_distribution<double> dis_z(des_z,0.1);
                 fMo[0][3]=dis_x(gen);
                 fMo[1][3]=dis_y(gen);
                 fMo[2][3]=dis_z(gen);
             }
         }
-        RobotSCARA->MhRobotText.CartPos_out<<fMe[0][3]<<"    "<<fMe[1][3]<<"    "<<fMe[2][3]<<std::endl;
+        RobotSCARA->MhRobotText.CartPos_out<<cMo[0][3]<<"    "<<cMo[1][3]<<"    "<<cMo[2][3]<<std::endl;
         //---------------------------------------动态模拟生成器
 
         vpColVector v_c(6);
