@@ -20,7 +20,6 @@
 void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,bool adaptive_gain,bool opt_plot,bool opt_task_sequencing,bool opt_verbose,
                           double convergence_threshold_t,double convergence_threshold_tu)
 {
-    RobotSCARA->MhRobotText.CartPos_out.open("CARTPOS_PBVS.txt");
     int dynamic_simulation=1;//0:不开启静态模拟  1：开启静态模拟
     bool first_time=true;
     #ifndef USE_KERNEL
@@ -133,7 +132,6 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
                 fMo[2][3]=dis_z(gen);
             }
         }
-        RobotSCARA->MhRobotText.CartPos_out<<cMo[0][3]<<"    "<<cMo[1][3]<<"    "<<cMo[2][3]<<std::endl;
         //---------------------------------------动态模拟生成器
 
         vpColVector v_c(6);
@@ -260,5 +258,4 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     //配合control thread处理相应的控制变量
     RobotSCARA->ConChargeData.startServo=0;//视觉伺服结束
     RobotSCARA->ConChargeData.hasServo=0;
-    RobotSCARA->MhRobotText.CartPos_out.close();
 }
