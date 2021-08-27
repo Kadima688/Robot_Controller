@@ -15,10 +15,12 @@
 #include <visp3/vs/vpServoDisplay.h>
 #include <visp3/gui/vpPlot.h>
 #include<visp3/core/vpEigenConversion.h>
-#include<thread>
+#include<random>
 
 void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,bool adaptive_gain,bool opt_plot,bool opt_task_sequencing,bool opt_verbose,
-                          double convergence_threshold_t,double convergence_threshold_tu){ 
+                          double convergence_threshold_t,double convergence_threshold_tu)
+{
+    int dynamic_simulation=1;//0:不开启静态模拟  1：开启静态模拟
     #ifndef USE_KERNEL
     //设置当前的轴关节位置和空间位置
     RobotSCARA->Con2DemData.axisPos_scara.a1=-39.9150;
@@ -92,6 +94,11 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
 
     RobotSCARA->set_eMc(eMc);//设置机器人的外参矩阵
     RobotSCARA->setRobotState(Mh::MhIndustrialRobot::STATE_VELOCITY_CONTROL);//设置为速度控制模式
+    //-------动态模拟相关参数
+    int dynamic_n=1;//运动段数 
+    int segment=100;
+    double des_x=0.450,des_y=0.045,des_z=-0.2;//fMo目标位置
+    double ini_x=fMo[0][3],ini_y=fMo[1][3],ini_z=fMo[2][3];
     while(!has_converge &&!final_quit){
         double t_start=vpTime::measureTimeMicros();
         //7、开始更新cMo=eMc.inverse()*fMe.inverse()*fMo;---模拟detect函数的作用
@@ -103,6 +110,28 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         Eigen::MatrixXd fTe=RobotSCARA->transform.ZYZ2homomatrix(catesian);
         vp::eigen2visp(fTe,fMe);fMe[0][3]/=1000;fMe[1][3]/=1000;fMe[2][3]/=1000;
         cMo=eMc.inverse()*fMe.inverse()*fMo;
+
+        //---------------------------------------动态模拟生成器
+        if(dynamic_simulation && send_velocitys){
+            unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+            std::default_random_engine gen(seed);
+            if(dynamic_n<segment+1){
+                fMo[0][3]+=(des_x-ini_x)/segment;
+                fMo[1][3]+=(des_y-ini_y)/segment;
+                fMo[2][3]+=(des_z-ini_z)/segment;
+                dynamic_n++;
+            }
+            else{
+                std::normal_distribution<double> dis_x(des_x,0.01);
+                std::normal_distribution<double> dis_y(des_y,0.01);
+                std::normal_distribution<double> dis_z(des_z,0.01);
+                fMo[0][3]=dis_x(gen);
+                fMo[1][3]=dis_y(gen);
+                fMo[2][3]=dis_z(gen);
+            }
+        }
+        //---------------------------------------动态模拟生成器
+
         vpColVector v_c(6);
         bool first_time=true;
         if(first_time){
