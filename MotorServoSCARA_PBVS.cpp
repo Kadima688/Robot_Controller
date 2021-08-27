@@ -111,7 +111,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         catesian.push_back(RobotSCARA->Con2DemData.cartPos.b);catesian.push_back(RobotSCARA->Con2DemData.cartPos.c);
         Eigen::MatrixXd fTe=RobotSCARA->transform.ZYZ2homomatrix(catesian);
         vp::eigen2visp(fTe,fMe);fMe[0][3]/=1000;fMe[1][3]/=1000;fMe[2][3]/=1000;
-        RobotSCARA->MhRobotText.CartPos_out<<fMe[0][3]<<"    "<<fMe[1][3]<<"    "<<fMe[2][3]<<std::endl;
+        
         cMo=eMc.inverse()*fMe.inverse()*fMo;
 
         //---------------------------------------动态模拟生成器
@@ -125,14 +125,15 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
                 dynamic_n++;
             }
             else{
-                std::normal_distribution<double> dis_x(des_x,0.001);
-                std::normal_distribution<double> dis_y(des_y,0.001);
-                std::normal_distribution<double> dis_z(des_z,0.001);
+                std::normal_distribution<double> dis_x(des_x,0.01);
+                std::normal_distribution<double> dis_y(des_y,0.01);
+                std::normal_distribution<double> dis_z(des_z,0.01);
                 fMo[0][3]=dis_x(gen);
                 fMo[1][3]=dis_y(gen);
                 fMo[2][3]=dis_z(gen);
             }
         }
+        RobotSCARA->MhRobotText.CartPos_out<<fMe[0][3]<<"    "<<fMe[1][3]<<"    "<<fMe[2][3]<<std::endl;
         //---------------------------------------动态模拟生成器
 
         vpColVector v_c(6);
