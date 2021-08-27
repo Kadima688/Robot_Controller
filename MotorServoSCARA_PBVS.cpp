@@ -20,6 +20,7 @@
 void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,bool adaptive_gain,bool opt_plot,bool opt_task_sequencing,bool opt_verbose,
                           double convergence_threshold_t,double convergence_threshold_tu)
 {
+    RobotSCARA->MhRobotText.CartPos_out.open("CARTPOS_PBVS.txt");
     int dynamic_simulation=1;//0:不开启静态模拟  1：开启静态模拟
     #ifndef USE_KERNEL
     //设置当前的轴关节位置和空间位置
@@ -109,6 +110,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         catesian.push_back(RobotSCARA->Con2DemData.cartPos.b);catesian.push_back(RobotSCARA->Con2DemData.cartPos.c);
         Eigen::MatrixXd fTe=RobotSCARA->transform.ZYZ2homomatrix(catesian);
         vp::eigen2visp(fTe,fMe);fMe[0][3]/=1000;fMe[1][3]/=1000;fMe[2][3]/=1000;
+        RobotSCARA->MhRobotText.CartPos_out<<fMe[0][3]<<"    "<<fMe[1][3]<<"    "<<fMe[2][3]<<std::endl;
         cMo=eMc.inverse()*fMe.inverse()*fMo;
 
         //---------------------------------------动态模拟生成器
@@ -122,9 +124,9 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
                 dynamic_n++;
             }
             else{
-                std::normal_distribution<double> dis_x(des_x,0.01);
-                std::normal_distribution<double> dis_y(des_y,0.01);
-                std::normal_distribution<double> dis_z(des_z,0.01);
+                std::normal_distribution<double> dis_x(des_x,0.08);
+                std::normal_distribution<double> dis_y(des_y,0.08);
+                std::normal_distribution<double> dis_z(des_z,0.08);
                 fMo[0][3]=dis_x(gen);
                 fMo[1][3]=dis_y(gen);
                 fMo[2][3]=dis_z(gen);
@@ -256,4 +258,5 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     //配合control thread处理相应的控制变量
     RobotSCARA->ConChargeData.startServo=0;//视觉伺服结束
     RobotSCARA->ConChargeData.hasServo=0;
+    RobotSCARA->MhRobotText.CartPos_out.close();
 }

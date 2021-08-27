@@ -208,7 +208,7 @@ visp3/core/vpEigenConversion.h
 random
 -
 
-/home/mingh/robot-controller/VisualServoSCARA_IBVS.cpp
+/home/mingh/robot-controller/VisualServoSCARA_PBVS.cpp
 iostream
 -
 unistd.h
