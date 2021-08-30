@@ -134,7 +134,7 @@ android/log.h
 assert.h
 -
 
-/home/mingh/robot-controller/MotorServoSCARA_PBVS.cpp
+/home/mingh/robot-controller/MotorServoSCARA_IBVS.cpp
 iostream
 -
 unistd.h
@@ -157,9 +157,7 @@ visp3/sensor/vpRealSense2.h
 -
 visp3/detection/vpDetectorAprilTag.h
 -
-visp3/visual_features/vpFeatureThetaU.h
--
-visp3/visual_features/vpFeatureTranslation.h
+visp3/visual_features/vpFeaturePoint.h
 -
 visp3/vs/vpServo.h
 -

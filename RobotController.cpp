@@ -57,7 +57,7 @@ int main(int argc, char **argv){
     // scara.set_dh_table(scara_dh_table);
     // scara.get_dh_table();
     // //--------------forwardkinematics
-    // double input[4]={-39.9108,84.2494,48.1423,74.5432};
+    // double input[4]={-39.9150,84.2464,54.75512,161.4467};
     // std::vector<double> scara_input(input,input+4);  
     // std::vector<double> Cartesian;
     // if(scara.forwardkinematics(scara_input,Cartesian)){

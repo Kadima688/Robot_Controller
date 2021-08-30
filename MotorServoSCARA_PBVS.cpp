@@ -20,7 +20,7 @@
 void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,bool adaptive_gain,bool opt_plot,bool opt_task_sequencing,bool opt_verbose,
                           double convergence_threshold_t,double convergence_threshold_tu)
 {
-    int dynamic_simulation=1;//0:不开启静态模拟  1：开启静态模拟
+    int dynamic_simulation=0;//0:不开启静态模拟  1：开启静态模拟
     bool first_time=true;
     #ifndef USE_KERNEL
     //设置当前的轴关节位置和空间位置
@@ -36,9 +36,9 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     #endif
     //1、设置相机外参信息
     vpHomogeneousMatrix eMc;
-    eMc[0][0] = 0.866; eMc[0][1] = -0.5; eMc[0][2] = 0; eMc[0][3] = 0.02488820463;
-	eMc[1][0] = 0.5; eMc[1][1] = 0.866; eMc[1][2] = 0; eMc[1][3] = -0.0364688832;
-	eMc[2][0] = 0; eMc[2][1] = 0; eMc[2][2] = 1; eMc[2][3] = 0.001;
+    eMc[0][0] = 1; eMc[0][1] = 0; eMc[0][2] = 0; eMc[0][3] = 0;
+	eMc[1][0] = 0; eMc[1][1] = 1; eMc[1][2] = 0; eMc[1][3] = 0;
+	eMc[2][0] = 0; eMc[2][1] = 0; eMc[2][2] = 1; eMc[2][3] = 0;
 	eMc[3][0] = 0; eMc[3][1] = 0; eMc[3][2] = 0; eMc[3][3] = 1;
     Eigen::MatrixXd eTc;
     vp::visp2eigen(eMc,eTc);eTc(0,3)*=1000;eTc(1,3)*=1000;eTc(2,3)*=1000;
@@ -124,9 +124,9 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
                 dynamic_n++;
             }
             else{
-                std::normal_distribution<double> dis_x(des_x,0.1);
-                std::normal_distribution<double> dis_y(des_y,0.1);
-                std::normal_distribution<double> dis_z(des_z,0.1);
+                std::normal_distribution<double> dis_x(des_x,0.01);
+                std::normal_distribution<double> dis_y(des_y,0.01);
+                std::normal_distribution<double> dis_z(des_z,0.01);
                 fMo[0][3]=dis_x(gen);
                 fMo[1][3]=dis_y(gen);
                 fMo[2][3]=dis_z(gen);

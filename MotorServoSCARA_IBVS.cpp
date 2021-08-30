@@ -33,16 +33,16 @@ void MotorServoSCARA_IBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     #endif
     //1、设置相机外参信息
     vpHomogeneousMatrix eMc;
-    eMc[0][0] = 0.866; eMc[0][1] = -0.5; eMc[0][2] = 0; eMc[0][3] = 0.02488820463;
-	eMc[1][0] = 0.5; eMc[1][1] = 0.866; eMc[1][2] = 0; eMc[1][3] = -0.0364688832;
-	eMc[2][0] = 0; eMc[2][1] = 0; eMc[2][2] = 1; eMc[2][3] = 0.001;
+    eMc[0][0] = 1; eMc[0][1] = 0; eMc[0][2] = 0; eMc[0][3] = 0;
+	eMc[1][0] = 0; eMc[1][1] = 1; eMc[1][2] = 0; eMc[1][3] = 0;
+	eMc[2][0] = 0; eMc[2][1] = 0; eMc[2][2] = 1; eMc[2][3] = 0;
 	eMc[3][0] = 0; eMc[3][1] = 0; eMc[3][2] = 0; eMc[3][3] = 1;
     Eigen::MatrixXd eTc;
     vp::visp2eigen(eMc,eTc);eTc(0,3)*=1000;eTc(1,3)*=1000;eTc(2,3)*=1000;
     //2、定义cdMc、fMo初始化相机和目标物体的位置信息
     vpHomogeneousMatrix cdMc,oMo,cMo;
     vpHomogeneousMatrix cdMo(vpTranslationVector(0,0,opt_tagSzie*3),vpRotationMatrix({1,0,0,0,-1,0,0,0,-1}));
-    vpHomogeneousMatrix fMo(vpTranslationVector(0.487,0.041,-0.25),vpThetaUVector(vpRzyzVector(0,0,M_PI/3)));
+    vpHomogeneousMatrix fMo(vpTranslationVector(0.445,0.0171,-0.25),vpThetaUVector(vpRzyzVector(0,0,M_PI/3)));
     cdMc=cdMo*cMo.inverse();
     //3、开始创建图像误差特征-----这一步我们是选择空间位姿误作为伺服特征。在这里可以选择其他信息作为特征，如图像的点、线、甚至是深度信息。
     std::vector<vpFeaturePoint> p(4),pd(4);
