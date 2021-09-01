@@ -46,6 +46,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include/eigen3"
   "/usr/include/libxml2"
   "/usr/include/libusb-1.0"
+  "/usr/local/include"
   "/include"
   )
 
