@@ -16,6 +16,20 @@
 #include <visp3/gui/vpPlot.h>
 #include<visp3/core/vpEigenConversion.h>
 #include<random>
+#include<cstdlib>
+
+template<typename T>
+T RandT(T _min, T _max)
+{
+	T temp;
+	if (_min > _max)
+	{
+		temp = _max;
+		_max = _min;
+		_min = temp;
+	}
+	return rand() / (double)RAND_MAX * (_max - _min) + _min;
+}
 
 void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,bool adaptive_gain,bool opt_plot,bool opt_task_sequencing,bool opt_verbose,
                           double convergence_threshold_t,double convergence_threshold_tu)
@@ -101,7 +115,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     double des_x=0.450,des_y=0.045,des_z=-0.2;//fMo目标位置
     double ini_x=fMo[0][3],ini_y=fMo[1][3],ini_z=fMo[2][3];
     while(!has_converge &&!final_quit){
-        double t_start=vpTime::measureTimeMicros();
+        double t_start=vpTime::measureTimeMs();
         //7、开始更新cMo=eMc.inverse()*fMe.inverse()*fMo;---模拟detect函数的作用
         vpHomogeneousMatrix fMe;
         std::vector<double> catesian;catesian.clear();
@@ -195,7 +209,11 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         //13、开始将速度发送给内核
         // std::thread SetVelocityThread(&Mh::MhIndustrialSCARA::setVelocity,RobotSCARA,Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         // SetVelocityThread.detach();
+        //模拟真实图像采集周期，进行一定的延时
+        // double sleep_time=RandT<int>(20000,50000);
+        // usleep(sleep_time);
         RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
+        // std::cout<<vpTime::measureTimeMs()-t_start<<std::endl;
         //14、处理鼠标事件
         vpMouseButton::vpMouseButtonType button;
         if(opt_plot){

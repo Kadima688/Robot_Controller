@@ -543,10 +543,10 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
 }
 #ifndef USE_KERNEL
 void Mh::MhIndustrialSCARA::setJointVelocity_virtual(const vpColVector &qdot){
-    Con2DemData.axisPos_scara.a1+=(qdot[0]*180)/PI/2000;
-    Con2DemData.axisPos_scara.a2+=(qdot[1]*180)/PI/2000;
-    Con2DemData.axisPos_scara.d+=(qdot[2]*180)/PI*(z_lead/360)/2000;
-    Con2DemData.axisPos_scara.a4+=(qdot[3]*180)/PI/2000;
+    Con2DemData.axisPos_scara.a1+=(qdot[0]*180)/PI;
+    Con2DemData.axisPos_scara.a2+=(qdot[1]*180)/PI;
+    Con2DemData.axisPos_scara.d+=(qdot[2]*180)/PI*(z_lead/360);
+    Con2DemData.axisPos_scara.a4+=(qdot[3]*180)/PI;
     std::vector<double> cartesian;
     std::vector<double> scara_input={Con2DemData.axisPos_scara.a1,Con2DemData.axisPos_scara.a2,Con2DemData.axisPos_scara.d,Con2DemData.axisPos_scara.a4};        
     if(forwardkinematics(scara_input,cartesian)){

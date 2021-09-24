@@ -41,6 +41,8 @@ void display_point_trajectory_PBVS(const vpImage<unsigned char> &I, const std::v
 void RealsenseServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSize,bool adaptive_gain,bool opt_plot,bool opt_task_sequencing,bool opt_verbose,
                           double convergence_threshold_t,double convergence_threshold_tu)
 {
+    //创建记录数据的线相关文本
+    RobotSCARA->MhRobotText.Looptime_out.open("Looptime.txt");//记录迭代周期的文本
     bool display_tag = true;
     int opt_quad_decimate = 2;
     //配置realsense相机
@@ -48,8 +50,8 @@ void RealsenseServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSi
     rs2::config config;
     unsigned int width = 640, height = 480;
     config.enable_stream(RS2_STREAM_COLOR, 640, 480, RS2_FORMAT_RGBA8, 30);
-    config.enable_stream(RS2_STREAM_DEPTH, 640, 480, RS2_FORMAT_Z16, 30);
-    config.enable_stream(RS2_STREAM_INFRARED, 640, 480, RS2_FORMAT_Y8, 30);
+    // config.enable_stream(RS2_STREAM_DEPTH, 640, 480, RS2_FORMAT_Z16, 30);
+    // config.enable_stream(RS2_STREAM_INFRARED, 640, 480, RS2_FORMAT_Y8, 30);
     rs.open(config);
 
     //1、设置相机外参和内参信息
@@ -235,6 +237,8 @@ void RealsenseServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSi
         //13、开始将速度发送给内核
         std::thread SetVelocityThread(&Mh::MhIndustrialSCARA::setVelocity,RobotSCARA,Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         SetVelocityThread.detach();
+        //将时间差写入文本中
+        RobotSCARA->MhRobotText.Looptime_out<<vpTime::measureTimeMs()-t_start<<std::endl;
         ss.str("");
         ss << "Loop time: " << vpTime::measureTimeMs() - t_start << " ms";
         vpDisplay::displayText(I, 40, 20, ss.str(), vpColor::red);

@@ -1,25 +1,25 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /home/mingh/robot-controller/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_5e493/fast && /usr/bin/make  -f CMakeFiles/cmTC_5e493.dir/build.make CMakeFiles/cmTC_5e493.dir/build
+Run Build Command(s):/usr/bin/make cmTC_5c2d4/fast && /usr/bin/make  -f CMakeFiles/cmTC_5c2d4.dir/build.make CMakeFiles/cmTC_5c2d4.dir/build
 make[1]: Entering directory '/home/mingh/robot-controller/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5e493.dir/src.c.o
-/usr/bin/x86_64-linux-gnu-gcc-7 -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_5e493.dir/src.c.o -c /home/mingh/robot-controller/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_5e493
-/home/mingh/.local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e493.dir/link.txt --verbose=1
-/usr/bin/x86_64-linux-gnu-gcc-7 -rdynamic CMakeFiles/cmTC_5e493.dir/src.c.o -o cmTC_5e493 
-CMakeFiles/cmTC_5e493.dir/src.c.o: In function `main':
+Building C object CMakeFiles/cmTC_5c2d4.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_5c2d4.dir/src.c.o -c /home/mingh/robot-controller/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5c2d4
+/home/mingh/.local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c2d4.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_5c2d4.dir/src.c.o -o cmTC_5c2d4 
+CMakeFiles/cmTC_5c2d4.dir/src.c.o: In function `main':
 src.c:(.text+0x3e): undefined reference to `pthread_create'
 src.c:(.text+0x4a): undefined reference to `pthread_detach'
 src.c:(.text+0x56): undefined reference to `pthread_cancel'
 src.c:(.text+0x67): undefined reference to `pthread_join'
 src.c:(.text+0x7b): undefined reference to `pthread_atfork'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_5e493.dir/build.make:105: recipe for target 'cmTC_5e493' failed
-make[1]: *** [cmTC_5e493] Error 1
+CMakeFiles/cmTC_5c2d4.dir/build.make:105: recipe for target 'cmTC_5c2d4' failed
+make[1]: *** [cmTC_5c2d4] Error 1
 make[1]: Leaving directory '/home/mingh/robot-controller/build/CMakeFiles/CMakeTmp'
-Makefile:140: recipe for target 'cmTC_5e493/fast' failed
-make: *** [cmTC_5e493/fast] Error 2
+Makefile:140: recipe for target 'cmTC_5c2d4/fast' failed
+make: *** [cmTC_5c2d4/fast] Error 2
 
 
 Source file was:
@@ -46,55 +46,20 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/mingh/robot-controller/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_294d2/fast && /usr/bin/make  -f CMakeFiles/cmTC_294d2.dir/build.make CMakeFiles/cmTC_294d2.dir/build
+Run Build Command(s):/usr/bin/make cmTC_81ae7/fast && /usr/bin/make  -f CMakeFiles/cmTC_81ae7.dir/build.make CMakeFiles/cmTC_81ae7.dir/build
 make[1]: Entering directory '/home/mingh/robot-controller/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_294d2.dir/CheckFunctionExists.c.o
-/usr/bin/x86_64-linux-gnu-gcc-7   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_294d2.dir/CheckFunctionExists.c.o -c /home/mingh/.local/share/cmake-3.19/Modules/CheckFunctionExists.c
-Linking C executable cmTC_294d2
-/home/mingh/.local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_294d2.dir/link.txt --verbose=1
-/usr/bin/x86_64-linux-gnu-gcc-7  -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_294d2.dir/CheckFunctionExists.c.o -o cmTC_294d2  -lpthreads 
+Building C object CMakeFiles/cmTC_81ae7.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_81ae7.dir/CheckFunctionExists.c.o -c /home/mingh/.local/share/cmake-3.19/Modules/CheckFunctionExists.c
+Linking C executable cmTC_81ae7
+/home/mingh/.local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_81ae7.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_81ae7.dir/CheckFunctionExists.c.o -o cmTC_81ae7  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_294d2.dir/build.make:105: recipe for target 'cmTC_294d2' failed
-make[1]: *** [cmTC_294d2] Error 1
+CMakeFiles/cmTC_81ae7.dir/build.make:105: recipe for target 'cmTC_81ae7' failed
+make[1]: *** [cmTC_81ae7] Error 1
 make[1]: Leaving directory '/home/mingh/robot-controller/build/CMakeFiles/CMakeTmp'
-Makefile:140: recipe for target 'cmTC_294d2/fast' failed
-make: *** [cmTC_294d2/fast] Error 2
+Makefile:140: recipe for target 'cmTC_81ae7/fast' failed
+make: *** [cmTC_81ae7/fast] Error 2
 
 
-
-Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/mingh/robot-controller/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make" "cmTC_a1322/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a1322.dir/build.make CMakeFiles/cmTC_a1322.dir/build
-make[1]: Entering directory '/home/mingh/robot-controller/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a1322.dir/CheckSymbolExists.c.o
-/usr/bin/x86_64-linux-gnu-gcc-7    -o CMakeFiles/cmTC_a1322.dir/CheckSymbolExists.c.o   -c /home/mingh/robot-controller/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_a1322
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a1322.dir/link.txt --verbose=1
-/usr/bin/x86_64-linux-gnu-gcc-7      -rdynamic CMakeFiles/cmTC_a1322.dir/CheckSymbolExists.c.o  -o cmTC_a1322 
-CMakeFiles/cmTC_a1322.dir/CheckSymbolExists.c.o: In function `main':
-CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
-collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_a1322.dir/build.make:97: recipe for target 'cmTC_a1322' failed
-make[1]: *** [cmTC_a1322] Error 1
-make[1]: Leaving directory '/home/mingh/robot-controller/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_a1322/fast' failed
-make: *** [cmTC_a1322/fast] Error 2
-
-File /home/mingh/robot-controller/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
-/* */
-#include <pthread.h>
-
-int main(int argc, char** argv)
-{
-  (void)argv;
-#ifndef pthread_create
-  return ((int*)(&pthread_create))[argc];
-#else
-  (void)argc;
-  return 0;
-#endif
-}
 

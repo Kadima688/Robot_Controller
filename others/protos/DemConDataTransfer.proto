@@ -1,0 +1,66 @@
+syntax = "proto3";
+package ExternalDataTransfer;
+
+
+//定义服务
+service RPCDemConData{
+    rpc SetEnableState(Pt_EnableState) returns(Pt_DataResult){}//伺服上电服务接口
+    rpc SetStartServo(Pt_StartServo)   returns(Pt_DataResult){}//开始视觉伺服服务接口
+    rpc SendVisualServoData_ServoType(Pt_VISUAL_SERVO_SERVOTYPE)    returns(Pt_DataResult){}//传送视觉伺服类型服务接口
+    rpc SendVisualServoData_TargetPos_XYZ(Pt_VISUAL_SERVO_TARGETPOS_XYZ)    returns(Pt_DataResult){}//传送视觉伺服目标位置服务接口
+    rpc SendVisualServoData_TargetPos_ABC(Pt_VISUAL_SERVO_TARGETPOS_ABC)    returns(Pt_DataResult){}//传送视觉伺服目标姿态服务接口
+    rpc SendVisualServoData_Error_XYZ(Pt_VISUAL_SERVO_ERROR_XYZ)   returns(Pt_DataResult){}//传送视觉伺服位置误差服务接口
+    rpc SendVisualServoData_Error_ABC(Pt_VISUAL_SERVO_ERROR_ABC)   returns(Pt_DataResult){}//传送视觉伺服姿态误差服务接口
+    rpc SendVisualServoData_Error_IMAGE(Pt_VISUAL_SERVO_ERROR_IMAGE)   returns(Pt_DataResult){}//传送视觉伺服图像误差服务接口
+    rpc SendVisualServoData_EndServo(Pt_VISUAL_SERVO_ENDSERVO)     returns(Pt_DataResult){}//传送视觉伺服收敛是否结束误差服务接口
+    rpc GetAXISPOSSCARA(Pt_DataVoid)   returns(Pt_AXISPOS_SCARA){}//获取SCARA轴关节位置数据服务接口
+}
+
+
+//定义message
+message Pt_DataVoid{
+    int32 null=1;
+}
+message Pt_DataResult{
+    int32 result=1;
+}
+//--------------------------示教器传送给控制器的message
+message Pt_EnableState{
+    int32 enablestate=1;
+}
+message Pt_StartServo{
+    int32 startservo=1;
+}
+message Pt_VISUAL_SERVO_SERVOTYPE{
+    int32 servotype=1;
+}
+message Pt_VISUAL_SERVO_TARGETPOS_XYZ{
+    double target_x=1;
+    double target_y=2;
+    double target_z=3;
+}
+message Pt_VISUAL_SERVO_TARGETPOS_ABC{
+    double target_a=1;
+    double target_b=2;
+    double target_c=3;
+}
+message Pt_VISUAL_SERVO_ERROR_XYZ{
+    double error_xyz=1;
+}
+message Pt_VISUAL_SERVO_ERROR_ABC{
+    double error_abc=1;
+}
+message Pt_VISUAL_SERVO_ERROR_IMAGE{
+    double error_image=1;
+}
+message Pt_VISUAL_SERVO_ENDSERVO{
+    int32 endservo=1;
+}
+//--------------------------控制器发送给示教器的message
+message Pt_AXISPOS_SCARA{
+    double a1=1;
+    double a2=2;
+    double d=3;
+    double a4=4;
+}
+

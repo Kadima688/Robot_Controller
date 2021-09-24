@@ -47,8 +47,8 @@ void RealsenseServoSCARA_IBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSz
     rs2::config config;
     unsigned int width = 640, height = 480;
     config.enable_stream(RS2_STREAM_COLOR, 640, 480, RS2_FORMAT_RGBA8, 30);
-    config.enable_stream(RS2_STREAM_DEPTH, 640, 480, RS2_FORMAT_Z16, 30);
-    config.enable_stream(RS2_STREAM_INFRARED, 640, 480, RS2_FORMAT_Y8, 30);
+    // config.enable_stream(RS2_STREAM_DEPTH, 640, 480, RS2_FORMAT_Z16, 30);
+    // config.enable_stream(RS2_STREAM_INFRARED, 640, 480, RS2_FORMAT_Y8, 30);
     rs.open(config);
 
     //1、设置相机外参信息
