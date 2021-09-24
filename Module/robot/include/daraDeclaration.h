@@ -254,6 +254,7 @@ struct MhControlChargeData
     int isSingular; //判断是否运动到奇异点了，0：否，1：是
     std::string robotType;//当前机器人类型
     int isEnable=0;//判断各轴是否已经使能 0：否 1：是
+    double looptime;//记录每次视觉伺服迭代的周期
 };
 //管理变量的锁
 struct MhConChargeMutex{

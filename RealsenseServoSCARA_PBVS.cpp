@@ -42,7 +42,12 @@ void RealsenseServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSi
                           double convergence_threshold_t,double convergence_threshold_tu)
 {
     //创建记录数据的线相关文本
-    RobotSCARA->MhRobotText.Looptime_out.open("Looptime.txt");//记录迭代周期的文本
+    // RobotSCARA->MhRobotText.Looptime_out.open("Looptime.txt");//记录迭代周期的文本
+    // RobotSCARA->MhRobotText.AxisPos_SCARA_out.open("AxisPos.txt");//记录每个迭代周期关节位置的文本
+    // RobotSCARA->MhRobotText.CartPos_out.open("CartPos.txt");//记录每个迭代周期空间位姿的文本
+    // RobotSCARA->MhRobotText.CartVel_out.open("CartVel.txt");//记录每个迭代周期空间速度的文本
+    // RobotSCARA->MhRobotText.JointVel_out.open("JointVel.txt");//记录每个迭代周期关节速度的文本
+    // RobotSCARA->MhRobotText.Error_out.open("Error.txt");//记录每个迭代周期误差的文本
     bool display_tag = true;
     int opt_quad_decimate = 2;
     //配置realsense相机
@@ -235,10 +240,22 @@ void RealsenseServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSi
             v_c=0;
         }    
         //13、开始将速度发送给内核
-        std::thread SetVelocityThread(&Mh::MhIndustrialSCARA::setVelocity,RobotSCARA,Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
-        SetVelocityThread.detach();
+        RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         //将时间差写入文本中
-        RobotSCARA->MhRobotText.Looptime_out<<vpTime::measureTimeMs()-t_start<<std::endl;
+        // RobotSCARA->MhRobotText.Looptime_out<<vpTime::measureTimeMs()-t_start<<std::endl;
+        // RobotSCARA->MhRobotText.AxisPos_SCARA_out<<RobotSCARA->Con2DemData.axisPos_scara.a1<<"    "<<
+        // RobotSCARA->Con2DemData.axisPos_scara.a2<<"    "<<RobotSCARA->Con2DemData.axisPos_scara.d<<"    "<<
+        // RobotSCARA->Con2DemData.axisPos_scara.a4<<std::endl;
+        // RobotSCARA->MhRobotText.CartPos_out<<RobotSCARA->Con2DemData.cartPos.x<<"    "<<
+        // RobotSCARA->Con2DemData.cartPos.y<<"    "<<RobotSCARA->Con2DemData.cartPos.z<<"    "<<
+        // RobotSCARA->Con2DemData.cartPos.a<<"    "<<RobotSCARA->Con2DemData.cartPos.b<<"    "<<
+        // RobotSCARA->Con2DemData.cartPos.c<<std::endl;
+        // RobotSCARA->MhRobotText.CartVel_out<<v_c[0]<<"    "<<v_c[1]<<"    "<<v_c[2]<<"    "<<v_c[3]<<"    "<<v_c[4]<<"    "<<v_c[5]<<std::endl;
+        // RobotSCARA->MhRobotText.Error_out<<cdMc.getTranslationVector()[0]<<"    "<<cdMc.getTranslationVector()[1]<<"    "<<
+        // cdMc.getTranslationVector()[2]<<cdMc.getThetaUVector()[0]<<"    "<<cdMc.getThetaUVector()[1]<<"    "<<
+        // cdMc.getThetaUVector()[2]<<std::endl;
+
+
         ss.str("");
         ss << "Loop time: " << vpTime::measureTimeMs() - t_start << " ms";
         vpDisplay::displayText(I, 40, 20, ss.str(), vpColor::red);

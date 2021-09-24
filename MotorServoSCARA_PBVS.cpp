@@ -34,6 +34,13 @@ T RandT(T _min, T _max)
 void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,bool adaptive_gain,bool opt_plot,bool opt_task_sequencing,bool opt_verbose,
                           double convergence_threshold_t,double convergence_threshold_tu)
 {
+    //创建记录数据的线相关文本
+    RobotSCARA->MhRobotText.Looptime_out.open("Looptime.txt");//记录迭代周期的文本
+    RobotSCARA->MhRobotText.AxisPos_SCARA_out.open("AxisPos.txt");//记录每个迭代周期关节位置的文本
+    RobotSCARA->MhRobotText.CartPos_out.open("CartPos.txt");//记录每个迭代周期空间位姿的文本
+    RobotSCARA->MhRobotText.CartVel_out.open("CartVel.txt");//记录每个迭代周期空间速度的文本
+    RobotSCARA->MhRobotText.JointVel_out.open("JointVel.txt");//记录每个迭代周期关节速度的文本
+    RobotSCARA->MhRobotText.Error_out.open("Error.txt");//记录每个迭代周期误差的文本
     int dynamic_simulation=0;//0:不开启静态模拟  1：开启静态模拟
     bool first_time=true;
     #ifndef USE_KERNEL
@@ -210,10 +217,25 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         // std::thread SetVelocityThread(&Mh::MhIndustrialSCARA::setVelocity,RobotSCARA,Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         // SetVelocityThread.detach();
         //模拟真实图像采集周期，进行一定的延时
-        // double sleep_time=RandT<int>(20000,50000);
-        // usleep(sleep_time);
+        double sleep_time=RandT<int>(20000,50000);
+        usleep(sleep_time);
         RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
-        // std::cout<<vpTime::measureTimeMs()-t_start<<std::endl;
+        //将时间差写入文本中
+        RobotSCARA->ConChargeData.looptime=vpTime::measureTimeMs()-t_start;
+        RobotSCARA->MhRobotText.Looptime_out<<vpTime::measureTimeMs()-t_start<<std::endl;
+        RobotSCARA->MhRobotText.AxisPos_SCARA_out<<RobotSCARA->Con2DemData.axisPos_scara.a1<<"    "<<
+        RobotSCARA->Con2DemData.axisPos_scara.a2<<"    "<<RobotSCARA->Con2DemData.axisPos_scara.d<<"    "<<
+        RobotSCARA->Con2DemData.axisPos_scara.a4<<std::endl;
+        RobotSCARA->MhRobotText.CartPos_out<<RobotSCARA->Con2DemData.cartPos.x<<"    "<<
+        RobotSCARA->Con2DemData.cartPos.y<<"    "<<RobotSCARA->Con2DemData.cartPos.z<<"    "<<
+        RobotSCARA->Con2DemData.cartPos.a<<"    "<<RobotSCARA->Con2DemData.cartPos.b<<"    "<<
+        RobotSCARA->Con2DemData.cartPos.c<<std::endl;
+        RobotSCARA->MhRobotText.CartVel_out<<v_c[0]<<"    "<<v_c[1]<<"    "<<v_c[2]<<"    "<<v_c[3]<<"    "<<v_c[4]<<"    "<<v_c[5]<<std::endl;
+        RobotSCARA->MhRobotText.Error_out<<cdMc.getTranslationVector()[0]<<"    "<<cdMc.getTranslationVector()[1]<<"    "<<
+        cdMc.getTranslationVector()[2]<<cdMc.getThetaUVector()[0]<<"    "<<cdMc.getThetaUVector()[1]<<"    "<<
+        cdMc.getThetaUVector()[2]<<std::endl;
+
+
         //14、处理鼠标事件
         vpMouseButton::vpMouseButtonType button;
         if(opt_plot){

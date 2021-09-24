@@ -35,8 +35,6 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "CARES_STATICLIB"
   "LINUX"
-  "USE_KERNEL"
-  "USE_REALSENSE"
   )
 
 # The include file search paths:

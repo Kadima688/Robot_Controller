@@ -210,10 +210,10 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //KERNEL Option Description
-DEFINE_USE_KERNEL:BOOL=true
+DEFINE_USE_KERNEL:BOOL=false
 
 //REALSENSE Option Description
-DEFINE_USE_REALSENSE:BOOL=true
+DEFINE_USE_REALSENSE:BOOL=false
 
 //The directory containing a CMake configuration file for Protobuf.
 Protobuf_DIR:PATH=/lib/cmake/protobuf

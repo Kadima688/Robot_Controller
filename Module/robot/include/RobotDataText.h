@@ -10,6 +10,8 @@ public:
     ~MhRobotDataText();
     std::ofstream AxisPos_SCARA_out;
     std::ofstream CartPos_out;
+    std::ofstream CartVel_out;
+    std::ofstream JointVel_out;
     std::ofstream Looptime_out;
     std::ofstream Error_out;
 };
