@@ -134,7 +134,7 @@ android/log.h
 assert.h
 -
 
-/home/mingh/robot-controller/VisualServoSCARA_PBVS.cpp
+/home/mingh/robot-controller/MotorServoSCARA_PBVS.cpp
 iostream
 -
 unistd.h
@@ -168,5 +168,9 @@ visp3/vs/vpServoDisplay.h
 visp3/gui/vpPlot.h
 -
 visp3/core/vpEigenConversion.h
+-
+random
+-
+cstdlib
 -
 
