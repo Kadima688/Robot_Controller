@@ -35,12 +35,12 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
                           double convergence_threshold_t,double convergence_threshold_tu)
 {
     //创建记录数据的线相关文本
-    RobotSCARA->MhRobotText.Looptime_out.open("Looptime_num2.txt");//记录迭代周期的文本
-    RobotSCARA->MhRobotText.AxisPos_SCARA_out.open("AxisPos_num2.txt");//记录每个迭代周期关节位置的文本
-    RobotSCARA->MhRobotText.CartPos_out.open("CartPos_num2.txt");//记录每个迭代周期空间位姿的文本
-    RobotSCARA->MhRobotText.CartVel_out.open("CartVel_num2.txt");//记录每个迭代周期空间速度的文本
-    RobotSCARA->MhRobotText.JointVel_out.open("JointVel_num2.txt");//记录每个迭代周期关节速度的文本
-    RobotSCARA->MhRobotText.Error_out.open("Error_num2.txt");//记录每个迭代周期误差的文本
+    RobotSCARA->MhRobotText.Looptime_out.open("Looptime_num11.txt");//记录迭代周期的文本
+    RobotSCARA->MhRobotText.AxisPos_SCARA_out.open("AxisPos_num11.txt");//记录每个迭代周期关节位置的文本
+    RobotSCARA->MhRobotText.CartPos_out.open("CartPos_num11.txt");//记录每个迭代周期空间位姿的文本
+    RobotSCARA->MhRobotText.CartVel_out.open("CartVel_num11.txt");//记录每个迭代周期空间速度的文本
+    RobotSCARA->MhRobotText.JointVel_out.open("JointVel_num11.txt");//记录每个迭代周期关节速度的文本
+    RobotSCARA->MhRobotText.Error_out.open("Error_num11.txt");//记录每个迭代周期误差的文本
     int dynamic_simulation=0;//0:不开启静态模拟  1：开启静态模拟
     bool first_time=true;
     #ifndef USE_KERNEL
@@ -217,8 +217,8 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         // std::thread SetVelocityThread(&Mh::MhIndustrialSCARA::setVelocity,RobotSCARA,Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         // SetVelocityThread.detach();
         //模拟真实图像采集周期，进行一定的延时
-        // double sleep_time=RandT<int>(20000,50000);
-        double sleep_time=100000;
+        double sleep_time=RandT<int>(10000,50000);
+        // double sleep_time=90000;
         usleep(sleep_time);
         RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         //将时间差写入文本中
@@ -233,7 +233,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         RobotSCARA->Con2DemData.cartPos.c<<std::endl;
         RobotSCARA->MhRobotText.CartVel_out<<v_c[0]<<"    "<<v_c[1]<<"    "<<v_c[2]<<"    "<<v_c[3]<<"    "<<v_c[4]<<"    "<<v_c[5]<<std::endl;
         RobotSCARA->MhRobotText.Error_out<<cdMc.getTranslationVector()[0]<<"    "<<cdMc.getTranslationVector()[1]<<"    "<<
-        cdMc.getTranslationVector()[2]<<cdMc.getThetaUVector()[0]<<"    "<<cdMc.getThetaUVector()[1]<<"    "<<
+        cdMc.getTranslationVector()[2]<<"    "<<cdMc.getThetaUVector()[0]<<"    "<<cdMc.getThetaUVector()[1]<<"    "<<
         cdMc.getThetaUVector()[2]<<std::endl;
 
 
