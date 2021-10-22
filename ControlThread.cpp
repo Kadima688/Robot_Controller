@@ -6,6 +6,7 @@
 void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
     int retn;//函数返回值
     int hasEnable=0;//判断是否已经上电
+    int oldOvr=0;//保存旧得动态倍率参数，当动态倍率参数改变时才调用
     bool first_PTP=0;
     while (true)
     {
@@ -37,10 +38,19 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                             enable=true;RobotSCARA->ConChargeData.isEnable=1;
                             RobotSCARA->RobotMotorInitial();
                             RobotSCARA->RobotDynInitial();
+                            RobotSCARA->RobotInterpolationDynInitial();
                         }
                     }
                     hasEnable=1;
                 }
+                //设置动态倍率参数
+                if(RobotSCARA->Dem2ConData.ovr!=oldOvr){
+                    RobotSCARA->Dem2ConData.ovr=oldOvr;
+                    RobotSCARA->RobotDynInitial();
+                    RobotSCARA->RobotInterpolationDynInitial();
+                    oldOvr=RobotSCARA->Dem2ConData.ovr;
+                }
+                //
                 //在这里开始添加一条PTP指令，每次只执行一次
                 if(first_PTP==0){
                     //开始执行PTP指令
@@ -71,13 +81,6 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                 }
             }
             else{
-                if(hasEnable==1){
-                    std::cout<<"伺服下电"<<std::endl;
-                    RobotSCARA->RobotCloseConti();
-                    int retn=RobotSCARA->CloseDevice();
-                    RobotSCARA->set_retn(retn,Mh::CLOSEDEVICE);
-                    hasEnable=0;
-                }
                 //伺服下电状态下的操作
                 /*
                 1、退出连续插补
@@ -85,6 +88,13 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                 3、调用closeDevice关闭设备
                 4、hasEnable置为0
                 */
+                if(hasEnable==1){
+                    std::cout<<"伺服下电"<<std::endl;
+                    RobotSCARA->RobotCloseConti();
+                    int retn=RobotSCARA->CloseDevice();
+                    RobotSCARA->set_retn(retn,Mh::CLOSEDEVICE);
+                    hasEnable=0;
+                }           
             }
         }
         else{

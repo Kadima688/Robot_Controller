@@ -451,7 +451,7 @@ void Mh::MhIndustrialSCARA::setCartVelocity(const MhIndustrialRobot::MhControlFr
         }
     }
     //将关节速度写入文本中
-    MhRobotText.JointVel_out<<qdot[0]<<"    "<<qdot[1]<<"    "<<qdot[2]<<"    "<<qdot[3]<<"    "<<qdot[4]<<"    "<<qdot[5]<<std::endl;
+    MhRobotText.JointVel_out<<qdot[0]<<"    "<<qdot[1]<<"    "<<qdot[2]<<"    "<<qdot[3]<<std::endl;
     //如果接近限位点，则停止运动
     double delta_t = 0.1;
 	vpHomogeneousMatrix eMed = vpExponentialMap::direct(v_c, delta_t);

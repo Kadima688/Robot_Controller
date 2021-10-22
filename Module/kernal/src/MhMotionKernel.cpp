@@ -134,7 +134,7 @@ int Mh::MhMotionkernel::SetInterpolationAcc(double InterpAcc,double InterpDec){
 }
 
 int Mh::MhMotionkernel::SetInterpolationJerk(double AccJerk,double DecJerk){
-    #ifndef USE_KERNEL
+    #ifdef USE_KERNEL
         return IPMCSetInterpolationJerk(AccJerk,DecJerk);
     #else 
         return 0;
