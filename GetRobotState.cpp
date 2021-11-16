@@ -7,7 +7,7 @@
 
 void GetRobotState(Mh::MhIndustrialSCARA* RobotSCARA){
     #ifdef USE_KERNEL
-        //记录axispos和cartpos
+    //记录axispos和cartpos
     // RobotSCARA->MhRobotText.AxisPos_SCARA_out.open("AxisPos_scara.txt");
     // RobotSCARA->MhRobotText.CartPos_out.open("Cartpos.txt");
     int retn;//函数的返回值

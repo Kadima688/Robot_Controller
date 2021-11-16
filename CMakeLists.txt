@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19.6)
+cmake_minimum_required(VERSION 3.10.2)
 project(robot-controller)
 set(CMAKE_CXX_STANDARD 11)
 #----------------跟调试相关的语句
@@ -53,7 +53,15 @@ aux_source_directory(${PROJECT_SOURCE_DIR}/Module/robot/src robot_c_files)
 aux_source_directory(${PROJECT_SOURCE_DIR}/Module/core/src core_c_files)
 aux_source_directory(${PROJECT_SOURCE_DIR}/Module/kernal/src kernal_c_files)
 aux_source_directory(${PROJECT_SOURCE_DIR}/test test_files)
-add_executable(controller ${sourceList} ${robot_c_files} ${core_c_files} ${kernal_c_files} ${test_files})#添加可执行文件
+aux_source_directory(${PROJECT_SOURCE_DIR}/servoscara/scara servo_scara_files)
+add_executable(
+controller 
+${sourceList} 
+${robot_c_files} 
+${core_c_files} 
+${kernal_c_files} 
+${test_files}
+${servo_scara_files})#添加可执行文件
 #--------------将程序连接一些库
 set (EXTRA_LIBS ${VISP_LIBRARIES})
 target_link_libraries(controller -lpthread -lapi ${EXTRA_LIBS} 

@@ -31,6 +31,8 @@ public:
     ::grpc::Status SendVisualServoData_Error_IMAGE(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response)override;
     ::grpc::Status SendVisualServoData_EndServo(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response)override;
     ::grpc::Status GetAXISPOSSCARA(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response)override;
+    ::grpc::Status SendSpeedPercent(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response)override;
+    ::grpc::Status SendInching(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response)override;
 };
 }
 

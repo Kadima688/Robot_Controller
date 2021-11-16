@@ -19,13 +19,13 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/mingh/robot-controller/Module/robot/src/MhIndustrialSCARA.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o"
   "/home/mingh/robot-controller/Module/robot/src/RobotDataText.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.o"
   "/home/mingh/robot-controller/Module/robot/src/tinyxml2.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.o"
-  "/home/mingh/robot-controller/MotorServoSCARA_IBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/MotorServoSCARA_IBVS.cpp.o"
-  "/home/mingh/robot-controller/MotorServoSCARA_PBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o"
-  "/home/mingh/robot-controller/RealsenseServoSCARA_IBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/RealsenseServoSCARA_IBVS.cpp.o"
-  "/home/mingh/robot-controller/RealsenseServoSCARA_PBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/RealsenseServoSCARA_PBVS.cpp.o"
   "/home/mingh/robot-controller/RobotController.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/RobotController.cpp.o"
-  "/home/mingh/robot-controller/VisualServoSCARA_IBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/VisualServoSCARA_IBVS.cpp.o"
-  "/home/mingh/robot-controller/VisualServoSCARA_PBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.o"
+  "/home/mingh/robot-controller/servoscara/scara/MotorServoSCARA_IBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/servoscara/scara/MotorServoSCARA_IBVS.cpp.o"
+  "/home/mingh/robot-controller/servoscara/scara/MotorServoSCARA_PBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/servoscara/scara/MotorServoSCARA_PBVS.cpp.o"
+  "/home/mingh/robot-controller/servoscara/scara/RealsenseServoSCARA_IBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/servoscara/scara/RealsenseServoSCARA_IBVS.cpp.o"
+  "/home/mingh/robot-controller/servoscara/scara/RealsenseServoSCARA_PBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/servoscara/scara/RealsenseServoSCARA_PBVS.cpp.o"
+  "/home/mingh/robot-controller/servoscara/scara/VisualServoSCARA_IBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/servoscara/scara/VisualServoSCARA_IBVS.cpp.o"
+  "/home/mingh/robot-controller/servoscara/scara/VisualServoSCARA_PBVS.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/servoscara/scara/VisualServoSCARA_PBVS.cpp.o"
   "/home/mingh/robot-controller/test/Jacobian_test.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/test/Jacobian_test.cpp.o"
   "/home/mingh/robot-controller/test/vel_trans_test.cpp" "/home/mingh/robot-controller/build/CMakeFiles/controller.dir/test/vel_trans_test.cpp.o"
   )
@@ -35,6 +35,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "CARES_STATICLIB"
   "LINUX"
+  "USE_KERNEL"
   )
 
 # The include file search paths:

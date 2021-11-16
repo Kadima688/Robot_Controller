@@ -23,7 +23,6 @@ void Serverrun(Mh::MhIndustrialSCARA* scara){
 }
 
 int main(int argc, char **argv){
-    
     Mh::MhIndustrialSCARA RobotSCARA;
     if(!RobotSCARA.loadRobotConfigFile("RobotConfig_CoolDrive.xml")){
         return 0;
@@ -36,6 +35,7 @@ int main(int argc, char **argv){
     ControlThread.join();
     RobotStateThread.join();
     return 0;
+
 
     //添加linux平台相关的代码
     //----------------init DH-TABLE

@@ -32,6 +32,8 @@ static const char* RPCDemConData_method_names[] = {
   "/ExternalDataTransfer.RPCDemConData/SendVisualServoData_Error_IMAGE",
   "/ExternalDataTransfer.RPCDemConData/SendVisualServoData_EndServo",
   "/ExternalDataTransfer.RPCDemConData/GetAXISPOSSCARA",
+  "/ExternalDataTransfer.RPCDemConData/SendSpeedPercent",
+  "/ExternalDataTransfer.RPCDemConData/SendInching",
 };
 
 std::unique_ptr< RPCDemConData::Stub> RPCDemConData::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -51,6 +53,8 @@ RPCDemConData::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   , rpcmethod_SendVisualServoData_Error_IMAGE_(RPCDemConData_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SendVisualServoData_EndServo_(RPCDemConData_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetAXISPOSSCARA_(RPCDemConData_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendSpeedPercent_(RPCDemConData_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendInching_(RPCDemConData_method_names[11], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RPCDemConData::Stub::SetEnableState(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState& request, ::ExternalDataTransfer::Pt_DataResult* response) {
@@ -283,6 +287,52 @@ void RPCDemConData::Stub::experimental_async::GetAXISPOSSCARA(::grpc::ClientCont
   return result;
 }
 
+::grpc::Status RPCDemConData::Stub::SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_SPEED_PERCENT, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendSpeedPercent_, context, request, response);
+}
+
+void RPCDemConData::Stub::experimental_async::SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ExternalDataTransfer::Pt_SPEED_PERCENT, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendSpeedPercent_, context, request, response, std::move(f));
+}
+
+void RPCDemConData::Stub::experimental_async::SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendSpeedPercent_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::PrepareAsyncSendSpeedPercentRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ExternalDataTransfer::Pt_DataResult, ::ExternalDataTransfer::Pt_SPEED_PERCENT, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SendSpeedPercent_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::AsyncSendSpeedPercentRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSendSpeedPercentRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RPCDemConData::Stub::SendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_INCHING, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendInching_, context, request, response);
+}
+
+void RPCDemConData::Stub::experimental_async::SendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ExternalDataTransfer::Pt_INCHING, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendInching_, context, request, response, std::move(f));
+}
+
+void RPCDemConData::Stub::experimental_async::SendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SendInching_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::PrepareAsyncSendInchingRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ExternalDataTransfer::Pt_DataResult, ::ExternalDataTransfer::Pt_INCHING, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SendInching_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* RPCDemConData::Stub::AsyncSendInchingRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSendInchingRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 RPCDemConData::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RPCDemConData_method_names[0],
@@ -384,6 +434,26 @@ RPCDemConData::Service::Service() {
              ::ExternalDataTransfer::Pt_AXISPOS_SCARA* resp) {
                return service->GetAXISPOSSCARA(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RPCDemConData_method_names[10],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_SPEED_PERCENT, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RPCDemConData::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ExternalDataTransfer::Pt_SPEED_PERCENT* req,
+             ::ExternalDataTransfer::Pt_DataResult* resp) {
+               return service->SendSpeedPercent(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RPCDemConData_method_names[11],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_INCHING, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RPCDemConData::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ExternalDataTransfer::Pt_INCHING* req,
+             ::ExternalDataTransfer::Pt_DataResult* resp) {
+               return service->SendInching(ctx, req, resp);
+             }, this)));
 }
 
 RPCDemConData::Service::~Service() {
@@ -453,6 +523,20 @@ RPCDemConData::Service::~Service() {
 }
 
 ::grpc::Status RPCDemConData::Service::GetAXISPOSSCARA(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RPCDemConData::Service::SendSpeedPercent(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RPCDemConData::Service::SendInching(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response) {
   (void) context;
   (void) request;
   (void) response;

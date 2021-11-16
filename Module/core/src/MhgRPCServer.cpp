@@ -68,3 +68,15 @@
     response->set_a4(SCARA->Con2DemData.axisPos_scara.a4);
     return Status::OK;
 }
+
+::grpc::Status Mh::MhgRPCServer::SendSpeedPercent(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response){
+    SCARA->Dem2ConData.ovr=request->percent_speed();
+    return Status::OK;
+}
+
+::grpc::Status Mh::MhgRPCServer::SendInching(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response){
+    SCARA->Dem2ConData.coordinate=request->axis_num();
+    SCARA->Dem2ConData.upOrDown=request->axis_up_dwon();
+    SCARA->Dem2ConData.PressOrRelease=request->axis_press_release();
+    return Status::OK;
+}

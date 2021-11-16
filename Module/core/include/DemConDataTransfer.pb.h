@@ -47,7 +47,7 @@ struct TableStruct_DemConDataTransfer_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[14]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -67,6 +67,12 @@ extern Pt_DataVoidDefaultTypeInternal _Pt_DataVoid_default_instance_;
 class Pt_EnableState;
 class Pt_EnableStateDefaultTypeInternal;
 extern Pt_EnableStateDefaultTypeInternal _Pt_EnableState_default_instance_;
+class Pt_INCHING;
+class Pt_INCHINGDefaultTypeInternal;
+extern Pt_INCHINGDefaultTypeInternal _Pt_INCHING_default_instance_;
+class Pt_SPEED_PERCENT;
+class Pt_SPEED_PERCENTDefaultTypeInternal;
+extern Pt_SPEED_PERCENTDefaultTypeInternal _Pt_SPEED_PERCENT_default_instance_;
 class Pt_StartServo;
 class Pt_StartServoDefaultTypeInternal;
 extern Pt_StartServoDefaultTypeInternal _Pt_StartServo_default_instance_;
@@ -97,6 +103,8 @@ template<> ::ExternalDataTransfer::Pt_AXISPOS_SCARA* Arena::CreateMaybeMessage<:
 template<> ::ExternalDataTransfer::Pt_DataResult* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_DataResult>(Arena*);
 template<> ::ExternalDataTransfer::Pt_DataVoid* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_DataVoid>(Arena*);
 template<> ::ExternalDataTransfer::Pt_EnableState* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_EnableState>(Arena*);
+template<> ::ExternalDataTransfer::Pt_INCHING* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_INCHING>(Arena*);
+template<> ::ExternalDataTransfer::Pt_SPEED_PERCENT* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_SPEED_PERCENT>(Arena*);
 template<> ::ExternalDataTransfer::Pt_StartServo* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_StartServo>(Arena*);
 template<> ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO>(Arena*);
 template<> ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC>(Arena*);
@@ -1661,6 +1669,302 @@ class Pt_VISUAL_SERVO_ENDSERVO PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class Pt_SPEED_PERCENT PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_SPEED_PERCENT) */ {
+ public:
+  inline Pt_SPEED_PERCENT() : Pt_SPEED_PERCENT(nullptr) {}
+  virtual ~Pt_SPEED_PERCENT();
+
+  Pt_SPEED_PERCENT(const Pt_SPEED_PERCENT& from);
+  Pt_SPEED_PERCENT(Pt_SPEED_PERCENT&& from) noexcept
+    : Pt_SPEED_PERCENT() {
+    *this = ::std::move(from);
+  }
+
+  inline Pt_SPEED_PERCENT& operator=(const Pt_SPEED_PERCENT& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pt_SPEED_PERCENT& operator=(Pt_SPEED_PERCENT&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pt_SPEED_PERCENT& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Pt_SPEED_PERCENT* internal_default_instance() {
+    return reinterpret_cast<const Pt_SPEED_PERCENT*>(
+               &_Pt_SPEED_PERCENT_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(Pt_SPEED_PERCENT& a, Pt_SPEED_PERCENT& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pt_SPEED_PERCENT* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pt_SPEED_PERCENT* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pt_SPEED_PERCENT* New() const final {
+    return CreateMaybeMessage<Pt_SPEED_PERCENT>(nullptr);
+  }
+
+  Pt_SPEED_PERCENT* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pt_SPEED_PERCENT>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pt_SPEED_PERCENT& from);
+  void MergeFrom(const Pt_SPEED_PERCENT& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pt_SPEED_PERCENT* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ExternalDataTransfer.Pt_SPEED_PERCENT";
+  }
+  protected:
+  explicit Pt_SPEED_PERCENT(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_DemConDataTransfer_2eproto);
+    return ::descriptor_table_DemConDataTransfer_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPercentSpeedFieldNumber = 1,
+  };
+  // int32 percent_speed = 1;
+  void clear_percent_speed();
+  ::PROTOBUF_NAMESPACE_ID::int32 percent_speed() const;
+  void set_percent_speed(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_percent_speed() const;
+  void _internal_set_percent_speed(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_SPEED_PERCENT)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 percent_speed_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_DemConDataTransfer_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Pt_INCHING PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_INCHING) */ {
+ public:
+  inline Pt_INCHING() : Pt_INCHING(nullptr) {}
+  virtual ~Pt_INCHING();
+
+  Pt_INCHING(const Pt_INCHING& from);
+  Pt_INCHING(Pt_INCHING&& from) noexcept
+    : Pt_INCHING() {
+    *this = ::std::move(from);
+  }
+
+  inline Pt_INCHING& operator=(const Pt_INCHING& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pt_INCHING& operator=(Pt_INCHING&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pt_INCHING& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Pt_INCHING* internal_default_instance() {
+    return reinterpret_cast<const Pt_INCHING*>(
+               &_Pt_INCHING_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(Pt_INCHING& a, Pt_INCHING& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pt_INCHING* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pt_INCHING* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pt_INCHING* New() const final {
+    return CreateMaybeMessage<Pt_INCHING>(nullptr);
+  }
+
+  Pt_INCHING* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pt_INCHING>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pt_INCHING& from);
+  void MergeFrom(const Pt_INCHING& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pt_INCHING* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ExternalDataTransfer.Pt_INCHING";
+  }
+  protected:
+  explicit Pt_INCHING(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_DemConDataTransfer_2eproto);
+    return ::descriptor_table_DemConDataTransfer_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAxisNumFieldNumber = 1,
+    kAxisUpDwonFieldNumber = 2,
+    kAxisPressReleaseFieldNumber = 3,
+  };
+  // int32 axis_num = 1;
+  void clear_axis_num();
+  ::PROTOBUF_NAMESPACE_ID::int32 axis_num() const;
+  void set_axis_num(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_axis_num() const;
+  void _internal_set_axis_num(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 axis_up_dwon = 2;
+  void clear_axis_up_dwon();
+  ::PROTOBUF_NAMESPACE_ID::int32 axis_up_dwon() const;
+  void set_axis_up_dwon(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_axis_up_dwon() const;
+  void _internal_set_axis_up_dwon(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 axis_press_release = 3;
+  void clear_axis_press_release();
+  ::PROTOBUF_NAMESPACE_ID::int32 axis_press_release() const;
+  void set_axis_press_release(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_axis_press_release() const;
+  void _internal_set_axis_press_release(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_INCHING)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 axis_num_;
+  ::PROTOBUF_NAMESPACE_ID::int32 axis_up_dwon_;
+  ::PROTOBUF_NAMESPACE_ID::int32 axis_press_release_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_DemConDataTransfer_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Pt_AXISPOS_SCARA PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_AXISPOS_SCARA) */ {
  public:
@@ -1703,7 +2007,7 @@ class Pt_AXISPOS_SCARA PROTOBUF_FINAL :
                &_Pt_AXISPOS_SCARA_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(Pt_AXISPOS_SCARA& a, Pt_AXISPOS_SCARA& b) {
     a.Swap(&b);
@@ -2182,6 +2486,94 @@ inline void Pt_VISUAL_SERVO_ENDSERVO::set_endservo(::PROTOBUF_NAMESPACE_ID::int3
 
 // -------------------------------------------------------------------
 
+// Pt_SPEED_PERCENT
+
+// int32 percent_speed = 1;
+inline void Pt_SPEED_PERCENT::clear_percent_speed() {
+  percent_speed_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_SPEED_PERCENT::_internal_percent_speed() const {
+  return percent_speed_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_SPEED_PERCENT::percent_speed() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_SPEED_PERCENT.percent_speed)
+  return _internal_percent_speed();
+}
+inline void Pt_SPEED_PERCENT::_internal_set_percent_speed(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  percent_speed_ = value;
+}
+inline void Pt_SPEED_PERCENT::set_percent_speed(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_percent_speed(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_SPEED_PERCENT.percent_speed)
+}
+
+// -------------------------------------------------------------------
+
+// Pt_INCHING
+
+// int32 axis_num = 1;
+inline void Pt_INCHING::clear_axis_num() {
+  axis_num_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_INCHING::_internal_axis_num() const {
+  return axis_num_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_INCHING::axis_num() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_INCHING.axis_num)
+  return _internal_axis_num();
+}
+inline void Pt_INCHING::_internal_set_axis_num(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  axis_num_ = value;
+}
+inline void Pt_INCHING::set_axis_num(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_axis_num(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_INCHING.axis_num)
+}
+
+// int32 axis_up_dwon = 2;
+inline void Pt_INCHING::clear_axis_up_dwon() {
+  axis_up_dwon_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_INCHING::_internal_axis_up_dwon() const {
+  return axis_up_dwon_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_INCHING::axis_up_dwon() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_INCHING.axis_up_dwon)
+  return _internal_axis_up_dwon();
+}
+inline void Pt_INCHING::_internal_set_axis_up_dwon(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  axis_up_dwon_ = value;
+}
+inline void Pt_INCHING::set_axis_up_dwon(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_axis_up_dwon(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_INCHING.axis_up_dwon)
+}
+
+// int32 axis_press_release = 3;
+inline void Pt_INCHING::clear_axis_press_release() {
+  axis_press_release_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_INCHING::_internal_axis_press_release() const {
+  return axis_press_release_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Pt_INCHING::axis_press_release() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_INCHING.axis_press_release)
+  return _internal_axis_press_release();
+}
+inline void Pt_INCHING::_internal_set_axis_press_release(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  axis_press_release_ = value;
+}
+inline void Pt_INCHING::set_axis_press_release(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_axis_press_release(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_INCHING.axis_press_release)
+}
+
+// -------------------------------------------------------------------
+
 // Pt_AXISPOS_SCARA
 
 // double a1 = 1;
@@ -2267,6 +2659,10 @@ inline void Pt_AXISPOS_SCARA::set_a4(double value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

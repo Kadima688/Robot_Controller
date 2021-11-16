@@ -605,6 +605,7 @@ void Mh::MhIndustrialSCARA::RobotDynInitial(){
     }
     double targetVel,acc,dec,jerk;
     for(unsigned int i=0;i<nDof;++i){
+        //PositionDriver
         //设置轴的速度
         targetVel=RobotConfigData.maxVel[i]*ConChargeData.curDynamic.velAxis/100*Dem2ConData.ovr/100/RobotConfigData.pulseEquivalent[i]/1000;
         int retn =SetAxisVel(i,0,fabs(targetVel),0);
@@ -757,8 +758,17 @@ void Mh::MhIndustrialSCARA::set_retn(int r,int KERNEL_TYPE){
     case STOPALLAXIS:
         if(r!=0){std::cout<<"停止所有轴运动失败！"<<std::endl;}
         break;
+    case STOPAXIS:
+        if(r!=0){std::cout<<"停止特定轴运动失败！"<<std::endl;}
+        break;
     case CLOSEDEVICE:
         if(r!=0){std::cout<<"关闭设备失败！"<<std::endl;}
+        break;
+    case IPMCJOG:
+        if(r!=0){std::cout<<"单轴连续点动失败!"<<std::endl;}
+        break;
+    case IPMCJOGSETAXISPARAM:
+        if(r!=0){std::cout<<"设置轴点动参数失败!"<<std::endl;}
         break;
     }
     ConChargeData.retn=r;

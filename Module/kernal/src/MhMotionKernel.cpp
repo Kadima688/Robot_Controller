@@ -205,6 +205,30 @@ int Mh::MhMotionkernel::PositionDrive(unsigned int nAxis,double Position){
     #endif
 }
 
+int Mh::MhMotionkernel::SetJogParam(unsigned int nAxis, double TargetVel, double LowVel, double Acc, double Jerk){
+    #ifdef USE_KERNEL
+        return IPMCSetAxisJogParam(nAxis,TargetVel,LowVel,Acc,Jerk);
+    #else
+        return 0;
+    #endif
+}
+
+int Mh::MhMotionkernel::Jog(unsigned int nAxis, int Dir){
+    #ifdef USE_KERNEL
+        return IPMCJog(nAxis,Dir);
+    #else
+        return 0;
+    #endif
+}
+
+int Mh::MhMotionkernel::StopAxis(unsigned int nAxis, unsigned int mode){
+    #ifdef USE_KERNEL
+        return IPMCStopAxis(nAxis,mode);
+    #else
+        return 0;
+    #endif
+}
+
 int Mh::MhMotionkernel::StopAllAxis(unsigned int mode){
     #ifdef USE_KERNEL
         return IPMCStopAllAxis(mode);

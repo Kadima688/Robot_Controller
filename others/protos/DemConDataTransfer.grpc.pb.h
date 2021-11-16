@@ -107,6 +107,20 @@ class RPCDemConData final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>> PrepareAsyncGetAXISPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>>(PrepareAsyncGetAXISPOSSCARARaw(context, request, cq));
     }
+    virtual ::grpc::Status SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::ExternalDataTransfer::Pt_DataResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendSpeedPercentRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendSpeedPercentRaw(context, request, cq));
+    }
+    virtual ::grpc::Status SendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::ExternalDataTransfer::Pt_DataResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendInchingRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendInchingRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
@@ -170,6 +184,18 @@ class RPCDemConData final {
       #else
       virtual void GetAXISPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
+      virtual void SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void SendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     typedef class experimental_async_interface async_interface;
@@ -199,6 +225,10 @@ class RPCDemConData final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_EndServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>* AsyncGetAXISPOSSCARARaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>* PrepareAsyncGetAXISPOSSCARARaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendSpeedPercentRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendSpeedPercentRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendInchingRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendInchingRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -273,6 +303,20 @@ class RPCDemConData final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>> PrepareAsyncGetAXISPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>>(PrepareAsyncGetAXISPOSSCARARaw(context, request, cq));
     }
+    ::grpc::Status SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::ExternalDataTransfer::Pt_DataResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendSpeedPercentRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendSpeedPercentRaw(context, request, cq));
+    }
+    ::grpc::Status SendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::ExternalDataTransfer::Pt_DataResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> AsyncSendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(AsyncSendInchingRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>> PrepareAsyncSendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>>(PrepareAsyncSendInchingRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
@@ -336,6 +380,18 @@ class RPCDemConData final {
       #else
       void GetAXISPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
+      void SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendInching(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -367,6 +423,10 @@ class RPCDemConData final {
     ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendVisualServoData_EndServoRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>* AsyncGetAXISPOSSCARARaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_AXISPOS_SCARA>* PrepareAsyncGetAXISPOSSCARARaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendSpeedPercentRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendSpeedPercentRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* AsyncSendInchingRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_DataResult>* PrepareAsyncSendInchingRaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_INCHING& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_SetEnableState_;
     const ::grpc::internal::RpcMethod rpcmethod_SetStartServo_;
     const ::grpc::internal::RpcMethod rpcmethod_SendVisualServoData_ServoType_;
@@ -377,6 +437,8 @@ class RPCDemConData final {
     const ::grpc::internal::RpcMethod rpcmethod_SendVisualServoData_Error_IMAGE_;
     const ::grpc::internal::RpcMethod rpcmethod_SendVisualServoData_EndServo_;
     const ::grpc::internal::RpcMethod rpcmethod_GetAXISPOSSCARA_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendSpeedPercent_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendInching_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -394,6 +456,8 @@ class RPCDemConData final {
     virtual ::grpc::Status SendVisualServoData_Error_IMAGE(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE* request, ::ExternalDataTransfer::Pt_DataResult* response);
     virtual ::grpc::Status SendVisualServoData_EndServo(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* request, ::ExternalDataTransfer::Pt_DataResult* response);
     virtual ::grpc::Status GetAXISPOSSCARA(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response);
+    virtual ::grpc::Status SendSpeedPercent(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response);
+    virtual ::grpc::Status SendInching(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_SetEnableState : public BaseClass {
@@ -595,7 +659,47 @@ class RPCDemConData final {
       ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_SetEnableState<WithAsyncMethod_SetStartServo<WithAsyncMethod_SendVisualServoData_ServoType<WithAsyncMethod_SendVisualServoData_TargetPos_XYZ<WithAsyncMethod_SendVisualServoData_TargetPos_ABC<WithAsyncMethod_SendVisualServoData_Error_XYZ<WithAsyncMethod_SendVisualServoData_Error_ABC<WithAsyncMethod_SendVisualServoData_Error_IMAGE<WithAsyncMethod_SendVisualServoData_EndServo<WithAsyncMethod_GetAXISPOSSCARA<Service > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_SendSpeedPercent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SendSpeedPercent() {
+      ::grpc::Service::MarkMethodAsync(10);
+    }
+    ~WithAsyncMethod_SendSpeedPercent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendSpeedPercent(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendSpeedPercent(::grpc::ServerContext* context, ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::grpc::ServerAsyncResponseWriter< ::ExternalDataTransfer::Pt_DataResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SendInching : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SendInching() {
+      ::grpc::Service::MarkMethodAsync(11);
+    }
+    ~WithAsyncMethod_SendInching() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendInching(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_INCHING* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendInching(::grpc::ServerContext* context, ::ExternalDataTransfer::Pt_INCHING* request, ::grpc::ServerAsyncResponseWriter< ::ExternalDataTransfer::Pt_DataResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_SetEnableState<WithAsyncMethod_SetStartServo<WithAsyncMethod_SendVisualServoData_ServoType<WithAsyncMethod_SendVisualServoData_TargetPos_XYZ<WithAsyncMethod_SendVisualServoData_TargetPos_ABC<WithAsyncMethod_SendVisualServoData_Error_XYZ<WithAsyncMethod_SendVisualServoData_Error_ABC<WithAsyncMethod_SendVisualServoData_Error_IMAGE<WithAsyncMethod_SendVisualServoData_EndServo<WithAsyncMethod_GetAXISPOSSCARA<WithAsyncMethod_SendSpeedPercent<WithAsyncMethod_SendInching<Service > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SetEnableState : public BaseClass {
    private:
@@ -1066,11 +1170,105 @@ class RPCDemConData final {
     #endif
       { return nullptr; }
   };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SendSpeedPercent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SendSpeedPercent() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(10,
+          new ::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_SPEED_PERCENT, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response) { return this->SendSpeedPercent(context, request, response); }));}
+    void SetMessageAllocatorFor_SendSpeedPercent(
+        ::grpc::experimental::MessageAllocator< ::ExternalDataTransfer::Pt_SPEED_PERCENT, ::ExternalDataTransfer::Pt_DataResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(10);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_SPEED_PERCENT, ::ExternalDataTransfer::Pt_DataResult>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SendSpeedPercent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendSpeedPercent(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendSpeedPercent(
+      ::grpc::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendSpeedPercent(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SendInching : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SendInching() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(11,
+          new ::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_INCHING, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response) { return this->SendInching(context, request, response); }));}
+    void SetMessageAllocatorFor_SendInching(
+        ::grpc::experimental::MessageAllocator< ::ExternalDataTransfer::Pt_INCHING, ::ExternalDataTransfer::Pt_DataResult>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(11);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ExternalDataTransfer::Pt_INCHING, ::ExternalDataTransfer::Pt_DataResult>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SendInching() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendInching(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_INCHING* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendInching(
+      ::grpc::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_INCHING* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendInching(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ExternalDataTransfer::Pt_INCHING* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/)
+    #endif
+      { return nullptr; }
+  };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_SetEnableState<ExperimentalWithCallbackMethod_SetStartServo<ExperimentalWithCallbackMethod_SendVisualServoData_ServoType<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_Error_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_IMAGE<ExperimentalWithCallbackMethod_SendVisualServoData_EndServo<ExperimentalWithCallbackMethod_GetAXISPOSSCARA<Service > > > > > > > > > > CallbackService;
+  typedef ExperimentalWithCallbackMethod_SetEnableState<ExperimentalWithCallbackMethod_SetStartServo<ExperimentalWithCallbackMethod_SendVisualServoData_ServoType<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_Error_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_IMAGE<ExperimentalWithCallbackMethod_SendVisualServoData_EndServo<ExperimentalWithCallbackMethod_GetAXISPOSSCARA<ExperimentalWithCallbackMethod_SendSpeedPercent<ExperimentalWithCallbackMethod_SendInching<Service > > > > > > > > > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_SetEnableState<ExperimentalWithCallbackMethod_SetStartServo<ExperimentalWithCallbackMethod_SendVisualServoData_ServoType<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_Error_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_IMAGE<ExperimentalWithCallbackMethod_SendVisualServoData_EndServo<ExperimentalWithCallbackMethod_GetAXISPOSSCARA<Service > > > > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_SetEnableState<ExperimentalWithCallbackMethod_SetStartServo<ExperimentalWithCallbackMethod_SendVisualServoData_ServoType<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_TargetPos_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_XYZ<ExperimentalWithCallbackMethod_SendVisualServoData_Error_ABC<ExperimentalWithCallbackMethod_SendVisualServoData_Error_IMAGE<ExperimentalWithCallbackMethod_SendVisualServoData_EndServo<ExperimentalWithCallbackMethod_GetAXISPOSSCARA<ExperimentalWithCallbackMethod_SendSpeedPercent<ExperimentalWithCallbackMethod_SendInching<Service > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_SetEnableState : public BaseClass {
    private:
@@ -1237,6 +1435,40 @@ class RPCDemConData final {
     }
     // disable synchronous version of this method
     ::grpc::Status GetAXISPOSSCARA(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_DataVoid* /*request*/, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SendSpeedPercent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SendSpeedPercent() {
+      ::grpc::Service::MarkMethodGeneric(10);
+    }
+    ~WithGenericMethod_SendSpeedPercent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendSpeedPercent(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SendInching : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SendInching() {
+      ::grpc::Service::MarkMethodGeneric(11);
+    }
+    ~WithGenericMethod_SendInching() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendInching(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_INCHING* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1439,6 +1671,46 @@ class RPCDemConData final {
     }
     void RequestGetAXISPOSSCARA(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SendSpeedPercent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SendSpeedPercent() {
+      ::grpc::Service::MarkMethodRaw(10);
+    }
+    ~WithRawMethod_SendSpeedPercent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendSpeedPercent(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendSpeedPercent(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SendInching : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SendInching() {
+      ::grpc::Service::MarkMethodRaw(11);
+    }
+    ~WithRawMethod_SendInching() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendInching(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_INCHING* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendInching(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1822,6 +2094,82 @@ class RPCDemConData final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SendSpeedPercent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SendSpeedPercent() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(10,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendSpeedPercent(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SendSpeedPercent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendSpeedPercent(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendSpeedPercent(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendSpeedPercent(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SendInching : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SendInching() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(11,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendInching(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SendInching() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendInching(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_INCHING* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendInching(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendInching(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_SetEnableState : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -2091,9 +2439,63 @@ class RPCDemConData final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGetAXISPOSSCARA(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_DataVoid,::ExternalDataTransfer::Pt_AXISPOS_SCARA>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_SetEnableState<WithStreamedUnaryMethod_SetStartServo<WithStreamedUnaryMethod_SendVisualServoData_ServoType<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_XYZ<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_XYZ<WithStreamedUnaryMethod_SendVisualServoData_Error_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_IMAGE<WithStreamedUnaryMethod_SendVisualServoData_EndServo<WithStreamedUnaryMethod_GetAXISPOSSCARA<Service > > > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SendSpeedPercent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SendSpeedPercent() {
+      ::grpc::Service::MarkMethodStreamed(10,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ExternalDataTransfer::Pt_SPEED_PERCENT, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ExternalDataTransfer::Pt_SPEED_PERCENT, ::ExternalDataTransfer::Pt_DataResult>* streamer) {
+                       return this->StreamedSendSpeedPercent(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SendSpeedPercent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SendSpeedPercent(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSendSpeedPercent(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_SPEED_PERCENT,::ExternalDataTransfer::Pt_DataResult>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SendInching : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SendInching() {
+      ::grpc::Service::MarkMethodStreamed(11,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::ExternalDataTransfer::Pt_INCHING, ::ExternalDataTransfer::Pt_DataResult>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::ExternalDataTransfer::Pt_INCHING, ::ExternalDataTransfer::Pt_DataResult>* streamer) {
+                       return this->StreamedSendInching(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SendInching() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SendInching(::grpc::ServerContext* /*context*/, const ::ExternalDataTransfer::Pt_INCHING* /*request*/, ::ExternalDataTransfer::Pt_DataResult* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSendInching(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ExternalDataTransfer::Pt_INCHING,::ExternalDataTransfer::Pt_DataResult>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_SetEnableState<WithStreamedUnaryMethod_SetStartServo<WithStreamedUnaryMethod_SendVisualServoData_ServoType<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_XYZ<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_XYZ<WithStreamedUnaryMethod_SendVisualServoData_Error_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_IMAGE<WithStreamedUnaryMethod_SendVisualServoData_EndServo<WithStreamedUnaryMethod_GetAXISPOSSCARA<WithStreamedUnaryMethod_SendSpeedPercent<WithStreamedUnaryMethod_SendInching<Service > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_SetEnableState<WithStreamedUnaryMethod_SetStartServo<WithStreamedUnaryMethod_SendVisualServoData_ServoType<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_XYZ<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_XYZ<WithStreamedUnaryMethod_SendVisualServoData_Error_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_IMAGE<WithStreamedUnaryMethod_SendVisualServoData_EndServo<WithStreamedUnaryMethod_GetAXISPOSSCARA<Service > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_SetEnableState<WithStreamedUnaryMethod_SetStartServo<WithStreamedUnaryMethod_SendVisualServoData_ServoType<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_XYZ<WithStreamedUnaryMethod_SendVisualServoData_TargetPos_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_XYZ<WithStreamedUnaryMethod_SendVisualServoData_Error_ABC<WithStreamedUnaryMethod_SendVisualServoData_Error_IMAGE<WithStreamedUnaryMethod_SendVisualServoData_EndServo<WithStreamedUnaryMethod_GetAXISPOSSCARA<WithStreamedUnaryMethod_SendSpeedPercent<WithStreamedUnaryMethod_SendInching<Service > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace ExternalDataTransfer

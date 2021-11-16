@@ -547,114 +547,6 @@ Module/robot/src/tinyxml2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/tinyxml2.cpp.s
 .PHONY : Module/robot/src/tinyxml2.cpp.s
 
-MotorServoSCARA_IBVS.o: MotorServoSCARA_IBVS.cpp.o
-
-.PHONY : MotorServoSCARA_IBVS.o
-
-# target to build an object file
-MotorServoSCARA_IBVS.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/MotorServoSCARA_IBVS.cpp.o
-.PHONY : MotorServoSCARA_IBVS.cpp.o
-
-MotorServoSCARA_IBVS.i: MotorServoSCARA_IBVS.cpp.i
-
-.PHONY : MotorServoSCARA_IBVS.i
-
-# target to preprocess a source file
-MotorServoSCARA_IBVS.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/MotorServoSCARA_IBVS.cpp.i
-.PHONY : MotorServoSCARA_IBVS.cpp.i
-
-MotorServoSCARA_IBVS.s: MotorServoSCARA_IBVS.cpp.s
-
-.PHONY : MotorServoSCARA_IBVS.s
-
-# target to generate assembly for a file
-MotorServoSCARA_IBVS.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/MotorServoSCARA_IBVS.cpp.s
-.PHONY : MotorServoSCARA_IBVS.cpp.s
-
-MotorServoSCARA_PBVS.o: MotorServoSCARA_PBVS.cpp.o
-
-.PHONY : MotorServoSCARA_PBVS.o
-
-# target to build an object file
-MotorServoSCARA_PBVS.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.o
-.PHONY : MotorServoSCARA_PBVS.cpp.o
-
-MotorServoSCARA_PBVS.i: MotorServoSCARA_PBVS.cpp.i
-
-.PHONY : MotorServoSCARA_PBVS.i
-
-# target to preprocess a source file
-MotorServoSCARA_PBVS.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.i
-.PHONY : MotorServoSCARA_PBVS.cpp.i
-
-MotorServoSCARA_PBVS.s: MotorServoSCARA_PBVS.cpp.s
-
-.PHONY : MotorServoSCARA_PBVS.s
-
-# target to generate assembly for a file
-MotorServoSCARA_PBVS.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/MotorServoSCARA_PBVS.cpp.s
-.PHONY : MotorServoSCARA_PBVS.cpp.s
-
-RealsenseServoSCARA_IBVS.o: RealsenseServoSCARA_IBVS.cpp.o
-
-.PHONY : RealsenseServoSCARA_IBVS.o
-
-# target to build an object file
-RealsenseServoSCARA_IBVS.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/RealsenseServoSCARA_IBVS.cpp.o
-.PHONY : RealsenseServoSCARA_IBVS.cpp.o
-
-RealsenseServoSCARA_IBVS.i: RealsenseServoSCARA_IBVS.cpp.i
-
-.PHONY : RealsenseServoSCARA_IBVS.i
-
-# target to preprocess a source file
-RealsenseServoSCARA_IBVS.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/RealsenseServoSCARA_IBVS.cpp.i
-.PHONY : RealsenseServoSCARA_IBVS.cpp.i
-
-RealsenseServoSCARA_IBVS.s: RealsenseServoSCARA_IBVS.cpp.s
-
-.PHONY : RealsenseServoSCARA_IBVS.s
-
-# target to generate assembly for a file
-RealsenseServoSCARA_IBVS.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/RealsenseServoSCARA_IBVS.cpp.s
-.PHONY : RealsenseServoSCARA_IBVS.cpp.s
-
-RealsenseServoSCARA_PBVS.o: RealsenseServoSCARA_PBVS.cpp.o
-
-.PHONY : RealsenseServoSCARA_PBVS.o
-
-# target to build an object file
-RealsenseServoSCARA_PBVS.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/RealsenseServoSCARA_PBVS.cpp.o
-.PHONY : RealsenseServoSCARA_PBVS.cpp.o
-
-RealsenseServoSCARA_PBVS.i: RealsenseServoSCARA_PBVS.cpp.i
-
-.PHONY : RealsenseServoSCARA_PBVS.i
-
-# target to preprocess a source file
-RealsenseServoSCARA_PBVS.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/RealsenseServoSCARA_PBVS.cpp.i
-.PHONY : RealsenseServoSCARA_PBVS.cpp.i
-
-RealsenseServoSCARA_PBVS.s: RealsenseServoSCARA_PBVS.cpp.s
-
-.PHONY : RealsenseServoSCARA_PBVS.s
-
-# target to generate assembly for a file
-RealsenseServoSCARA_PBVS.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/RealsenseServoSCARA_PBVS.cpp.s
-.PHONY : RealsenseServoSCARA_PBVS.cpp.s
-
 RobotController.o: RobotController.cpp.o
 
 .PHONY : RobotController.o
@@ -682,59 +574,167 @@ RobotController.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/RobotController.cpp.s
 .PHONY : RobotController.cpp.s
 
-VisualServoSCARA_IBVS.o: VisualServoSCARA_IBVS.cpp.o
+servoscara/scara/MotorServoSCARA_IBVS.o: servoscara/scara/MotorServoSCARA_IBVS.cpp.o
 
-.PHONY : VisualServoSCARA_IBVS.o
-
-# target to build an object file
-VisualServoSCARA_IBVS.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_IBVS.cpp.o
-.PHONY : VisualServoSCARA_IBVS.cpp.o
-
-VisualServoSCARA_IBVS.i: VisualServoSCARA_IBVS.cpp.i
-
-.PHONY : VisualServoSCARA_IBVS.i
-
-# target to preprocess a source file
-VisualServoSCARA_IBVS.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_IBVS.cpp.i
-.PHONY : VisualServoSCARA_IBVS.cpp.i
-
-VisualServoSCARA_IBVS.s: VisualServoSCARA_IBVS.cpp.s
-
-.PHONY : VisualServoSCARA_IBVS.s
-
-# target to generate assembly for a file
-VisualServoSCARA_IBVS.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_IBVS.cpp.s
-.PHONY : VisualServoSCARA_IBVS.cpp.s
-
-VisualServoSCARA_PBVS.o: VisualServoSCARA_PBVS.cpp.o
-
-.PHONY : VisualServoSCARA_PBVS.o
+.PHONY : servoscara/scara/MotorServoSCARA_IBVS.o
 
 # target to build an object file
-VisualServoSCARA_PBVS.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.o
-.PHONY : VisualServoSCARA_PBVS.cpp.o
+servoscara/scara/MotorServoSCARA_IBVS.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/MotorServoSCARA_IBVS.cpp.o
+.PHONY : servoscara/scara/MotorServoSCARA_IBVS.cpp.o
 
-VisualServoSCARA_PBVS.i: VisualServoSCARA_PBVS.cpp.i
+servoscara/scara/MotorServoSCARA_IBVS.i: servoscara/scara/MotorServoSCARA_IBVS.cpp.i
 
-.PHONY : VisualServoSCARA_PBVS.i
+.PHONY : servoscara/scara/MotorServoSCARA_IBVS.i
 
 # target to preprocess a source file
-VisualServoSCARA_PBVS.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.i
-.PHONY : VisualServoSCARA_PBVS.cpp.i
+servoscara/scara/MotorServoSCARA_IBVS.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/MotorServoSCARA_IBVS.cpp.i
+.PHONY : servoscara/scara/MotorServoSCARA_IBVS.cpp.i
 
-VisualServoSCARA_PBVS.s: VisualServoSCARA_PBVS.cpp.s
+servoscara/scara/MotorServoSCARA_IBVS.s: servoscara/scara/MotorServoSCARA_IBVS.cpp.s
 
-.PHONY : VisualServoSCARA_PBVS.s
+.PHONY : servoscara/scara/MotorServoSCARA_IBVS.s
 
 # target to generate assembly for a file
-VisualServoSCARA_PBVS.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/VisualServoSCARA_PBVS.cpp.s
-.PHONY : VisualServoSCARA_PBVS.cpp.s
+servoscara/scara/MotorServoSCARA_IBVS.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/MotorServoSCARA_IBVS.cpp.s
+.PHONY : servoscara/scara/MotorServoSCARA_IBVS.cpp.s
+
+servoscara/scara/MotorServoSCARA_PBVS.o: servoscara/scara/MotorServoSCARA_PBVS.cpp.o
+
+.PHONY : servoscara/scara/MotorServoSCARA_PBVS.o
+
+# target to build an object file
+servoscara/scara/MotorServoSCARA_PBVS.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/MotorServoSCARA_PBVS.cpp.o
+.PHONY : servoscara/scara/MotorServoSCARA_PBVS.cpp.o
+
+servoscara/scara/MotorServoSCARA_PBVS.i: servoscara/scara/MotorServoSCARA_PBVS.cpp.i
+
+.PHONY : servoscara/scara/MotorServoSCARA_PBVS.i
+
+# target to preprocess a source file
+servoscara/scara/MotorServoSCARA_PBVS.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/MotorServoSCARA_PBVS.cpp.i
+.PHONY : servoscara/scara/MotorServoSCARA_PBVS.cpp.i
+
+servoscara/scara/MotorServoSCARA_PBVS.s: servoscara/scara/MotorServoSCARA_PBVS.cpp.s
+
+.PHONY : servoscara/scara/MotorServoSCARA_PBVS.s
+
+# target to generate assembly for a file
+servoscara/scara/MotorServoSCARA_PBVS.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/MotorServoSCARA_PBVS.cpp.s
+.PHONY : servoscara/scara/MotorServoSCARA_PBVS.cpp.s
+
+servoscara/scara/RealsenseServoSCARA_IBVS.o: servoscara/scara/RealsenseServoSCARA_IBVS.cpp.o
+
+.PHONY : servoscara/scara/RealsenseServoSCARA_IBVS.o
+
+# target to build an object file
+servoscara/scara/RealsenseServoSCARA_IBVS.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/RealsenseServoSCARA_IBVS.cpp.o
+.PHONY : servoscara/scara/RealsenseServoSCARA_IBVS.cpp.o
+
+servoscara/scara/RealsenseServoSCARA_IBVS.i: servoscara/scara/RealsenseServoSCARA_IBVS.cpp.i
+
+.PHONY : servoscara/scara/RealsenseServoSCARA_IBVS.i
+
+# target to preprocess a source file
+servoscara/scara/RealsenseServoSCARA_IBVS.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/RealsenseServoSCARA_IBVS.cpp.i
+.PHONY : servoscara/scara/RealsenseServoSCARA_IBVS.cpp.i
+
+servoscara/scara/RealsenseServoSCARA_IBVS.s: servoscara/scara/RealsenseServoSCARA_IBVS.cpp.s
+
+.PHONY : servoscara/scara/RealsenseServoSCARA_IBVS.s
+
+# target to generate assembly for a file
+servoscara/scara/RealsenseServoSCARA_IBVS.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/RealsenseServoSCARA_IBVS.cpp.s
+.PHONY : servoscara/scara/RealsenseServoSCARA_IBVS.cpp.s
+
+servoscara/scara/RealsenseServoSCARA_PBVS.o: servoscara/scara/RealsenseServoSCARA_PBVS.cpp.o
+
+.PHONY : servoscara/scara/RealsenseServoSCARA_PBVS.o
+
+# target to build an object file
+servoscara/scara/RealsenseServoSCARA_PBVS.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/RealsenseServoSCARA_PBVS.cpp.o
+.PHONY : servoscara/scara/RealsenseServoSCARA_PBVS.cpp.o
+
+servoscara/scara/RealsenseServoSCARA_PBVS.i: servoscara/scara/RealsenseServoSCARA_PBVS.cpp.i
+
+.PHONY : servoscara/scara/RealsenseServoSCARA_PBVS.i
+
+# target to preprocess a source file
+servoscara/scara/RealsenseServoSCARA_PBVS.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/RealsenseServoSCARA_PBVS.cpp.i
+.PHONY : servoscara/scara/RealsenseServoSCARA_PBVS.cpp.i
+
+servoscara/scara/RealsenseServoSCARA_PBVS.s: servoscara/scara/RealsenseServoSCARA_PBVS.cpp.s
+
+.PHONY : servoscara/scara/RealsenseServoSCARA_PBVS.s
+
+# target to generate assembly for a file
+servoscara/scara/RealsenseServoSCARA_PBVS.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/RealsenseServoSCARA_PBVS.cpp.s
+.PHONY : servoscara/scara/RealsenseServoSCARA_PBVS.cpp.s
+
+servoscara/scara/VisualServoSCARA_IBVS.o: servoscara/scara/VisualServoSCARA_IBVS.cpp.o
+
+.PHONY : servoscara/scara/VisualServoSCARA_IBVS.o
+
+# target to build an object file
+servoscara/scara/VisualServoSCARA_IBVS.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/VisualServoSCARA_IBVS.cpp.o
+.PHONY : servoscara/scara/VisualServoSCARA_IBVS.cpp.o
+
+servoscara/scara/VisualServoSCARA_IBVS.i: servoscara/scara/VisualServoSCARA_IBVS.cpp.i
+
+.PHONY : servoscara/scara/VisualServoSCARA_IBVS.i
+
+# target to preprocess a source file
+servoscara/scara/VisualServoSCARA_IBVS.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/VisualServoSCARA_IBVS.cpp.i
+.PHONY : servoscara/scara/VisualServoSCARA_IBVS.cpp.i
+
+servoscara/scara/VisualServoSCARA_IBVS.s: servoscara/scara/VisualServoSCARA_IBVS.cpp.s
+
+.PHONY : servoscara/scara/VisualServoSCARA_IBVS.s
+
+# target to generate assembly for a file
+servoscara/scara/VisualServoSCARA_IBVS.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/VisualServoSCARA_IBVS.cpp.s
+.PHONY : servoscara/scara/VisualServoSCARA_IBVS.cpp.s
+
+servoscara/scara/VisualServoSCARA_PBVS.o: servoscara/scara/VisualServoSCARA_PBVS.cpp.o
+
+.PHONY : servoscara/scara/VisualServoSCARA_PBVS.o
+
+# target to build an object file
+servoscara/scara/VisualServoSCARA_PBVS.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/VisualServoSCARA_PBVS.cpp.o
+.PHONY : servoscara/scara/VisualServoSCARA_PBVS.cpp.o
+
+servoscara/scara/VisualServoSCARA_PBVS.i: servoscara/scara/VisualServoSCARA_PBVS.cpp.i
+
+.PHONY : servoscara/scara/VisualServoSCARA_PBVS.i
+
+# target to preprocess a source file
+servoscara/scara/VisualServoSCARA_PBVS.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/VisualServoSCARA_PBVS.cpp.i
+.PHONY : servoscara/scara/VisualServoSCARA_PBVS.cpp.i
+
+servoscara/scara/VisualServoSCARA_PBVS.s: servoscara/scara/VisualServoSCARA_PBVS.cpp.s
+
+.PHONY : servoscara/scara/VisualServoSCARA_PBVS.s
+
+# target to generate assembly for a file
+servoscara/scara/VisualServoSCARA_PBVS.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/servoscara/scara/VisualServoSCARA_PBVS.cpp.s
+.PHONY : servoscara/scara/VisualServoSCARA_PBVS.cpp.s
 
 test/Jacobian_test.o: test/Jacobian_test.cpp.o
 
@@ -844,27 +844,27 @@ help:
 	@echo "... Module/robot/src/tinyxml2.o"
 	@echo "... Module/robot/src/tinyxml2.i"
 	@echo "... Module/robot/src/tinyxml2.s"
-	@echo "... MotorServoSCARA_IBVS.o"
-	@echo "... MotorServoSCARA_IBVS.i"
-	@echo "... MotorServoSCARA_IBVS.s"
-	@echo "... MotorServoSCARA_PBVS.o"
-	@echo "... MotorServoSCARA_PBVS.i"
-	@echo "... MotorServoSCARA_PBVS.s"
-	@echo "... RealsenseServoSCARA_IBVS.o"
-	@echo "... RealsenseServoSCARA_IBVS.i"
-	@echo "... RealsenseServoSCARA_IBVS.s"
-	@echo "... RealsenseServoSCARA_PBVS.o"
-	@echo "... RealsenseServoSCARA_PBVS.i"
-	@echo "... RealsenseServoSCARA_PBVS.s"
 	@echo "... RobotController.o"
 	@echo "... RobotController.i"
 	@echo "... RobotController.s"
-	@echo "... VisualServoSCARA_IBVS.o"
-	@echo "... VisualServoSCARA_IBVS.i"
-	@echo "... VisualServoSCARA_IBVS.s"
-	@echo "... VisualServoSCARA_PBVS.o"
-	@echo "... VisualServoSCARA_PBVS.i"
-	@echo "... VisualServoSCARA_PBVS.s"
+	@echo "... servoscara/scara/MotorServoSCARA_IBVS.o"
+	@echo "... servoscara/scara/MotorServoSCARA_IBVS.i"
+	@echo "... servoscara/scara/MotorServoSCARA_IBVS.s"
+	@echo "... servoscara/scara/MotorServoSCARA_PBVS.o"
+	@echo "... servoscara/scara/MotorServoSCARA_PBVS.i"
+	@echo "... servoscara/scara/MotorServoSCARA_PBVS.s"
+	@echo "... servoscara/scara/RealsenseServoSCARA_IBVS.o"
+	@echo "... servoscara/scara/RealsenseServoSCARA_IBVS.i"
+	@echo "... servoscara/scara/RealsenseServoSCARA_IBVS.s"
+	@echo "... servoscara/scara/RealsenseServoSCARA_PBVS.o"
+	@echo "... servoscara/scara/RealsenseServoSCARA_PBVS.i"
+	@echo "... servoscara/scara/RealsenseServoSCARA_PBVS.s"
+	@echo "... servoscara/scara/VisualServoSCARA_IBVS.o"
+	@echo "... servoscara/scara/VisualServoSCARA_IBVS.i"
+	@echo "... servoscara/scara/VisualServoSCARA_IBVS.s"
+	@echo "... servoscara/scara/VisualServoSCARA_PBVS.o"
+	@echo "... servoscara/scara/VisualServoSCARA_PBVS.i"
+	@echo "... servoscara/scara/VisualServoSCARA_PBVS.s"
 	@echo "... test/Jacobian_test.o"
 	@echo "... test/Jacobian_test.i"
 	@echo "... test/Jacobian_test.s"

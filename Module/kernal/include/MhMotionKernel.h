@@ -54,8 +54,12 @@ namespace Mh{
             int ContiPauseList(unsigned int Crd);//暂停插补缓冲，配合startList可实现运动的暂停和继续运行
             //-------------单轴定长运动
             int PositionDrive(unsigned int nAxis,double Position);
+            //-------------单轴连续运动
+            int SetJogParam(unsigned int nAxis, double TargetVel, double LowVel, double Acc, double Jerk);//单轴连续转动之前的参数设置函数
+            int Jog(unsigned int nAxis, int Dir);
             //--------------停止所有轴运动
-            int StopAllAxis( unsigned int mode);         
+            int StopAllAxis( unsigned int mode);    
+            int StopAxis(unsigned int nAxis, unsigned int mode);//停止特定轴的运动     
     };
 }
 

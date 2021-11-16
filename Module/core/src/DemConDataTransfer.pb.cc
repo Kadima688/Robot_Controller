@@ -59,6 +59,14 @@ class Pt_VISUAL_SERVO_ENDSERVODefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Pt_VISUAL_SERVO_ENDSERVO> _instance;
 } _Pt_VISUAL_SERVO_ENDSERVO_default_instance_;
+class Pt_SPEED_PERCENTDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Pt_SPEED_PERCENT> _instance;
+} _Pt_SPEED_PERCENT_default_instance_;
+class Pt_INCHINGDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Pt_INCHING> _instance;
+} _Pt_INCHING_default_instance_;
 class Pt_AXISPOS_SCARADefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Pt_AXISPOS_SCARA> _instance;
@@ -119,6 +127,34 @@ static void InitDefaultsscc_info_Pt_EnableState_DemConDataTransfer_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Pt_EnableState_DemConDataTransfer_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Pt_EnableState_DemConDataTransfer_2eproto}, {}};
+
+static void InitDefaultsscc_info_Pt_INCHING_DemConDataTransfer_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ExternalDataTransfer::_Pt_INCHING_default_instance_;
+    new (ptr) ::ExternalDataTransfer::Pt_INCHING();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ExternalDataTransfer::Pt_INCHING::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Pt_INCHING_DemConDataTransfer_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Pt_INCHING_DemConDataTransfer_2eproto}, {}};
+
+static void InitDefaultsscc_info_Pt_SPEED_PERCENT_DemConDataTransfer_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ExternalDataTransfer::_Pt_SPEED_PERCENT_default_instance_;
+    new (ptr) ::ExternalDataTransfer::Pt_SPEED_PERCENT();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ExternalDataTransfer::Pt_SPEED_PERCENT::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Pt_SPEED_PERCENT_DemConDataTransfer_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Pt_SPEED_PERCENT_DemConDataTransfer_2eproto}, {}};
 
 static void InitDefaultsscc_info_Pt_StartServo_DemConDataTransfer_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -232,7 +268,7 @@ static void InitDefaultsscc_info_Pt_VISUAL_SERVO_TARGETPOS_XYZ_DemConDataTransfe
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Pt_VISUAL_SERVO_TARGETPOS_XYZ_DemConDataTransfer_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Pt_VISUAL_SERVO_TARGETPOS_XYZ_DemConDataTransfer_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_DemConDataTransfer_2eproto[12];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_DemConDataTransfer_2eproto[14];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_DemConDataTransfer_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_DemConDataTransfer_2eproto = nullptr;
 
@@ -308,6 +344,20 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_DemConDataTransfer_2eproto::of
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO, endservo_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_SPEED_PERCENT, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_SPEED_PERCENT, percent_speed_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_INCHING, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_INCHING, axis_num_),
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_INCHING, axis_up_dwon_),
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_INCHING, axis_press_release_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_AXISPOS_SCARA, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -329,7 +379,9 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 52, -1, sizeof(::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_ABC)},
   { 58, -1, sizeof(::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE)},
   { 64, -1, sizeof(::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO)},
-  { 70, -1, sizeof(::ExternalDataTransfer::Pt_AXISPOS_SCARA)},
+  { 70, -1, sizeof(::ExternalDataTransfer::Pt_SPEED_PERCENT)},
+  { 76, -1, sizeof(::ExternalDataTransfer::Pt_INCHING)},
+  { 84, -1, sizeof(::ExternalDataTransfer::Pt_AXISPOS_SCARA)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -344,6 +396,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ExternalDataTransfer::_Pt_VISUAL_SERVO_ERROR_ABC_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ExternalDataTransfer::_Pt_VISUAL_SERVO_ERROR_IMAGE_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ExternalDataTransfer::_Pt_VISUAL_SERVO_ENDSERVO_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ExternalDataTransfer::_Pt_SPEED_PERCENT_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ExternalDataTransfer::_Pt_INCHING_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ExternalDataTransfer::_Pt_AXISPOS_SCARA_default_instance_),
 };
 
@@ -363,46 +417,55 @@ const char descriptor_table_protodef_DemConDataTransfer_2eproto[] PROTOBUF_SECTI
   "R_ABC\022\021\n\terror_abc\030\001 \001(\001\"2\n\033Pt_VISUAL_SE"
   "RVO_ERROR_IMAGE\022\023\n\013error_image\030\001 \001(\001\",\n\030"
   "Pt_VISUAL_SERVO_ENDSERVO\022\020\n\010endservo\030\001 \001"
-  "(\005\"A\n\020Pt_AXISPOS_SCARA\022\n\n\002a1\030\001 \001(\001\022\n\n\002a2"
-  "\030\002 \001(\001\022\t\n\001d\030\003 \001(\001\022\n\n\002a4\030\004 \001(\0012\214\t\n\rRPCDem"
-  "ConData\022]\n\016SetEnableState\022$.ExternalData"
-  "Transfer.Pt_EnableState\032#.ExternalDataTr"
-  "ansfer.Pt_DataResult\"\000\022[\n\rSetStartServo\022"
-  "#.ExternalDataTransfer.Pt_StartServo\032#.E"
-  "xternalDataTransfer.Pt_DataResult\"\000\022w\n\035S"
-  "endVisualServoData_ServoType\022/.ExternalD"
-  "ataTransfer.Pt_VISUAL_SERVO_SERVOTYPE\032#."
-  "ExternalDataTransfer.Pt_DataResult\"\000\022\177\n!"
-  "SendVisualServoData_TargetPos_XYZ\0223.Exte"
-  "rnalDataTransfer.Pt_VISUAL_SERVO_TARGETP"
-  "OS_XYZ\032#.ExternalDataTransfer.Pt_DataRes"
-  "ult\"\000\022\177\n!SendVisualServoData_TargetPos_A"
-  "BC\0223.ExternalDataTransfer.Pt_VISUAL_SERV"
-  "O_TARGETPOS_ABC\032#.ExternalDataTransfer.P"
-  "t_DataResult\"\000\022w\n\035SendVisualServoData_Er"
-  "ror_XYZ\022/.ExternalDataTransfer.Pt_VISUAL"
-  "_SERVO_ERROR_XYZ\032#.ExternalDataTransfer."
-  "Pt_DataResult\"\000\022w\n\035SendVisualServoData_E"
-  "rror_ABC\022/.ExternalDataTransfer.Pt_VISUA"
-  "L_SERVO_ERROR_ABC\032#.ExternalDataTransfer"
-  ".Pt_DataResult\"\000\022{\n\037SendVisualServoData_"
-  "Error_IMAGE\0221.ExternalDataTransfer.Pt_VI"
-  "SUAL_SERVO_ERROR_IMAGE\032#.ExternalDataTra"
-  "nsfer.Pt_DataResult\"\000\022u\n\034SendVisualServo"
-  "Data_EndServo\022..ExternalDataTransfer.Pt_"
-  "VISUAL_SERVO_ENDSERVO\032#.ExternalDataTran"
-  "sfer.Pt_DataResult\"\000\022^\n\017GetAXISPOSSCARA\022"
-  "!.ExternalDataTransfer.Pt_DataVoid\032&.Ext"
-  "ernalDataTransfer.Pt_AXISPOS_SCARA\"\000b\006pr"
-  "oto3"
+  "(\005\")\n\020Pt_SPEED_PERCENT\022\025\n\rpercent_speed\030"
+  "\001 \001(\005\"P\n\nPt_INCHING\022\020\n\010axis_num\030\001 \001(\005\022\024\n"
+  "\014axis_up_dwon\030\002 \001(\005\022\032\n\022axis_press_releas"
+  "e\030\003 \001(\005\"A\n\020Pt_AXISPOS_SCARA\022\n\n\002a1\030\001 \001(\001\022"
+  "\n\n\002a2\030\002 \001(\001\022\t\n\001d\030\003 \001(\001\022\n\n\002a4\030\004 \001(\0012\307\n\n\rR"
+  "PCDemConData\022]\n\016SetEnableState\022$.Externa"
+  "lDataTransfer.Pt_EnableState\032#.ExternalD"
+  "ataTransfer.Pt_DataResult\"\000\022[\n\rSetStartS"
+  "ervo\022#.ExternalDataTransfer.Pt_StartServ"
+  "o\032#.ExternalDataTransfer.Pt_DataResult\"\000"
+  "\022w\n\035SendVisualServoData_ServoType\022/.Exte"
+  "rnalDataTransfer.Pt_VISUAL_SERVO_SERVOTY"
+  "PE\032#.ExternalDataTransfer.Pt_DataResult\""
+  "\000\022\177\n!SendVisualServoData_TargetPos_XYZ\0223"
+  ".ExternalDataTransfer.Pt_VISUAL_SERVO_TA"
+  "RGETPOS_XYZ\032#.ExternalDataTransfer.Pt_Da"
+  "taResult\"\000\022\177\n!SendVisualServoData_Target"
+  "Pos_ABC\0223.ExternalDataTransfer.Pt_VISUAL"
+  "_SERVO_TARGETPOS_ABC\032#.ExternalDataTrans"
+  "fer.Pt_DataResult\"\000\022w\n\035SendVisualServoDa"
+  "ta_Error_XYZ\022/.ExternalDataTransfer.Pt_V"
+  "ISUAL_SERVO_ERROR_XYZ\032#.ExternalDataTran"
+  "sfer.Pt_DataResult\"\000\022w\n\035SendVisualServoD"
+  "ata_Error_ABC\022/.ExternalDataTransfer.Pt_"
+  "VISUAL_SERVO_ERROR_ABC\032#.ExternalDataTra"
+  "nsfer.Pt_DataResult\"\000\022{\n\037SendVisualServo"
+  "Data_Error_IMAGE\0221.ExternalDataTransfer."
+  "Pt_VISUAL_SERVO_ERROR_IMAGE\032#.ExternalDa"
+  "taTransfer.Pt_DataResult\"\000\022u\n\034SendVisual"
+  "ServoData_EndServo\022..ExternalDataTransfe"
+  "r.Pt_VISUAL_SERVO_ENDSERVO\032#.ExternalDat"
+  "aTransfer.Pt_DataResult\"\000\022^\n\017GetAXISPOSS"
+  "CARA\022!.ExternalDataTransfer.Pt_DataVoid\032"
+  "&.ExternalDataTransfer.Pt_AXISPOS_SCARA\""
+  "\000\022a\n\020SendSpeedPercent\022&.ExternalDataTran"
+  "sfer.Pt_SPEED_PERCENT\032#.ExternalDataTran"
+  "sfer.Pt_DataResult\"\000\022V\n\013SendInching\022 .Ex"
+  "ternalDataTransfer.Pt_INCHING\032#.External"
+  "DataTransfer.Pt_DataResult\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_DemConDataTransfer_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_DemConDataTransfer_2eproto_sccs[12] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_DemConDataTransfer_2eproto_sccs[14] = {
   &scc_info_Pt_AXISPOS_SCARA_DemConDataTransfer_2eproto.base,
   &scc_info_Pt_DataResult_DemConDataTransfer_2eproto.base,
   &scc_info_Pt_DataVoid_DemConDataTransfer_2eproto.base,
   &scc_info_Pt_EnableState_DemConDataTransfer_2eproto.base,
+  &scc_info_Pt_INCHING_DemConDataTransfer_2eproto.base,
+  &scc_info_Pt_SPEED_PERCENT_DemConDataTransfer_2eproto.base,
   &scc_info_Pt_StartServo_DemConDataTransfer_2eproto.base,
   &scc_info_Pt_VISUAL_SERVO_ENDSERVO_DemConDataTransfer_2eproto.base,
   &scc_info_Pt_VISUAL_SERVO_ERROR_ABC_DemConDataTransfer_2eproto.base,
@@ -414,10 +477,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Dem
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_DemConDataTransfer_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_DemConDataTransfer_2eproto = {
-  false, false, descriptor_table_protodef_DemConDataTransfer_2eproto, "DemConDataTransfer.proto", 1844,
-  &descriptor_table_DemConDataTransfer_2eproto_once, descriptor_table_DemConDataTransfer_2eproto_sccs, descriptor_table_DemConDataTransfer_2eproto_deps, 12, 0,
+  false, false, descriptor_table_protodef_DemConDataTransfer_2eproto, "DemConDataTransfer.proto", 2156,
+  &descriptor_table_DemConDataTransfer_2eproto_once, descriptor_table_DemConDataTransfer_2eproto_sccs, descriptor_table_DemConDataTransfer_2eproto_deps, 14, 0,
   schemas, file_default_instances, TableStruct_DemConDataTransfer_2eproto::offsets,
-  file_level_metadata_DemConDataTransfer_2eproto, 12, file_level_enum_descriptors_DemConDataTransfer_2eproto, file_level_service_descriptors_DemConDataTransfer_2eproto,
+  file_level_metadata_DemConDataTransfer_2eproto, 14, file_level_enum_descriptors_DemConDataTransfer_2eproto, file_level_service_descriptors_DemConDataTransfer_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -2689,6 +2752,457 @@ void Pt_VISUAL_SERVO_ENDSERVO::InternalSwap(Pt_VISUAL_SERVO_ENDSERVO* other) {
 
 // ===================================================================
 
+void Pt_SPEED_PERCENT::InitAsDefaultInstance() {
+}
+class Pt_SPEED_PERCENT::_Internal {
+ public:
+};
+
+Pt_SPEED_PERCENT::Pt_SPEED_PERCENT(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ExternalDataTransfer.Pt_SPEED_PERCENT)
+}
+Pt_SPEED_PERCENT::Pt_SPEED_PERCENT(const Pt_SPEED_PERCENT& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  percent_speed_ = from.percent_speed_;
+  // @@protoc_insertion_point(copy_constructor:ExternalDataTransfer.Pt_SPEED_PERCENT)
+}
+
+void Pt_SPEED_PERCENT::SharedCtor() {
+  percent_speed_ = 0;
+}
+
+Pt_SPEED_PERCENT::~Pt_SPEED_PERCENT() {
+  // @@protoc_insertion_point(destructor:ExternalDataTransfer.Pt_SPEED_PERCENT)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Pt_SPEED_PERCENT::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void Pt_SPEED_PERCENT::ArenaDtor(void* object) {
+  Pt_SPEED_PERCENT* _this = reinterpret_cast< Pt_SPEED_PERCENT* >(object);
+  (void)_this;
+}
+void Pt_SPEED_PERCENT::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Pt_SPEED_PERCENT::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Pt_SPEED_PERCENT& Pt_SPEED_PERCENT::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Pt_SPEED_PERCENT_DemConDataTransfer_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Pt_SPEED_PERCENT::Clear() {
+// @@protoc_insertion_point(message_clear_start:ExternalDataTransfer.Pt_SPEED_PERCENT)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  percent_speed_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Pt_SPEED_PERCENT::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // int32 percent_speed = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          percent_speed_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Pt_SPEED_PERCENT::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ExternalDataTransfer.Pt_SPEED_PERCENT)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 percent_speed = 1;
+  if (this->percent_speed() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_percent_speed(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ExternalDataTransfer.Pt_SPEED_PERCENT)
+  return target;
+}
+
+size_t Pt_SPEED_PERCENT::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ExternalDataTransfer.Pt_SPEED_PERCENT)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 percent_speed = 1;
+  if (this->percent_speed() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_percent_speed());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Pt_SPEED_PERCENT::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ExternalDataTransfer.Pt_SPEED_PERCENT)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Pt_SPEED_PERCENT* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Pt_SPEED_PERCENT>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ExternalDataTransfer.Pt_SPEED_PERCENT)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ExternalDataTransfer.Pt_SPEED_PERCENT)
+    MergeFrom(*source);
+  }
+}
+
+void Pt_SPEED_PERCENT::MergeFrom(const Pt_SPEED_PERCENT& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ExternalDataTransfer.Pt_SPEED_PERCENT)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.percent_speed() != 0) {
+    _internal_set_percent_speed(from._internal_percent_speed());
+  }
+}
+
+void Pt_SPEED_PERCENT::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ExternalDataTransfer.Pt_SPEED_PERCENT)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Pt_SPEED_PERCENT::CopyFrom(const Pt_SPEED_PERCENT& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ExternalDataTransfer.Pt_SPEED_PERCENT)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Pt_SPEED_PERCENT::IsInitialized() const {
+  return true;
+}
+
+void Pt_SPEED_PERCENT::InternalSwap(Pt_SPEED_PERCENT* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(percent_speed_, other->percent_speed_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Pt_SPEED_PERCENT::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void Pt_INCHING::InitAsDefaultInstance() {
+}
+class Pt_INCHING::_Internal {
+ public:
+};
+
+Pt_INCHING::Pt_INCHING(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ExternalDataTransfer.Pt_INCHING)
+}
+Pt_INCHING::Pt_INCHING(const Pt_INCHING& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&axis_num_, &from.axis_num_,
+    static_cast<size_t>(reinterpret_cast<char*>(&axis_press_release_) -
+    reinterpret_cast<char*>(&axis_num_)) + sizeof(axis_press_release_));
+  // @@protoc_insertion_point(copy_constructor:ExternalDataTransfer.Pt_INCHING)
+}
+
+void Pt_INCHING::SharedCtor() {
+  ::memset(&axis_num_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&axis_press_release_) -
+      reinterpret_cast<char*>(&axis_num_)) + sizeof(axis_press_release_));
+}
+
+Pt_INCHING::~Pt_INCHING() {
+  // @@protoc_insertion_point(destructor:ExternalDataTransfer.Pt_INCHING)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Pt_INCHING::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void Pt_INCHING::ArenaDtor(void* object) {
+  Pt_INCHING* _this = reinterpret_cast< Pt_INCHING* >(object);
+  (void)_this;
+}
+void Pt_INCHING::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Pt_INCHING::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Pt_INCHING& Pt_INCHING::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Pt_INCHING_DemConDataTransfer_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Pt_INCHING::Clear() {
+// @@protoc_insertion_point(message_clear_start:ExternalDataTransfer.Pt_INCHING)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&axis_num_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&axis_press_release_) -
+      reinterpret_cast<char*>(&axis_num_)) + sizeof(axis_press_release_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Pt_INCHING::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // int32 axis_num = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          axis_num_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 axis_up_dwon = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          axis_up_dwon_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 axis_press_release = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          axis_press_release_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Pt_INCHING::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ExternalDataTransfer.Pt_INCHING)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 axis_num = 1;
+  if (this->axis_num() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_axis_num(), target);
+  }
+
+  // int32 axis_up_dwon = 2;
+  if (this->axis_up_dwon() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_axis_up_dwon(), target);
+  }
+
+  // int32 axis_press_release = 3;
+  if (this->axis_press_release() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_axis_press_release(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ExternalDataTransfer.Pt_INCHING)
+  return target;
+}
+
+size_t Pt_INCHING::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ExternalDataTransfer.Pt_INCHING)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 axis_num = 1;
+  if (this->axis_num() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_axis_num());
+  }
+
+  // int32 axis_up_dwon = 2;
+  if (this->axis_up_dwon() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_axis_up_dwon());
+  }
+
+  // int32 axis_press_release = 3;
+  if (this->axis_press_release() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_axis_press_release());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Pt_INCHING::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ExternalDataTransfer.Pt_INCHING)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Pt_INCHING* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Pt_INCHING>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ExternalDataTransfer.Pt_INCHING)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ExternalDataTransfer.Pt_INCHING)
+    MergeFrom(*source);
+  }
+}
+
+void Pt_INCHING::MergeFrom(const Pt_INCHING& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ExternalDataTransfer.Pt_INCHING)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.axis_num() != 0) {
+    _internal_set_axis_num(from._internal_axis_num());
+  }
+  if (from.axis_up_dwon() != 0) {
+    _internal_set_axis_up_dwon(from._internal_axis_up_dwon());
+  }
+  if (from.axis_press_release() != 0) {
+    _internal_set_axis_press_release(from._internal_axis_press_release());
+  }
+}
+
+void Pt_INCHING::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ExternalDataTransfer.Pt_INCHING)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Pt_INCHING::CopyFrom(const Pt_INCHING& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ExternalDataTransfer.Pt_INCHING)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Pt_INCHING::IsInitialized() const {
+  return true;
+}
+
+void Pt_INCHING::InternalSwap(Pt_INCHING* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Pt_INCHING, axis_press_release_)
+      + sizeof(Pt_INCHING::axis_press_release_)
+      - PROTOBUF_FIELD_OFFSET(Pt_INCHING, axis_num_)>(
+          reinterpret_cast<char*>(&axis_num_),
+          reinterpret_cast<char*>(&other->axis_num_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Pt_INCHING::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 void Pt_AXISPOS_SCARA::InitAsDefaultInstance() {
 }
 class Pt_AXISPOS_SCARA::_Internal {
@@ -2991,6 +3505,12 @@ template<> PROTOBUF_NOINLINE ::ExternalDataTransfer::Pt_VISUAL_SERVO_ERROR_IMAGE
 }
 template<> PROTOBUF_NOINLINE ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO* Arena::CreateMaybeMessage< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ExternalDataTransfer::Pt_VISUAL_SERVO_ENDSERVO >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ExternalDataTransfer::Pt_SPEED_PERCENT* Arena::CreateMaybeMessage< ::ExternalDataTransfer::Pt_SPEED_PERCENT >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ExternalDataTransfer::Pt_SPEED_PERCENT >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ExternalDataTransfer::Pt_INCHING* Arena::CreateMaybeMessage< ::ExternalDataTransfer::Pt_INCHING >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ExternalDataTransfer::Pt_INCHING >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ExternalDataTransfer::Pt_AXISPOS_SCARA* Arena::CreateMaybeMessage< ::ExternalDataTransfer::Pt_AXISPOS_SCARA >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ExternalDataTransfer::Pt_AXISPOS_SCARA >(arena);

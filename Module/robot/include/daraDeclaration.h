@@ -192,8 +192,9 @@ struct MhDem2ControlData
     int runState; //程序的运行状态，0：暂停，1：运行中
     int step; //程序的执行方式，0：连续，1：单步
     int jog; //手动示教时所选坐标系，0：轴关节坐标系，1：世界坐标系，2：工具手坐标系
-    int coordinate; //手动示教时选中的坐标，0：未示教，1-6：第x个坐标
+    int coordinate=0; //手动示教时选中的坐标，0：未示教，1-6：第x个坐标
     int upOrDown; //手动示教时对选中坐标的增大或减小，0：减小，1：增大
+    int PressOrRelease;//手动示教时按下或者松开按钮，1：按下，0：松开
     int ovr=5; //相对最大运动参数的百分比
     int progLine; //程序执行到的行数
     int transferZip; //是否传输文件压缩包，0：不传输，1：传输
@@ -231,7 +232,7 @@ struct MhControlChargeData
     struct CARTREFSYS curRefSys; //当前的参考坐标系
     struct DYNAMIC curDynamic; //当前的机器人运动参数
     struct DYNAMIC retDynamic; //保留的运动参数
-    int selectDyn=2; //选择使用的运动参数，0：手动&点位，1：手动&轨迹，2：自动&点位，3：自动&轨迹
+    int selectDyn=0; //选择使用的运动参数，0：手动&点位，1：手动&轨迹，2：自动&点位，3：自动&轨迹
     unsigned long contiRunState; //机器人插补运动状态，0：正在运动，1：暂停中，2：停止状态，3：未启动，4：空闲
     unsigned long allAxisState; //机器人所有轴的运动完成情况，0：正在运动，1：处于停止状态
     int startProg; //是否已进入程序编译执行阶段，0：否，1：是
