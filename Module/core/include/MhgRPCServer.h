@@ -33,6 +33,8 @@ public:
     ::grpc::Status GetAXISPOSSCARA(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response)override;
     ::grpc::Status SendSpeedPercent(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response)override;
     ::grpc::Status SendInching(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_INCHING* request, ::ExternalDataTransfer::Pt_DataResult* response)override;
+    ::grpc::Status SendSCARAPTP(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_AXISPOS_SCARA* request, ::ExternalDataTransfer::Pt_DataResult* response) override;
+
 };
 }
 

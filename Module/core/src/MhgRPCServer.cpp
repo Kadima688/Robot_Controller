@@ -80,3 +80,11 @@
     SCARA->Dem2ConData.PressOrRelease=request->axis_press_release();
     return Status::OK;
 }
+
+::grpc::Status Mh::MhgRPCServer::SendSCARAPTP(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_AXISPOS_SCARA* request, ::ExternalDataTransfer::Pt_DataResult* response){
+    std::cout<<request->a1()<<std::endl;
+    std::cout<<request->a2()<<std::endl;
+    std::cout<<request->d()<<std::endl;
+    std::cout<<request->a4()<<std::endl;
+    return Status::OK;
+}

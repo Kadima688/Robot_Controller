@@ -16,6 +16,7 @@ service RPCDemConData{
     rpc GetAXISPOSSCARA(Pt_DataVoid)   returns(Pt_AXISPOS_SCARA){}//获取SCARA轴关节位置数据服务接口
     rpc SendSpeedPercent(Pt_SPEED_PERCENT) returns(Pt_DataResult){}//传送速度百分比接口
     rpc SendInching(Pt_INCHING) returns(Pt_DataResult){}//传送点动数据接口
+    rpc SendSCARAPTP(Pt_AXISPOS_SCARA) returns(Pt_DataResult) {}//传送SCARA PTP数据指令接口
 }
 
 
