@@ -14,6 +14,7 @@ service RPCDemConData{
     rpc SendVisualServoData_Error_IMAGE(Pt_VISUAL_SERVO_ERROR_IMAGE)   returns(Pt_DataResult){}//传送视觉伺服图像误差服务接口
     rpc SendVisualServoData_EndServo(Pt_VISUAL_SERVO_ENDSERVO)     returns(Pt_DataResult){}//传送视觉伺服收敛是否结束误差服务接口
     rpc GetAXISPOSSCARA(Pt_DataVoid)   returns(Pt_AXISPOS_SCARA){}//获取SCARA轴关节位置数据服务接口
+    rpc GetCARTPOSSCARA(Pt_DataVoid)   returns(Pt_CARTPOS_SCARA){}//获取SCARA笛卡尔空间坐标数据服务接口
     rpc SendSpeedPercent(Pt_SPEED_PERCENT) returns(Pt_DataResult){}//传送速度百分比接口
     rpc SendInching(Pt_INCHING) returns(Pt_DataResult){}//传送点动数据接口
     rpc SendSCARAPTP(Pt_AXISPOS_SCARA) returns(Pt_DataResult) {}//传送SCARA PTP数据指令接口
@@ -73,5 +74,13 @@ message Pt_AXISPOS_SCARA{
     double a2=2;
     double d=3;
     double a4=4;
+}
+message Pt_CARTPOS_SCARA{
+    double x=1;
+    double y=2;
+    double z=3;
+    double a=4;
+    double b=5;
+    double c=6;
 }
 
