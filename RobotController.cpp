@@ -1,5 +1,6 @@
 #include<iostream>
 #include"MhIndustrialSCARA.h"
+#include"MhIndustrialRobotKAWASAKI.h"
 #include"ThreadManage.h"
 void DataTransfer(Mh::MhIndustrialSCARA* RobotSCARA);
 void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA);
@@ -25,6 +26,7 @@ void Serverrun(Mh::MhIndustrialSCARA* scara){
 int main(int argc, char **argv){
     Mh::MhIndustrialSCARA RobotSCARA;
     if(!RobotSCARA.loadRobotConfigFile("RobotConfig_CoolDrive.xml")){
+        int c = 0;
         return 0;
     }  
     RobotSCARA.set_dh_table();
@@ -36,10 +38,9 @@ int main(int argc, char **argv){
     RobotStateThread.join();
     return 0;
 
-
     //添加linux平台相关的代码
     //----------------init DH-TABLE
-    // double alapha_[4]={0,0,180,0};
+    double alapha_[4]={0,0,180,0};
     // double a_[4]={0,300,300,0};
     // double d_[4]={100,0,0,0};
     // double offset_[4]={0,0,0,0};

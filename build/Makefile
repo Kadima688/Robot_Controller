@@ -439,6 +439,33 @@ Module/robot/src/MhIndustrialRobot.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.s
 .PHONY : Module/robot/src/MhIndustrialRobot.cpp.s
 
+Module/robot/src/MhIndustrialRobotKAWASAKI.o: Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o
+
+.PHONY : Module/robot/src/MhIndustrialRobotKAWASAKI.o
+
+# target to build an object file
+Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o
+.PHONY : Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o
+
+Module/robot/src/MhIndustrialRobotKAWASAKI.i: Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.i
+
+.PHONY : Module/robot/src/MhIndustrialRobotKAWASAKI.i
+
+# target to preprocess a source file
+Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.i
+.PHONY : Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.i
+
+Module/robot/src/MhIndustrialRobotKAWASAKI.s: Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.s
+
+.PHONY : Module/robot/src/MhIndustrialRobotKAWASAKI.s
+
+# target to generate assembly for a file
+Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.s
+.PHONY : Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.s
+
 Module/robot/src/MhIndustrialRobotPathPlan.o: Module/robot/src/MhIndustrialRobotPathPlan.cpp.o
 
 .PHONY : Module/robot/src/MhIndustrialRobotPathPlan.o
@@ -832,6 +859,9 @@ help:
 	@echo "... Module/robot/src/MhIndustrialRobot.o"
 	@echo "... Module/robot/src/MhIndustrialRobot.i"
 	@echo "... Module/robot/src/MhIndustrialRobot.s"
+	@echo "... Module/robot/src/MhIndustrialRobotKAWASAKI.o"
+	@echo "... Module/robot/src/MhIndustrialRobotKAWASAKI.i"
+	@echo "... Module/robot/src/MhIndustrialRobotKAWASAKI.s"
 	@echo "... Module/robot/src/MhIndustrialRobotPathPlan.o"
 	@echo "... Module/robot/src/MhIndustrialRobotPathPlan.i"
 	@echo "... Module/robot/src/MhIndustrialRobotPathPlan.s"

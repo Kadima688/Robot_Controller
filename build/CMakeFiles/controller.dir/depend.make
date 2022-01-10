@@ -424,6 +424,18 @@ CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/ro
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/robot/include/tinyxml2.h
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o: ../Module/robot/src/MhIndustrialRobot.cpp
 
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o: ../Module/core/include/MhMath.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o: ../Module/kernal/include/MhMotionKernel.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o: ../Module/robot/include/IPMCMOTION.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o: ../Module/robot/include/MhDh.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o: ../Module/robot/include/MhHomotransform.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o: ../Module/robot/include/MhIndustrialRobot.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o: ../Module/robot/include/MhIndustrialRobotKAWASAKI.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o: ../Module/robot/include/MhIndustrialRobotPathPlan.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o: ../Module/robot/include/daraDeclaration.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o: ../Module/robot/include/tinyxml2.h
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o: ../Module/robot/src/MhIndustrialRobotKAWASAKI.cpp
+
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o: ../Module/robot/include/MhIndustrialRobotPathPlan.h
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o: ../Module/robot/include/daraDeclaration.h
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o: ../Module/robot/include/tinyxml2.h
@@ -462,6 +474,7 @@ CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/IPMCMOT
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhDh.h
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhHomotransform.h
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhIndustrialRobot.h
+CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhIndustrialRobotKAWASAKI.h
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhIndustrialRobotPathPlan.h
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/MhIndustrialSCARA.h
 CMakeFiles/controller.dir/RobotController.cpp.o: ../Module/robot/include/RobotDataText.h

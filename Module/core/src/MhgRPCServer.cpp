@@ -69,6 +69,16 @@
     return Status::OK;
 }
 
+::grpc::Status Mh::MhgRPCServer::GetCARTPOSSCARA(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_CARTPOS_SCARA* response){
+    response->set_x(SCARA->Con2DemData.cartPos.x);
+    response->set_y(SCARA->Con2DemData.cartPos.y);
+    response->set_z(SCARA->Con2DemData.cartPos.z);
+    response->set_a(SCARA->Con2DemData.cartPos.a);
+    response->set_b(SCARA->Con2DemData.cartPos.b);
+    response->set_c(SCARA->Con2DemData.cartPos.c);
+    return Status::OK;
+}
+
 ::grpc::Status Mh::MhgRPCServer::SendSpeedPercent(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response){
     SCARA->Dem2ConData.ovr=request->percent_speed();
     return Status::OK;

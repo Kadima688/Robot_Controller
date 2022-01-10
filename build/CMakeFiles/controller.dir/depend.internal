@@ -424,6 +424,18 @@ CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o
  ../Module/robot/include/daraDeclaration.h
  ../Module/robot/include/tinyxml2.h
  /home/mingh/robot-controller/Module/robot/src/MhIndustrialRobot.cpp
+CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o
+ ../Module/core/include/MhMath.h
+ ../Module/kernal/include/MhMotionKernel.h
+ ../Module/robot/include/IPMCMOTION.h
+ ../Module/robot/include/MhDh.h
+ ../Module/robot/include/MhHomotransform.h
+ ../Module/robot/include/MhIndustrialRobot.h
+ ../Module/robot/include/MhIndustrialRobotKAWASAKI.h
+ ../Module/robot/include/MhIndustrialRobotPathPlan.h
+ ../Module/robot/include/daraDeclaration.h
+ ../Module/robot/include/tinyxml2.h
+ /home/mingh/robot-controller/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp
 CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o
  ../Module/robot/include/MhIndustrialRobotPathPlan.h
  ../Module/robot/include/daraDeclaration.h
@@ -463,6 +475,7 @@ CMakeFiles/controller.dir/RobotController.cpp.o
  ../Module/robot/include/MhDh.h
  ../Module/robot/include/MhHomotransform.h
  ../Module/robot/include/MhIndustrialRobot.h
+ ../Module/robot/include/MhIndustrialRobotKAWASAKI.h
  ../Module/robot/include/MhIndustrialRobotPathPlan.h
  ../Module/robot/include/MhIndustrialSCARA.h
  ../Module/robot/include/RobotDataText.h

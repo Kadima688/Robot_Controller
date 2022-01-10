@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/controller.dir/Module/robot/src/MhDh.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/MhHomotransform.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobot.cpp.o"
+  "CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotKAWASAKI.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/MhIndustrialRobotPathPlan.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/MhIndustrialSCARA.cpp.o"
   "CMakeFiles/controller.dir/Module/robot/src/RobotDataText.cpp.o"

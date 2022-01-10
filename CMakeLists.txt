@@ -64,7 +64,9 @@ ${test_files}
 ${servo_scara_files})#添加可执行文件
 #--------------将程序连接一些库
 set (EXTRA_LIBS ${VISP_LIBRARIES})
-target_link_libraries(controller -lpthread -lapi ${EXTRA_LIBS} 
+target_link_libraries(controller 
+-lpthread -lapi 
+${EXTRA_LIBS} 
 ${_REFLECTION}
 ${_GRPC_GRPCPP}
 ${_PROTOBUF_LIBPROTOBUF})

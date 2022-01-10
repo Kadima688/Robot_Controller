@@ -47,7 +47,7 @@ struct TableStruct_DemConDataTransfer_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[14]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[15]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -58,6 +58,9 @@ namespace ExternalDataTransfer {
 class Pt_AXISPOS_SCARA;
 class Pt_AXISPOS_SCARADefaultTypeInternal;
 extern Pt_AXISPOS_SCARADefaultTypeInternal _Pt_AXISPOS_SCARA_default_instance_;
+class Pt_CARTPOS_SCARA;
+class Pt_CARTPOS_SCARADefaultTypeInternal;
+extern Pt_CARTPOS_SCARADefaultTypeInternal _Pt_CARTPOS_SCARA_default_instance_;
 class Pt_DataResult;
 class Pt_DataResultDefaultTypeInternal;
 extern Pt_DataResultDefaultTypeInternal _Pt_DataResult_default_instance_;
@@ -100,6 +103,7 @@ extern Pt_VISUAL_SERVO_TARGETPOS_XYZDefaultTypeInternal _Pt_VISUAL_SERVO_TARGETP
 }  // namespace ExternalDataTransfer
 PROTOBUF_NAMESPACE_OPEN
 template<> ::ExternalDataTransfer::Pt_AXISPOS_SCARA* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_AXISPOS_SCARA>(Arena*);
+template<> ::ExternalDataTransfer::Pt_CARTPOS_SCARA* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_CARTPOS_SCARA>(Arena*);
 template<> ::ExternalDataTransfer::Pt_DataResult* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_DataResult>(Arena*);
 template<> ::ExternalDataTransfer::Pt_DataVoid* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_DataVoid>(Arena*);
 template<> ::ExternalDataTransfer::Pt_EnableState* Arena::CreateMaybeMessage<::ExternalDataTransfer::Pt_EnableState>(Arena*);
@@ -2133,6 +2137,198 @@ class Pt_AXISPOS_SCARA PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_DemConDataTransfer_2eproto;
 };
+// -------------------------------------------------------------------
+
+class Pt_CARTPOS_SCARA PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ExternalDataTransfer.Pt_CARTPOS_SCARA) */ {
+ public:
+  inline Pt_CARTPOS_SCARA() : Pt_CARTPOS_SCARA(nullptr) {}
+  virtual ~Pt_CARTPOS_SCARA();
+
+  Pt_CARTPOS_SCARA(const Pt_CARTPOS_SCARA& from);
+  Pt_CARTPOS_SCARA(Pt_CARTPOS_SCARA&& from) noexcept
+    : Pt_CARTPOS_SCARA() {
+    *this = ::std::move(from);
+  }
+
+  inline Pt_CARTPOS_SCARA& operator=(const Pt_CARTPOS_SCARA& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pt_CARTPOS_SCARA& operator=(Pt_CARTPOS_SCARA&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pt_CARTPOS_SCARA& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Pt_CARTPOS_SCARA* internal_default_instance() {
+    return reinterpret_cast<const Pt_CARTPOS_SCARA*>(
+               &_Pt_CARTPOS_SCARA_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(Pt_CARTPOS_SCARA& a, Pt_CARTPOS_SCARA& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pt_CARTPOS_SCARA* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pt_CARTPOS_SCARA* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pt_CARTPOS_SCARA* New() const final {
+    return CreateMaybeMessage<Pt_CARTPOS_SCARA>(nullptr);
+  }
+
+  Pt_CARTPOS_SCARA* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pt_CARTPOS_SCARA>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pt_CARTPOS_SCARA& from);
+  void MergeFrom(const Pt_CARTPOS_SCARA& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pt_CARTPOS_SCARA* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ExternalDataTransfer.Pt_CARTPOS_SCARA";
+  }
+  protected:
+  explicit Pt_CARTPOS_SCARA(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_DemConDataTransfer_2eproto);
+    return ::descriptor_table_DemConDataTransfer_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kXFieldNumber = 1,
+    kYFieldNumber = 2,
+    kZFieldNumber = 3,
+    kAFieldNumber = 4,
+    kBFieldNumber = 5,
+    kCFieldNumber = 6,
+  };
+  // double x = 1;
+  void clear_x();
+  double x() const;
+  void set_x(double value);
+  private:
+  double _internal_x() const;
+  void _internal_set_x(double value);
+  public:
+
+  // double y = 2;
+  void clear_y();
+  double y() const;
+  void set_y(double value);
+  private:
+  double _internal_y() const;
+  void _internal_set_y(double value);
+  public:
+
+  // double z = 3;
+  void clear_z();
+  double z() const;
+  void set_z(double value);
+  private:
+  double _internal_z() const;
+  void _internal_set_z(double value);
+  public:
+
+  // double a = 4;
+  void clear_a();
+  double a() const;
+  void set_a(double value);
+  private:
+  double _internal_a() const;
+  void _internal_set_a(double value);
+  public:
+
+  // double b = 5;
+  void clear_b();
+  double b() const;
+  void set_b(double value);
+  private:
+  double _internal_b() const;
+  void _internal_set_b(double value);
+  public:
+
+  // double c = 6;
+  void clear_c();
+  double c() const;
+  void set_c(double value);
+  private:
+  double _internal_c() const;
+  void _internal_set_c(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  double x_;
+  double y_;
+  double z_;
+  double a_;
+  double b_;
+  double c_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_DemConDataTransfer_2eproto;
+};
 // ===================================================================
 
 
@@ -2656,9 +2852,135 @@ inline void Pt_AXISPOS_SCARA::set_a4(double value) {
   // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_AXISPOS_SCARA.a4)
 }
 
+// -------------------------------------------------------------------
+
+// Pt_CARTPOS_SCARA
+
+// double x = 1;
+inline void Pt_CARTPOS_SCARA::clear_x() {
+  x_ = 0;
+}
+inline double Pt_CARTPOS_SCARA::_internal_x() const {
+  return x_;
+}
+inline double Pt_CARTPOS_SCARA::x() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_CARTPOS_SCARA.x)
+  return _internal_x();
+}
+inline void Pt_CARTPOS_SCARA::_internal_set_x(double value) {
+  
+  x_ = value;
+}
+inline void Pt_CARTPOS_SCARA::set_x(double value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_CARTPOS_SCARA.x)
+}
+
+// double y = 2;
+inline void Pt_CARTPOS_SCARA::clear_y() {
+  y_ = 0;
+}
+inline double Pt_CARTPOS_SCARA::_internal_y() const {
+  return y_;
+}
+inline double Pt_CARTPOS_SCARA::y() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_CARTPOS_SCARA.y)
+  return _internal_y();
+}
+inline void Pt_CARTPOS_SCARA::_internal_set_y(double value) {
+  
+  y_ = value;
+}
+inline void Pt_CARTPOS_SCARA::set_y(double value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_CARTPOS_SCARA.y)
+}
+
+// double z = 3;
+inline void Pt_CARTPOS_SCARA::clear_z() {
+  z_ = 0;
+}
+inline double Pt_CARTPOS_SCARA::_internal_z() const {
+  return z_;
+}
+inline double Pt_CARTPOS_SCARA::z() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_CARTPOS_SCARA.z)
+  return _internal_z();
+}
+inline void Pt_CARTPOS_SCARA::_internal_set_z(double value) {
+  
+  z_ = value;
+}
+inline void Pt_CARTPOS_SCARA::set_z(double value) {
+  _internal_set_z(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_CARTPOS_SCARA.z)
+}
+
+// double a = 4;
+inline void Pt_CARTPOS_SCARA::clear_a() {
+  a_ = 0;
+}
+inline double Pt_CARTPOS_SCARA::_internal_a() const {
+  return a_;
+}
+inline double Pt_CARTPOS_SCARA::a() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_CARTPOS_SCARA.a)
+  return _internal_a();
+}
+inline void Pt_CARTPOS_SCARA::_internal_set_a(double value) {
+  
+  a_ = value;
+}
+inline void Pt_CARTPOS_SCARA::set_a(double value) {
+  _internal_set_a(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_CARTPOS_SCARA.a)
+}
+
+// double b = 5;
+inline void Pt_CARTPOS_SCARA::clear_b() {
+  b_ = 0;
+}
+inline double Pt_CARTPOS_SCARA::_internal_b() const {
+  return b_;
+}
+inline double Pt_CARTPOS_SCARA::b() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_CARTPOS_SCARA.b)
+  return _internal_b();
+}
+inline void Pt_CARTPOS_SCARA::_internal_set_b(double value) {
+  
+  b_ = value;
+}
+inline void Pt_CARTPOS_SCARA::set_b(double value) {
+  _internal_set_b(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_CARTPOS_SCARA.b)
+}
+
+// double c = 6;
+inline void Pt_CARTPOS_SCARA::clear_c() {
+  c_ = 0;
+}
+inline double Pt_CARTPOS_SCARA::_internal_c() const {
+  return c_;
+}
+inline double Pt_CARTPOS_SCARA::c() const {
+  // @@protoc_insertion_point(field_get:ExternalDataTransfer.Pt_CARTPOS_SCARA.c)
+  return _internal_c();
+}
+inline void Pt_CARTPOS_SCARA::_internal_set_c(double value) {
+  
+  c_ = value;
+}
+inline void Pt_CARTPOS_SCARA::set_c(double value) {
+  _internal_set_c(value);
+  // @@protoc_insertion_point(field_set:ExternalDataTransfer.Pt_CARTPOS_SCARA.c)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
