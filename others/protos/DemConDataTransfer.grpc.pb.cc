@@ -32,6 +32,7 @@ static const char* RPCDemConData_method_names[] = {
   "/ExternalDataTransfer.RPCDemConData/SendVisualServoData_Error_IMAGE",
   "/ExternalDataTransfer.RPCDemConData/SendVisualServoData_EndServo",
   "/ExternalDataTransfer.RPCDemConData/GetAXISPOSSCARA",
+  "/ExternalDataTransfer.RPCDemConData/GetCARTPOSSCARA",
   "/ExternalDataTransfer.RPCDemConData/SendSpeedPercent",
   "/ExternalDataTransfer.RPCDemConData/SendInching",
   "/ExternalDataTransfer.RPCDemConData/SendSCARAPTP",
@@ -54,9 +55,10 @@ RPCDemConData::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   , rpcmethod_SendVisualServoData_Error_IMAGE_(RPCDemConData_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SendVisualServoData_EndServo_(RPCDemConData_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetAXISPOSSCARA_(RPCDemConData_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SendSpeedPercent_(RPCDemConData_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SendInching_(RPCDemConData_method_names[11], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SendSCARAPTP_(RPCDemConData_method_names[12], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetCARTPOSSCARA_(RPCDemConData_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendSpeedPercent_(RPCDemConData_method_names[11], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendInching_(RPCDemConData_method_names[12], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendSCARAPTP_(RPCDemConData_method_names[13], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RPCDemConData::Stub::SetEnableState(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_EnableState& request, ::ExternalDataTransfer::Pt_DataResult* response) {
@@ -289,6 +291,29 @@ void RPCDemConData::Stub::experimental_async::GetAXISPOSSCARA(::grpc::ClientCont
   return result;
 }
 
+::grpc::Status RPCDemConData::Stub::GetCARTPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::ExternalDataTransfer::Pt_CARTPOS_SCARA* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_DataVoid, ::ExternalDataTransfer::Pt_CARTPOS_SCARA, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetCARTPOSSCARA_, context, request, response);
+}
+
+void RPCDemConData::Stub::experimental_async::GetCARTPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_CARTPOS_SCARA* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ExternalDataTransfer::Pt_DataVoid, ::ExternalDataTransfer::Pt_CARTPOS_SCARA, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCARTPOSSCARA_, context, request, response, std::move(f));
+}
+
+void RPCDemConData::Stub::experimental_async::GetCARTPOSSCARA(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_CARTPOS_SCARA* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCARTPOSSCARA_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_CARTPOS_SCARA>* RPCDemConData::Stub::PrepareAsyncGetCARTPOSSCARARaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ExternalDataTransfer::Pt_CARTPOS_SCARA, ::ExternalDataTransfer::Pt_DataVoid, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetCARTPOSSCARA_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ExternalDataTransfer::Pt_CARTPOS_SCARA>* RPCDemConData::Stub::AsyncGetCARTPOSSCARARaw(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_DataVoid& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetCARTPOSSCARARaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 ::grpc::Status RPCDemConData::Stub::SendSpeedPercent(::grpc::ClientContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT& request, ::ExternalDataTransfer::Pt_DataResult* response) {
   return ::grpc::internal::BlockingUnaryCall< ::ExternalDataTransfer::Pt_SPEED_PERCENT, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SendSpeedPercent_, context, request, response);
 }
@@ -462,6 +487,16 @@ RPCDemConData::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RPCDemConData_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_DataVoid, ::ExternalDataTransfer::Pt_CARTPOS_SCARA, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RPCDemConData::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::ExternalDataTransfer::Pt_DataVoid* req,
+             ::ExternalDataTransfer::Pt_CARTPOS_SCARA* resp) {
+               return service->GetCARTPOSSCARA(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RPCDemConData_method_names[11],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_SPEED_PERCENT, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RPCDemConData::Service* service,
              ::grpc::ServerContext* ctx,
@@ -470,7 +505,7 @@ RPCDemConData::Service::Service() {
                return service->SendSpeedPercent(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      RPCDemConData_method_names[11],
+      RPCDemConData_method_names[12],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_INCHING, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RPCDemConData::Service* service,
@@ -480,7 +515,7 @@ RPCDemConData::Service::Service() {
                return service->SendInching(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      RPCDemConData_method_names[12],
+      RPCDemConData_method_names[13],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RPCDemConData::Service, ::ExternalDataTransfer::Pt_AXISPOS_SCARA, ::ExternalDataTransfer::Pt_DataResult, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RPCDemConData::Service* service,
@@ -558,6 +593,13 @@ RPCDemConData::Service::~Service() {
 }
 
 ::grpc::Status RPCDemConData::Service::GetAXISPOSSCARA(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_AXISPOS_SCARA* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RPCDemConData::Service::GetCARTPOSSCARA(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_DataVoid* request, ::ExternalDataTransfer::Pt_CARTPOS_SCARA* response) {
   (void) context;
   (void) request;
   (void) response;

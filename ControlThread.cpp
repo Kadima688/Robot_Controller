@@ -84,15 +84,16 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                 // }
                 //在这里开始添加一条PTP指令，每次只执行一次
                 // if(first_PTP==0){
-                //     RobotSCARA->RobotDynInitial();
+                //     // RobotSCARA->RobotDynInitial();
                 //     //开始执行PTP指令
                 //     AXISPOS_SCARA des_axispos={-39.9107,84.2493,54.7567,142.57737};
+                //     // AXISPOS_SCARA des_axispos={0,0,0,0};
                 //     std::map<int,std::vector<double>> record;
                 //     RobotSCARA->path_plan.PathPlan_PTP(des_axispos,record);
                 //     //设置插补的运动信息
-                //     // RobotSCARA->RobotInterpolationDynInitial();
+                //     RobotSCARA->RobotInterpolationDynInitial();
                 //     //开启插补缓冲区、设置速度前瞻
-                //     // RobotSCARA->RobotOpenConti();
+                //     RobotSCARA->RobotOpenConti();
                 //     //开始具体的运动
                 //     RobotSCARA->FollowPathMove(record,Mh::PTP);//目前采用单轴定长运动的方式让机器人达到视觉伺服开始之前期望的位置
                 //     first_PTP=1;
@@ -126,7 +127,8 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                     int retn=RobotSCARA->CloseDevice();
                     RobotSCARA->set_retn(retn,Mh::CLOSEDEVICE);
                     hasEnable=0;
-                }
+                    RobotSCARA->ConChargeData.isEnable=0;
+                }           
             }
         }
         else{

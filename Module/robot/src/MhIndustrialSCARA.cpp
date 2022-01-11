@@ -246,7 +246,7 @@ bool Mh::MhIndustrialSCARA::loadRobotConfigFile(const char* xmlpath){
         std::cout<<"no available robot"<<std::endl;
         return false;
     }
-    const char* robotName=RobotConfigData.robotNameList[1];//默认用SCARA机器人的配置
+    const char* robotName=RobotConfigData.robotNameList[1];//使用SCARA参数
     loadRobotConfig(robotName);
     RobotConfigData.doc.SaveFile(xmlpath);
     return true;
@@ -294,14 +294,14 @@ void Mh::MhIndustrialSCARA::loadRobotConfig(const char* robotName){
         RobotConfigData.averagePulseEquivalent=0;
         RobotConfigData.pulseEquivalent.resize(nDof);
         for (unsigned int i = 0; i < nDof; ++i)
-		    {
-			    RobotConfigData.pulseEquivalent[i] = 360 * RobotConfigData.direction[i] / RobotConfigData.ratio[i] / RobotConfigData.encoder[i];	
-			    if (i == 2) {
-				    RobotConfigData.pulseEquivalent[2] = RobotConfigData.pulseEquivalent[2] * z_lead / 360;//20代表Z轴方向丝杠导程
-			    }
-			    RobotConfigData.averagePulseEquivalent += fabs(RobotConfigData.pulseEquivalent[i]);
+		{
+		    RobotConfigData.pulseEquivalent[i] = 360 * RobotConfigData.direction[i] / RobotConfigData.ratio[i] / RobotConfigData.encoder[i];	
+		    if (i == 2) {
+			    RobotConfigData.pulseEquivalent[2] = RobotConfigData.pulseEquivalent[2] * z_lead / 360;//20代表Z轴方向丝杠导程
 		    }
-		    RobotConfigData.averagePulseEquivalent = RobotConfigData.averagePulseEquivalent / nDof;
+		    RobotConfigData.averagePulseEquivalent += fabs(RobotConfigData.pulseEquivalent[i]);
+		}
+		RobotConfigData.averagePulseEquivalent = RobotConfigData.averagePulseEquivalent / nDof;
         //采用保守方法计算最大合成速度和最大合成加速度
 		RobotConfigData.maxSyntheticVel = RobotConfigData.maxVel[0];
 		RobotConfigData.maxSyntheticAcc = RobotConfigData.maxAcc[0];
@@ -673,15 +673,15 @@ void Mh::MhIndustrialSCARA::FollowPathMove(std::map<int,std::vector<double>>& re
                              (record[0][2]+RobotConfigData.offset2[2]/*-record[0][3]/360*a4_Compensation*/)/RobotConfigData.pulseEquivalent[2],
                              record[0][3]+RobotConfigData.offset2[3]/RobotConfigData.pulseEquivalent[3]};
         //设置单轴运动
-        for(unsigned int i=0;i<nDof;++i){
-            retn=PositionDrive(i,lTargetPos[i]);
-            set_retn(retn,POSITIONDRIVE);
-        }
+        // for(unsigned int i=0;i<nDof;++i){
+        //     retn=PositionDrive(i,lTargetPos[i]);
+        //     set_retn(retn,POSITIONDRIVE);
+        // }
         //插补运动得指令
-        // retn=ContiLineUnit(0,nDof,ulAxisList,lTargetPos,1,0);
-        // set_retn(retn,CONTILINEUNIT);
-        // retn=ConttiStartList(0);
-        // set_retn(retn,CONTISTARTLIST);
+        retn=ContiLineUnit(0,nDof,ulAxisList,lTargetPos,1,0);
+        set_retn(retn,CONTILINEUNIT);
+        retn=ConttiStartList(0);
+        set_retn(retn,CONTISTARTLIST);
         break;
     };
 }

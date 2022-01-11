@@ -71,6 +71,10 @@ class Pt_AXISPOS_SCARADefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Pt_AXISPOS_SCARA> _instance;
 } _Pt_AXISPOS_SCARA_default_instance_;
+class Pt_CARTPOS_SCARADefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Pt_CARTPOS_SCARA> _instance;
+} _Pt_CARTPOS_SCARA_default_instance_;
 }  // namespace ExternalDataTransfer
 static void InitDefaultsscc_info_Pt_AXISPOS_SCARA_DemConDataTransfer_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -85,6 +89,20 @@ static void InitDefaultsscc_info_Pt_AXISPOS_SCARA_DemConDataTransfer_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Pt_AXISPOS_SCARA_DemConDataTransfer_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Pt_AXISPOS_SCARA_DemConDataTransfer_2eproto}, {}};
+
+static void InitDefaultsscc_info_Pt_CARTPOS_SCARA_DemConDataTransfer_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ExternalDataTransfer::_Pt_CARTPOS_SCARA_default_instance_;
+    new (ptr) ::ExternalDataTransfer::Pt_CARTPOS_SCARA();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ExternalDataTransfer::Pt_CARTPOS_SCARA::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Pt_CARTPOS_SCARA_DemConDataTransfer_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Pt_CARTPOS_SCARA_DemConDataTransfer_2eproto}, {}};
 
 static void InitDefaultsscc_info_Pt_DataResult_DemConDataTransfer_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -268,7 +286,7 @@ static void InitDefaultsscc_info_Pt_VISUAL_SERVO_TARGETPOS_XYZ_DemConDataTransfe
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Pt_VISUAL_SERVO_TARGETPOS_XYZ_DemConDataTransfer_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Pt_VISUAL_SERVO_TARGETPOS_XYZ_DemConDataTransfer_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_DemConDataTransfer_2eproto[14];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_DemConDataTransfer_2eproto[15];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_DemConDataTransfer_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_DemConDataTransfer_2eproto = nullptr;
 
@@ -366,6 +384,17 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_DemConDataTransfer_2eproto::of
   PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_AXISPOS_SCARA, a2_),
   PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_AXISPOS_SCARA, d_),
   PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_AXISPOS_SCARA, a4_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_CARTPOS_SCARA, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_CARTPOS_SCARA, x_),
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_CARTPOS_SCARA, y_),
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_CARTPOS_SCARA, z_),
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_CARTPOS_SCARA, a_),
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_CARTPOS_SCARA, b_),
+  PROTOBUF_FIELD_OFFSET(::ExternalDataTransfer::Pt_CARTPOS_SCARA, c_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ExternalDataTransfer::Pt_DataVoid)},
@@ -382,6 +411,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 70, -1, sizeof(::ExternalDataTransfer::Pt_SPEED_PERCENT)},
   { 76, -1, sizeof(::ExternalDataTransfer::Pt_INCHING)},
   { 84, -1, sizeof(::ExternalDataTransfer::Pt_AXISPOS_SCARA)},
+  { 93, -1, sizeof(::ExternalDataTransfer::Pt_CARTPOS_SCARA)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -399,6 +429,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ExternalDataTransfer::_Pt_SPEED_PERCENT_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ExternalDataTransfer::_Pt_INCHING_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ExternalDataTransfer::_Pt_AXISPOS_SCARA_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ExternalDataTransfer::_Pt_CARTPOS_SCARA_default_instance_),
 };
 
 const char descriptor_table_protodef_DemConDataTransfer_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -421,49 +452,54 @@ const char descriptor_table_protodef_DemConDataTransfer_2eproto[] PROTOBUF_SECTI
   "\001 \001(\005\"P\n\nPt_INCHING\022\020\n\010axis_num\030\001 \001(\005\022\024\n"
   "\014axis_up_dwon\030\002 \001(\005\022\032\n\022axis_press_releas"
   "e\030\003 \001(\005\"A\n\020Pt_AXISPOS_SCARA\022\n\n\002a1\030\001 \001(\001\022"
-  "\n\n\002a2\030\002 \001(\001\022\t\n\001d\030\003 \001(\001\022\n\n\002a4\030\004 \001(\0012\246\013\n\rR"
-  "PCDemConData\022]\n\016SetEnableState\022$.Externa"
-  "lDataTransfer.Pt_EnableState\032#.ExternalD"
-  "ataTransfer.Pt_DataResult\"\000\022[\n\rSetStartS"
-  "ervo\022#.ExternalDataTransfer.Pt_StartServ"
-  "o\032#.ExternalDataTransfer.Pt_DataResult\"\000"
-  "\022w\n\035SendVisualServoData_ServoType\022/.Exte"
-  "rnalDataTransfer.Pt_VISUAL_SERVO_SERVOTY"
-  "PE\032#.ExternalDataTransfer.Pt_DataResult\""
-  "\000\022\177\n!SendVisualServoData_TargetPos_XYZ\0223"
-  ".ExternalDataTransfer.Pt_VISUAL_SERVO_TA"
-  "RGETPOS_XYZ\032#.ExternalDataTransfer.Pt_Da"
-  "taResult\"\000\022\177\n!SendVisualServoData_Target"
-  "Pos_ABC\0223.ExternalDataTransfer.Pt_VISUAL"
-  "_SERVO_TARGETPOS_ABC\032#.ExternalDataTrans"
-  "fer.Pt_DataResult\"\000\022w\n\035SendVisualServoDa"
-  "ta_Error_XYZ\022/.ExternalDataTransfer.Pt_V"
-  "ISUAL_SERVO_ERROR_XYZ\032#.ExternalDataTran"
-  "sfer.Pt_DataResult\"\000\022w\n\035SendVisualServoD"
-  "ata_Error_ABC\022/.ExternalDataTransfer.Pt_"
-  "VISUAL_SERVO_ERROR_ABC\032#.ExternalDataTra"
-  "nsfer.Pt_DataResult\"\000\022{\n\037SendVisualServo"
-  "Data_Error_IMAGE\0221.ExternalDataTransfer."
-  "Pt_VISUAL_SERVO_ERROR_IMAGE\032#.ExternalDa"
-  "taTransfer.Pt_DataResult\"\000\022u\n\034SendVisual"
-  "ServoData_EndServo\022..ExternalDataTransfe"
-  "r.Pt_VISUAL_SERVO_ENDSERVO\032#.ExternalDat"
-  "aTransfer.Pt_DataResult\"\000\022^\n\017GetAXISPOSS"
-  "CARA\022!.ExternalDataTransfer.Pt_DataVoid\032"
-  "&.ExternalDataTransfer.Pt_AXISPOS_SCARA\""
-  "\000\022a\n\020SendSpeedPercent\022&.ExternalDataTran"
-  "sfer.Pt_SPEED_PERCENT\032#.ExternalDataTran"
-  "sfer.Pt_DataResult\"\000\022V\n\013SendInching\022 .Ex"
-  "ternalDataTransfer.Pt_INCHING\032#.External"
-  "DataTransfer.Pt_DataResult\"\000\022]\n\014SendSCAR"
-  "APTP\022&.ExternalDataTransfer.Pt_AXISPOS_S"
-  "CARA\032#.ExternalDataTransfer.Pt_DataResul"
-  "t\"\000b\006proto3"
+  "\n\n\002a2\030\002 \001(\001\022\t\n\001d\030\003 \001(\001\022\n\n\002a4\030\004 \001(\001\"T\n\020Pt"
+  "_CARTPOS_SCARA\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001"
+  "z\030\003 \001(\001\022\t\n\001a\030\004 \001(\001\022\t\n\001b\030\005 \001(\001\022\t\n\001c\030\006 \001(\001"
+  "2\206\014\n\rRPCDemConData\022]\n\016SetEnableState\022$.E"
+  "xternalDataTransfer.Pt_EnableState\032#.Ext"
+  "ernalDataTransfer.Pt_DataResult\"\000\022[\n\rSet"
+  "StartServo\022#.ExternalDataTransfer.Pt_Sta"
+  "rtServo\032#.ExternalDataTransfer.Pt_DataRe"
+  "sult\"\000\022w\n\035SendVisualServoData_ServoType\022"
+  "/.ExternalDataTransfer.Pt_VISUAL_SERVO_S"
+  "ERVOTYPE\032#.ExternalDataTransfer.Pt_DataR"
+  "esult\"\000\022\177\n!SendVisualServoData_TargetPos"
+  "_XYZ\0223.ExternalDataTransfer.Pt_VISUAL_SE"
+  "RVO_TARGETPOS_XYZ\032#.ExternalDataTransfer"
+  ".Pt_DataResult\"\000\022\177\n!SendVisualServoData_"
+  "TargetPos_ABC\0223.ExternalDataTransfer.Pt_"
+  "VISUAL_SERVO_TARGETPOS_ABC\032#.ExternalDat"
+  "aTransfer.Pt_DataResult\"\000\022w\n\035SendVisualS"
+  "ervoData_Error_XYZ\022/.ExternalDataTransfe"
+  "r.Pt_VISUAL_SERVO_ERROR_XYZ\032#.ExternalDa"
+  "taTransfer.Pt_DataResult\"\000\022w\n\035SendVisual"
+  "ServoData_Error_ABC\022/.ExternalDataTransf"
+  "er.Pt_VISUAL_SERVO_ERROR_ABC\032#.ExternalD"
+  "ataTransfer.Pt_DataResult\"\000\022{\n\037SendVisua"
+  "lServoData_Error_IMAGE\0221.ExternalDataTra"
+  "nsfer.Pt_VISUAL_SERVO_ERROR_IMAGE\032#.Exte"
+  "rnalDataTransfer.Pt_DataResult\"\000\022u\n\034Send"
+  "VisualServoData_EndServo\022..ExternalDataT"
+  "ransfer.Pt_VISUAL_SERVO_ENDSERVO\032#.Exter"
+  "nalDataTransfer.Pt_DataResult\"\000\022^\n\017GetAX"
+  "ISPOSSCARA\022!.ExternalDataTransfer.Pt_Dat"
+  "aVoid\032&.ExternalDataTransfer.Pt_AXISPOS_"
+  "SCARA\"\000\022^\n\017GetCARTPOSSCARA\022!.ExternalDat"
+  "aTransfer.Pt_DataVoid\032&.ExternalDataTran"
+  "sfer.Pt_CARTPOS_SCARA\"\000\022a\n\020SendSpeedPerc"
+  "ent\022&.ExternalDataTransfer.Pt_SPEED_PERC"
+  "ENT\032#.ExternalDataTransfer.Pt_DataResult"
+  "\"\000\022V\n\013SendInching\022 .ExternalDataTransfer"
+  ".Pt_INCHING\032#.ExternalDataTransfer.Pt_Da"
+  "taResult\"\000\022]\n\014SendSCARAPTP\022&.ExternalDat"
+  "aTransfer.Pt_AXISPOS_SCARA\032#.ExternalDat"
+  "aTransfer.Pt_DataResult\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_DemConDataTransfer_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_DemConDataTransfer_2eproto_sccs[14] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_DemConDataTransfer_2eproto_sccs[15] = {
   &scc_info_Pt_AXISPOS_SCARA_DemConDataTransfer_2eproto.base,
+  &scc_info_Pt_CARTPOS_SCARA_DemConDataTransfer_2eproto.base,
   &scc_info_Pt_DataResult_DemConDataTransfer_2eproto.base,
   &scc_info_Pt_DataVoid_DemConDataTransfer_2eproto.base,
   &scc_info_Pt_EnableState_DemConDataTransfer_2eproto.base,
@@ -480,10 +516,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Dem
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_DemConDataTransfer_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_DemConDataTransfer_2eproto = {
-  false, false, descriptor_table_protodef_DemConDataTransfer_2eproto, "DemConDataTransfer.proto", 2251,
-  &descriptor_table_DemConDataTransfer_2eproto_once, descriptor_table_DemConDataTransfer_2eproto_sccs, descriptor_table_DemConDataTransfer_2eproto_deps, 14, 0,
+  false, false, descriptor_table_protodef_DemConDataTransfer_2eproto, "DemConDataTransfer.proto", 2433,
+  &descriptor_table_DemConDataTransfer_2eproto_once, descriptor_table_DemConDataTransfer_2eproto_sccs, descriptor_table_DemConDataTransfer_2eproto_deps, 15, 0,
   schemas, file_default_instances, TableStruct_DemConDataTransfer_2eproto::offsets,
-  file_level_metadata_DemConDataTransfer_2eproto, 14, file_level_enum_descriptors_DemConDataTransfer_2eproto, file_level_service_descriptors_DemConDataTransfer_2eproto,
+  file_level_metadata_DemConDataTransfer_2eproto, 15, file_level_enum_descriptors_DemConDataTransfer_2eproto, file_level_service_descriptors_DemConDataTransfer_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -3473,6 +3509,317 @@ void Pt_AXISPOS_SCARA::InternalSwap(Pt_AXISPOS_SCARA* other) {
 }
 
 
+// ===================================================================
+
+void Pt_CARTPOS_SCARA::InitAsDefaultInstance() {
+}
+class Pt_CARTPOS_SCARA::_Internal {
+ public:
+};
+
+Pt_CARTPOS_SCARA::Pt_CARTPOS_SCARA(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+}
+Pt_CARTPOS_SCARA::Pt_CARTPOS_SCARA(const Pt_CARTPOS_SCARA& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&x_, &from.x_,
+    static_cast<size_t>(reinterpret_cast<char*>(&c_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(c_));
+  // @@protoc_insertion_point(copy_constructor:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+}
+
+void Pt_CARTPOS_SCARA::SharedCtor() {
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&c_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(c_));
+}
+
+Pt_CARTPOS_SCARA::~Pt_CARTPOS_SCARA() {
+  // @@protoc_insertion_point(destructor:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Pt_CARTPOS_SCARA::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void Pt_CARTPOS_SCARA::ArenaDtor(void* object) {
+  Pt_CARTPOS_SCARA* _this = reinterpret_cast< Pt_CARTPOS_SCARA* >(object);
+  (void)_this;
+}
+void Pt_CARTPOS_SCARA::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Pt_CARTPOS_SCARA::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Pt_CARTPOS_SCARA& Pt_CARTPOS_SCARA::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Pt_CARTPOS_SCARA_DemConDataTransfer_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Pt_CARTPOS_SCARA::Clear() {
+// @@protoc_insertion_point(message_clear_start:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&c_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(c_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Pt_CARTPOS_SCARA::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // double x = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double y = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double z = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
+          z_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double a = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
+          a_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double b = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
+          b_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double c = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
+          c_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Pt_CARTPOS_SCARA::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double x = 1;
+  if (!(this->x() <= 0 && this->x() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_x(), target);
+  }
+
+  // double y = 2;
+  if (!(this->y() <= 0 && this->y() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_y(), target);
+  }
+
+  // double z = 3;
+  if (!(this->z() <= 0 && this->z() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_z(), target);
+  }
+
+  // double a = 4;
+  if (!(this->a() <= 0 && this->a() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_a(), target);
+  }
+
+  // double b = 5;
+  if (!(this->b() <= 0 && this->b() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_b(), target);
+  }
+
+  // double c = 6;
+  if (!(this->c() <= 0 && this->c() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(6, this->_internal_c(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+  return target;
+}
+
+size_t Pt_CARTPOS_SCARA::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // double x = 1;
+  if (!(this->x() <= 0 && this->x() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double y = 2;
+  if (!(this->y() <= 0 && this->y() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double z = 3;
+  if (!(this->z() <= 0 && this->z() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double a = 4;
+  if (!(this->a() <= 0 && this->a() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double b = 5;
+  if (!(this->b() <= 0 && this->b() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double c = 6;
+  if (!(this->c() <= 0 && this->c() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Pt_CARTPOS_SCARA::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Pt_CARTPOS_SCARA* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Pt_CARTPOS_SCARA>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+    MergeFrom(*source);
+  }
+}
+
+void Pt_CARTPOS_SCARA::MergeFrom(const Pt_CARTPOS_SCARA& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!(from.x() <= 0 && from.x() >= 0)) {
+    _internal_set_x(from._internal_x());
+  }
+  if (!(from.y() <= 0 && from.y() >= 0)) {
+    _internal_set_y(from._internal_y());
+  }
+  if (!(from.z() <= 0 && from.z() >= 0)) {
+    _internal_set_z(from._internal_z());
+  }
+  if (!(from.a() <= 0 && from.a() >= 0)) {
+    _internal_set_a(from._internal_a());
+  }
+  if (!(from.b() <= 0 && from.b() >= 0)) {
+    _internal_set_b(from._internal_b());
+  }
+  if (!(from.c() <= 0 && from.c() >= 0)) {
+    _internal_set_c(from._internal_c());
+  }
+}
+
+void Pt_CARTPOS_SCARA::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Pt_CARTPOS_SCARA::CopyFrom(const Pt_CARTPOS_SCARA& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ExternalDataTransfer.Pt_CARTPOS_SCARA)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Pt_CARTPOS_SCARA::IsInitialized() const {
+  return true;
+}
+
+void Pt_CARTPOS_SCARA::InternalSwap(Pt_CARTPOS_SCARA* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Pt_CARTPOS_SCARA, c_)
+      + sizeof(Pt_CARTPOS_SCARA::c_)
+      - PROTOBUF_FIELD_OFFSET(Pt_CARTPOS_SCARA, x_)>(
+          reinterpret_cast<char*>(&x_),
+          reinterpret_cast<char*>(&other->x_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Pt_CARTPOS_SCARA::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace ExternalDataTransfer
 PROTOBUF_NAMESPACE_OPEN
@@ -3517,6 +3864,9 @@ template<> PROTOBUF_NOINLINE ::ExternalDataTransfer::Pt_INCHING* Arena::CreateMa
 }
 template<> PROTOBUF_NOINLINE ::ExternalDataTransfer::Pt_AXISPOS_SCARA* Arena::CreateMaybeMessage< ::ExternalDataTransfer::Pt_AXISPOS_SCARA >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ExternalDataTransfer::Pt_AXISPOS_SCARA >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ExternalDataTransfer::Pt_CARTPOS_SCARA* Arena::CreateMaybeMessage< ::ExternalDataTransfer::Pt_CARTPOS_SCARA >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ExternalDataTransfer::Pt_CARTPOS_SCARA >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
