@@ -20,7 +20,7 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                     RobotSCARA->set_retn(retn,Mh::OPENMCKERNEL);
                     // 判断电机是否已经处于使能状态
                     bool enable=false;
-                    while(!enable){       
+                    while(!enable){
                         unsigned int value[RobotSCARA->get_nDof()];
                         int n=0;
                         for(int i=0;i<RobotSCARA->get_nDof();++i){
@@ -30,7 +30,7 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                                 if(value[i]==8){
                                     n++;
                                 }
-                            #else 
+                            #else
                                 n=3;
                             #endif
                         }
@@ -51,37 +51,37 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                     oldOvr=RobotSCARA->Dem2ConData.ovr;
                 }
                 //手动模式
-                if(RobotSCARA->Dem2ConData.operateMode==0){
-                    // RobotSCARA->ConChargeData.curDynamic=RobotSCARA->RobotConfigData.jogspeed;
-                    // RobotSCARA->RobotDynInitial();
-                    // RobotSCARA->RobotInterpolationDynInitial();
-                    //开始示教
-                    if(RobotSCARA->Dem2ConData.coordinate!=0 && RobotSCARA->Dem2ConData.PressOrRelease==1 && keepTeach==0){
-                        //首先考虑轴关节坐标系的
-                        int dir;//运动方向
-                        if(RobotSCARA->Dem2ConData.upOrDown==0){
-                            dir=-1;
-                        }
-                        else{
-                            dir=1;
-                        }
-                        double targetVel = 1000*RobotSCARA->Dem2ConData.ovr/5;
-                        double lowVel = 0;
-                        double acc = 100*RobotSCARA->Dem2ConData.ovr/5;
-                        double jerk = 10*RobotSCARA->Dem2ConData.ovr/5;
-                        int retn=RobotSCARA->SetJogParam(RobotSCARA->Dem2ConData.coordinate-1,targetVel,lowVel,acc,jerk);
-                        RobotSCARA->set_retn(retn,Mh::IPMCJOGSETAXISPARAM);
-                        retn=RobotSCARA->Jog(RobotSCARA->Dem2ConData.coordinate-1,dir*RobotSCARA->RobotConfigData.direction[RobotSCARA->Dem2ConData.coordinate-1]);
-                        RobotSCARA->set_retn(retn,Mh::IPMCJOG);
-                        keepTeach=1;
-                    }
-                    else if(RobotSCARA->Dem2ConData.PressOrRelease==0 && keepTeach==1){
-                        //现在coordinate=0，表示按键松开了
-                        int retn=RobotSCARA->StopAxis(RobotSCARA->Dem2ConData.coordinate-1,1);
-                        RobotSCARA->set_retn(retn,Mh::STOPAXIS);
-                        keepTeach=0;
-                    }
-                }
+                // if(RobotSCARA->Dem2ConData.operateMode==0){
+                //     // RobotSCARA->ConChargeData.curDynamic=RobotSCARA->RobotConfigData.jogspeed;
+                //     // RobotSCARA->RobotDynInitial();
+                //     // RobotSCARA->RobotInterpolationDynInitial();
+                //     //开始示教
+                //     if(RobotSCARA->Dem2ConData.coordinate!=0 && RobotSCARA->Dem2ConData.PressOrRelease==1 && keepTeach==0){
+                //         //首先考虑轴关节坐标系的
+                //         int dir;//运动方向
+                //         if(RobotSCARA->Dem2ConData.upOrDown==0){
+                //             dir=-1;
+                //         }
+                //         else{
+                //             dir=1;
+                //         }
+                //         double targetVel = 1000*RobotSCARA->Dem2ConData.ovr/5;
+                //         double lowVel = 0;
+                //         double acc = 100*RobotSCARA->Dem2ConData.ovr/5;
+                //         double jerk = 10*RobotSCARA->Dem2ConData.ovr/5;
+                //         int retn=RobotSCARA->SetJogParam(RobotSCARA->Dem2ConData.coordinate-1,targetVel,lowVel,acc,jerk);
+                //         RobotSCARA->set_retn(retn,Mh::IPMCJOGSETAXISPARAM);
+                //         retn=RobotSCARA->Jog(RobotSCARA->Dem2ConData.coordinate-1,dir*RobotSCARA->RobotConfigData.direction[RobotSCARA->Dem2ConData.coordinate-1]);
+                //         RobotSCARA->set_retn(retn,Mh::IPMCJOG);
+                //         keepTeach=1;
+                //     }
+                //     else if(RobotSCARA->Dem2ConData.PressOrRelease==0 && keepTeach==1){
+                //         //现在coordinate=0，表示按键松开了
+                //         int retn=RobotSCARA->StopAxis(RobotSCARA->Dem2ConData.coordinate-1,1);
+                //         RobotSCARA->set_retn(retn,Mh::STOPAXIS);
+                //         keepTeach=0;
+                //     }
+                // }
                 //在这里开始添加一条PTP指令，每次只执行一次
                 // if(first_PTP==0){
                 //     RobotSCARA->RobotDynInitial();
@@ -126,7 +126,7 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                     int retn=RobotSCARA->CloseDevice();
                     RobotSCARA->set_retn(retn,Mh::CLOSEDEVICE);
                     hasEnable=0;
-                }           
+                }
             }
         }
         else{
