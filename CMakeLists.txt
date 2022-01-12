@@ -22,6 +22,7 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "Windows")
 endif()
 #----------------找到visp对应的模块
 find_package(VISP REQUIRED visp_robot visp_vision visp_io visp_gui visp_vs visp_visual_features visp_detection)
+find_package(Threads)
 #----------------找到grpc对应的模块
 set(protobuf_MODULE_COMPATIBLE TRUE)
 find_package(Protobuf CONFIG REQUIRED)
