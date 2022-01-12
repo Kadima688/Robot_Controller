@@ -1,7 +1,7 @@
 #include"MhgRPCServer.h"
 #include<iostream>
 #include"MhIndustrialSCARA.h"
-
+#include"MhMotionKernel.h"
 
 ::grpc::Status Mh::MhgRPCServer::SetEnableState(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_EnableState* request, ::ExternalDataTransfer::Pt_DataResult* response){
     SCARA->Dem2ConData.enableState=request->enablestate();
@@ -88,6 +88,39 @@
     SCARA->Dem2ConData.coordinate=request->axis_num();
     SCARA->Dem2ConData.upOrDown=request->axis_up_dwon();
     SCARA->Dem2ConData.PressOrRelease=request->axis_press_release();
+    if(SCARA->Dem2ConData.operateMode==0)
+    {
+        // RobotSCARA->ConChargeData.curDynamic=RobotSCARA->RobotConfigData.jogspeed;
+        // RobotSCARA->RobotDynInitial();
+        // RobotSCARA->RobotInterpolationDynInitial();
+        //开始示教
+        if(SCARA->Dem2ConData.coordinate!=0 && SCARA->Dem2ConData.PressOrRelease==1){
+            SCARA->Con2DemData.IsMoving = 1;
+            //首先考虑轴关节坐标系的
+            int dir;//运动方向
+            if(SCARA->Dem2ConData.upOrDown==0){
+                dir=-1;
+            }
+            else{
+                dir=1;
+            }
+            double targetVel = 1000*SCARA->Dem2ConData.ovr/5;
+            double lowVel = 0;
+            double acc = 100*SCARA->Dem2ConData.ovr/5;
+            double jerk = 10*SCARA->Dem2ConData.ovr/5;
+            int retn=SCARA->SetJogParam(SCARA->Dem2ConData.coordinate-1,targetVel,lowVel,acc,jerk);
+            SCARA->set_retn(retn,Mh::IPMCJOGSETAXISPARAM);
+            retn=SCARA->Jog(SCARA->Dem2ConData.coordinate-1,dir*SCARA->RobotConfigData.direction[SCARA->Dem2ConData.coordinate-1]);
+            SCARA->set_retn(retn,Mh::IPMCJOG);
+            
+        }
+        else if(SCARA->Dem2ConData.PressOrRelease==0){
+            //现在coordinate=0，表示按键松开了
+            int retn=SCARA->StopAxis(SCARA->Dem2ConData.coordinate-1,1);
+            SCARA->set_retn(retn,Mh::STOPAXIS);
+        }
+    }
+    SCARA->Con2DemData.IsMoving = 0 ;
     return Status::OK;
 }
 

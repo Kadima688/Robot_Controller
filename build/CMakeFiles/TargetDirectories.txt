@@ -1,3 +1,0 @@
-/home/mingh/robot-controller/build/CMakeFiles/rebuild_cache.dir
-/home/mingh/robot-controller/build/CMakeFiles/edit_cache.dir
-/home/mingh/robot-controller/build/CMakeFiles/controller.dir

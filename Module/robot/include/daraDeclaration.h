@@ -224,6 +224,9 @@ struct MhControl2DemData
     int cameraIntrinsicCalibrationOk; //是否完成相机畸变矫正，0：否，1：是
     int cameraExtrinsicCalibrationOk; //是否完成手眼标定，0：否，1：是
     int visualServoOk; //是否完成视觉伺服，0：否，1：是
+    int IsMoving;//是否在执行命令 0：否 1：是
+    unsigned long contiRunState; //机器人插补运动状态，0：正在运动，1：暂停中，2：停止状态，3：未启动，4：空闲
+    unsigned long allAxisState; //机器人所有轴的运动完成情况，0：正在运动，1：处于停止状态
 };
 //存在于控制器项目的全局变量
 struct MhControlChargeData
@@ -233,16 +236,16 @@ struct MhControlChargeData
     struct DYNAMIC curDynamic; //当前的机器人运动参数
     struct DYNAMIC retDynamic; //保留的运动参数
     int selectDyn=0; //选择使用的运动参数，0：手动&点位，1：手动&轨迹，2：自动&点位，3：自动&轨迹
-    unsigned long contiRunState; //机器人插补运动状态，0：正在运动，1：暂停中，2：停止状态，3：未启动，4：空闲
-    unsigned long allAxisState; //机器人所有轴的运动完成情况，0：正在运动，1：处于停止状态
-    int startProg; //是否已进入程序编译执行阶段，0：否，1：是
+    // unsigned long contiRunState; //机器人插补运动状态，0：正在运动，1：暂停中，2：停止状态，3：未启动，4：空闲  发送到示教器
+    // unsigned long allAxisState; //机器人所有轴的运动完成情况，0：正在运动，1：处于停止状态
+    //int startProg; //是否已进入程序编译执行阶段，0：否，1：是
     int endProg; //是否从控制器端结束程序，0：否，1：是
-    int startFromActive; //判断是否从程序激活状态变为程序运行状态，0：否，1：是
-    int startFromStop; //判断是否从程序停止状态变为程序运行状态，如果是则不需重新编译，只需从上次停止的位置开始继续执行程序，0：否，1：是
-    int startFromEnd; //判断是否从程序结束状态变为程序运行状态，如果是则会重新编译并执行程序，0：否，1：是
-    int stopFromStart; //判断是否从程序运行状态变为程序停止状态，0：否，1：是
-    int endFromStart;  //判断是否从程序运行状态变为程序终止状态，0：否，1：是
-    int transferZipFinished; //判断压缩包是否已经传输完成并已解压，0：否，1：是
+    // int startFromActive; //判断是否从程序激活状态变为程序运行状态，0：否，1：是
+    // int startFromStop; //判断是否从程序停止状态变为程序运行状态，如果是则不需重新编译，只需从上次停止的位置开始继续执行程序，0：否，1：是
+    // int startFromEnd; //判断是否从程序结束状态变为程序运行状态，如果是则会重新编译并执行程序，0：否，1：是
+    // int stopFromStart; //判断是否从程序运行状态变为程序停止状态，0：否，1：是
+    // int endFromStart;  //判断是否从程序运行状态变为程序终止状态，0：否，1：是
+    // int transferZipFinished; //判断压缩包是否已经传输完成并已解压，0：否，1：是
     int startServo=0; //判断是否已经开始视觉伺服，0：否，1：是
     int hasServo=0;//配合startservo用来控制视觉伺服的开始和结束
     int endServo=0; //用于控制器结束视觉伺服，0：不结束，1：结束
