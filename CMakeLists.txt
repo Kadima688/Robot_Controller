@@ -65,12 +65,15 @@ ${test_files}
 ${servo_scara_files})#添加可执行文件
 #--------------将程序连接一些库
 set (EXTRA_LIBS ${VISP_LIBRARIES})
+set(MCLIB_SRC ${PROJECT_SOURCE_DIR}/Module/kernal/mclib/build/libmclib.so)
 target_link_libraries(controller 
 -lpthread -lapi 
 ${EXTRA_LIBS} 
 ${_REFLECTION}
 ${_GRPC_GRPCPP}
-${_PROTOBUF_LIBPROTOBUF})
+${_PROTOBUF_LIBPROTOBUF}
+${MCLIB_SRC}
+)
 #要用Realsense要添加这段代码
 if(VISP_HAVE_REALSENSE2)
   if(UNIX)

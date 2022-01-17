@@ -10,6 +10,8 @@ void GetRobotState(Mh::MhIndustrialSCARA* RobotSCARA);
 #include<thread>
 #include"MhgRPCServer.h"
 #include<ctime>
+#include<unistd.h>
+#include"Module/kernal/mclib/PLCOpenMotion.h"
 void Serverrun(Mh::MhIndustrialSCARA* scara){
     std::string server_address("0.0.0.0:50051");
     Mh::MhgRPCServer service(scara);
@@ -26,7 +28,6 @@ void Serverrun(Mh::MhIndustrialSCARA* scara){
 int main(int argc, char **argv){
     Mh::MhIndustrialSCARA RobotSCARA;
     if(!RobotSCARA.loadRobotConfigFile("RobotConfig_CoolDrive.xml")){
-        int c = 0;
         return 0;
     }  
     RobotSCARA.set_dh_table();
@@ -37,10 +38,9 @@ int main(int argc, char **argv){
     ControlThread.join();
     RobotStateThread.join();
     return 0;
-
     //添加linux平台相关的代码
     //----------------init DH-TABLE
-    double alapha_[4]={0,0,180,0};
+    // double alapha_[4]={0,0,180,0};
     // double a_[4]={0,300,300,0};
     // double d_[4]={100,0,0,0};
     // double offset_[4]={0,0,0,0};

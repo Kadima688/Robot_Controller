@@ -3,6 +3,7 @@
 #include<thread>
 #include"VisualServo.h"
 
+
 void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
     int retn;//函数返回值
     int hasEnable=0;//判断是否已经上电

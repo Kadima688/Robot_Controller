@@ -1,0 +1,180 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.SoftKernel.hmitest";
+option java_outer_classname = "SoftKernelHmiTest";
+option objc_class_prefix = "HLW";
+
+package SoftKernelHmiTest;
+
+// The greeting service definition.
+service McLibServer {
+  rpc MC_Power(Power) returns (McResult) {}
+  rpc MC_Stop(Stop) returns (McResult) {}
+  rpc MC_MoveAbsolute(MoveAbsolute) returns (McResult){}
+  rpc MC_MoveRelative(MoveAbsolute) returns (McResult){}
+  rpc MC_SetPostion(SetPostion) returns (McResult){}
+  rpc MC_MoveContinuousAbsolute(MoveContinuousAbsolute) returns (McResult){}
+  rpc MC_MoveContinuousRelative(MoveContinuousAbsolute) returns (McResult){}
+  rpc MC_ReadActualPosition(ReadActualPosition) returns (AxesPosition){}
+  rpc MC_MoveLinearRelative(MoveLinearRelative)returns (McResult){}
+  rpc MC_MoveLinearAbsolute(MoveLinearRelative)returns (McResult){}
+  rpc Mc_AddAxisToGroup(AddAxisToGroup)returns (McResult){}
+  rpc MC_RemoveAxisFromGroup(RemoveAxisFromGroup)returns (McResult){}
+  rpc MC_GroupEnable(GroupEnable)returns (McResult){}
+  rpc MC_GroupDisable(GroupDisable)returns (McResult){}
+  rpc MC_UngroupAllAxes(UngroupAllAxes)returns (McResult){}
+  rpc MC_GroupInterrupt(GroupInterrupt)returns (McResult){}
+  rpc MC_GroupContinue(GroupContinue)returns (McResult){}
+  rpc MC_GroupStop(GroupStop)returns (McResult){}
+  rpc MC_GroupSetPosition(GroupSetPosition)returns (McResult){}
+
+}
+
+
+message McResult
+{
+  int32 result=1;
+}
+message Power
+{
+    int32 Axis=1;
+    bool Enable=2;
+    bool EnablePositive=3; 
+    bool EnableNegative=4;
+}
+message Stop
+{
+    int32 Axis=1;
+    bool Enable=2;
+    double Deceleration=3;
+    double Jerk=4;
+}
+message MoveAbsolute
+{
+    int32 Axis=1;
+    bool Enable=2;
+    bool  ContinuousUpdate=8;
+    double Position=3;
+    double Velocity=4;  
+    double Acceleration=5;
+    double Decerelation=6;
+    double Jerk=7;
+}
+message SetPostion
+{
+    int32 Axis=1;
+    bool Execute=2;
+    double Position=3;
+    double Relative =4;
+
+}
+message MoveContinuousAbsolute
+{
+    int32 Axis=1;
+    bool Enable=2;
+    bool  ContinuousUpdate=8;
+    double Position=3;
+
+    double Velocity=4;  
+    double EndVelocity=9;
+    double Acceleration=5;
+    double Decerelation=6;
+    double Jerk=7;
+}
+message ReadActualPosition
+{
+    repeated int32 Axes=1 [packed=true]; 
+}
+message AxesPosition
+{
+    repeated int32 Positions=1 [packed=true]; 
+}
+message MoveLinearRelative
+{
+    int32 AxesGroup=1;
+    bool Execute=2;
+    repeated double Distance=3 [packed=true]; 
+    double Velocity=4;
+    double Acceleration=5;
+    double Deceleration=6;
+    double Jerk=7;
+}
+message AddAxisToGroup
+{
+    int32 AxesGroup=1;
+    int32 Axis=2;
+    bool Execute=3;
+    int32 IdentInGroup=4;
+
+
+}
+message RemoveAxisFromGroup
+{
+    int32 AxesGroup=1;
+    bool Execute=2;
+    int32 IdentInGroup=3;
+
+}
+message GroupEnable
+{
+    int32 AxesGroup=1;
+    bool Execute=2;
+    int32 DeviceNum=3;
+
+}
+message GroupDisable
+{
+    int32 AxesGroup=1;
+    bool Execute=2;
+
+}
+message UngroupAllAxes
+{
+    int32 AxesGroup=1;
+    bool Execute=2;
+
+}
+message SetKinTransform
+{
+    int32 AxesGroup=1;
+
+}
+message SetCoordinateTransform
+{
+    int32 AxesGroup=1;
+
+}
+message SetCartesianTransform
+{
+    int32 AxesGroup=1;
+
+}
+message GroupInterrupt
+{
+    int32 AxesGroup=1;
+    bool Execute=2;
+    double Deceleration=3;
+    double jerk=4;
+
+
+}
+message GroupContinue
+{
+    int32 AxesGroup=1;
+    bool Execute=2;
+}
+message GroupStop
+{
+    int32 AxesGroup=1;
+    bool Execute=2;
+    double Deceleration=3;
+    double jerk=4;
+}
+message GroupSetPosition
+{
+    int32 AxesGroup=1;
+    repeated double Distance=2 [packed=true]; 
+    bool Relative=3;
+}
