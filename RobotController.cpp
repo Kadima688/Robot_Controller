@@ -26,17 +26,28 @@ void Serverrun(Mh::MhIndustrialSCARA* scara){
 }
 
 int main(int argc, char **argv){
-    Mh::MhIndustrialSCARA RobotSCARA;
-    if(!RobotSCARA.loadRobotConfigFile("RobotConfig_CoolDrive.xml")){
-        return 0;
-    }  
-    RobotSCARA.set_dh_table();
-    std::thread DataTransferThread(Serverrun,&RobotSCARA);
-    std::thread ControlThread(Controlthread,&RobotSCARA);
-    std::thread RobotStateThread(GetRobotState,&RobotSCARA);
-    DataTransferThread.join();
-    ControlThread.join();
-    RobotStateThread.join();
+    // Mh::MhIndustrialSCARA RobotSCARA;
+    // if(!RobotSCARA.loadRobotConfigFile("RobotConfig_CoolDrive.xml")){
+    //     return 0;
+    // }  
+    // RobotSCARA.set_dh_table();
+    // std::thread DataTransferThread(Serverrun,&RobotSCARA);
+    // std::thread ControlThread(Controlthread,&RobotSCARA);
+    // std::thread RobotStateThread(GetRobotState,&RobotSCARA);
+    // DataTransferThread.join();
+    // ControlThread.join();
+    // RobotStateThread.join();
+    // return 0;
+    //添加测试新内核
+    PLCOpenMotion motor;
+    std::vector<double> Position,tran;
+    Position={10000,10000,10000};
+    std::vector<double> Position1={-10000,-10000,-10000};
+    for (int j = 0; j < 100; j++)
+    {
+      motor.MC_MoveLinearRelative(0,TRUE,j%2==0?Position:Position1,1000,100,10,1,MCS,mcBuffered,TMNone,tran);
+      std::this_thread::sleep_for(std::chrono::seconds(3));
+    }
     return 0;
     //添加linux平台相关的代码
     //----------------init DH-TABLE

@@ -65,7 +65,7 @@ ${test_files}
 ${servo_scara_files})#添加可执行文件
 #--------------将程序连接一些库
 set (EXTRA_LIBS ${VISP_LIBRARIES})
-set(MCLIB_SRC ${PROJECT_SOURCE_DIR}/Module/kernal/mclib/build/libmclib.so)
+set(MCLIB_SRC /home/cmh/mc-lib/build/mclib/libmclib.so)
 target_link_libraries(controller 
 -lpthread -lapi 
 ${EXTRA_LIBS} 
