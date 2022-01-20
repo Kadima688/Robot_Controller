@@ -40,7 +40,6 @@ int main(int argc, char **argv){
     // return 0;
     //添加测试新内核
     PLCOpenMotion motor;
-    int a=0;
     std::vector<double> Position,tran;
     Position={10000,10000,10000};
     std::vector<double> Position1={-10000,-10000,-10000};
