@@ -11,7 +11,7 @@ void GetRobotState(Mh::MhIndustrialSCARA* RobotSCARA);
 #include"MhgRPCServer.h"
 #include<ctime>
 #include<unistd.h>
-#include"Module/kernal/mclib/PLCOpenMotion.h"
+
 void Serverrun(Mh::MhIndustrialSCARA* scara){
     std::string server_address("0.0.0.0:50051");
     Mh::MhgRPCServer service(scara);
@@ -31,10 +31,10 @@ int main(int argc, char **argv){
         return 0;
     }  
     RobotSCARA.set_dh_table();
-    // std::thread DataTransferThread(Serverrun,&RobotSCARA);
+    std::thread DataTransferThread(Serverrun,&RobotSCARA);
     // std::thread ControlThread(Controlthread,&RobotSCARA);
     std::thread RobotStateThread(GetRobotState,&RobotSCARA);
-    // DataTransferThread.join();
+    DataTransferThread.join();
     // ControlThread.join();
     RobotStateThread.join();
     return 0;
