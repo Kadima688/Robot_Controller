@@ -2,10 +2,9 @@
 #include<iostream>
 #include<unistd.h>
 #include"MhIndustrialSCARA.h"
-#include"os.h"
-#include"GlobalDefine.h"
-
-void GetRobotState(Mh::MhIndustrialSCARA* RobotSCARA){
+#include"ControllerData.h"
+void GetRobotState(ControllerData* controllerdata){
+    Mh::MhIndustrialSCARA* RobotSCARA=&(controllerdata->robotscara);
 #ifdef USE_MCKERNEL
     while(true)
     {
@@ -15,7 +14,7 @@ void GetRobotState(Mh::MhIndustrialSCARA* RobotSCARA){
         if(RobotSCARA->Dem2ConData.enableState==1){
             double Position[RobotSCARA->get_nDof()];
                 for(int i=0; i<RobotSCARA->get_nDof();++i){
-                    Position[i]=RobotSCARA->motor.MC_ReadActualPosition(i,TRUE);
+                    Position[i]=controllerdata->motor.MC_ReadActualPosition(i,TRUE);
                 }
                 //计算轴关节坐标系的位置
                 RobotSCARA->Con2DemData.axisPos_scara.a1=Position[0]*RobotSCARA->RobotConfigData.pulseEquivalent[0]-RobotSCARA->RobotConfigData.offset2[0];

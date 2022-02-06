@@ -63,7 +63,7 @@ public:
     bool Judge(int id);
 };
 
-FBIdManager::FBIdManager()
+inline FBIdManager::FBIdManager()
 {
     Freehead = new mListNode<int>(-1);
     Freetail = new mListNode<int>(-1);
@@ -81,7 +81,7 @@ FBIdManager::FBIdManager()
     }
     
 }
-int FBIdManager::GetIndex()
+inline int FBIdManager::GetIndex()
 {
     FreeMtx.lock();
     if (Freehead->next == Freetail&&Freetail->pre==Freehead)
@@ -110,7 +110,7 @@ int FBIdManager::GetIndex()
         return id;
     }
 }
-bool FBIdManager::Judge(int id)
+inline bool FBIdManager::Judge(int id)
 {
     if (Data[id])
     {
@@ -126,7 +126,7 @@ bool FBIdManager::Judge(int id)
         return false;
     }
 }
-void FBIdManager::FreeID(int id)
+inline void FBIdManager::FreeID(int id)
 {
     if (Data[id])
     {
@@ -141,7 +141,7 @@ void FBIdManager::FreeID(int id)
     }
 }
 
-FBIdManager::~FBIdManager()
+inline FBIdManager::~FBIdManager()
 {
     if (Freehead)
     {

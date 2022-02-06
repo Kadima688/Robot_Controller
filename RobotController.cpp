@@ -2,15 +2,17 @@
 #include"MhIndustrialSCARA.h"
 #include"MhIndustrialRobotKAWASAKI.h"
 #include"ThreadManage.h"
-void DataTransfer(Mh::MhIndustrialSCARA* RobotSCARA);
-void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA);
-void GetRobotState(Mh::MhIndustrialSCARA* RobotSCARA);
 #include<eigen3/Eigen/Core>
 #include<string>
 #include<thread>
 #include"MhgRPCServer.h"
 #include<ctime>
 #include<unistd.h>
+#include"ControllerData.h"
+
+void DataTransfer(Mh::MhIndustrialSCARA* RobotSCARA);
+void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA);
+void GetRobotState(ControllerData* controllerdata);
 
 void Serverrun(Mh::MhIndustrialSCARA* scara){
     std::string server_address("0.0.0.0:50051");
@@ -26,14 +28,15 @@ void Serverrun(Mh::MhIndustrialSCARA* scara){
 }
 
 int main(int argc, char **argv){
-    Mh::MhIndustrialSCARA RobotSCARA;
-    if(!RobotSCARA.loadRobotConfigFile("RobotConfig_CoolDrive.xml")){
+    ControllerData controllerdata;
+    // PLCOpenMotion motor;
+    if(!controllerdata.robotscara.loadRobotConfigFile("RobotConfig_CoolDrive.xml")){  
         return 0;
-    }  
-    RobotSCARA.set_dh_table();
-    std::thread DataTransferThread(Serverrun,&RobotSCARA);
+    } 
+    controllerdata.robotscara.set_dh_table();
+    std::thread DataTransferThread(Serverrun,&controllerdata.robotscara);
     // std::thread ControlThread(Controlthread,&RobotSCARA);
-    std::thread RobotStateThread(GetRobotState,&RobotSCARA);
+    std::thread RobotStateThread(GetRobotState,&controllerdata);
     DataTransferThread.join();
     // ControlThread.join();
     RobotStateThread.join();

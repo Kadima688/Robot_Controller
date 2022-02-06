@@ -9,7 +9,6 @@
 #include"MhMotionKernel.h"
 #include"GlobalDefine.h"
 #include"RobotDataText.h"
-#include"Module/kernal/mclib/PLCOpenMotion.h"
 
 namespace Mh{
 class MhIndustrialSCARA:public MhIndustrialRobot,public MhMotionkernel
@@ -82,8 +81,6 @@ public:
 //--------------------------------------------------------DataText output
 public:
     MhRobotDataText MhRobotText;//关于文本记录的类
-//--------------------------------------------------------plcopenmotion
-    PLCOpenMotion motor;
 };
 }
 

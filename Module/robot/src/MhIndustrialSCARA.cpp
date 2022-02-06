@@ -232,6 +232,7 @@ void Mh::MhIndustrialSCARA::get_eJe(vpMatrix& eJe){
 
 bool Mh::MhIndustrialSCARA::loadRobotConfigFile(const char* xmlpath){
     if(RobotConfigData.doc.LoadFile(xmlpath)!=0){
+        std::cout<<"no"<<std::endl;
         return false;
     }
     RobotConfigData.rootElem=RobotConfigData.doc.RootElement();
@@ -247,6 +248,7 @@ bool Mh::MhIndustrialSCARA::loadRobotConfigFile(const char* xmlpath){
         return false;
     }
     const char* robotName=RobotConfigData.robotNameList[1];//使用SCARA参数
+    std::cout<<robotName<<std::endl;    
     loadRobotConfig(robotName);
     RobotConfigData.doc.SaveFile(xmlpath);
     return true;
