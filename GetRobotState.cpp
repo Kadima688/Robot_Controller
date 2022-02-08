@@ -32,6 +32,17 @@ void GetRobotState(ControllerData* controllerdata){
             if(RobotSCARA->forwardkinematics(scara_input,cartesian)){
                 RobotSCARA->Con2DemData.cartPos=cartesian;
             }
+            //输出脉冲
+            // std::cout<<"第一个轴的脉冲:"<<1964610*RobotSCARA->RobotConfigData.pulseEquivalent[0]-RobotSCARA->RobotConfigData.offset2[0]<<std::endl;
+            // std::cout<<"第二个轴的脉冲:"<<2782020*RobotSCARA->RobotConfigData.pulseEquivalent[1]-RobotSCARA->RobotConfigData.offset2[1]<<std::endl;
+            // std::cout<<"第三个轴的脉冲"<<12582900*RobotSCARA->RobotConfigData.pulseEquivalent[2]-RobotSCARA->RobotConfigData.offset2[2]<<std::endl;
+            // std::cout<<"第四个轴的脉冲"<<-63017200*RobotSCARA->RobotConfigData.pulseEquivalent[3]-RobotSCARA->RobotConfigData.offset2[3]<<std::endl;
+            //输出角度
+            std::cout<<"第一个轴的角度:  "<<RobotSCARA->Con2DemData.axisPos_scara.a1<<std::endl;
+            std::cout<<"第二个轴的角度:  "<<RobotSCARA->Con2DemData.axisPos_scara.a2<<std::endl;
+            std::cout<<"第三个轴的高度:  "<<RobotSCARA->Con2DemData.axisPos_scara.d<<std::endl;
+            std::cout<<"第四个轴的角度:  "<<RobotSCARA->Con2DemData.axisPos_scara.a4<<std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds(3));
         }
     }
 #else

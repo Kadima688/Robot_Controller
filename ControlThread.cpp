@@ -2,9 +2,11 @@
 #include"MhIndustrialSCARA.h"
 #include<thread>
 #include"VisualServo.h"
-
-
-void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
+#include"ControllerData.h"
+#include"MotionIntruction.h"
+void Controlthread(ControllerData* controllerdata){
+    Mh::MhIndustrialSCARA* RobotSCARA=&(controllerdata->robotscara);
+    PLCOpenMotion* motor=&(controllerdata->motor);
     int retn;//函数返回值
     int hasEnable=0;//判断是否已经上电
     int oldOvr=0;//保存旧得动态倍率参数，当动态倍率参数改变时才调用
@@ -14,6 +16,7 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
     {
         if(RobotSCARA->Dem2ConData.emergeStop==0){
             if(RobotSCARA->Dem2ConData.enableState==1){
+                #ifdef USE_KERNEL
                 if(hasEnable==0){
                     retn=RobotSCARA->OpenDevice();
                     RobotSCARA->set_retn(retn,Mh::OPENDEVICE);
@@ -45,6 +48,7 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                     }
                     hasEnable=1;
                 }
+                #endif
                 //设置动态倍率参数
                 if(RobotSCARA->Dem2ConData.ovr!=oldOvr){
                     // RobotSCARA->RobotDynInitial();
@@ -84,21 +88,34 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                 //     }
                 // }
                 //在这里开始添加一条PTP指令，每次只执行一次
-                // if(first_PTP==0){
-                //     // RobotSCARA->RobotDynInitial();
-                //     //开始执行PTP指令
-                //     AXISPOS_SCARA des_axispos={-39.9107,84.2493,54.7567,142.57737};
-                //     // AXISPOS_SCARA des_axispos={0,0,0,0};
-                //     std::map<int,std::vector<double>> record;
-                //     RobotSCARA->path_plan.PathPlan_PTP(des_axispos,record);
-                //     //设置插补的运动信息
-                //     RobotSCARA->RobotInterpolationDynInitial();
-                //     //开启插补缓冲区、设置速度前瞻
-                //     RobotSCARA->RobotOpenConti();
-                //     //开始具体的运动
-                //     RobotSCARA->FollowPathMove(record,Mh::PTP);//目前采用单轴定长运动的方式让机器人达到视觉伺服开始之前期望的位置
-                //     first_PTP=1;
-                // }
+                if(first_PTP==0){
+                    #ifdef USE_MCKERNEL
+                    //在这里走一个单轴的点位运动
+                    AXISPOS_SCARA des_axispos={0,0,0,0};
+                    //将角度转换成名脉冲
+                    std::vector<double> Pulse=SCARAAngleToPulse(des_axispos,RobotSCARA);
+                    for(int i=0;i<RobotSCARA->get_nDof();++i){
+                        //将角度转换成脉冲
+                        motor->MC_MoveAbsolute(i,true,true,Pulse[i],1000,100,100,1,mcPositiveDirection,mcAborting);
+                    }
+                    #else
+                    #ifdef USE_KERNEL
+                    // RobotSCARA->RobotDynInitial();
+                    //开始执行PTP指令
+                    AXISPOS_SCARA des_axispos={-39.9107,84.2493,54.7567,142.57737};
+                    // AXISPOS_SCARA des_axispos={0,0,0,0};
+                    std::map<int,std::vector<double>> record;
+                    RobotSCARA->path_plan.PathPlan_PTP(des_axispos,record);
+                    //设置插补的运动信息
+                    RobotSCARA->RobotInterpolationDynInitial();
+                    //开启插补缓冲区、设置速度前瞻
+                    RobotSCARA->RobotOpenConti();
+                    //开始具体的运动
+                    RobotSCARA->FollowPathMove(record,Mh::PTP);//目前采用单轴定长运动的方式让机器人达到视觉伺服开始之前期望的位置
+                    #endif
+                    #endif
+                    first_PTP=1;
+                }
                 //视觉伺服
                 if(RobotSCARA->ConChargeData.startServo==1){
                     if(RobotSCARA->ConChargeData.hasServo==0){
@@ -124,9 +141,15 @@ void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA){
                 */
                 if(hasEnable==1){
                     std::cout<<"伺服下电"<<std::endl;
+                    #ifdef USE_MCKERNEL
+
+                    #else
+                    #ifdef USE_KERNEL
                     // RobotSCARA->RobotCloseConti();
                     int retn=RobotSCARA->CloseDevice();
                     RobotSCARA->set_retn(retn,Mh::CLOSEDEVICE);
+                    #endif
+                    #endif
                     hasEnable=0;
                     RobotSCARA->ConChargeData.isEnable=0;
                 }           

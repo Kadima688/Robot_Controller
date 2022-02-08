@@ -10,8 +10,9 @@
 #include<unistd.h>
 #include"ControllerData.h"
 
+
 void DataTransfer(Mh::MhIndustrialSCARA* RobotSCARA);
-void Controlthread(Mh::MhIndustrialSCARA* RobotSCARA);
+void Controlthread(ControllerData* controllerdata);
 void GetRobotState(ControllerData* controllerdata);
 
 void Serverrun(Mh::MhIndustrialSCARA* scara){
@@ -35,10 +36,10 @@ int main(int argc, char **argv){
     } 
     controllerdata.robotscara.set_dh_table();
     std::thread DataTransferThread(Serverrun,&controllerdata.robotscara);
-    // std::thread ControlThread(Controlthread,&RobotSCARA);
+    std::thread ControlThread(Controlthread,&controllerdata);
     std::thread RobotStateThread(GetRobotState,&controllerdata);
     DataTransferThread.join();
-    // ControlThread.join();
+    ControlThread.join();
     RobotStateThread.join();
     return 0;
    
