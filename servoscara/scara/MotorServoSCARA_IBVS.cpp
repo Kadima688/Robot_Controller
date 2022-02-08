@@ -19,7 +19,7 @@ void MotorServoSCARA_IBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
                           double convergence_threshold_t,double convergence_threshold_tu,double convergence_threshold_image)
 { 
     int dynamic_simulation=0;//0:不开启静态模拟  1：开启静态模拟
-    #ifndef USE_KERNEL
+    #ifndef USE_KERNEL 
     //设置当前的轴关节位置和空间位置
     RobotSCARA->Con2DemData.axisPos_scara.a1=-39.9150;
     RobotSCARA->Con2DemData.axisPos_scara.a2=84.2464;

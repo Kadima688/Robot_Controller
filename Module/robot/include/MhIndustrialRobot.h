@@ -8,7 +8,12 @@
 #include"MhDh.h"
 #include"MhHomotransform.h"
 #include"MhIndustrialRobotPathPlan.h"
+#ifdef USE_MCKERNEL
+// #include"PLCOpenMotion.h"
+#else
 #include"MhMotionKernel.h"
+#endif
+
 namespace Mh{
 class MhIndustrialRobot{
 //--------------------------------------visual servo&&kinematics&&jacobian

@@ -28,8 +28,10 @@ Mh::MhIndustrialRobot::MhRobotStateType Mh::MhIndustrialSCARA::setRobotState(con
     int retn;
     switch(newState){
     case Mh::MhIndustrialRobot::STATE_STOP:
+        //速度控制模式---停止模式
         if(Mh::MhIndustrialRobot::STATE_VELOCITY_CONTROL==Mh::MhIndustrialRobot::getRobotState()){
             std::cout<<"Stop robot from velocity control"<<std::endl;
+            #ifndef USE_MCKERNEL
             for(unsigned int i=0;i<nDof;++i){
                 //首先速度设置为0
                 retn=SetVelCommand(i,0);
@@ -39,12 +41,18 @@ Mh::MhIndustrialRobot::MhRobotStateType Mh::MhIndustrialSCARA::setRobotState(con
                 retn=SetAxisCommandMode(i,0);
                 set_retn(retn,SETAXISCOMMANDMODE);
             }
+            #endif      
+        }
+        if(Mh::MhIndustrialRobot::STATE_VELOCITY_CONTROL==Mh::MhIndustrialRobot::getRobotState()){
+            std::cout<<"Stop robot from Position control"<<std::endl;
         }
         Mh::MhIndustrialRobot::setRobotState(newState);
     break;
     case MhIndustrialRobot::STATE_VELOCITY_CONTROL:
+        //停止模式---速度控制模式
         if(Mh::MhIndustrialRobot::STATE_STOP==Mh::MhIndustrialRobot::getRobotState()){
             std::cout<<"Start Velocity Control robot from stop"<<std::endl;
+            #ifndef USE_MCKERNEL
             //首先退出插补缓冲
             RobotCloseConti();
             //停止所有轴运动
@@ -55,8 +63,15 @@ Mh::MhIndustrialRobot::MhRobotStateType Mh::MhIndustrialSCARA::setRobotState(con
                 retn=SetAxisCommandMode(i,1);
                 set_retn(retn,SETAXISCOMMANDMODE);  
             }
+            #endif      
         }
         Mh::MhIndustrialRobot::setRobotState(newState);
+    break;
+    case MhIndustrialRobot::STATE_POSITON_CONTROL:
+        //停止模式---位置控制模式
+        if(Mh::MhIndustrialRobot::STATE_STOP==Mh::MhIndustrialRobot::getRobotState()){
+            std::cout<<"Start Position Control from stop"<<std::endl;
+        }
     break;
     }
 }
@@ -453,7 +468,7 @@ void Mh::MhIndustrialSCARA::setCartVelocity(const MhIndustrialRobot::MhControlFr
         }
     }
     //将关节速度写入文本中
-    MhRobotText.JointVel_out<<qdot[0]<<"    "<<qdot[1]<<"    "<<qdot[2]<<"    "<<qdot[3]<<std::endl;
+    // MhRobotText.JointVel_out<<qdot[0]<<"    "<<qdot[1]<<"    "<<qdot[2]<<"    "<<qdot[3]<<std::endl;
     //如果接近限位点，则停止运动
     double delta_t = 0.1;
 	vpHomogeneousMatrix eMed = vpExponentialMap::direct(v_c, delta_t);
@@ -486,10 +501,14 @@ void Mh::MhIndustrialSCARA::setCartVelocity(const MhIndustrialRobot::MhControlFr
                 break;
             }
         }
-        #ifdef USE_KERNEL
-            setJointVelocity(qdot);
+        #ifdef USE_MCKERNEL
+        setJointVelocity(qdot);
         #else
-            setJointVelocity_virtual(qdot);
+        #ifdef USE_KERNEL
+        setJointVelocity(qdot);
+        #else
+        setJointVelocity_virtual(qdot);
+        #endif
         #endif
     }
 }
@@ -530,7 +549,6 @@ vpMatrix Mh::MhIndustrialSCARA::get_velocityMatrix(const MhIndustrialRobot::MhCo
     }
     }
 }
-
 void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
     for(unsigned i=0;i<nDof;++i){
         int velocity2pulse;
@@ -541,11 +559,16 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
             velocity2pulse = (int)((qdot[i] * RobotConfigData.direction[i] * RobotConfigData.ratio[i] * RobotConfigData.encoder[i]) / (2 * PI));
 			//velocity2pulse += (int)((qdot[3] * 180 / PI) / 360 *a4_Compensation) / RobotConfigData.pulseEquivalent[2];
         }
+        #ifndef USE_MCKERNEL
         int retn=SetVelCommand(i,velocity2pulse);
         set_retn(retn,SETVELCOMMAND);
+        #else 
+        //判断为位置控制模式还是速度控制模式
+        #endif
     }
 }
 #ifndef USE_KERNEL
+#ifndef USE_MCKERNEL
 void Mh::MhIndustrialSCARA::setJointVelocity_virtual(const vpColVector &qdot){
     Con2DemData.axisPos_scara.a1+=(qdot[0]*180)/PI*ConChargeData.looptime*0.001;
     Con2DemData.axisPos_scara.a2+=(qdot[1]*180)/PI*ConChargeData.looptime*0.001;
@@ -558,7 +581,9 @@ void Mh::MhIndustrialSCARA::setJointVelocity_virtual(const vpColVector &qdot){
     }
 }
 #endif
+#endif
 
+#ifndef USE_MCKERNEL
 void Mh::MhIndustrialSCARA::RobotMotorInitial(){
     for(unsigned int i=0;i<nDof;++i){
         int temp1,temp2;
@@ -664,6 +689,7 @@ void Mh::MhIndustrialSCARA::RobotCloseConti(){
     retn=ContiCloseList(0);
     set_retn(retn,CONTICLOSELIST);
 }
+#endif
 void Mh::MhIndustrialSCARA::FollowPathMove(std::map<int,std::vector<double>>& record,int PathType){
     switch (PathType)
     {
@@ -680,10 +706,14 @@ void Mh::MhIndustrialSCARA::FollowPathMove(std::map<int,std::vector<double>>& re
         //     set_retn(retn,POSITIONDRIVE);
         // }
         //插补运动得指令
+        #ifndef USE_MCKERNEL
         retn=ContiLineUnit(0,nDof,ulAxisList,lTargetPos,1,0);
         set_retn(retn,CONTILINEUNIT);
         retn=ConttiStartList(0);
         set_retn(retn,CONTISTARTLIST);
+        #else
+        
+        #endif    
         break;
     };
 }

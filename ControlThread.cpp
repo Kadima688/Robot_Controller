@@ -16,7 +16,7 @@ void Controlthread(ControllerData* controllerdata){
     {
         if(RobotSCARA->Dem2ConData.emergeStop==0){
             if(RobotSCARA->Dem2ConData.enableState==1){
-                #ifdef USE_KERNEL
+                #ifndef USE_MCKERNEL
                 if(hasEnable==0){
                     retn=RobotSCARA->OpenDevice();
                     RobotSCARA->set_retn(retn,Mh::OPENDEVICE);
@@ -91,12 +91,13 @@ void Controlthread(ControllerData* controllerdata){
                 if(first_PTP==0){
                     #ifdef USE_MCKERNEL
                     //在这里走一个单轴的点位运动
-                    AXISPOS_SCARA des_axispos={0,0,0,0};
+                    AXISPOS_SCARA zero_axispos={0,0,0,0};
+                    AXISPOS_SCARA init_axispos={-39.9150,84.2464,54.75512,161.4467};
                     //将角度转换成名脉冲
-                    std::vector<double> Pulse=SCARAAngleToPulse(des_axispos,RobotSCARA);
+                    std::vector<double> Pulse=SCARAAngleToPulse(init_axispos,RobotSCARA);
                     for(int i=0;i<RobotSCARA->get_nDof();++i){
                         //将角度转换成脉冲
-                        motor->MC_MoveAbsolute(i,true,true,Pulse[i],1000,100,100,1,mcPositiveDirection,mcAborting);
+                        motor->MC_MoveAbsolute(i,true,true,Pulse[i],2000,200,200,1,mcPositiveDirection,mcAborting);
                     }
                     #else
                     #ifdef USE_KERNEL

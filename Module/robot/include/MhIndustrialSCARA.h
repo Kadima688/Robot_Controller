@@ -6,12 +6,14 @@
 #include"MhIndustrialRobot.h"
 #include"tinyxml2.h"
 #include"daraDeclaration.h"
-#include"MhMotionKernel.h"
 #include"GlobalDefine.h"
 #include"RobotDataText.h"
-
 namespace Mh{
-class MhIndustrialSCARA:public MhIndustrialRobot,public MhMotionkernel
+class MhIndustrialSCARA
+:public MhIndustrialRobot
+#ifndef USE_MCKERNEL
+,public MhMotionkernel
+#endif 
 {
 public:
     MhIndustrialSCARA();
@@ -42,8 +44,10 @@ public:
     bool setVelocity(const MhIndustrialRobot::MhControlFrameType frame,const vpColVector& vel);
     void setCartVelocity(const MhIndustrialRobot::MhControlFrameType frame,const vpColVector &vel);
     void setJointVelocity(const vpColVector &qdot);
-    #ifndef USE_KERNEL
-        void setJointVelocity_virtual(const vpColVector &qdot);
+    #ifndef USE_KERNEL 
+    #ifndef USE_MCKERNEL
+    void setJointVelocity_virtual(const vpColVector &qdot);
+    #endif
     #endif
     //----------------others
     vpMatrix get_velocityMatrix(const MhIndustrialRobot::MhControlFrameType frame,bool fixed);//获取速度转换矩阵 fixed(0-相对移动坐标系 1-相对固定坐标系)
@@ -60,12 +64,14 @@ private:
 protected:
     vpHomogeneousMatrix m_eMc;//相机外参矩阵
 //---------------------------------------------------------motor initial
-public:  
+public:
+    #ifndef USE_MCKERNEL
     void RobotMotorInitial();//设置轴的限位、轴的位移模式
     void RobotOpenConti();//插补运动前，开启插补缓冲区
     void RobotDynInitial();//设置轴的速度、加速度、加加速度
     void RobotInterpolationDynInitial();//设置插补速度、加速度和加加速度
     void RobotCloseConti();//关闭插补缓冲区
+    #endif
 //--------------------------------------------------------path planing
 public:
     void FollowPathMove(std::map<int,std::vector<double>>& record,int PathType);
