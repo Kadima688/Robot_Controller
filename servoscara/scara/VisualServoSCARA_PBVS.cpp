@@ -26,7 +26,7 @@ void RealsenseServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSi
 void VisualServoSCARA_PBVS(Mh::MhIndustrialSCARA* RobotSCARA){
   double opt_tagSzie=0.096;//二维码的尺寸大小
   bool adaptive_gain=false;//0-固定增益 1-自适应增益
-  bool opt_plot=true;//是否绘制变换曲线
+  bool opt_plot=false;//是否绘制变换曲线
   bool opt_task_sequencing=false;//0-速度不连续 1-速度连续
   bool opt_verbose=false;//0-未收敛 1-收敛
   double convergence_threshold_t=0,convergence_threshold_tu=0;
@@ -56,6 +56,9 @@ void VisualServoSCARA_PBVS(Mh::MhIndustrialSCARA* RobotSCARA){
   12、鼠标响应处理以及后续处理
   */
   while(hasServo==0){
+    #ifdef USE_MCKERNEL
+    RobotSCARA->ConChargeData.isEnable=1;
+    #endif
     if(RobotSCARA->ConChargeData.isEnable==1){
       sleep(1);
       MotorServoSCARA_PBVS(RobotSCARA,opt_tagSzie,adaptive_gain,opt_plot,opt_task_sequencing,opt_verbose,convergence_threshold_t,convergence_threshold_tu);

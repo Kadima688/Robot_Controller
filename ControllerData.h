@@ -10,4 +10,5 @@ struct ControllerData
     
 };
 
+extern ControllerData controllerdata;
 #endif

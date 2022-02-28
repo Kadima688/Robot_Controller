@@ -4,6 +4,7 @@
 #include"VisualServo.h"
 #include"ControllerData.h"
 #include"MotionIntruction.h"
+#include<stdlib.h>
 void Controlthread(ControllerData* controllerdata){
     Mh::MhIndustrialSCARA* RobotSCARA=&(controllerdata->robotscara);
     PLCOpenMotion* motor=&(controllerdata->motor);
@@ -95,10 +96,16 @@ void Controlthread(ControllerData* controllerdata){
                     AXISPOS_SCARA init_axispos={-39.9150,84.2464,54.75512,161.4467};
                     //将角度转换成名脉冲
                     std::vector<double> Pulse=SCARAAngleToPulse(init_axispos,RobotSCARA);
+                    // double jointvelpulse[4]={5247.96,7165.07,27348.6,94.6986};
                     for(int i=0;i<RobotSCARA->get_nDof();++i){
                         //将角度转换成脉冲
-                        motor->MC_MoveAbsolute(i,true,true,Pulse[i],2000,200,200,1,mcPositiveDirection,mcAborting);
+                        motor->MC_MoveAbsolute(i,true,true,Pulse[i],10000,1000,1000,1,mcPositiveDirection,mcAborting);
+                        // double jointpulse;  
+                        // jointpulse=jointvelpulse[i]*30;//30ms这个轴应该移动得位移
+                        // jointvelpulse[i]=abs(jointvelpulse[i]);
+                        // motor->MC_MoveContinuousRelative(i,true,true,jointpulse,0,jointvelpulse[i],200,200,1,mcAborting);
                     }
+                    
                     #else
                     #ifdef USE_KERNEL
                     // RobotSCARA->RobotDynInitial();

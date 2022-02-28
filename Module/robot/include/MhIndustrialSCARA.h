@@ -87,6 +87,7 @@ public:
 //--------------------------------------------------------DataText output
 public:
     MhRobotDataText MhRobotText;//关于文本记录的类
+    int judge=0;
 };
 }
 

@@ -39,7 +39,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     // RobotSCARA->MhRobotText.AxisPos_SCARA_out.open("AxisPos_num11.txt");//记录每个迭代周期关节位置的文本
     // RobotSCARA->MhRobotText.CartPos_out.open("CartPos_num11.txt");//记录每个迭代周期空间位姿的文本
     // RobotSCARA->MhRobotText.CartVel_out.open("CartVel_num11.txt");//记录每个迭代周期空间速度的文本
-    // RobotSCARA->MhRobotText.JointVel_out.open("JointVel_num11.txt");//记录每个迭代周期关节速度的文本
+    RobotSCARA->MhRobotText.JointVel_out.open("JointVel_num.txt");//记录每个迭代周期关节速度的文本
     // RobotSCARA->MhRobotText.Error_out.open("Error_num11.txt");//记录每个迭代周期误差的文本
     int dynamic_simulation=0;//0:不开启静态模拟  1：开启静态模拟
     bool first_time=true;
@@ -68,7 +68,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     //2、定义cdMc、fMo初始化相机和目标物体的位置信息
     vpHomogeneousMatrix cdMc,oMo,cMo;
     vpHomogeneousMatrix cdMo(vpTranslationVector(0,0,opt_tagSzie*3),vpRotationMatrix({1,0,0,0,-1,0,0,0,-1}));
-    vpHomogeneousMatrix fMo(vpTranslationVector(0.487,0.041,-0.25),vpThetaUVector(vpRzyzVector(0,0,M_PI/3)));
+    vpHomogeneousMatrix fMo(vpTranslationVector(0.487,0.040,-0.233),vpThetaUVector(vpRzyzVector(0,0,M_PI/3)));
     cdMc=cdMo*cMo.inverse();
     //3、根据上述的位置信息开始创建误差特征-----这一步我们是选择空间位姿误作为伺服特征。在这里可以选择其他信息作为特征，如图像的点、线、甚至是深度信息。
     vpFeatureTranslation t(vpFeatureTranslation::cdMc);vpFeatureThetaU tu(vpFeatureThetaU::cdRc);
@@ -247,6 +247,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
             {
             case vpMouseButton::button1:
                 send_velocitys=!send_velocitys;
+                RobotSCARA->judge=1;
                 break;
             case vpMouseButton::button3:
                 final_quit=true;

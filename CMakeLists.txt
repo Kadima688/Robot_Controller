@@ -56,6 +56,7 @@ include_directories(${PROJECT_SOURCE_DIR}/Module/core/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/robot/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/kernal/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/kernal/mclib)
+include_directories(${PROJECT_SOURCE_DIR})
 #----------------找到对应的源文件
 aux_source_directory(. sourceList)
 aux_source_directory(${PROJECT_SOURCE_DIR}/Module/robot/src robot_c_files)

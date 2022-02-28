@@ -28,8 +28,9 @@ void Serverrun(Mh::MhIndustrialSCARA* scara){
     server->Wait();
 }
 
+ControllerData controllerdata;
+
 int main(int argc, char **argv){
-    ControllerData controllerdata;
     // PLCOpenMotion motor;
     if(!controllerdata.robotscara.loadRobotConfigFile("RobotConfig_CoolDrive.xml")){  
         return 0;

@@ -38,11 +38,17 @@ void GetRobotState(ControllerData* controllerdata){
             // std::cout<<"第三个轴的脉冲"<<12582900*RobotSCARA->RobotConfigData.pulseEquivalent[2]-RobotSCARA->RobotConfigData.offset2[2]<<std::endl;
             // std::cout<<"第四个轴的脉冲"<<-63017200*RobotSCARA->RobotConfigData.pulseEquivalent[3]-RobotSCARA->RobotConfigData.offset2[3]<<std::endl;
             //输出角度
-            std::cout<<"第一个轴的角度:  "<<RobotSCARA->Con2DemData.axisPos_scara.a1<<std::endl;
-            std::cout<<"第二个轴的角度:  "<<RobotSCARA->Con2DemData.axisPos_scara.a2<<std::endl;
-            std::cout<<"第三个轴的高度:  "<<RobotSCARA->Con2DemData.axisPos_scara.d<<std::endl;
-            std::cout<<"第四个轴的角度:  "<<RobotSCARA->Con2DemData.axisPos_scara.a4<<std::endl;
-            std::this_thread::sleep_for(std::chrono::seconds(3));
+            // std::cout<<"关节角度：  "<<RobotSCARA->Con2DemData.axisPos_scara.a1<<" ";
+            // std::cout<<RobotSCARA->Con2DemData.axisPos_scara.a2<<" ";
+            // std::cout<<RobotSCARA->Con2DemData.axisPos_scara.d<<"  ";
+            // std::cout<<RobotSCARA->Con2DemData.axisPos_scara.a4<<std::endl;
+            std::cout<<"空间位姿"<<RobotSCARA->Con2DemData.cartPos.x<<" ";
+            std::cout<<RobotSCARA->Con2DemData.cartPos.y<<" ";
+            std::cout<<RobotSCARA->Con2DemData.cartPos.z<<" ";
+            std::cout<<RobotSCARA->Con2DemData.cartPos.a<<" ";
+            std::cout<<RobotSCARA->Con2DemData.cartPos.b<<" ";
+            std::cout<<RobotSCARA->Con2DemData.cartPos.c<<std::endl;
+            // std::this_thread::sleep_for(std::chrono::seconds(5));
         }
     }
 #else

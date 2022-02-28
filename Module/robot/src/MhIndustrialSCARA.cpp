@@ -72,6 +72,7 @@ Mh::MhIndustrialRobot::MhRobotStateType Mh::MhIndustrialSCARA::setRobotState(con
         if(Mh::MhIndustrialRobot::STATE_STOP==Mh::MhIndustrialRobot::getRobotState()){
             std::cout<<"Start Position Control from stop"<<std::endl;
         }
+        Mh::MhIndustrialRobot::setRobotState(newState);
     break;
     }
 }
@@ -387,7 +388,7 @@ void Mh::MhIndustrialSCARA::getCoordinate(CARTSYS cartSys, tinyxml2::XMLElement 
 }
 
 bool Mh::MhIndustrialSCARA::setVelocity(const MhIndustrialRobot::MhControlFrameType frame,const vpColVector& vel){
-    if(MhIndustrialRobot::STATE_VELOCITY_CONTROL!=getRobotState()){
+    if(MhIndustrialRobot::STATE_STOP == getRobotState()){
         EC_TRACE("can not send velocity,the robotstate is not right");
         return false;
     }
@@ -468,7 +469,7 @@ void Mh::MhIndustrialSCARA::setCartVelocity(const MhIndustrialRobot::MhControlFr
         }
     }
     //将关节速度写入文本中
-    // MhRobotText.JointVel_out<<qdot[0]<<"    "<<qdot[1]<<"    "<<qdot[2]<<"    "<<qdot[3]<<std::endl;
+    MhRobotText.JointVel_out<<qdot[0]<<"    "<<qdot[1]<<"    "<<qdot[2]<<"    "<<qdot[3]<<std::endl;
     //如果接近限位点，则停止运动
     double delta_t = 0.1;
 	vpHomogeneousMatrix eMed = vpExponentialMap::direct(v_c, delta_t);
@@ -549,23 +550,49 @@ vpMatrix Mh::MhIndustrialSCARA::get_velocityMatrix(const MhIndustrialRobot::MhCo
     }
     }
 }
+#include"ControllerData.h"
 void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
+    #ifndef USE_MCKERNEL
     for(unsigned i=0;i<nDof;++i){
-        int velocity2pulse;
+        double velocity2pulse;
         if(i!=2){
-            velocity2pulse = (int)((qdot[i] * RobotConfigData.direction[i] * RobotConfigData.ratio[i] * RobotConfigData.encoder[i]) / (2 * PI));
+            velocity2pulse = (double)((qdot[i] * RobotConfigData.direction[i] * RobotConfigData.ratio[i] * RobotConfigData.encoder[i]) / (2 * PI));
         }
         else{
-            velocity2pulse = (int)((qdot[i] * RobotConfigData.direction[i] * RobotConfigData.ratio[i] * RobotConfigData.encoder[i]) / (2 * PI));
+            velocity2pulse = (double)((qdot[i] * RobotConfigData.direction[i] * RobotConfigData.ratio[i] * RobotConfigData.encoder[i]) / (2 * PI));
 			//velocity2pulse += (int)((qdot[3] * 180 / PI) / 360 *a4_Compensation) / RobotConfigData.pulseEquivalent[2];
         }
-        #ifndef USE_MCKERNEL
-        int retn=SetVelCommand(i,velocity2pulse);
-        set_retn(retn,SETVELCOMMAND);
-        #else 
-        //判断为位置控制模式还是速度控制模式
-        #endif
     }
+    int retn=SetVelCommand(i,velocity2pulse);
+    set_retn(retn,SETVELCOMMAND);
+    #else 
+    //首先将速度转换为角度
+    for(unsigned i=0;i<nDof;++i){
+        double jointvel;
+        jointvel=qdot[i]*(180/PI)*0.001;//单位为度每毫秒
+        double jointvelpulse;
+        if(i == 2){
+            jointvel = jointvel * z_lead / 360 ;
+        }
+        jointvelpulse=jointvel/RobotConfigData.pulseEquivalent[i];//单位为脉冲每毫秒
+        double jointpulse;
+        jointpulse=jointvelpulse*30;//30ms这个轴应该移动得位移
+        jointvelpulse=abs(jointvelpulse);
+        //判断为位置控制模式还是速度控制模式
+        switch (Mh::MhIndustrialRobot::getRobotState())
+        {
+        case Mh::MhIndustrialRobot::STATE_POSITON_CONTROL:
+            //将速度脉冲与时间积分得到位置脉冲
+            // controllerdata.motor.MC_MoveContinuousRelative(i,true,true,jointpulse,0,jointvelpulse,200,200,1,mcAborting);
+            controllerdata.motor.MC_MoveRelative(i,true,true,jointpulse,jointvelpulse,200,200,1,mcAborting);
+            break;
+        case Mh::MhIndustrialRobot::STATE_VELOCITY_CONTROL:
+            break;
+        default:
+            break;
+        } 
+    }  
+    #endif
 }
 #ifndef USE_KERNEL
 #ifndef USE_MCKERNEL
