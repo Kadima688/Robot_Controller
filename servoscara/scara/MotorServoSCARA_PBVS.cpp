@@ -39,8 +39,10 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     // RobotSCARA->MhRobotText.AxisPos_SCARA_out.open("AxisPos_num11.txt");//记录每个迭代周期关节位置的文本
     // RobotSCARA->MhRobotText.CartPos_out.open("CartPos_num11.txt");//记录每个迭代周期空间位姿的文本
     // RobotSCARA->MhRobotText.CartVel_out.open("CartVel_num11.txt");//记录每个迭代周期空间速度的文本
-    RobotSCARA->MhRobotText.JointVel_out.open("JointVel_num.txt");//记录每个迭代周期关节速度的文本
+    // RobotSCARA->MhRobotText.JointVel_out.open("JointVel_num.txt");//记录每个迭代周期关节速度的文本
     // RobotSCARA->MhRobotText.Error_out.open("Error_num11.txt");//记录每个迭代周期误差的文本
+    // RobotSCARA->MhRobotText.JointPulse.open("JoinvtPulse.txt");//记录位置脉冲
+    // RobotSCARA->MhRobotText.JointVelPulse.open("JointvelPulse.txt");//记录速度脉冲
     int dynamic_simulation=0;//0:不开启静态模拟  1：开启静态模拟
     bool first_time=true;
     #ifndef USE_KERNEL
@@ -224,7 +226,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         usleep(sleep_time);
         RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         //将时间差写入文本中
-        // RobotSCARA->ConChargeData.looptime=vpTime::measureTimeMs()-t_start;
+        RobotSCARA->ConChargeData.looptime=vpTime::measureTimeMs()-t_start;
         // RobotSCARA->MhRobotText.Looptime_out<<vpTime::measureTimeMs()-t_start<<std::endl;
         // RobotSCARA->MhRobotText.AxisPos_SCARA_out<<RobotSCARA->Con2DemData.axisPos_scara.a1<<"    "<<
         // RobotSCARA->Con2DemData.axisPos_scara.a2<<"    "<<RobotSCARA->Con2DemData.axisPos_scara.d<<"    "<<

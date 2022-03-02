@@ -54,7 +54,9 @@ enum ErrorCode:INT32
     ERRORCODE_FBEXEC_IsDisabled=10000,
     ERRORCODE_FBEXEC_IsMoving,
     ERRORCODE_FBEXEC_IsStandby,
-    ERRORCODE_FBEXEC_IsStopping
+    ERRORCODE_FBEXEC_IsStopping,
+
+    ErrorCode_WORKTASKRUN_OverSpeedOrpOS=20000,
 
 };
 
@@ -85,6 +87,40 @@ enum COMMAND_ID:BYTE
     CMD_PLCOPENPART1_MC_GroupContinue,
     CMD_PLCOPENPART1_MC_GroupStop,
     CMD_PLCOPENPART1_MC_GroupSetPosition,
+    CMD_PLCOPENPART1_MC_GroupVisualServoMove,
+
+    CMD_PLCOPENPARTREAD_MC_ReadParameter=175,
+    CMD_PLCOPENPARTREAD_MC_ReadBoolParameter,
+    CMD_PLCOPENPARTREAD_MC_ReadDigitalInput,
+    CMD_PLCOPENPARTREAD_MC_ReadMotionState,
+    CMD_PLCOPENPARTREAD_MC_ReadAxisInfo,
+    CMD_PLCOPENPARTREAD_MC_ReadAxisError,
+    CMD_PLCOPENPARTREAD_MC_GroupReadActualPosition,
+    CMD_PLCOPENPARTREAD_MC_GroupReadActualVelocity,
+    CMD_PLCOPENPARTREAD_MC_MC_GroupReadActualAcceleration,
+    CMD_PLCOPENPARTREAD_MC_MC_GroupReadStatus,
+    CMD_PLCOPENPARTREAD_MC_GroupReadError,
+
+};
+enum ParameterIndex:BYTE
+{
+    CommandedPosition=1,
+    SWLimitPos,
+    SWLimitNeg,
+    EnableLimitPos,
+    EnableLimitNeg,
+    EnablePosLagMonitoring,
+    MaxPositionLag,
+    MaxVelocitySystem,
+    MaxVelocityAppl,
+    ActualVelocity,
+    CommandedVelocity,
+    MaxAccelerationSystem,
+    MaxAccelerationAppl,
+    MaxDecelerationSystem,
+    MaxDecelerationAppl,
+    MaxJerkSystem,
+    MaxJerkAppl
 };
 
 enum MC_DIRECTION:BYTE
@@ -258,6 +294,17 @@ struct STRUCT_MC_GroupSetPosition
     MC_BUFFER_MODE BufferMode;
     double Position[0];
 };
+struct STRUCT_MC_GroupVisualServoMove
+{
+    INT AxesGroup;
+    BOOL Execute;
+    INT AxesNum;
+    BOOL Relative;
+    double LoopTime;
+    double Positon[0];
+
+
+};
 
 
 
@@ -278,6 +325,7 @@ enum DeviceType:BYTE
     DeviceType_AnyAxisLinear,
     DeviceType_ThreeAxisLinearRobot,
     DeviceType_Scara,
+    DeviceType_ScaraJointCsp,
 
 };
 
@@ -333,6 +381,7 @@ struct MCS_2_PCS_ThreeAxisLinearRobot:public MC_COORD_REF
 
 
  
+
 
 
 

@@ -597,7 +597,7 @@ BOOL PLCOpenMotion::MC_GroupStop(INT AxesGroup,BOOL Execute,double Deceleration,
 }
 BOOL PLCOpenMotion::MC_GroupSetPosition(INT AxesGroup,std::vector<double>  Position,BOOL Relative,CoordSystemType CoordSystem,MC_BUFFER_MODE BufferMode)
 {
-  int dateLen=sizeof(Command) + sizeof(STRUCT_MC_GroupSetPosition)+Position.size();
+  int dateLen=sizeof(Command) + sizeof(STRUCT_MC_GroupSetPosition)+Position.size()*sizeof(double);
     unsigned char *SendBuffer=new BYTE[dateLen];
     Command *cmd = (Command *)SendBuffer;
     cmd->msgID = CMD_PLCOPENPART1_MC_GroupSetPosition;
@@ -612,6 +612,40 @@ BOOL PLCOpenMotion::MC_GroupSetPosition(INT AxesGroup,std::vector<double>  Posit
     data->CoordSystem=CoordSystem;
     data->BufferMode=BufferMode;
     std::copy(Position.begin(),Position.end(),data->Position);
+    delete []SendBuffer;
+    int ret = McWrapper.Send(SendBuffer, dateLen);
+    if (ret == dateLen)
+    {
+        return cmd->FeedBackFunBlockId;
+    }
+    else
+    {
+        IDManager.FreeID(cmd->msgID);
+        return ret;
+    }
+}
+INT PLCOpenMotion::MC_GroupVisualServoMove(INT AxesGroup, BOOL Execute, std::vector<double> Position, std::vector<double> Velocity, std::vector<double> EndVelocity,std::vector<double> MaxSpeed, std::vector<double> MaxAcc, std::vector<double> MaxJerk, BOOL Relative, double LoopTime)
+{
+    int dateLen=sizeof(Command) + sizeof(STRUCT_MC_GroupVisualServoMove)+(Position.size()+Velocity.size()+EndVelocity.size()+MaxSpeed.size()+MaxAcc.size()+MaxJerk.size())*sizeof(double);
+    unsigned char *SendBuffer=new BYTE[dateLen];
+    Command *cmd = (Command *)SendBuffer;
+    cmd->msgID = CMD_PLCOPENPART1_MC_GroupSetPosition;
+    cmd->FeedBackFunBlockId = IDManager.GetIndex();
+
+    STRUCT_MC_GroupVisualServoMove *data = (STRUCT_MC_GroupVisualServoMove *)cmd->data;
+
+    data->AxesGroup=AxesGroup;
+    data->AxesNum=Position.size();
+    
+    data->Relative=Relative;
+    data->LoopTime=LoopTime;
+    data->Execute=Execute;
+    std::copy(Position.begin(),Position.end(),data->Positon);
+    std::copy(Velocity.begin(),Velocity.end(),data->Positon+Position.size());
+    std::copy(EndVelocity.begin(),EndVelocity.end(),data->Positon+Position.size()*2);
+    std::copy(MaxSpeed.begin(),MaxSpeed.end(),data->Positon+Position.size()*3);
+    std::copy(MaxAcc.begin(),MaxAcc.end(),data->Positon+Position.size()*4);
+    std::copy(MaxJerk.begin(),MaxJerk.end(),data->Positon+Position.size()*5);
     delete []SendBuffer;
     int ret = McWrapper.Send(SendBuffer, dateLen);
     if (ret == dateLen)

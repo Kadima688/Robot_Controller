@@ -566,32 +566,83 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
     int retn=SetVelCommand(i,velocity2pulse);
     set_retn(retn,SETVELCOMMAND);
     #else 
+    double delta_maxvel=1;
+    double delta_maxacc=10;
+    std::vector<double> TargetVel(nDof);
+    std::vector<double> TargetPos(nDof);
+    std::vector<double> EndVel(nDof);
+    std::vector<double> MaxVel(nDof);
+    std::vector<double> MaxAcc(nDof);
+    std::vector<double> MaxJerk(nDof);
+    TargetVel[0]=qdot[0]; 
+    TargetVel[1]=qdot[1]; 
+    TargetVel[2]=qdot[2]; 
+    TargetVel[3]=qdot[3];
+
+    EndVel[0]=0.0;
+    EndVel[1]=0.0;
+    EndVel[2]=0.0;
+    EndVel[3]=0.0;
+
+    TargetPos[0]=qdot[0]*30*0.001; 
+    TargetPos[1]=qdot[1]*30*0.001; 
+    TargetPos[2]=qdot[2]*30*0.001; 
+    TargetPos[3]=qdot[3]*30*0.001;
+
+    MaxVel[0]=M_PI_4*delta_maxvel;
+    MaxVel[1]=M_PI_4*delta_maxvel;
+    MaxVel[2]=M_PI*delta_maxvel;
+    MaxVel[3]=M_PI_4*delta_maxvel;
+
+    MaxAcc[0]=M_PI_4*delta_maxacc;
+    MaxAcc[1]=M_PI_4*delta_maxacc;
+    MaxAcc[2]=M_PI*delta_maxacc;
+    MaxAcc[3]=M_PI_4*delta_maxacc;
+
+    MaxJerk[0]=0.0;
+    MaxJerk[1]=0.0;
+    MaxJerk[2]=0.0;
+    MaxJerk[3]=0.0;
+
+    switch (Mh::MhIndustrialRobot::getRobotState())
+    {
+    case Mh::MhIndustrialRobot::STATE_POSITON_CONTROL:
+        //调用内核API
+        controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,TargetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,TRUE,ConChargeData.looptime);
+        break;
+    case Mh::MhIndustrialRobot::STATE_VELOCITY_CONTROL:
+        break;
+    default:
+        break;
+    } 
     //首先将速度转换为角度
-    for(unsigned i=0;i<nDof;++i){
-        double jointvel;
-        jointvel=qdot[i]*(180/PI)*0.001;//单位为度每毫秒
-        double jointvelpulse;
-        if(i == 2){
-            jointvel = jointvel * z_lead / 360 ;
-        }
-        jointvelpulse=jointvel/RobotConfigData.pulseEquivalent[i];//单位为脉冲每毫秒
-        double jointpulse;
-        jointpulse=jointvelpulse*30;//30ms这个轴应该移动得位移
-        jointvelpulse=abs(jointvelpulse);
-        //判断为位置控制模式还是速度控制模式
-        switch (Mh::MhIndustrialRobot::getRobotState())
-        {
-        case Mh::MhIndustrialRobot::STATE_POSITON_CONTROL:
-            //将速度脉冲与时间积分得到位置脉冲
-            // controllerdata.motor.MC_MoveContinuousRelative(i,true,true,jointpulse,0,jointvelpulse,200,200,1,mcAborting);
-            controllerdata.motor.MC_MoveRelative(i,true,true,jointpulse,jointvelpulse,200,200,1,mcAborting);
-            break;
-        case Mh::MhIndustrialRobot::STATE_VELOCITY_CONTROL:
-            break;
-        default:
-            break;
-        } 
-    }  
+    // for(unsigned i=0;i<nDof;++i){
+    //     //------------------这一部分是用MC_MoveRelative对应的代码
+    //     double jointvel;
+    //     jointvel=qdot[i]*(180/PI)*0.001;//单位为度每毫秒
+    //     double jointvelpulse;
+    //     if(i == 2){
+    //         jointvel = jointvel * z_lead / 360 ;
+    //     }
+    //     jointvelpulse=jointvel/RobotConfigData.pulseEquivalent[i];//单位为脉冲每毫秒
+    //     double jointpulse;
+    //     jointpulse=jointvelpulse*30;//30ms这个轴应该移动得位移
+    //     jointvelpulse=abs(jointvelpulse);
+    //     //判断为位置控制模式还是速度控制模式
+    //     switch (Mh::MhIndustrialRobot::getRobotState())
+    //     {
+    //     case Mh::MhIndustrialRobot::STATE_POSITON_CONTROL:
+    //         //将速度脉冲与时间积分得到位置脉冲
+    //         controllerdata.motor.MC_MoveContinuousRelative(i,true,true,jointpulse,0,jointvelpulse,200,200,1,mcAborting);
+    //         controllerdata.motor.MC_MoveRelative(i,true,true,jointpulse,jointvelpulse,200,200,1,mcAborting);
+    //         break;
+    //     case Mh::MhIndustrialRobot::STATE_VELOCITY_CONTROL:
+    //         break;
+    //     default:
+    //         break;
+    //     } 
+    // }  
+
     #endif
 }
 #ifndef USE_KERNEL
