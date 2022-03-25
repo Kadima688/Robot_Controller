@@ -566,6 +566,15 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
     int retn=SetVelCommand(i,velocity2pulse);
     set_retn(retn,SETVELCOMMAND);
     #else 
+    // double jointvel[4];
+    // //先将qdot转换成脉冲
+    // for(unsigned i=0;i<nDof;++i){
+    //     jointvel[i]=qdot[i]*(180/PI)*0.001;//单位为度每毫秒
+    //     if(i == 2){
+    //         jointvel[i] = jointvel[i] * z_lead / 360 ;
+    //     }
+    //     jointvel[i]=jointvel[i]/RobotConfigData.pulseEquivalent[i];//单位为脉冲每毫秒
+    // }
     double delta_maxvel=1;
     double delta_maxacc=10;
     std::vector<double> TargetVel(nDof);
@@ -574,40 +583,68 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
     std::vector<double> MaxVel(nDof);
     std::vector<double> MaxAcc(nDof);
     std::vector<double> MaxJerk(nDof);
+    //设置目标速度(单位为脉冲每毫秒)
     TargetVel[0]=qdot[0]; 
     TargetVel[1]=qdot[1]; 
     TargetVel[2]=qdot[2]; 
     TargetVel[3]=qdot[3];
-
+    //设置结束速度(单位为脉冲每毫秒)
     EndVel[0]=0.0;
     EndVel[1]=0.0;
     EndVel[2]=0.0;
     EndVel[3]=0.0;
+    //设置目标位置(单位为弧度)
+    TargetPos[0]=qdot[0]*30*0.001; TargetPos[0]=TargetPos[0]+Con2DemData.axisPos_scara.a1*(PI/180);
+    TargetPos[1]=qdot[1]*30*0.001; TargetPos[1]=TargetPos[1]+Con2DemData.axisPos_scara.a2*(PI/180);
+    TargetPos[2]=qdot[2]*30*0.001; TargetPos[2]=TargetPos[2]+Con2DemData.axisPos_scara.d*(360/z_lead)*(PI/180);
+    TargetPos[3]=qdot[3]*30*0.001; TargetPos[3]=TargetPos[3]+Con2DemData.axisPos_scara.a4*(PI/180);
 
-    TargetPos[0]=qdot[0]*30*0.001; 
-    TargetPos[1]=qdot[1]*30*0.001; 
-    TargetPos[2]=qdot[2]*30*0.001; 
-    TargetPos[3]=qdot[3]*30*0.001;
-
-    MaxVel[0]=M_PI_4*delta_maxvel;
-    MaxVel[1]=M_PI_4*delta_maxvel;
-    MaxVel[2]=M_PI*delta_maxvel;
-    MaxVel[3]=M_PI_4*delta_maxvel;
-
-    MaxAcc[0]=M_PI_4*delta_maxacc;
-    MaxAcc[1]=M_PI_4*delta_maxacc;
-    MaxAcc[2]=M_PI*delta_maxacc;
-    MaxAcc[3]=M_PI_4*delta_maxacc;
-
+    // TargetPos[0]=qdot[0]*30*0.001*(180/PI)/RobotConfigData.pulseEquivalent[0]; TargetPos[0]=TargetPos[0]+Con2DemData.axisPos_scara.a1/RobotConfigData.pulseEquivalent[0];
+    // TargetPos[1]=qdot[1]*30*0.001*(180/PI)/RobotConfigData.pulseEquivalent[1]; TargetPos[1]=TargetPos[1]+Con2DemData.axisPos_scara.a2/RobotConfigData.pulseEquivalent[1];
+    // TargetPos[2]=qdot[2]*30*0.001*(180/PI)*z_lead / 360 / RobotConfigData.pulseEquivalent[2]; TargetPos[2]=TargetPos[2]+Con2DemData.axisPos_scara.d / RobotConfigData.pulseEquivalent[2];
+    // TargetPos[3]=qdot[3]*30*0.001*(180/PI)/RobotConfigData.pulseEquivalent[3]; TargetPos[3]=TargetPos[3]+Con2DemData.axisPos_scara.a4/RobotConfigData.pulseEquivalent[3];
+    
+    //设置最大速度(单位为脉冲每毫秒)
+    MaxVel[0]=M_PI_4*delta_maxvel*(180/PI)*0.001/RobotConfigData.pulseEquivalent[0];
+    MaxVel[1]=M_PI_4*delta_maxvel*(180/PI)*0.001/RobotConfigData.pulseEquivalent[1];
+    MaxVel[2]=M_PI_4*delta_maxvel*(180/PI)*0.001*z_lead / 360 / RobotConfigData.pulseEquivalent[2];
+    MaxVel[3]=M_PI_4*delta_maxvel*(180/PI)*0.001/RobotConfigData.pulseEquivalent[3];
+    //设置最大加速度(单位为脉冲每2次方毫秒)
+    MaxAcc[0]=M_PI_4*delta_maxacc*(180/PI)*0.001/RobotConfigData.pulseEquivalent[0];
+    MaxAcc[1]=M_PI_4*delta_maxacc*(180/PI)*0.001/RobotConfigData.pulseEquivalent[1];
+    MaxAcc[2]=M_PI_4*delta_maxacc*(180/PI)*0.001*z_lead / 360*RobotConfigData.pulseEquivalent[2];
+    MaxAcc[3]=M_PI_4*delta_maxacc*(180/PI)*0.001/RobotConfigData.pulseEquivalent[3];
+    //设置最大加加速度(单位为脉冲每3次方毫秒)
     MaxJerk[0]=0.0;
     MaxJerk[1]=0.0;
     MaxJerk[2]=0.0;
     MaxJerk[3]=0.0;
-
     switch (Mh::MhIndustrialRobot::getRobotState())
     {
     case Mh::MhIndustrialRobot::STATE_POSITON_CONTROL:
         //调用内核API
+        // std::cout<<"开始伺服"<<std::endl;
+        // if(judge==0){
+        //     controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,TargetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,TRUE,ConChargeData.looptime);
+        //     judge=1;
+        //     //输出目标位置
+        //     std::cout<<"currpos:"<<TargetPos[0]<<"    "<<TargetPos[1]<<"    "<<TargetPos[2]<<"    "<<TargetPos[3]<<std::endl;
+        //     //输出目标速度
+        //     std::cout<<"currpos:"<<TargetVel[0]<<"    "<<TargetVel[1]<<"    "<<TargetVel[2]<<"    "<<TargetVel[3]<<std::endl;
+        // }
+        // if(judge){
+        //     // controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,TargetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,TRUE,ConChargeData.looptime);
+            
+        //     //输出目标关节速度
+        //     // std::cout<<"qdot:"<<qdot[0]<<"    "<<qdot[1]<<"    "<<qdot[2]<<"     "<<qdot[3]<<std::endl;
+        //     //输出目标位置
+        //     // std::cout<<"TargetPos:"<<TargetPos[0]<<"    "<<TargetPos[1]<<"    "<<TargetPos[2]<<"    "<<TargetPos[3]<<std::endl;
+        //     // //输出目标速度
+        //     // std::cout<<"targetvel:"<<TargetVel[0]<<"    "<<TargetVel[1]<<"    "<<TargetVel[2]<<"    "<<TargetVel[3]<<std::endl;
+        //     // controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,tp,tp,tp,tp,tp,tp,TRUE,ConChargeData.looptime);
+        //     // std::cout<<"执行"<<std::endl;     
+        //     judge=!judge;     
+        // }
         controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,TargetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,TRUE,ConChargeData.looptime);
         break;
     case Mh::MhIndustrialRobot::STATE_VELOCITY_CONTROL:

@@ -135,7 +135,6 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         catesian.push_back(RobotSCARA->Con2DemData.cartPos.b);catesian.push_back(RobotSCARA->Con2DemData.cartPos.c);
         Eigen::MatrixXd fTe=RobotSCARA->transform.ZYZ2homomatrix(catesian);
         vp::eigen2visp(fTe,fMe);fMe[0][3]/=1000;fMe[1][3]/=1000;fMe[2][3]/=1000;
-        
         cMo=eMc.inverse()*fMe.inverse()*fMo;
 
         //---------------------------------------动态模拟生成器
@@ -222,7 +221,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         // SetVelocityThread.detach();
         //模拟真实图像采集周期，进行一定的延时
         double sleep_time=RandT<int>(30000,50000);
-        // double sleep_time=90000;
+        // double sleep_time=1000000;
         usleep(sleep_time);
         RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         //将时间差写入文本中
@@ -249,7 +248,11 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
             {
             case vpMouseButton::button1:
                 send_velocitys=!send_velocitys;
-                RobotSCARA->judge=1;
+                //单步点击图像对应的处理
+                // if(send_velocitys){
+                //     RobotSCARA->judge=!RobotSCARA->judge;
+                //     // RobotSCARA->count=0;
+                // }
                 break;
             case vpMouseButton::button3:
                 final_quit=true;

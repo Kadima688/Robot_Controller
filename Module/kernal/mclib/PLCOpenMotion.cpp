@@ -175,7 +175,7 @@ int PLCOpenMotion::MC_MoveContinuousRelative(INT Axis, BOOL Execute, bool Contin
 {
     unsigned char SendBuffer[sizeof(Command) + sizeof(STRUCT_MC_MOVECONTINUOUS)];
     Command *cmd = (Command *)SendBuffer;
-    cmd->msgID = CMD_PLCOPENPART1_MC_MoveContinuousRelative;
+    cmd->msgID = CMD_PLCOPENPART1_MC_GroupVisualServoMove;
     cmd->FeedBackFunBlockId = IDManager.GetIndex();
 
     STRUCT_MC_MOVECONTINUOUS *data = (STRUCT_MC_MOVECONTINUOUS *)cmd->data;
@@ -612,8 +612,9 @@ BOOL PLCOpenMotion::MC_GroupSetPosition(INT AxesGroup,std::vector<double>  Posit
     data->CoordSystem=CoordSystem;
     data->BufferMode=BufferMode;
     std::copy(Position.begin(),Position.end(),data->Position);
-    delete []SendBuffer;
+
     int ret = McWrapper.Send(SendBuffer, dateLen);
+    delete []SendBuffer;
     if (ret == dateLen)
     {
         return cmd->FeedBackFunBlockId;
@@ -646,8 +647,9 @@ INT PLCOpenMotion::MC_GroupVisualServoMove(INT AxesGroup, BOOL Execute, std::vec
     std::copy(MaxSpeed.begin(),MaxSpeed.end(),data->Positon+Position.size()*3);
     std::copy(MaxAcc.begin(),MaxAcc.end(),data->Positon+Position.size()*4);
     std::copy(MaxJerk.begin(),MaxJerk.end(),data->Positon+Position.size()*5);
-    delete []SendBuffer;
+
     int ret = McWrapper.Send(SendBuffer, dateLen);
+    delete []SendBuffer;
     if (ret == dateLen)
     {
         return cmd->FeedBackFunBlockId;

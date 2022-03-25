@@ -87,7 +87,8 @@ public:
 //--------------------------------------------------------DataText output
 public:
     MhRobotDataText MhRobotText;//关于文本记录的类
-    int judge=0;
+    bool judge=false;
+    int count=0;//记录发送的指令次数
 };
 }
 

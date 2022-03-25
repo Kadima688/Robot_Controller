@@ -3,6 +3,7 @@
 #include<unistd.h>
 #include"MhIndustrialSCARA.h"
 #include"ControllerData.h"
+#include <iomanip>
 void GetRobotState(ControllerData* controllerdata){
     Mh::MhIndustrialSCARA* RobotSCARA=&(controllerdata->robotscara);
 #ifdef USE_MCKERNEL
@@ -22,21 +23,16 @@ void GetRobotState(ControllerData* controllerdata){
             RobotSCARA->Con2DemData.axisPos_scara.a4=Position[3]*RobotSCARA->RobotConfigData.pulseEquivalent[3]-RobotSCARA->RobotConfigData.offset2[3];
             RobotSCARA->Con2DemData.axisPos_scara.d=Position[2]*RobotSCARA->RobotConfigData.pulseEquivalent[2]-RobotSCARA->RobotConfigData.offset2[2];//+RobotSCARA->Con2DemData.axisPos_scara.a4/360*RobotSCARA->get_a4_Compensation();
             //计算伺服电机的位置
-            RobotSCARA->Con2DemData.drivePos.d1=RobotSCARA->Con2DemData.axisPos_scara.a1*RobotSCARA->RobotConfigData.direction[0]*RobotSCARA->RobotConfigData.ratio[0];
-            RobotSCARA->Con2DemData.drivePos.d2=RobotSCARA->Con2DemData.axisPos_scara.a2*RobotSCARA->RobotConfigData.direction[1]*RobotSCARA->RobotConfigData.ratio[1];
-            RobotSCARA->Con2DemData.drivePos.d3=RobotSCARA->Con2DemData.axisPos_scara.d*RobotSCARA->RobotConfigData.direction[2]*RobotSCARA->RobotConfigData.ratio[2];
-            RobotSCARA->Con2DemData.drivePos.d4=RobotSCARA->Con2DemData.axisPos_scara.a4*RobotSCARA->RobotConfigData.direction[3]*RobotSCARA->RobotConfigData.ratio[3];
+            // RobotSCARA->Con2DemData.drivePos.d1=RobotSCARA->Con2DemData.axisPos_scara.a1*RobotSCARA->RobotConfigData.direction[0]*RobotSCARA->RobotConfigData.ratio[0];
+            // RobotSCARA->Con2DemData.drivePos.d2=RobotSCARA->Con2DemData.axisPos_scara.a2*RobotSCARA->RobotConfigData.direction[1]*RobotSCARA->RobotConfigData.ratio[1];
+            // RobotSCARA->Con2DemData.drivePos.d3=RobotSCARA->Con2DemData.axisPos_scara.d*RobotSCARA->RobotConfigData.direction[2]*RobotSCARA->RobotConfigData.ratio[2];
+            // RobotSCARA->Con2DemData.drivePos.d4=RobotSCARA->Con2DemData.axisPos_scara.a4*RobotSCARA->RobotConfigData.direction[3]*RobotSCARA->RobotConfigData.ratio[3];
             //计算工具坐标系相对世界坐标系的位置
             std::vector<double> cartesian;
             std::vector<double> scara_input={RobotSCARA->Con2DemData.axisPos_scara.a1,RobotSCARA->Con2DemData.axisPos_scara.a2,RobotSCARA->Con2DemData.axisPos_scara.d,RobotSCARA->Con2DemData.axisPos_scara.a4};        
             if(RobotSCARA->forwardkinematics(scara_input,cartesian)){
                 RobotSCARA->Con2DemData.cartPos=cartesian;
             }
-            //输出脉冲
-            // std::cout<<"第一个轴的脉冲:"<<1964610*RobotSCARA->RobotConfigData.pulseEquivalent[0]-RobotSCARA->RobotConfigData.offset2[0]<<std::endl;
-            // std::cout<<"第二个轴的脉冲:"<<2782020*RobotSCARA->RobotConfigData.pulseEquivalent[1]-RobotSCARA->RobotConfigData.offset2[1]<<std::endl;
-            // std::cout<<"第三个轴的脉冲"<<12582900*RobotSCARA->RobotConfigData.pulseEquivalent[2]-RobotSCARA->RobotConfigData.offset2[2]<<std::endl;
-            // std::cout<<"第四个轴的脉冲"<<-63017200*RobotSCARA->RobotConfigData.pulseEquivalent[3]-RobotSCARA->RobotConfigData.offset2[3]<<std::endl;
             //输出角度
             // std::cout<<"关节角度：  "<<RobotSCARA->Con2DemData.axisPos_scara.a1<<" ";
             // std::cout<<RobotSCARA->Con2DemData.axisPos_scara.a2<<" ";
@@ -49,6 +45,8 @@ void GetRobotState(ControllerData* controllerdata){
             std::cout<<RobotSCARA->Con2DemData.cartPos.b<<" ";
             std::cout<<RobotSCARA->Con2DemData.cartPos.c<<std::endl;
             // std::this_thread::sleep_for(std::chrono::seconds(5));
+            //输出当前脉冲
+            // std::cout<<"当前脉冲:"<<std::setprecision(12)<<Position[0]<<"    "<<Position[1]<<"    "<<Position[2]<<"    "<<Position[3]<<std::endl;
         }
     }
 #else
