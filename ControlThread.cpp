@@ -93,7 +93,7 @@ void Controlthread(ControllerData* controllerdata){
                     #ifdef USE_MCKERNEL
                     //在这里走一个单轴的点位运动
                     AXISPOS_SCARA zero_axispos={0,0,0,0};
-                    AXISPOS_SCARA init_axispos={-39.9150,84.2464,54.75512,161.4467};
+                    AXISPOS_SCARA init_axispos={-39.9150,84.2464,54.75512,120.4467};
                     //将角度转换成名脉冲
                     std::vector<double> Pulse=SCARAAngleToPulse(init_axispos,RobotSCARA);
                     // double jointvelpulse[4]={5247.96,7165.07,27348.6,94.6986};
