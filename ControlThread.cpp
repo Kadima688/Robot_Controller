@@ -99,7 +99,7 @@ void Controlthread(ControllerData* controllerdata){
                     // double jointvelpulse[4]={5247.96,7165.07,27348.6,94.6986};
                     for(int i=0;i<RobotSCARA->get_nDof();++i){
                         //将角度转换成脉冲
-                        motor->MC_MoveAbsolute(i,true,true,Pulse[i],10000,1000,1000,1,mcPositiveDirection,mcAborting);
+                        // motor->MC_MoveAbsolute(i,true,true,Pulse[i],10000,1000,1000,1,mcPositiveDirection,mcAborting);
                         // double jointpulse;  
                         // jointpulse=jointvelpulse[i]*30;//30ms这个轴应该移动得位移
                         // jointvelpulse[i]=abs(jointvelpulse[i]);
