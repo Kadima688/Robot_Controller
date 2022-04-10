@@ -594,10 +594,14 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
     EndVel[2]=0.0;
     EndVel[3]=0.0;
     //设置目标位置(单位为弧度)
-    TargetPos[0]=qdot[0]*30*0.001; TargetPos[0]=TargetPos[0]+Con2DemData.axisPos_scara.a1*(PI/180);
-    TargetPos[1]=qdot[1]*30*0.001; TargetPos[1]=TargetPos[1]+Con2DemData.axisPos_scara.a2*(PI/180);
-    TargetPos[2]=qdot[2]*30*0.001; TargetPos[2]=TargetPos[2]+Con2DemData.axisPos_scara.d*(360/z_lead)*(PI/180);
-    TargetPos[3]=qdot[3]*30*0.001; TargetPos[3]=TargetPos[3]+Con2DemData.axisPos_scara.a4*(PI/180);
+    TargetPos[0]=Con2DemData.axisPos_scara.a1*(PI/180);
+    TargetPos[1]=Con2DemData.axisPos_scara.a2*(PI/180);
+    TargetPos[2]=Con2DemData.axisPos_scara.d*(360/z_lead)*(PI/180);
+    TargetPos[3]=Con2DemData.axisPos_scara.a4*(PI/180);
+    // TargetPos[0]=qdot[0]*30*0.001; TargetPos[0]=TargetPos[0]+Con2DemData.axisPos_scara.a1*(PI/180);
+    // TargetPos[1]=qdot[1]*30*0.001; TargetPos[1]=TargetPos[1]+Con2DemData.axisPos_scara.a2*(PI/180);
+    // TargetPos[2]=qdot[2]*30*0.001; TargetPos[2]=TargetPos[2]+Con2DemData.axisPos_scara.d*(360/z_lead)*(PI/180);
+    // TargetPos[3]=qdot[3]*30*0.001; TargetPos[3]=TargetPos[3]+Con2DemData.axisPos_scara.a4*(PI/180);
 
     // TargetPos[0]=qdot[0]*30*0.001*(180/PI)/RobotConfigData.pulseEquivalent[0]; TargetPos[0]=TargetPos[0]+Con2DemData.axisPos_scara.a1/RobotConfigData.pulseEquivalent[0];
     // TargetPos[1]=qdot[1]*30*0.001*(180/PI)/RobotConfigData.pulseEquivalent[1]; TargetPos[1]=TargetPos[1]+Con2DemData.axisPos_scara.a2/RobotConfigData.pulseEquivalent[1];
