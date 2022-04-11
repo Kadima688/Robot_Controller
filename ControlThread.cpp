@@ -7,7 +7,9 @@
 #include<stdlib.h>
 void Controlthread(ControllerData* controllerdata){
     Mh::MhIndustrialSCARA* RobotSCARA=&(controllerdata->robotscara);
+#ifdef USE_MCKERNEL
     PLCOpenMotion* motor=&(controllerdata->motor);
+#endif
     int retn;//函数返回值
     int hasEnable=0;//判断是否已经上电
     int oldOvr=0;//保存旧得动态倍率参数，当动态倍率参数改变时才调用

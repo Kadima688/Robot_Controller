@@ -562,9 +562,9 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
             velocity2pulse = (double)((qdot[i] * RobotConfigData.direction[i] * RobotConfigData.ratio[i] * RobotConfigData.encoder[i]) / (2 * PI));
 			//velocity2pulse += (int)((qdot[3] * 180 / PI) / 360 *a4_Compensation) / RobotConfigData.pulseEquivalent[2];
         }
+        int retn=SetVelCommand(i,velocity2pulse);
+        set_retn(retn,SETVELCOMMAND);
     }
-    int retn=SetVelCommand(i,velocity2pulse);
-    set_retn(retn,SETVELCOMMAND);
     #else 
     // double jointvel[4];
     // //先将qdot转换成脉冲

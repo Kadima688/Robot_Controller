@@ -6,6 +6,7 @@
 struct ControllerData
 {
     Mh::MhIndustrialSCARA robotscara;
+#ifdef USE_MCKERNEL
     PLCOpenMotion motor;
     ControllerData()
     {
@@ -19,6 +20,7 @@ struct ControllerData
         motor.MC_SetKinTransform(0,&Type,mcImmediately,sizeof(Type));
         motor.MC_GroupEnable(0,true);
     }
+#endif
 };
 
 extern ControllerData controllerdata;
