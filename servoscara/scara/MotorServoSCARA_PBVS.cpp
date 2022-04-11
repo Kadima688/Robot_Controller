@@ -220,8 +220,8 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         // std::thread SetVelocityThread(&Mh::MhIndustrialSCARA::setVelocity,RobotSCARA,Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         // SetVelocityThread.detach();
         //模拟真实图像采集周期，进行一定的延时
-        double sleep_time=RandT<int>(30000,50000);
-        // double sleep_time=1000000;
+        // double sleep_time=RandT<int>(30000,50000);
+        double sleep_time=30000;
         usleep(sleep_time);
         RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         //将时间差写入文本中
