@@ -12,6 +12,7 @@ public:
     Eigen::MatrixXd trans2homomatrix(double distance,int axis);
     std::vector<double> homomatrix2ZYZ(Eigen::MatrixXd &T);
     Eigen::MatrixXd ZYZ2homomatrix(std::vector<double>& Cartesian);
+    // Eigen::MatrixXd VelocityTwist2HomoMatrix(const std::vector<double> &v,const double &delta_t);
     MhMath math;
 };
 }

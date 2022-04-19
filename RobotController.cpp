@@ -9,8 +9,9 @@
 #include<ctime>
 #include<unistd.h>
 #include"ControllerData.h"
-
-
+//相机测试的代码
+#include"MhParameters.h"
+#include"MhConvertPoint.h"
 void DataTransfer(Mh::MhIndustrialSCARA* RobotSCARA);
 void Controlthread(ControllerData* controllerdata);
 void GetRobotState(ControllerData* controllerdata);
@@ -31,7 +32,7 @@ void Serverrun(Mh::MhIndustrialSCARA* scara){
 ControllerData controllerdata;
 
 int main(int argc, char **argv){
-    // PLCOpenMotion motor;
+    PLCOpenMotion motor;
     if(!controllerdata.robotscara.loadRobotConfigFile("RobotConfig_CoolDrive.xml")){  
         return 0;
     } 
@@ -42,7 +43,26 @@ int main(int argc, char **argv){
     DataTransferThread.join();
     ControlThread.join();
     RobotStateThread.join();
+    // return 0;
+
+    //测相机代码
+    // MhParameters cam(600,600,192,144);
+    // double x,y;
+    // double u=155;
+    // double v=144;
+    // MhConvertPoint convert;
+    // convert.PixelMetersconverPoint(cam,u,v,x,y);
+    // std::cout<<x<<"    "<<y<<std::endl;
+
+    //visp相关相机测试代码
+    // vpCameraParameters visp_cam(600,600,192,144);
+    // double cam_x,cam_y;
+    // double cam_u=155;
+    // double cam_v=144;
+    // vpPixelMeterConversion cam_convert;
+    // cam_convert.convertPoint(visp_cam,cam_u,cam_v,cam_x,cam_x);
     return 0;
+    
    
     //添加linux平台相关的代码
     //----------------init DH-TABLE

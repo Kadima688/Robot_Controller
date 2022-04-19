@@ -12,7 +12,7 @@ if(DEFINE_USE_REALSENSE)
 endif(DEFINE_USE_REALSENSE)
 OPTION(DEFINE_USE_MCKERNEL "MCKERNEL Option Description" ON)#cmake .. -DDEFINE_USE_MCKERNEL=TRUE  默认使用符合plc open协议的内核
 if(DEFINE_USE_MCKERNEL)
-  ADD_DEFINITIONS(-DUSE_MCKERNEL)
+  # ADD_DEFINITIONS(-DUSE_MCKERNEL)
 else()
   # ADD_DEFINITIONS(-DUSE_KERNEL)
 endif(DEFINE_USE_MCKERNEL)
@@ -56,6 +56,7 @@ include_directories(${PROJECT_SOURCE_DIR}/Module/core/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/robot/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/kernal/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/kernal/mclib)
+include_directories(${PROJECT_SOURCE_DIR}/Module/camera/include)
 include_directories(${PROJECT_SOURCE_DIR})
 #----------------找到对应的源文件
 aux_source_directory(. sourceList)
@@ -64,6 +65,7 @@ aux_source_directory(${PROJECT_SOURCE_DIR}/Module/core/src core_c_files)
 aux_source_directory(${PROJECT_SOURCE_DIR}/Module/kernal/src kernal_c_files)
 aux_source_directory(${PROJECT_SOURCE_DIR}/test test_files)
 aux_source_directory(${PROJECT_SOURCE_DIR}/servoscara/scara servo_scara_files)
+aux_source_directory(${PROJECT_SOURCE_DIR}/Module/camera/src camera_c_files)
 add_executable(
 controller 
 ${sourceList} 
@@ -71,7 +73,10 @@ ${robot_c_files}
 ${core_c_files} 
 ${kernal_c_files} 
 ${test_files}
-${servo_scara_files})#添加可执行文件
+${servo_scara_files}
+${camera_c_files}
+)
+#添加可执行文件
 #--------------将程序连接一些库
 set (EXTRA_LIBS ${VISP_LIBRARIES})
 set(MCLIB_SRC /home/cmh/mc-lib/build/mclib/libmclib.so)
