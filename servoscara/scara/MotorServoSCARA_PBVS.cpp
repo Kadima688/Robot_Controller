@@ -119,7 +119,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     double t_init_servo=vpTime::measureTimeMs();
 
     RobotSCARA->set_eMc(eMc);//设置机器人的外参矩阵
-    RobotSCARA->setRobotState(Mh::MhIndustrialRobot::STATE_POSITON_CONTROL);//设置为速度控制模式
+    RobotSCARA->setRobotState(Mh::MhIndustrialRobot::STATE_POSITON_CONTROL);//正常应该是速度控制模式，但是由于mc-kernel没有模式切换一说，在这里设置为位置控制模式
     //-------动态模拟相关参数
     int dynamic_n=1;//运动段数 
     int segment=100;
@@ -208,6 +208,8 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         double error_tu=sqrt(cd_tu_c.sumSquare());//姿态误差求和
         if(error_tr<convergence_threshold_t && error_tu<convergence_threshold_tu){
             has_converge=true;
+            std::cout<<"收敛时候的位置误差:"<<error_tr<<std::endl;
+            std::cout<<"收敛时候的姿态误差:"<<error_tu<<std::endl;
             std::cout<<"Servo task has Converge"<<std::endl;
         }
         if(first_time){
@@ -217,8 +219,6 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
             v_c=0;
         }    
         //13、开始将速度发送给内核
-        // std::thread SetVelocityThread(&Mh::MhIndustrialSCARA::setVelocity,RobotSCARA,Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
-        // SetVelocityThread.detach();
         //模拟真实图像采集周期，进行一定的延时
         // double sleep_time=RandT<int>(30000,50000);
         double sleep_time=30000;
@@ -249,10 +249,10 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
             case vpMouseButton::button1:
                 send_velocitys=!send_velocitys;
                 //单步点击图像对应的处理
-                // if(send_velocitys){
-                //     RobotSCARA->judge=!RobotSCARA->judge;
-                //     // RobotSCARA->count=0;
-                // }
+                if(send_velocitys){
+                    RobotSCARA->judge=!RobotSCARA->judge;
+                    // RobotSCARA->count=0;
+                }
                 break;
             case vpMouseButton::button3:
                 final_quit=true;
@@ -268,17 +268,17 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
             final_quit=true;
         }
         #ifdef VISP_HAVE_DISPLAY
-        //位姿误差也写在图上
-        if(opt_plot){
-            std::stringstream ss;
-            ss.str("");
-            ss<<"error_t:"<<error_tr;
-            vpDisplay::displayText(plotter->I,20,20,ss.str(),vpColor::red);
-            ss.str("");
-            ss<<"error_tu:"<<error_tu;
-            vpDisplay::displayText(plotter->I,40,20,ss.str(),vpColor::red);
-            vpDisplay::flush(plotter->I);
-        }
+        // //位姿误差也写在图上
+        // if(opt_plot){
+        //     std::stringstream ss;
+        //     ss.str("");
+        //     ss<<"error_t:"<<error_tr;
+        //     vpDisplay::displayText(plotter->I,20,20,ss.str(),vpColor::red);
+        //     ss.str("");
+        //     ss<<"error_tu:"<<error_tu;
+        //     vpDisplay::displayText(plotter->I,40,20,ss.str(),vpColor::red);
+        //     vpDisplay::flush(plotter->I);
+        // }
         #endif
     }
     std::cout<<"Stop the robot"<<std::endl;

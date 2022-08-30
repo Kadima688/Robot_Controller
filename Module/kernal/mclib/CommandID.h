@@ -326,7 +326,7 @@ enum DeviceType:BYTE
     DeviceType_ThreeAxisLinearRobot,
     DeviceType_Scara,
     DeviceType_ScaraJointCsp,
-
+    DeviceType_FIveAxisMachineXYZAB
 };
 
 struct MC_KIN_REF

@@ -12,7 +12,7 @@ if(DEFINE_USE_REALSENSE)
 endif(DEFINE_USE_REALSENSE)
 OPTION(DEFINE_USE_MCKERNEL "MCKERNEL Option Description" ON)#cmake .. -DDEFINE_USE_MCKERNEL=TRUE  默认使用符合plc open协议的内核
 if(DEFINE_USE_MCKERNEL)
-  # ADD_DEFINITIONS(-DUSE_MCKERNEL)
+  ADD_DEFINITIONS(-DUSE_MCKERNEL)
 else()
   # ADD_DEFINITIONS(-DUSE_KERNEL)
 endif(DEFINE_USE_MCKERNEL)
@@ -52,6 +52,7 @@ else()
  set(_GRPC_CPP_PLUGIN_EXECUTABLE $<TARGET_FILE:gRPC::grpc_cpp_plugin>)
 endif()
 #---------------找到对应的头文件
+include_directories(${VISP_INCLUDE_DIRS})#寻找visp的头文件
 include_directories(${PROJECT_SOURCE_DIR}/Module/core/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/robot/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/kernal/include)
@@ -78,15 +79,16 @@ ${camera_c_files}
 )
 #添加可执行文件
 #--------------将程序连接一些库
-set (EXTRA_LIBS ${VISP_LIBRARIES})
-set(MCLIB_SRC /home/cmh/mc-lib/build/mclib/libmclib.so)
+set(MCLIB_SRC /home/cmh/SoftControl/mc-lib/build/mclib/libmclib.so)
+set(IPMC_SRC /home/cmh/SoftControl/libapi.so)
 target_link_libraries(controller 
 -lpthread -lapi 
-${EXTRA_LIBS} 
 ${_REFLECTION}
 ${_GRPC_GRPCPP}
 ${_PROTOBUF_LIBPROTOBUF}
 ${MCLIB_SRC}
+${VISP_LIBRARIES}#链接visp的库
+${IPMC_SRC}
 )
 #要用Realsense要添加这段代码
 if(VISP_HAVE_REALSENSE2)

@@ -81,6 +81,7 @@
 
 ::grpc::Status Mh::MhgRPCServer::SendSpeedPercent(::grpc::ServerContext* context, const ::ExternalDataTransfer::Pt_SPEED_PERCENT* request, ::ExternalDataTransfer::Pt_DataResult* response){
     SCARA->Dem2ConData.ovr=request->percent_speed();
+    std::cout<<"the speed is"<<SCARA->Dem2ConData.ovr<<std::endl;
     return Status::OK;
 }
 

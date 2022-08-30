@@ -57,7 +57,7 @@
             <offset2 axis1="-1.68623657" axis2="-2.38782349" axis3="-30" axis4="-135.22013855"/>
             <direction axis1="-1" axis2="-1" axis3="-1" axis4="1"/>
             <ratio axis1="50" axis2="50" axis3="1" axis4="20"/>
-            <encoder axis1="8388608" axis2="8388608" axis3="8388608" axis4="8388608"/>
+            <encoder axis1="131072" axis2="131072" axis3="131072" axis4="131072"/>
         </Servo>
         <!--机器人运动参数-->
         <Motion>

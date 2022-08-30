@@ -12,6 +12,7 @@
 //相机测试的代码
 #include"MhParameters.h"
 #include"MhConvertPoint.h"
+#include"IPMCMOTION.h"
 void DataTransfer(Mh::MhIndustrialSCARA* RobotSCARA);
 void Controlthread(ControllerData* controllerdata);
 void GetRobotState(ControllerData* controllerdata);
@@ -27,23 +28,23 @@ void Serverrun(Mh::MhIndustrialSCARA* scara){
     std::unique_ptr<Server> server(builder.BuildAndStart());
     std::cout<<"Server listening on "<<server_address<<std::endl;
     server->Wait();
-}
-
+    }
+    
 ControllerData controllerdata;
 
 int main(int argc, char **argv){
-    PLCOpenMotion motor;
     if(!controllerdata.robotscara.loadRobotConfigFile("RobotConfig_CoolDrive.xml")){  
         return 0;
     } 
     controllerdata.robotscara.set_dh_table();
+
     std::thread DataTransferThread(Serverrun,&controllerdata.robotscara);
     std::thread ControlThread(Controlthread,&controllerdata);
     std::thread RobotStateThread(GetRobotState,&controllerdata);
     DataTransferThread.join();
     ControlThread.join();
     RobotStateThread.join();
-    // return 0;
+    return 0;
 
     //测相机代码
     // MhParameters cam(600,600,192,144);
@@ -61,7 +62,6 @@ int main(int argc, char **argv){
     // double cam_v=144;
     // vpPixelMeterConversion cam_convert;
     // cam_convert.convertPoint(visp_cam,cam_u,cam_v,cam_x,cam_x);
-    return 0;
     
    
     //添加linux平台相关的代码

@@ -19,7 +19,27 @@ void Controlthread(ControllerData* controllerdata){
     {
         if(RobotSCARA->Dem2ConData.emergeStop==0){
             if(RobotSCARA->Dem2ConData.enableState==1){
-                #ifndef USE_MCKERNEL
+                #ifdef USE_MCKERNEL
+                // //MCKERNEL使能代码
+                // if(hasEnable==0){
+                //     for(int i=0;i<RobotSCARA->get_nDof()-1;i++){
+                //     //单轴使能上电
+                //     motor->MC_Power(i,true,true,true);
+                //     usleep(1000);
+                // }
+                // for(int i=0;i<RobotSCARA->get_nDof()-1;i++){
+                //     //将单轴添加进轴组
+                //     motor->Mc_AddAxisToGroup(0,i,true,i);
+                //     usleep(1000);
+                // }
+                // MC_KIN_REF Type;
+                // Type.Device=DeviceType_ScaraJointCsp;
+                // motor->MC_SetKinTransform(0,&Type,mcImmediately,sizeof(Type));
+                // usleep(1000);
+                // motor->MC_GroupEnable(0,true);
+                // }       
+                hasEnable=1;
+                #else 
                 if(hasEnable==0){
                     retn=RobotSCARA->OpenDevice();
                     RobotSCARA->set_retn(retn,Mh::OPENDEVICE);
@@ -59,49 +79,54 @@ void Controlthread(ControllerData* controllerdata){
                     oldOvr=RobotSCARA->Dem2ConData.ovr;
                 }
                 //手动模式
-                // if(RobotSCARA->Dem2ConData.operateMode==0){
-                //     // RobotSCARA->ConChargeData.curDynamic=RobotSCARA->RobotConfigData.jogspeed;
-                //     // RobotSCARA->RobotDynInitial();
-                //     // RobotSCARA->RobotInterpolationDynInitial();
-                //     //开始示教
-                //     if(RobotSCARA->Dem2ConData.coordinate!=0 && RobotSCARA->Dem2ConData.PressOrRelease==1 && keepTeach==0){
-                //         //首先考虑轴关节坐标系的
-                //         int dir;//运动方向
-                //         if(RobotSCARA->Dem2ConData.upOrDown==0){
-                //             dir=-1;
-                //         }
-                //         else{
-                //             dir=1;
-                //         }
-                //         double targetVel = 1000*RobotSCARA->Dem2ConData.ovr/5;
-                //         double lowVel = 0;
-                //         double acc = 100*RobotSCARA->Dem2ConData.ovr/5;
-                //         double jerk = 10*RobotSCARA->Dem2ConData.ovr/5;
-                //         int retn=RobotSCARA->SetJogParam(RobotSCARA->Dem2ConData.coordinate-1,targetVel,lowVel,acc,jerk);
-                //         RobotSCARA->set_retn(retn,Mh::IPMCJOGSETAXISPARAM);
-                //         retn=RobotSCARA->Jog(RobotSCARA->Dem2ConData.coordinate-1,dir*RobotSCARA->RobotConfigData.direction[RobotSCARA->Dem2ConData.coordinate-1]);
-                //         RobotSCARA->set_retn(retn,Mh::IPMCJOG);
-                //         keepTeach=1;
-                //     }
-                //     else if(RobotSCARA->Dem2ConData.PressOrRelease==0 && keepTeach==1){
-                //         //现在coordinate=0，表示按键松开了
-                //         int retn=RobotSCARA->StopAxis(RobotSCARA->Dem2ConData.coordinate-1,1);
-                //         RobotSCARA->set_retn(retn,Mh::STOPAXIS);
-                //         keepTeach=0;
-                //     }
-                // }
+                if(RobotSCARA->Dem2ConData.operateMode==0){
+                    // RobotSCARA->ConChargeData.curDynamic=RobotSCARA->RobotConfigData.jogspeed;
+                    // RobotSCARA->RobotDynInitial();
+                    // RobotSCARA->RobotInterpolationDynInitial();
+                    //开始示教
+                    if(RobotSCARA->Dem2ConData.coordinate!=0 && RobotSCARA->Dem2ConData.PressOrRelease==1 && keepTeach==0){
+                        //首先考虑轴关节坐标系的
+                        int dir;//运动方向
+                        if(RobotSCARA->Dem2ConData.upOrDown==0){
+                            dir=-1;
+                        }
+                        else{
+                            dir=1;
+                        }
+                        std::cout<<"第"<<RobotSCARA->Dem2ConData.coordinate<<"轴"<<dir<<"转动"<<std::endl;
+                        // double targetVel = 1000*RobotSCARA->Dem2ConData.ovr/5;
+                        // double lowVel = 0;
+                        // double acc = 100*RobotSCARA->Dem2ConData.ovr/5;
+                        // double jerk = 10*RobotSCARA->Dem2ConData.ovr/5;
+                        // int retn=RobotSCARA->SetJogParam(RobotSCARA->Dem2ConData.coordinate-1,targetVel,lowVel,acc,jerk);
+                        // RobotSCARA->set_retn(retn,Mh::IPMCJOGSETAXISPARAM);
+                        // retn=RobotSCARA->Jog(RobotSCARA->Dem2ConData.coordinate-1,dir*RobotSCARA->RobotConfigData.direction[RobotSCARA->Dem2ConData.coordinate-1]);
+                        // RobotSCARA->set_retn(retn,Mh::IPMCJOG);
+                        keepTeach=1;
+                    }
+                    else if(RobotSCARA->Dem2ConData.PressOrRelease==0 && keepTeach==1){
+                        //现在coordinate=0，表示按键松开了
+                        // int retn=RobotSCARA->StopAxis(RobotSCARA->Dem2ConData.coordinate-1,1);
+                        // RobotSCARA->set_retn(retn,Mh::STOPAXIS);
+                        std::cout<<"不转"<<std::endl;
+                        keepTeach=0;
+                    }
+                }
                 //在这里开始添加一条PTP指令，每次只执行一次
                 if(first_PTP==0){
                     #ifdef USE_MCKERNEL
                     //在这里走一个单轴的点位运动
                     AXISPOS_SCARA zero_axispos={0,0,0,0};
-                    AXISPOS_SCARA init_axispos={-39.9150,84.2464,54.75512,120.4467};
+                    AXISPOS_SCARA init_axispos={-39.92,84.25,54.76,120.45};
                     //将角度转换成名脉冲
                     std::vector<double> Pulse=SCARAAngleToPulse(init_axispos,RobotSCARA);
+                    // std::vector<double> Pulse;
+                    // Pulse.resize(4);
+                    // Pulse[0]=84268;Pulse[1]=57016;Pulse[2]=249876;Pulse[3]=-984647;
                     // double jointvelpulse[4]={5247.96,7165.07,27348.6,94.6986};
                     for(int i=0;i<RobotSCARA->get_nDof();++i){
                         //将角度转换成脉冲
-                        motor->MC_MoveAbsolute(i,true,true,Pulse[i],10000,1000,1000,1,mcPositiveDirection,mcAborting);
+                        // motor->MC_MoveAbsolute(i,true,true,Pulse[i],100,10,10,1,mcPositiveDirection,mcAborting);
                         // double jointpulse;  
                         // jointpulse=jointvelpulse[i]*30;//30ms这个轴应该移动得位移
                         // jointvelpulse[i]=abs(jointvelpulse[i]);
@@ -152,13 +177,18 @@ void Controlthread(ControllerData* controllerdata){
                 if(hasEnable==1){
                     std::cout<<"伺服下电"<<std::endl;
                     #ifdef USE_MCKERNEL
-
-                    #else
+                    // //轴组下使能
+                    // motor->MC_GroupDisable(0,true);
+                    // usleep(1000);
+                    // for(int i=0;i<RobotSCARA->get_nDof()-1;i++){
+                    //     //单轴下电工作
+                    //     motor->MC_Stop(i,true,0,0);
+                    // }
+                    #endif
                     #ifdef USE_KERNEL
                     // RobotSCARA->RobotCloseConti();
                     int retn=RobotSCARA->CloseDevice();
                     RobotSCARA->set_retn(retn,Mh::CLOSEDEVICE);
-                    #endif
                     #endif
                     hasEnable=0;
                     RobotSCARA->ConChargeData.isEnable=0;

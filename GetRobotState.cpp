@@ -22,6 +22,15 @@ void GetRobotState(ControllerData* controllerdata){
             RobotSCARA->Con2DemData.axisPos_scara.a2=Position[1]*RobotSCARA->RobotConfigData.pulseEquivalent[1]-RobotSCARA->RobotConfigData.offset2[1];
             RobotSCARA->Con2DemData.axisPos_scara.a4=Position[3]*RobotSCARA->RobotConfigData.pulseEquivalent[3]-RobotSCARA->RobotConfigData.offset2[3];
             RobotSCARA->Con2DemData.axisPos_scara.d=Position[2]*RobotSCARA->RobotConfigData.pulseEquivalent[2]-RobotSCARA->RobotConfigData.offset2[2];//+RobotSCARA->Con2DemData.axisPos_scara.a4/360*RobotSCARA->get_a4_Compensation();
+            // double offset[4];
+            // offset[0]=Position[0]*RobotSCARA->RobotConfigData.pulseEquivalent[0];
+            // offset[1]=Position[1]*RobotSCARA->RobotConfigData.pulseEquivalent[1];
+            // offset[2]=Position[2]*RobotSCARA->RobotConfigData.pulseEquivalent[2];
+            // offset[3]=Position[3]*RobotSCARA->RobotConfigData.pulseEquivalent[3];
+            // std::cout<<"电机1编码器数值："<<offset[0]<<std::endl;
+            // std::cout<<"电机2编码器数值："<<offset[1]<<std::endl;
+            // std::cout<<"电机2编码器数值："<<offset[2]<<std::endl;
+            // std::cout<<"电机3编码器数值："<<offset[3]<<std::endl;
             //计算伺服电机的位置
             // RobotSCARA->Con2DemData.drivePos.d1=RobotSCARA->Con2DemData.axisPos_scara.a1*RobotSCARA->RobotConfigData.direction[0]*RobotSCARA->RobotConfigData.ratio[0];
             // RobotSCARA->Con2DemData.drivePos.d2=RobotSCARA->Con2DemData.axisPos_scara.a2*RobotSCARA->RobotConfigData.direction[1]*RobotSCARA->RobotConfigData.ratio[1];
@@ -38,12 +47,12 @@ void GetRobotState(ControllerData* controllerdata){
             // std::cout<<RobotSCARA->Con2DemData.axisPos_scara.a2<<" ";
             // std::cout<<RobotSCARA->Con2DemData.axisPos_scara.d<<"  ";
             // std::cout<<RobotSCARA->Con2DemData.axisPos_scara.a4<<std::endl;
-            std::cout<<"空间位姿"<<RobotSCARA->Con2DemData.cartPos.x<<" ";
-            std::cout<<RobotSCARA->Con2DemData.cartPos.y<<" ";
-            std::cout<<RobotSCARA->Con2DemData.cartPos.z<<" ";
-            std::cout<<RobotSCARA->Con2DemData.cartPos.a<<" ";
-            std::cout<<RobotSCARA->Con2DemData.cartPos.b<<" ";
-            std::cout<<RobotSCARA->Con2DemData.cartPos.c<<std::endl;
+            // std::cout<<"空间位姿"<<RobotSCARA->Con2DemData.cartPos.x<<" ";
+            // std::cout<<RobotSCARA->Con2DemData.cartPos.y<<" ";
+            // std::cout<<RobotSCARA->Con2DemData.cartPos.z<<" ";
+            // std::cout<<RobotSCARA->Con2DemData.cartPos.a<<" ";
+            // std::cout<<RobotSCARA->Con2DemData.cartPos.b<<" ";
+            // std::cout<<RobotSCARA->Con2DemData.cartPos.c<<std::endl;
             // std::this_thread::sleep_for(std::chrono::seconds(5));
             //输出当前脉冲
             // std::cout<<"当前脉冲:"<<std::setprecision(12)<<Position[0]<<"    "<<Position[1]<<"    "<<Position[2]<<"    "<<Position[3]<<std::endl;

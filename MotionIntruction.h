@@ -7,6 +7,7 @@
 #include<vector>
 #include"ControllerData.h"
 #include"daraDeclaration.h"
+//--------------这个代码文件应该是供调试用的
 //指令单轴绝对运动参数结构体
 struct SingleAxisMoveAbsolute_Parameter
 {
