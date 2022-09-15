@@ -137,7 +137,7 @@ enum MC_EXECUTION_MODE:BYTE
 };
 enum VisualServo_TrajectoryGeneration_ControlMode:BYTE
 {
-    Ruckig_Velocity_Control,
+    Ruckig_Velocity_Control=0,
     TSpeedPlan_Position_Control,
 };
 enum CoordSystemType:BYTE
@@ -305,8 +305,8 @@ struct STRUCT_MC_GroupVisualServoMove
     INT AxesNum;
     BOOL Relative;
     double LoopTime;
-    double Positon[0];
     VisualServo_TrajectoryGeneration_ControlMode Trajectory_Mode;
+    double Positon[0];
 };
 
 
