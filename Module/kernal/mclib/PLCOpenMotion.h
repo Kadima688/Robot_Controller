@@ -35,7 +35,7 @@ public:
     BOOL MC_GroupStop(INT AxesGroup, BOOL Execute, double Deceleration, double Jerk, MC_BUFFER_MODE BufferMode);
     BOOL MC_GroupSetPosition(INT AxesGroup, std::vector<double> Position, BOOL Relative, CoordSystemType CoordSystem, MC_BUFFER_MODE BufferMode);
 
-    INT MC_GroupVisualServoMove(INT AxesGroup, BOOL Execute, std::vector<double> Position, std::vector<double> Velocity, std::vector<double> EndVelocity,std::vector<double> MaxSpeed, std::vector<double> MaxAcc, std::vector<double> MaxJerk, BOOL Relative, double LoopTime);
+    INT MC_GroupVisualServoMove(INT AxesGroup, BOOL Execute, std::vector<double> Position, std::vector<double> Velocity, std::vector<double> EndVelocity,std::vector<double> MaxSpeed, std::vector<double> MaxAcc, std::vector<double> MaxJerk, BOOL Relative, double LoopTime,VisualServo_TrajectoryGeneration_ControlMode Trajectory_Mode);
 
     int MC_MoveLinearRelative(INT AxesGroup, BOOL Execute, std::vector<double> Distance, double Velocity, double Acceleration, double Deceleration, double Jerk, CoordSystemType CoordSystem, MC_BUFFER_MODE BufferMode, MC_TRANSITION_MODE TransitionMode, std::vector<double> TransitionParameter);
     int MC_MoveLinearAbsolute(INT AxesGroup, BOOL Execute, std::vector<double> Position, double Velocity, double Acceleration, double Deceleration, double Jerk, CoordSystemType CoordSystem, MC_BUFFER_MODE BufferMode, MC_TRANSITION_MODE TransitionMode, std::vector<double> TransitionParameter);

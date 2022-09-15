@@ -135,7 +135,11 @@ enum MC_EXECUTION_MODE:BYTE
     mcImmediately,
     mcQueued,
 };
-
+enum VisualServo_TrajectoryGeneration_ControlMode:BYTE
+{
+    Ruckig_Velocity_Control,
+    TSpeedPlan_Position_Control,
+};
 enum CoordSystemType:BYTE
 {
     MCS = 0, // Machine related
@@ -302,8 +306,7 @@ struct STRUCT_MC_GroupVisualServoMove
     BOOL Relative;
     double LoopTime;
     double Positon[0];
-
-
+    VisualServo_TrajectoryGeneration_ControlMode Trajectory_Mode;
 };
 
 

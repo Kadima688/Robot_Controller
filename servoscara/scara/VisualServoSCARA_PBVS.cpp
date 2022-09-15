@@ -29,7 +29,9 @@ void VisualServoSCARA_PBVS(Mh::MhIndustrialSCARA* RobotSCARA){
   bool opt_plot=true;//是否绘制变换曲线
   bool opt_task_sequencing=false;//0-速度不连续 1-速度连续
   bool opt_verbose=false;//0-未收敛 1-收敛
-  double convergence_threshold_t=1e-6,convergence_threshold_tu=1e-6;
+  double convergence_threshold_t=1e-3,convergence_threshold_tu=1e-3;
+  RobotSCARA->threshold_t=convergence_threshold_t;
+  RobotSCARA->threshold_tu=convergence_threshold_tu;
   bool hasServo=0;
 #ifdef USE_REALSENSE
   while(hasServo==0){

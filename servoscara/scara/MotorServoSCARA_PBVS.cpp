@@ -116,7 +116,8 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     bool send_velocitys=false;
     bool servo_started=false;
 
-    double t_init_servo=vpTime::measureTimeMs();
+    double t_init_servo=vpTime::measureTimeMs();//服务于自适应控制率设计的
+    double t_start_record_time=vpTime::measureTimeMs();//为了计算从开始伺服到误差收敛这一段时间
 
     RobotSCARA->set_eMc(eMc);//设置机器人的外参矩阵
     RobotSCARA->setRobotState(Mh::MhIndustrialRobot::STATE_POSITON_CONTROL);//正常应该是速度控制模式，但是由于mc-kernel没有模式切换一说，在这里设置为位置控制模式
@@ -126,13 +127,14 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     double des_x=0.450,des_y=0.045,des_z=-0.2;//fMo目标位置
     double ini_x=fMo[0][3],ini_y=fMo[1][3],ini_z=fMo[2][3];
     while(!has_converge &&!final_quit){
-        double t_start=vpTime::measureTimeMs();
+        // double t_start=vpTime::measureTimeMs();
         //7、开始更新cMo=eMc.inverse()*fMe.inverse()*fMo;---模拟detect函数的作用
         vpHomogeneousMatrix fMe;
         std::vector<double> catesian;catesian.clear();
         catesian.push_back(RobotSCARA->Con2DemData.cartPos.x);catesian.push_back(RobotSCARA->Con2DemData.cartPos.y);
         catesian.push_back(RobotSCARA->Con2DemData.cartPos.z);catesian.push_back(RobotSCARA->Con2DemData.cartPos.a);
         catesian.push_back(RobotSCARA->Con2DemData.cartPos.b);catesian.push_back(RobotSCARA->Con2DemData.cartPos.c);
+
         Eigen::MatrixXd fTe=RobotSCARA->transform.ZYZ2homomatrix(catesian);
         vp::eigen2visp(fTe,fMe);fMe[0][3]/=1000;fMe[1][3]/=1000;fMe[2][3]/=1000;
         cMo=eMc.inverse()*fMe.inverse()*fMo;
@@ -206,10 +208,13 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         vpThetaUVector cd_tu_c=cdMc.getThetaUVector();//获取当前的姿态误差
         double error_tr=sqrt(cd_t_c.sumSquare());//位置误差求和
         double error_tu=sqrt(cd_tu_c.sumSquare());//姿态误差求和
+        RobotSCARA->error_t=error_tr;
+        RobotSCARA->error_tu=error_tu;
         if(error_tr<convergence_threshold_t && error_tu<convergence_threshold_tu){
             has_converge=true;
             std::cout<<"收敛时候的位置误差:"<<error_tr<<std::endl;
             std::cout<<"收敛时候的姿态误差:"<<error_tu<<std::endl;
+            std::cout<<"伺服过程一共花费的时间:"<<(vpTime::measureTimeMs()-t_start_record_time)/1000<<std::endl;
             std::cout<<"Servo task has Converge"<<std::endl;
         }
         if(first_time){
@@ -225,7 +230,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         usleep(sleep_time);
         RobotSCARA->setVelocity(Mh::MhIndustrialRobot::CAMERA_FRAME,v_c);
         //将时间差写入文本中
-        RobotSCARA->ConChargeData.looptime=vpTime::measureTimeMs()-t_start;
+        // RobotSCARA->ConChargeData.looptime=vpTime::measureTimeMs()-t_start;
         // RobotSCARA->MhRobotText.Looptime_out<<vpTime::measureTimeMs()-t_start<<std::endl;
         // RobotSCARA->MhRobotText.AxisPos_SCARA_out<<RobotSCARA->Con2DemData.axisPos_scara.a1<<"    "<<
         // RobotSCARA->Con2DemData.axisPos_scara.a2<<"    "<<RobotSCARA->Con2DemData.axisPos_scara.d<<"    "<<
@@ -248,11 +253,12 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
             {
             case vpMouseButton::button1:
                 send_velocitys=!send_velocitys;
+                t_start_record_time=vpTime::measureTimeMs();
                 //单步点击图像对应的处理
-                if(send_velocitys){
-                    RobotSCARA->judge=!RobotSCARA->judge;
-                    // RobotSCARA->count=0;
-                }
+                // if(send_velocitys){
+                //     RobotSCARA->judge=!RobotSCARA->judge;
+                //     RobotSCARA->count=0;
+                // }
                 break;
             case vpMouseButton::button3:
                 final_quit=true;

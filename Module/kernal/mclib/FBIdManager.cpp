@@ -30,8 +30,6 @@ int FBIdManager::GetIndex()
         DeleteNode(temp);
         BackInsertNode(Usedhead, temp);
         UsedMtx.unlock();
-        std::cout<<"sadfsdafsad"<<std::endl;
-
         return id;
     }
     else

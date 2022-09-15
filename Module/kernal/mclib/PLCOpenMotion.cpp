@@ -625,12 +625,12 @@ BOOL PLCOpenMotion::MC_GroupSetPosition(INT AxesGroup,std::vector<double>  Posit
         return ret;
     }
 }
-INT PLCOpenMotion::MC_GroupVisualServoMove(INT AxesGroup, BOOL Execute, std::vector<double> Position, std::vector<double> Velocity, std::vector<double> EndVelocity,std::vector<double> MaxSpeed, std::vector<double> MaxAcc, std::vector<double> MaxJerk, BOOL Relative, double LoopTime)
+INT PLCOpenMotion::MC_GroupVisualServoMove(INT AxesGroup, BOOL Execute, std::vector<double> Position, std::vector<double> Velocity, std::vector<double> EndVelocity,std::vector<double> MaxSpeed, std::vector<double> MaxAcc, std::vector<double> MaxJerk, BOOL Relative, double LoopTime , VisualServo_TrajectoryGeneration_ControlMode Trajectory_Mode)
 {
     int dateLen=sizeof(Command) + sizeof(STRUCT_MC_GroupVisualServoMove)+(Position.size()+Velocity.size()+EndVelocity.size()+MaxSpeed.size()+MaxAcc.size()+MaxJerk.size())*sizeof(double);
     unsigned char *SendBuffer=new BYTE[dateLen];
     Command *cmd = (Command *)SendBuffer;
-    cmd->msgID = CMD_PLCOPENPART1_MC_GroupSetPosition;
+    cmd->msgID = CMD_PLCOPENPART1_MC_GroupVisualServoMove;
     cmd->FeedBackFunBlockId = IDManager.GetIndex();
 
     STRUCT_MC_GroupVisualServoMove *data = (STRUCT_MC_GroupVisualServoMove *)cmd->data;
@@ -641,6 +641,7 @@ INT PLCOpenMotion::MC_GroupVisualServoMove(INT AxesGroup, BOOL Execute, std::vec
     data->Relative=Relative;
     data->LoopTime=LoopTime;
     data->Execute=Execute;
+    data->Trajectory_Mode=Trajectory_Mode;
     std::copy(Position.begin(),Position.end(),data->Positon);
     std::copy(Velocity.begin(),Velocity.end(),data->Positon+Position.size());
     std::copy(EndVelocity.begin(),EndVelocity.end(),data->Positon+Position.size()*2);
