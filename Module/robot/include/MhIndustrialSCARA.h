@@ -94,7 +94,7 @@ public:
     double threshold_tu;
     double error_t;
     double error_tu;
-    bool switch_control=false;
+    int switch_control=0;
 };
 }
 

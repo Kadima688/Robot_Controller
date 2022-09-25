@@ -256,8 +256,8 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
                 t_start_record_time=vpTime::measureTimeMs();
                 //单步点击图像对应的处理
                 // if(send_velocitys){
-                //     RobotSCARA->judge=!RobotSCARA->judge;
-                //     RobotSCARA->count=0;
+                    RobotSCARA->judge=!RobotSCARA->judge;
+                    // RobotSCARA->count=0;
                 // }
                 break;
             case vpMouseButton::button3:
