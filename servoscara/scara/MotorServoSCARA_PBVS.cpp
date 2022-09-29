@@ -212,8 +212,10 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
         RobotSCARA->error_tu=error_tu;
         if(error_tr<convergence_threshold_t && error_tu<convergence_threshold_tu){
             has_converge=true;
+            std::cout<<"位置误差向量："<<t[0]<<"    "<<t[1]<<"    "<<t[2]<<std::endl;
             std::cout<<"收敛时候的位置误差:"<<error_tr<<std::endl;
             std::cout<<"收敛时候的姿态误差:"<<error_tu<<std::endl;
+            std::cout<<"此刻笛卡尔空间位姿："<<RobotSCARA->Con2DemData.cartPos.x<<"    "<<RobotSCARA->Con2DemData.cartPos.y<<"    "<<RobotSCARA->Con2DemData.cartPos.z<<"    "<<RobotSCARA->Con2DemData.cartPos.a<<"    "<<RobotSCARA->Con2DemData.cartPos.b<<"    "<<RobotSCARA->Con2DemData.cartPos.c<<std::endl;
             std::cout<<"伺服过程一共花费的时间:"<<(vpTime::measureTimeMs()-t_start_record_time)/1000<<std::endl;
             std::cout<<"Servo task has Converge"<<std::endl;
         }
