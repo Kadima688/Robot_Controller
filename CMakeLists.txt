@@ -58,6 +58,7 @@ include_directories(${PROJECT_SOURCE_DIR}/Module/robot/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/kernal/include)
 include_directories(${PROJECT_SOURCE_DIR}/Module/kernal/mclib)
 include_directories(${PROJECT_SOURCE_DIR}/Module/camera/include)
+include_directories(/home/cmh/SoftControl/mc-lib/mclib/)
 include_directories(${PROJECT_SOURCE_DIR})
 #----------------找到对应的源文件
 aux_source_directory(. sourceList)

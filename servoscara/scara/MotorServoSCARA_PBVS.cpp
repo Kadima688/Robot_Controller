@@ -71,6 +71,20 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     vpHomogeneousMatrix cdMc,oMo,cMo;
     vpHomogeneousMatrix cdMo(vpTranslationVector(0,0,opt_tagSzie*3),vpRotationMatrix({1,0,0,0,-1,0,0,0,-1}));
     vpHomogeneousMatrix fMo(vpTranslationVector(0.487,0.040,-0.233),vpThetaUVector(vpRzyzVector(0,0,M_PI/3)));
+    // //打印cdMo
+    // for (unsigned int i = 0; i < cdMo.getRows(); i++) {
+    //     for (unsigned int j = 0; j < cdMo.getCols(); j++) {
+    //       std::cout << cdMo[i][j] << " ";
+    //     }
+    //     std::cout << std::endl;
+    // }
+    // //打印fMo
+    // for (unsigned int i = 0; i < fMo.getRows(); i++) {
+    //     for (unsigned int j = 0; j < fMo.getCols(); j++) {
+    //       std::cout << fMo[i][j] << " ";
+    //     }
+    //     std::cout << std::endl;
+    // }
     cdMc=cdMo*cMo.inverse();
     //3、根据上述的位置信息开始创建误差特征-----这一步我们是选择空间位姿误作为伺服特征。在这里可以选择其他信息作为特征，如图像的点、线、甚至是深度信息。
     vpFeatureTranslation t(vpFeatureTranslation::cdMc);vpFeatureThetaU tu(vpFeatureThetaU::cdRc);

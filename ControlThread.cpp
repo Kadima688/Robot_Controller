@@ -126,12 +126,19 @@ void Controlthread(ControllerData* controllerdata){
                     // double jointvelpulse[4]={5247.96,7165.07,27348.6,94.6986};
                     for(int i=0;i<RobotSCARA->get_nDof();++i){
                         //将角度转换成脉冲
-                        motor->MC_MoveAbsolute(i,true,true,Pulse[i],100,10,10,1,mcPositiveDirection,mcAborting);
+                        int signal = motor->MC_MoveAbsolute(i,true,true,Pulse[i],100,10,10,1,mcPositiveDirection,mcAborting);
+                        //  while(!motor->GetIdStatus(signal).Done){
+                        //     std::cout<<"Runing"<<std::endl;
+                        //     usleep(1000);
+                        // }
+                        // std::cout<<"Done"<<std::endl;
+                        // std::cout<<signal<<std::endl;
                         // double jointpulse;  
                         // jointpulse=jointvelpulse[i]*30;//30ms这个轴应该移动得位移
                         // jointvelpulse[i]=abs(jointvelpulse[i]);
                         // motor->MC_MoveContinuousRelative(i,true,true,jointpulse,0,jointvelpulse[i],200,200,1,mcAborting);
                     }
+                    // std::cout<<RobotSCARA->Con2DemData.axisPos_scara.a1<<"    "<<RobotSCARA->Con2DemData.axisPos_scara.a2<<"    "<<RobotSCARA->Con2DemData.axisPos_scara.d<<"    "<<RobotSCARA->Con2DemData.axisPos_scara.a4<<std::endl;
                     
                     #else
                     #ifdef USE_KERNEL
