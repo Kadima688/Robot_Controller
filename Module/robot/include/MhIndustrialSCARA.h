@@ -89,6 +89,7 @@ public:
     MhRobotDataText MhRobotText;//关于文本记录的类
     bool judge=false;
     double count=0;//记录发送的指令次数
+    bool T_start = false ;
 //-------------------------------------------------------视觉伺服误差相关变量
     double threshold_t;
     double threshold_tu;

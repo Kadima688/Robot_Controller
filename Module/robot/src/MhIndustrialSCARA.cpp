@@ -629,7 +629,8 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
     {
     case Mh::MhIndustrialRobot::STATE_POSITON_CONTROL:
         if(judge == true){
-            if(error_t < 0.1 && error_tu < 0.1){
+            if( (error_t < 0.1 && error_tu < 0.1 ) || T_start == true){
+            T_start = true;
             count++;
             MhRobotText.Error_out<<count<<","<<error_t<<","<<error_tu<<std::endl;
             // std::cout<<"TSpeed Plan"<<std::endl;
