@@ -633,7 +633,7 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
             count++;
             MhRobotText.Error_out<<count<<","<<error_t<<","<<error_tu<<std::endl;
             // std::cout<<"TSpeed Plan"<<std::endl;
-            controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Ruckig_Velocity_Control);
+            controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,TSpeedPlan_Position_Control);
             }
             else{
                 // std::cout<<"Ruckig Plan"<<std::endl;
