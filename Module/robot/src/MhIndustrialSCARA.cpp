@@ -628,40 +628,53 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
     switch (Mh::MhIndustrialRobot::getRobotState())
     {
     case Mh::MhIndustrialRobot::STATE_POSITON_CONTROL:
-        // if(error_t < 0.1 && error_tu < 0.1){
-        //     // std::cout<<"TSpeed Plan"<<std::endl;
-        //     controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,ConChargeData.looptime,TSpeedPlan_Position_Control);
-        // }
-        // else{
-        //     // std::cout<<"Ruckig Plan"<<std::endl;
-        //     controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,ConChargeData.looptime,Ruckig_Velocity_Control);
-        //     // if(judge ==1){
-        //     //     //输出当前位置（单位是脉冲）
-        //     //     std::cout<<"CurrPos:"<<CurrPos[0]<<"    "<<CurrPos[1]<<"    "<<CurrPos[2]<<"    "<<CurrPos[3]<<std::endl;
-        //     //     //输出目标位置（单位是脉冲）
-        //     //     std::cout<<"Targetpos:"<<TargetPos[0]<<"    "<<TargetPos[1]<<"    "<<TargetPos[2]<<"    "<<TargetPos[3]<<std::endl;
-        //     //     //输出目标速度（单位是脉冲）
-        //     //     std::cout<<"Targetvel:"<<TargetVel[0]<<"    "<<TargetVel[1]<<"    "<<TargetVel[2]<<"    "<<TargetVel[3]<<std::endl;
-        //     //     //输出最大加速度
-        //     //     std::cout<<"MacAcc:"<<MaxAcc[0]<<"    "<<MaxAcc[1]<<"    "<<MaxAcc[2]<<"    "<<MaxAcc[3]<<std::endl;
-        //     //     controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,TargetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,false,ConChargeData.looptime,Ruckig_Velocity_Control);
-        //     //     judge = 0;
-        //     // } 
-        // }   
-        controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,ConChargeData.looptime,Ruckig_Velocity_Control);
-        // if(judge == 1){
-        //      //输出当前位置（单位是脉冲）
-        //      std::cout<<"CurrPos:"<<CurrPos[0]<<"    "<<CurrPos[1]<<"    "<<CurrPos[2]<<"    "<<CurrPos[3]<<std::endl;
-        //      //输出目标位置（单位是脉冲）
-        //      std::cout<<"Targetpos:"<<TargetPos[0]<<"    "<<TargetPos[1]<<"    "<<TargetPos[2]<<"    "<<TargetPos[3]<<std::endl;
-        //      //输出目标速度（单位是脉冲）
-        //      std::cout<<"Targetvel:"<<TargetVel[0]<<"    "<<TargetVel[1]<<"    "<<TargetVel[2]<<"    "<<TargetVel[3]<<std::endl;
-        //      //输出最大加速度
-        //      std::cout<<"MacAcc:"<<MaxAcc[0]<<"    "<<MaxAcc[1]<<"    "<<MaxAcc[2]<<"    "<<MaxAcc[3]<<std::endl;
-        //      //输出位置偏移量
-        //      std::cout<<"OffsetPose:"<<OffsetPos[0]<<"    "<<OffsetPos[1]<<"    "<<OffsetPos[2]<<"    "<<OffsetPos[3]<<std::endl;
-        //      controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,ConChargeData.looptime,TSpeedPlan_Position_Control);
-        //      judge = 0;
+        if(judge == true){
+            if(error_t < 0.1 && error_tu < 0.1){
+            count++;
+            MhRobotText.Error_out<<count<<","<<error_t<<","<<error_tu<<std::endl;
+            // std::cout<<"TSpeed Plan"<<std::endl;
+            controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Ruckig_Velocity_Control);
+            }
+            else{
+                // std::cout<<"Ruckig Plan"<<std::endl;
+                count++;
+                MhRobotText.Error_out<<count<<","<<error_t<<","<<error_tu<<std::endl;
+                controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Ruckig_Velocity_Control);
+                // if(judge ==1){
+                //     //输出当前位置（单位是脉冲）
+                //     std::cout<<"CurrPos:"<<CurrPos[0]<<"    "<<CurrPos[1]<<"    "<<CurrPos[2]<<"    "<<CurrPos[3]<<std::endl;
+                //     //输出目标位置（单位是脉冲）
+                //     std::cout<<"Targetpos:"<<TargetPos[0]<<"    "<<TargetPos[1]<<"    "<<TargetPos[2]<<"    "<<TargetPos[3]<<std::endl;
+                //     //输出目标速度（单位是脉冲）
+                //     std::cout<<"Targetvel:"<<TargetVel[0]<<"    "<<TargetVel[1]<<"    "<<TargetVel[2]<<"    "<<TargetVel[3]<<std::endl;
+                //     //输出最大加速度
+                //     std::cout<<"MacAcc:"<<MaxAcc[0]<<"    "<<MaxAcc[1]<<"    "<<MaxAcc[2]<<"    "<<MaxAcc[3]<<std::endl;
+                //     controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,TargetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,false,ConChargeData.looptime,Ruckig_Velocity_Control);
+                //     judge = 0;
+                // } 
+            }   
+        }
+        // controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,ConChargeData.looptime,Ruckig_Velocity_Control);
+        // if(judge == true && count < 10){
+        //     count++;
+        //     // //输出目标关节速度（单位是弧度）
+        //     // std::cout<<"qdot:"<<qdot[0]<<"    "<<qdot[1]<<"    "<<qdot[2]<<"    "<<qdot[3]<<std::endl;
+        //     // //输出当前位置（单位是脉冲）
+        //     // std::cout<<"CurrPos:"<<CurrPos[0]<<"    "<<CurrPos[1]<<"    "<<CurrPos[2]<<"    "<<CurrPos[3]<<std::endl;
+        //     // //输出目标位置（单位是脉冲）
+        //     // std::cout<<"Targetpos:"<<TargetPos[0]<<"    "<<TargetPos[1]<<"    "<<TargetPos[2]<<"    "<<TargetPos[3]<<std::endl;
+        //     // //输出目标速度（单位是脉冲）
+        //     // std::cout<<"Targetvel:"<<TargetVel[0]<<"    "<<TargetVel[1]<<"    "<<TargetVel[2]<<"    "<<TargetVel[3]<<std::endl;
+        //     // //输出最大速度
+        //     // std::cout<<"Maxvel:"<<MaxVel[0]<<"    "<<MaxVel[1]<<"    "<<MaxVel[2]<<"    "<<MaxVel[3]<<std::endl;
+        //     // //输出最大加速度
+        //     // std::cout<<"MacAcc:"<<MaxAcc[0]<<"    "<<MaxAcc[1]<<"    "<<MaxAcc[2]<<"    "<<MaxAcc[3]<<std::endl;
+        //     // //输出位置偏移量
+        //     // std::cout<<"OffsetPose:"<<OffsetPos[0]<<"    "<<OffsetPos[1]<<"    "<<OffsetPos[2]<<"    "<<OffsetPos[3]<<std::endl;
+        //     // //输出最大加加速度
+        //     // std::cout<<"MacJerk:"<<MaxJerk[0]<<"    "<<MaxJerk[1]<<"    "<<MaxJerk[2]<<"    "<<MaxJerk[3]<<std::endl;
+        //     controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Ruckig_Velocity_Control);
+        //     // judge = 0 ;
         // }
        
         break;

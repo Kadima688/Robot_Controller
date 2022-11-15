@@ -40,7 +40,7 @@ void MotorServoSCARA_PBVS(Mh::MhIndustrialSCARA *RobotSCARA,double opt_tagSzie,b
     // RobotSCARA->MhRobotText.CartPos_out.open("CartPos_num11.txt");//记录每个迭代周期空间位姿的文本
     // RobotSCARA->MhRobotText.CartVel_out.open("CartVel_num11.txt");//记录每个迭代周期空间速度的文本
     // RobotSCARA->MhRobotText.JointVel_out.open("JointVel_num.txt");//记录每个迭代周期关节速度的文本
-    // RobotSCARA->MhRobotText.Error_out.open("Error_num11.txt");//记录每个迭代周期误差的文本
+    RobotSCARA->MhRobotText.Error_out.open("Error.txt");//记录每个迭代周期误差的文本
     // RobotSCARA->MhRobotText.JointPulse.open("JoinvtPulse.txt");//记录位置脉冲
     // RobotSCARA->MhRobotText.JointVelPulse.open("JointvelPulse.txt");//记录速度脉冲
     int dynamic_simulation=0;//0:不开启静态模拟  1：开启静态模拟
