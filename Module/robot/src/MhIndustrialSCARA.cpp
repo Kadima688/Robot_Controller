@@ -594,10 +594,10 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
     TargetVel[2]=jointvel[2]*1000; 
     TargetVel[3]=jointvel[3]*1000;
     //设置结束速度(单位为脉冲每毫秒)
-    EndVel[0]=0.0;
-    EndVel[1]=0.0;
-    EndVel[2]=0.0;
-    EndVel[3]=0.0;
+    EndVel[0]=jointvel[0]*0.1;
+    EndVel[1]=jointvel[1]*0.1;
+    EndVel[2]=jointvel[2]*0.1;
+    EndVel[3]=jointvel[3]*0.1;
     //设置目标位置(单位转化为脉冲)---绝对式指令发送模式
     OffsetPos[0]=jointvel[0]*30;              
     OffsetPos[1]=jointvel[1]*30; 
@@ -630,17 +630,17 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
     case Mh::MhIndustrialRobot::STATE_POSITON_CONTROL:
         if(judge == true){
             if( (error_t < 0.1 && error_tu < 0.1 ) || T_start == true){
-            T_start = true;
-            count++;
-            MhRobotText.Error_out<<count<<","<<error_t<<","<<error_tu<<std::endl;
-            // std::cout<<"TSpeed Plan"<<std::endl;
-            controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Reflexxes_Velocity_Control);
+                T_start = true;
+                count++;
+                MhRobotText.Error_out<<count<<","<<error_t<<","<<error_tu<<std::endl;
+                // std::cout<<"TSpeed Plan"<<std::endl;
+                controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Ruckig_Velocity_Control);
             }
             else{
                 // std::cout<<"Ruckig Plan"<<std::endl;
                 count++;
                 MhRobotText.Error_out<<count<<","<<error_t<<","<<error_tu<<std::endl;
-                controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Reflexxes_Velocity_Control);
+                controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Ruckig_Velocity_Control);
                 // if(judge ==1){
                 //     //输出当前位置（单位是脉冲）
                 //     std::cout<<"CurrPos:"<<CurrPos[0]<<"    "<<CurrPos[1]<<"    "<<CurrPos[2]<<"    "<<CurrPos[3]<<std::endl;
