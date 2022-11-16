@@ -634,13 +634,13 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
             count++;
             MhRobotText.Error_out<<count<<","<<error_t<<","<<error_tu<<std::endl;
             // std::cout<<"TSpeed Plan"<<std::endl;
-            controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Ruckig_Velocity_Control);
+            controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Reflexxes_Velocity_Control);
             }
             else{
                 // std::cout<<"Ruckig Plan"<<std::endl;
                 count++;
                 MhRobotText.Error_out<<count<<","<<error_t<<","<<error_tu<<std::endl;
-                controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Ruckig_Velocity_Control);
+                controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,count,Reflexxes_Velocity_Control);
                 // if(judge ==1){
                 //     //输出当前位置（单位是脉冲）
                 //     std::cout<<"CurrPos:"<<CurrPos[0]<<"    "<<CurrPos[1]<<"    "<<CurrPos[2]<<"    "<<CurrPos[3]<<std::endl;
@@ -655,7 +655,7 @@ void Mh::MhIndustrialSCARA::setJointVelocity(const vpColVector &qdot){
                 // } 
             }   
         }
-        // controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,ConChargeData.looptime,Ruckig_Velocity_Control);
+        // controllerdata.motor.MC_GroupVisualServoMove(0,TRUE,OffsetPos,TargetVel,EndVel,MaxVel,MaxAcc,MaxJerk,true,ConChargeData.looptime,Reflexxes_Velocity_Control);
         // if(judge == true && count < 10){
         //     count++;
         //     // //输出目标关节速度（单位是弧度）
