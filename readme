@@ -1,3 +1,11 @@
+Running the program needs to install the following dependent libraries:
+1, VISP: visual servo open source library, mainly used in this part of the APRILTAG-related processing, installation tutorials see the official website, the corresponding Realsense library also needs to be installed!
+2, MC-KERNEL: motion control kernel, directly in the gitee download download and then compile can be
+3、master:EtherCAT master, here need to install Xenomai real-time subsystems
+4、grpc: remote call library, used for distributed device communication with the
+Some reminders about the motor parameters:
+1, the current use of a motor is provided by Qingneng Dechuang, the motor's encoder resolution is 8388608, the other is the corresponding encoder resolution under the Panasonic drive, the motor's encoder resolution is 131072
+
 运行该程序需要安装一下依赖库：
 1、VISP:视觉伺服开源库，主要用到这部分APRILTAG相关的处理，安装教程见官网，对应的Realsense库也需要安装好
 2、MC-KERNEL：运动控制内核，直接在gitee上download下载然后编译即可
